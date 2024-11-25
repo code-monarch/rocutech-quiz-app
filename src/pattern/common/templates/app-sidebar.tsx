@@ -17,9 +17,9 @@ import {
 } from "@/components/ui/sidebar"
 import brandLogo from "@/public/brand-logo.png"
 import { APP_ROUTES } from "@/lib/routes"
-import DashboardNavIcon from "../atoms/sidebar-nav/dashboard-nav-icon"
-import CreateQuizNavIcon from "../atoms/sidebar-nav/create-quiz-nav-icon"
-import ParticipantsNavIcon from "../atoms/sidebar-nav/participants-nav-icon"
+import DashboardNavIcon from "../atoms/icons/sidebar-nav/dashboard-nav-icon"
+import CreateQuizNavIcon from "../atoms/icons/sidebar-nav/create-quiz-nav-icon"
+import ParticipantsNavIcon from "../atoms/icons/sidebar-nav/participants-nav-icon"
 
 // Menu items.
 const items = [
@@ -44,8 +44,8 @@ export function AppSidebar() {
     const pathname = usePathname()
 
     return (
-        <Sidebar collapsible="icon">
-            <SidebarHeader className="pt-[55px]">
+        <Sidebar collapsible="none">
+            <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <a href="#">
