@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { IIconProps } from '@/pattern/types'
 import { usePathname } from 'next/navigation';
 import { NAV_ICON_ACTIVE, NAV_ICON_INACTIVE } from '@/lib/constants';
-import { APP_ROUTES } from '@/lib/routes';
+import { CREATE_QUIZ_ROUTES } from '@/lib/routes';
 
 const CreateQuizNavIcon = ({ ...props }: IIconProps) => {
     const [color, setColor] = useState<string>(`${NAV_ICON_INACTIVE}`);
     const pathname = usePathname();
 
     useEffect(() => {
-        if (pathname.startsWith(`${APP_ROUTES.createQuiz}`)) {
+        if (pathname.startsWith(`${CREATE_QUIZ_ROUTES.createQuiz}`)) {
             setColor(`${NAV_ICON_ACTIVE}`);
         } else {
             setColor(`${NAV_ICON_INACTIVE}`);

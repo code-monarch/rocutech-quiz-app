@@ -3,7 +3,8 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import QuizSubjectCard, { IQuizCardProps } from './quiz-subject-card';
-import { QUIZ_ROUTES } from '@/lib/routes';
+import { CREATE_QUIZ_ROUTES, QUIZ_ROUTES } from '@/lib/routes';
+import { useRouter } from 'next/navigation';
 
 const subjects: IQuizCardProps[] = [
     {
@@ -29,11 +30,13 @@ const subjects: IQuizCardProps[] = [
 ]
 
 const DashboardHeader = () => {
+    const { push } = useRouter()
+
     return (
         <div className='flex flex-col gap-6'>
             <div className='w-full flex items-center justify-between'>
                 <h2 className='text-foreground text-2xl font-bold'>Dashboard</h2>
-                <Button size="lg" >Create a Quiz</Button>
+                <Button size="lg" onClick={() => push(CREATE_QUIZ_ROUTES.createQuiz)} >Create a Quiz</Button>
             </div>
 
             {/* Subject Cards */}

@@ -150,7 +150,7 @@ export const columns: ColumnDef<School>[] = [
     {
         accessorKey: "ranking",
         header: () => <div>Ranking</div>,
-        cell: ({ row }) => <div className="lowercase">{row.getValue("ranking")}</div>
+        cell: ({ row }) => <div className="lowercase font-semibold">{row.getValue("ranking")} Points</div>
     },
 ]
 

@@ -24,7 +24,7 @@ export default function RootLayout({
           <AppSidebar />
           <main className="w-[calc(100vw-14rem)] h-full">
             <Topbar />
-            <div className="w-full bg-background pt-11 pl-8 pr-[60px] mt-[90px] ml-[14rem]">
+            <div className="w-full bg-background pt-11 pl-8 pr-[60px] pb-[66px] mt-[90px] ml-[14rem]">
               {children}
             </div>
           </main>

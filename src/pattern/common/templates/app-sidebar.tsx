@@ -16,7 +16,7 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import brandLogo from "@/public/brand-logo.png"
-import { APP_ROUTES } from "@/lib/routes"
+import { APP_ROUTES, CREATE_QUIZ_ROUTES } from "@/lib/routes"
 import DashboardNavIcon from "../atoms/icons/sidebar-nav/dashboard-nav-icon"
 import CreateQuizNavIcon from "../atoms/icons/sidebar-nav/create-quiz-nav-icon"
 import ParticipantsNavIcon from "../atoms/icons/sidebar-nav/participants-nav-icon"
@@ -30,7 +30,7 @@ const items = [
     },
     {
         title: "Create Quiz",
-        url: APP_ROUTES.createQuiz,
+        url: CREATE_QUIZ_ROUTES.createQuiz,
         icon: <CreateQuizNavIcon />,
     },
     {
