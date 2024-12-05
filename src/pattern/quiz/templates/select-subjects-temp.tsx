@@ -10,6 +10,8 @@ import { useForm } from 'react-hook-form'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useRouter } from 'next/navigation'
+import { CREATE_QUIZ_ROUTES } from '@/lib/routes'
 
 
 const FormSchema = z.object({
@@ -19,6 +21,7 @@ const FormSchema = z.object({
 })
 
 const SelectSubjectsTemp = () => {
+    const { push } = useRouter();
 
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
@@ -27,8 +30,14 @@ const SelectSubjectsTemp = () => {
         },
     })
 
-    function onSubmit(data: z.infer<typeof FormSchema>) {
-        console.log("SUBJECTS SUBMITTED: ", data);
+    const {
+        handleSubmit,
+        control,
+        formState: { errors, isDirty },
+    } = form
+
+    const onSubmit = (data: z.infer<typeof FormSchema>) => {
+        push(CREATE_QUIZ_ROUTES.addQuestions)
     }
     return (
         <TemplatePanel className='pt-7 px-7'>
@@ -37,12 +46,12 @@ const SelectSubjectsTemp = () => {
 
                 {/* Subjects */}
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-8">
+                    <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-8">
                         <div className='space-y-[16px]'>
                             {subjects.map(({ label, value }, idx) => (
                                 <FormField
                                     key={value}
-                                    control={form.control}
+                                    control={control}
                                     name="subjects"
                                     render={({ field }) => {
                                         return (
