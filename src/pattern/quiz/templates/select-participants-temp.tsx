@@ -13,6 +13,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Checkbox } from '@/components/ui/checkbox'
 import { schools } from '@/lib/data'
 import { Button } from '@/components/ui/button'
+import SelectParticipantHeaderCheckbox from '../atoms/select-participant-header-checkbox'
 
 
 const FormSchema = z.object({
@@ -57,9 +58,7 @@ const SelectParticipantsTemp = () => {
                                             <div className='flex items-center gap-x-[15px]'>
                                                 {/* Serial number */}
                                                 <span>{idx + 1}.</span>
-                                                <span>
-                                                    <Checkbox id={name} />
-                                                </span>
+                                                <SelectParticipantHeaderCheckbox handleClick={() => { }} />
                                             </div>
 
                                             {/* School Name */}

@@ -56,7 +56,7 @@ const ParticipantsSelectedTable = () => {
     return (
         <div className='w-full flex flex-col gap-y-10'>
             {students.map(({ name, school, points }, idx) => (
-                <div className='w-full flex items-center justify-between'>
+                <div className='w-full flex items-center justify-between' key={idx}>
                     <div className='w-[280px] text-sm font-medium'>{idx + 1}.{name}</div>
                     <div className='w-[305px] flex items-center justify-start text-left text-sm font-medium'>{school}</div>
                     <div className='text-sm font-bold'>{points} points</div>

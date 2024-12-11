@@ -1,22 +1,23 @@
 export const APP_ROUTES = {
     index: "/",
+    dashboard: "/dashboard",
     participants: "/participants",
 };
 
 export const CREATE_QUIZ_ROUTES = {
     quiz: "/quiz",
-    createQuiz: "/quiz/create-quiz",
-    selectSubjects: "/quiz/create-quiz/select-subjects",
-    addQuestions: "/quiz/create-quiz/add-questions",
-    selectParticipants: "/quiz/create-quiz/select-participants",
-    summary: "/quiz/create-quiz/summary",
+    createQuiz: "/create-quiz",
+    selectSubjects: "/create-quiz/select-subjects",
+    addQuestions: "/create-quiz/add-questions",
+    selectParticipants: "/create-quiz/select-participants",
+    summary: "/create-quiz/summary",
     participants: "/participants",
 };
 
 export const QUIZ_ROUTES = {
-    mathematics: "/quiz?subject=mathematics",
-    english: "/quiz?subject=english",
-    physics: "/quiz?subject=physics",
-    chemistry: "/quiz?subject=chemistry",
-    currentAffairs: "/quiz?subject=currentAffairs",
+    mathematics: "/create-quiz/select-subjects?subject=mathematics",
+    english: "/create-quiz/select-subjects?subject=english",
+    physics: "/create-quiz/select-subjects?subject=physics",
+    chemistry: "/create-quiz/select-subjects?subject=chemistry",
+    currentAffairs: "/create-quiz/select-subjects?subject=currentAffairs",
 };

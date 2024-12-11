@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/pattern/common/templates/app-sidebar";
 import { raleway } from "./fonts";
-import Topbar from "@/pattern/common/templates/topbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,17 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${raleway.variable}, antialiased relative box-border min-h-screen h-full p-0 m-0`}
+        className={`${raleway.variable}, antialiased relative bg-background box-border min-h-screen h-full p-0 m-0`}
       >
-        <SidebarProvider>
-          <AppSidebar />
-          <main className="w-[calc(100vw-14rem)] h-full">
-            <Topbar />
-            <div className="w-full bg-background pt-11 pl-8 pr-[60px] pb-[66px] mt-[90px] ml-[14rem]">
-              {children}
-            </div>
-          </main>
-        </SidebarProvider>
+        <div className="w-full bg-background">
+          {children}
+        </div>
       </body>
     </html>
   );

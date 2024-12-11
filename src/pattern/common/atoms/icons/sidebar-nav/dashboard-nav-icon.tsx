@@ -10,7 +10,7 @@ const DashboardNavIcon = ({ ...props }: IIconProps) => {
     const pathname = usePathname();
 
     useEffect(() => {
-        if (pathname === `${APP_ROUTES.index}`) {
+        if (pathname.startsWith(`${APP_ROUTES.dashboard}`)) {
             setColor(`${NAV_ICON_ACTIVE}`);
         } else {
             setColor(`${NAV_ICON_INACTIVE}`);

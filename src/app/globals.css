@@ -99,3 +99,14 @@ body {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+  .next-error-h1 {
+    color: #000 !important;
+    border-right: 1px solid #000 !important;
+  }
+}

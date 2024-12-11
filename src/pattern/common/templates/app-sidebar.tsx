@@ -25,7 +25,7 @@ import ParticipantsNavIcon from "../atoms/icons/sidebar-nav/participants-nav-ico
 const items = [
     {
         title: "Dashboard",
-        url: APP_ROUTES.index,
+        url: APP_ROUTES.dashboard,
         icon: <DashboardNavIcon />,
     },
     {
@@ -62,7 +62,7 @@ export function AppSidebar() {
                         <SidebarMenu>
                             {items.map(({ url, title, icon }) => (
                                 <SidebarMenuItem key={title}>
-                                    <SidebarMenuButton isActive={url === '/' ? pathname === url : pathname.startsWith(url)} asChild={true}>
+                                    <SidebarMenuButton isActive={pathname.startsWith(url)} asChild={true}>
                                         <Link href={url} className="w-full flex items-center justify-center gap-[14px]" >
                                             {icon}
                                             <span>{title}</span>

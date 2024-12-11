@@ -7,7 +7,7 @@ import DropdownIcon from '../atoms/icons/dropdown-icon'
 
 const Topbar = () => {
     return (
-        <div className='fixed bg-white w-full h-[90px] flex items-center justify-between py-5 pl-8 pr-[calc(14rem+60px)] ml-[14rem]'>
+        <div className='fixed bg-white w-full h-[90px] flex items-center justify-between py-5 pl-8 pr-[calc(14rem+60px)] ml-[14rem] z-50'>
             <WelcomeWidget />
             <div className='flex items-center gap-[22px]'>
                 <HelpOutIcon />
