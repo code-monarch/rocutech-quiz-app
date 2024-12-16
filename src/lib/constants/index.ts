@@ -1,2 +1,7 @@
 export const NAV_ICON_INACTIVE = '#858181'
 export const NAV_ICON_ACTIVE = '#FFFFFF'
+export const MATHEMATICS = 'mathematics'
+export const ENGLISH = 'english'
+export const PHYSICS = 'physics'
+export const CHEMISTRY = 'chemistry'
+export const CURRENT_AFFAIRS = 'current-affairs'

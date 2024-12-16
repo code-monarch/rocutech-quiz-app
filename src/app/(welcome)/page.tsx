@@ -18,7 +18,7 @@ const WelcomePage = () => {
                 <h3 className='text-[96px] text-center' style={{ lineHeight: '0.95' }}>Welcome To Rucotech</h3>
                 <p className='text-2xl font-medium'>CBT offline Quiz Platform</p>
                 <p className='text-center text-lg text-[#646A69]'>With an intuitive interface and a comprehensive suite of tools, the platform offers dynamic, interactive learning experiences tailored to meet diverse educational needs.</p>
-                <Button size="lg" onClick={() => push(APP_ROUTES.dashboard)}>Get Started <span><ArrowRight /></span></Button>
+                <Button size="lg" onClick={() => push(APP_ROUTES.signIn)}>Get Started <span><ArrowRight /></span></Button>
             </div>
         </div>
     )

@@ -1,8 +1,13 @@
+"use client";
+
 import React from 'react'
+import ParticipantList from '@/pattern/participants/templates/participant-list'
 
 const ParticipantsPage = () => {
   return (
-    <div>ParticipantsPage</div>
+    <>
+      <ParticipantList />
+    </>
   )
 }
 

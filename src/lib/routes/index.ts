@@ -2,10 +2,14 @@ export const APP_ROUTES = {
     index: "/",
     dashboard: "/dashboard",
     participants: "/participants",
+    signIn: "/sign-in",
 };
 
 export const CREATE_QUIZ_ROUTES = {
     quiz: "/quiz",
+    intro: "/quiz/intro",
+    instructions: "/quiz/instructions",
+    completion: "/quiz/completion",
     createQuiz: "/create-quiz",
     selectSubjects: "/create-quiz/select-subjects",
     addQuestions: "/create-quiz/add-questions",
