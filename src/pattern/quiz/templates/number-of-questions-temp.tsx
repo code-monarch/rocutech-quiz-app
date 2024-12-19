@@ -11,6 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from 'next/navigation'
 import { CREATE_QUIZ_ROUTES } from '@/lib/routes'
 import { Input } from '@/components/ui/input'
+import { NUMBER_OF_QUESTIONS } from '@/lib/constants'
 
 
 const FormSchema = z.object({
@@ -46,7 +47,7 @@ const NumberOfQuestionsTemp = () => {
 
     const onSubmit = ({ questions }: z.infer<typeof FormSchema>) => {
         console.log("QUESTIONS: ", questions)
-        localStorage.setItem('numberOfQuestions', questions)
+        localStorage.setItem(NUMBER_OF_QUESTIONS, questions)
         push(CREATE_QUIZ_ROUTES.selectParticipants)
     }
     return (

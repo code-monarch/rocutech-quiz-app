@@ -3,8 +3,14 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { CREATE_QUIZ_ROUTES } from "@/lib/routes"
 import { Clock, Computer, Eye, ListChecks, Volume2Icon as Volume2Off } from 'lucide-react'
+import { FC } from "react"
 
-export default function TestInstructions() {
+interface IProps {
+    subjects: string
+    questions: string
+}
+
+const TestInstructions: FC<IProps> = ({ questions, subjects }) => {
     const { push } = useRouter();
 
     return (
@@ -54,9 +60,11 @@ export default function TestInstructions() {
                         </p>
                     </div>
                 </div>
-                <Button className="mt-8" onClick={() => push(CREATE_QUIZ_ROUTES.quiz)}>Continue</Button>
+                <Button className="mt-8" onClick={() => push(`${CREATE_QUIZ_ROUTES.quiz}?subjects=${subjects}&questions=${questions}`)}>Continue</Button>
             </CardContent>
         </Card>
     )
 }
 
+
+export { TestInstructions }

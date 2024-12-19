@@ -6,32 +6,33 @@ import EnglishIntro from '../molecules/english-intro'
 import PhysicsIntro from '../molecules/physics-intro'
 import ChemistryIntro from '../molecules/chemistry-intro'
 import CurrentAffairsIntro from '../molecules/current-affairs-intro'
+import MultiSubjectsIntro from '../molecules/multi-subjects-intro'
 
 interface IProps {
-    subject: string
+    subjects: string
     questions: string
 }
 
-const QuizIntroTemp: FC<IProps> = ({ subject, questions }) => {
+const QuizIntroTemp: FC<IProps> = ({ subjects, questions }) => {
     const renderIntro = () => {
-        switch (subject) {
+        switch (subjects) {
             case MATHEMATICS:
-                return <MathsIntro />
+                return <MathsIntro subjects={subjects} questions={questions} />
             case ENGLISH:
-                return <EnglishIntro />
+                return <EnglishIntro subjects={subjects} questions={questions} />
             case PHYSICS:
-                return <PhysicsIntro />
+                return <PhysicsIntro subjects={subjects} questions={questions} />
             case CHEMISTRY:
-                return <ChemistryIntro />
+                return <ChemistryIntro subjects={subjects} questions={questions} />
             case CURRENT_AFFAIRS:
-                return <CurrentAffairsIntro />
+                return <CurrentAffairsIntro subjects={subjects} questions={questions} />
             default:
-                return <MathsIntro />
+                return <MultiSubjectsIntro subjects={subjects} questions={questions} />
         }
     }
     return (
         <div className='bg-white w-[914px] h-[525px] flex flex-col items-center justify-center gap-y-[34px] p-11'>
-            <QuizDetailsHeader subject={subject} questions={questions} />
+            <QuizDetailsHeader subjects={subjects} questions={questions} />
             {renderIntro()}
         </div>
     )

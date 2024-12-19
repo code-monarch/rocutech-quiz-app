@@ -8,12 +8,12 @@ import { CHEMISTRY, CURRENT_AFFAIRS, ENGLISH, MATHEMATICS, PHYSICS } from '@/lib
 const QuizIntroPage = () => {
     const searchParams = useSearchParams()
 
-    const subject = searchParams.get('subject')
+    const subjects = searchParams.get('subjects')
     const questions = searchParams.get('questions')
 
     return (
         <div className='w-full min-h-screen flex items-center justify-center'>
-            <QuizIntroTemp subject={subject as string ?? CURRENT_AFFAIRS} questions={questions as string ?? "100"} />
+            <QuizIntroTemp subjects={subjects ?? CURRENT_AFFAIRS} questions={questions as string ?? "100"} />
         </div>
     )
 }

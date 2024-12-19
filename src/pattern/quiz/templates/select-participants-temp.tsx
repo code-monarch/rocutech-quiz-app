@@ -12,7 +12,7 @@ import { schools } from "@/lib/data"
 import { useRouter } from "next/navigation"
 import { CREATE_QUIZ_ROUTES } from "@/lib/routes"
 import { useToast } from "@/hooks/use-toast"
-import { SELECTED_STUDENT } from "@/lib/constants"
+import { SELECTED_STUDENTS } from "@/lib/constants"
 
 export const studentSchema = z.string()
 
@@ -40,7 +40,7 @@ export default function SelectParticipantsTemp() {
     const [selectedStudentsSet, setSelectedStudentsSet] = React.useState<Set<string>>(() => {
         // Initialize from localStorage if available
         if (typeof window !== 'undefined') {
-            const saved = localStorage.getItem(SELECTED_STUDENT)
+            const saved = localStorage.getItem(SELECTED_STUDENTS)
             return saved ? new Set(JSON.parse(saved)) : new Set()
         }
         return new Set()
@@ -121,7 +121,7 @@ export default function SelectParticipantsTemp() {
         }
 
         // Save to localStorage
-        localStorage.setItem(SELECTED_STUDENT, JSON.stringify(Array.from(selectedStudentsSet)))
+        localStorage.setItem(SELECTED_STUDENTS, JSON.stringify(Array.from(selectedStudentsSet)))
 
         push(CREATE_QUIZ_ROUTES.summary)
     }

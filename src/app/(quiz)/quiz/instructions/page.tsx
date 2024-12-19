@@ -8,11 +8,13 @@ import { CURRENT_AFFAIRS } from '@/lib/constants';
 const InstructionsPage = () => {
     const searchParams = useSearchParams()
 
-    const subject = searchParams.get('subject')
+    const subjects = searchParams.get('subjects')
     const questions = searchParams.get('questions')
+
+    console.log("SUBJECTSsslkds: ", subjects)
     return (
         <div className='w-full min-h-screen flex items-center justify-center'>
-            <QuizInstructionsTemp subject={subject as string ?? CURRENT_AFFAIRS} questions={questions as string ?? "100"} />
+            <QuizInstructionsTemp subjects={subjects ?? CURRENT_AFFAIRS} questions={questions as string ?? "100"} />
         </div>
     )
 }
