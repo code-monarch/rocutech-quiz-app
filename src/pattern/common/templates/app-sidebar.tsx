@@ -49,7 +49,7 @@ export function AppSidebar() {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <a href="#">
-                            <Image src={brandLogo} alt="brand logo" />
+                            <Image src={brandLogo} alt="brand logo" width={97.78} height={86.19} />
                         </a>
                     </SidebarMenuItem>
                 </SidebarMenu>

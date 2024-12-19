@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { raleway } from "./fonts";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <div className="w-full bg-background">
           {children}
         </div>
+        <Toaster />
       </body>
     </html>
   );

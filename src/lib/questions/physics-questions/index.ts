@@ -2157,7 +2157,7 @@ const physicsQuizQuestions = [
             "C) Force is applied",
             "D) Placed in water"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "A spring stretches when a force is applied to it, demonstrating elastic behavior."
     },
     {
@@ -2168,7 +2168,7 @@ const physicsQuizQuestions = [
             "C) They are cheaper",
             "D) They look better"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "Light-colored clothes reflect more heat, helping to keep us cooler in summer."
     },
     {
@@ -2179,7 +2179,7 @@ const physicsQuizQuestions = [
             "C) Both current and voltage",
             "D) Neither current nor voltage"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "A battery provides both voltage (electrical pressure) and current (flow of charge) in a circuit."
     },
     {
@@ -2190,7 +2190,7 @@ const physicsQuizQuestions = [
             "C) Sublimation",
             "D) Melting"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Condensation is the process where water vapor changes into liquid water."
     },
     {
@@ -2201,7 +2201,7 @@ const physicsQuizQuestions = [
             "C) Rubber",
             "D) Iron"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Rubber is an electrical insulator as it does not allow electric current to flow through it easily."
     },
     {
@@ -2212,7 +2212,7 @@ const physicsQuizQuestions = [
             "C) 10g mass",
             "D) 1000g mass"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "A force of 1 Newton is approximately equal to the weight of a 100g mass on Earth."
     },
     {
@@ -2223,7 +2223,7 @@ const physicsQuizQuestions = [
             "C) Mechanical waves",
             "D) Light waves"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Sound waves are mechanical waves that require a medium to transfer energy through vibrations."
     },
     {
@@ -2234,7 +2234,7 @@ const physicsQuizQuestions = [
             "C) Real and erect",
             "D) Virtual and inverted"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A concave lens always forms a virtual, erect, and diminished image."
     },
     {
@@ -2245,7 +2245,7 @@ const physicsQuizQuestions = [
             "C) Acceleration",
             "D) Mass"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Velocity is measured in meters per second (m/s) as it is distance traveled per unit time."
     },
     {
@@ -2256,7 +2256,7 @@ const physicsQuizQuestions = [
             "C) Has no effect on another pole",
             "D) Sometimes attracts, sometimes repels"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Like poles of magnets repel each other, so two north poles repel."
     },
     {
@@ -2267,7 +2267,7 @@ const physicsQuizQuestions = [
             "C) Pressure",
             "D) Temperature"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Surface tension causes water drops to form spherical shapes to minimize surface area."
     },
     {
@@ -2278,7 +2278,7 @@ const physicsQuizQuestions = [
             "C) Gas",
             "D) All states are same"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "Particles in solids are most tightly packed, giving solids a definite shape and volume."
     },
     {
@@ -2289,7 +2289,7 @@ const physicsQuizQuestions = [
             "C) Real and inverted",
             "D) Virtual and inverted"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "The eye forms a real and inverted image on the retina, which our brain interprets as upright."
     },
     {
@@ -2300,7 +2300,7 @@ const physicsQuizQuestions = [
             "C) Both depth and density",
             "D) Neither depth nor density"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Pressure in a liquid depends on both its depth and density (P = hρg)."
     },
     {
@@ -2311,7 +2311,7 @@ const physicsQuizQuestions = [
             "C) Light is dispersed by water drops",
             "D) Light is blocked by clouds"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "A rainbow forms when sunlight is dispersed into its component colors by water drops in the air."
     },
     {
@@ -2322,7 +2322,7 @@ const physicsQuizQuestions = [
             "C) Buoyant force",
             "D) Frictional force"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Salt water provides a greater buoyant force due to its higher density."
     },
     {
@@ -2333,7 +2333,7 @@ const physicsQuizQuestions = [
             "C) Solar energy",
             "D) Electrical energy"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Food provides chemical energy which our body converts into other forms of energy."
     },
     {
@@ -2344,7 +2344,7 @@ const physicsQuizQuestions = [
             "C) Wood is warmer",
             "D) Temperature difference"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Metal conducts heat away from our hand faster than wood, making it feel colder."
     },
     {
@@ -2355,7 +2355,7 @@ const physicsQuizQuestions = [
             "C) Remains same",
             "D) Becomes zero"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Light slows down when entering a denser medium like glass from air."
     },
     {
@@ -2366,7 +2366,7 @@ const physicsQuizQuestions = [
             "C) Air resistance",
             "D) Tension"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Friction between the brake pads and wheel helps to stop the bicycle."
     },
     {
@@ -2377,7 +2377,7 @@ const physicsQuizQuestions = [
             "C) Fog",
             "D) Hail"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Fog is condensation near the ground, not a form of precipitation like rain, snow, or hail."
     },
     {
@@ -2388,7 +2388,7 @@ const physicsQuizQuestions = [
             "C) Nitrogen",
             "D) Hydrogen"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Nitrogen makes up about 78% of Earth's atmosphere."
     },
     {
@@ -2399,7 +2399,7 @@ const physicsQuizQuestions = [
             "C) Concave mirror",
             "D) Any mirror"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "A concave mirror can produce a magnified image when the object is placed between the focal point and the mirror."
     },
     {
@@ -2410,7 +2410,7 @@ const physicsQuizQuestions = [
             "C) Volume",
             "D) Extension"
         ],
-        "correct_answer": "D",
+        "correctAnswer": "D",
         "explanation": "Length measurement determines the extension or distance between two points of an object."
     },
     {
@@ -2421,7 +2421,7 @@ const physicsQuizQuestions = [
             "C) Gravity",
             "D) Electric force"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "The swinging motion of a pendulum is caused by gravitational force acting on the bob."
     }
 ];

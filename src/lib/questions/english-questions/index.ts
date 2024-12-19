@@ -1381,7 +1381,7 @@ const EnglishQuestions = [
             "C) Command",
             "D) Statement"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "An interjection is a word or phrase used to express sudden feeling or emotion."
     },
     {
@@ -1392,7 +1392,7 @@ const EnglishQuestions = [
             "C) The sun is bright",
             "D) The dog barked loudly"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "Synecdoche uses part of something to represent the whole - 'the crown' represents the monarch/monarchy."
     },
     {
@@ -1403,7 +1403,7 @@ const EnglishQuestions = [
             "C) Editing looks at content, revision looks at mechanics",
             "D) They are the same thing"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "Revision focuses on improving content and structure, while editing focuses on grammar, punctuation, and mechanics."
     },
     {
@@ -1414,7 +1414,7 @@ const EnglishQuestions = [
             "C) He is an honest man",
             "D) They saw an dog"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "'An' is used before words beginning with vowel sounds, not just vowel letters. 'Honest' begins with a vowel sound."
     },
     {
@@ -1425,7 +1425,7 @@ const EnglishQuestions = [
             "C) Adverb",
             "D) Conjunction"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'Inside' shows the relationship between 'cat' and 'house', making it a preposition."
     },
     {
@@ -1436,7 +1436,7 @@ const EnglishQuestions = [
             "C) Technical language",
             "D) Formal language"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Advertisements use persuasive language to convince people to buy products or services."
     },
     {
@@ -1447,7 +1447,7 @@ const EnglishQuestions = [
             "C) Capital letters",
             "D) Paragraph breaks"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Discourse markers (like 'however', 'therefore', 'moreover') connect ideas in speaking or writing."
     },
     {
@@ -1458,7 +1458,7 @@ const EnglishQuestions = [
             "C) Strong rain",
             "D) Large rain"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "'Heavy rain' is a natural word combination in English - these words commonly appear together."
     },
     {
@@ -1469,7 +1469,7 @@ const EnglishQuestions = [
             "C) Helping verb",
             "D) Modal verb"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'Become' is a linking verb that connects the subject with what it becomes."
     },
     {
@@ -1480,7 +1480,7 @@ const EnglishQuestions = [
             "C) The White House announced",
             "D) The sun smiled"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Metonymy uses something associated with the subject to represent it - 'White House' represents the U.S. government."
     },
     {
@@ -1491,7 +1491,7 @@ const EnglishQuestions = [
             "C) To check spelling",
             "D) To list references"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A topic outline helps organize thoughts and structure before beginning to write."
     },
     {
@@ -1502,7 +1502,7 @@ const EnglishQuestions = [
             "C) Formal tone",
             "D) Technical terms"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "Informal writing often uses contractions (don't, can't, won't) unlike formal writing."
     },
     {
@@ -1513,7 +1513,7 @@ const EnglishQuestions = [
             "C) Reflexive",
             "D) Demonstrative"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'Each other' is a reciprocal pronoun showing a mutual relationship between two subjects."
     },
     {
@@ -1524,7 +1524,7 @@ const EnglishQuestions = [
             "C) He runs fast",
             "D) That was a fast race"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "In 'He runs fast,' fast modifies the verb 'runs,' making it an adverb."
     },
     {
@@ -1535,7 +1535,7 @@ const EnglishQuestions = [
             "C) To summarize a story",
             "D) To list characters"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A prologue introduces the story, providing background information or context."
     },
     {
@@ -1546,7 +1546,7 @@ const EnglishQuestions = [
             "C) anti-",
             "D) un-"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "The prefix 'pre-' means 'before' or 'in advance of.'"
     },
     {
@@ -1557,7 +1557,7 @@ const EnglishQuestions = [
             "C) To show place",
             "D) To show manner"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'Unless' introduces a condition that must not exist for something else to happen."
     },
     {
@@ -1568,7 +1568,7 @@ const EnglishQuestions = [
             "C) This is better",
             "D) This is most better"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "'Better' is the correct comparative form of 'good.' Double comparatives are incorrect."
     },
     {
@@ -1579,7 +1579,7 @@ const EnglishQuestions = [
             "C) Research report",
             "D) Creative story"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Research reports require objective, unbiased language rather than personal opinions."
     },
     {
@@ -1590,7 +1590,7 @@ const EnglishQuestions = [
             "C) Voice modulation",
             "D) Standing still always"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Varying your voice tone and pitch (modulation) helps maintain audience interest."
     },
     {
@@ -1601,7 +1601,7 @@ const EnglishQuestions = [
             "C) To start a new chapter",
             "D) To list main points"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Footnotes provide additional information or citations at the bottom of a page."
     },
     {
@@ -1612,7 +1612,7 @@ const EnglishQuestions = [
             "C) Dinner",
             "D) Snack"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "'Sandwich' is named after the Earl of Sandwich, making it an eponym."
     },
     {
@@ -1623,7 +1623,7 @@ const EnglishQuestions = [
             "C) Run-on",
             "D) Compound"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "This is a sentence fragment as it does not express a complete thought."
     },
     {
@@ -1634,7 +1634,7 @@ const EnglishQuestions = [
             "C) Writing style",
             "D) Voice pitch"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Register refers to how language varies based on context and situation."
     },
     {
@@ -1645,7 +1645,7 @@ const EnglishQuestions = [
             "C) To provide references",
             "D) To summarize chapters"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A table of contents shows where different sections can be found in a document."
     },
     {
@@ -1656,7 +1656,7 @@ const EnglishQuestions = [
             "C) Report",
             "D) Begin"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "\"Teacher\" contains the suffix \"-er\" added to the base word \"teach\" to form an agent noun."
     },
     {
@@ -1667,7 +1667,7 @@ const EnglishQuestions = [
             "C) Vocabulary",
             "D) Main idea"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Sequential questions test understanding of the order of events in a passage."
     },
     {
@@ -1678,7 +1678,7 @@ const EnglishQuestions = [
             "C) The sun is bright",
             "D) The car is fast"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "It's ironic that a place meant to stop fires would itself burn down."
     },
     {
@@ -1689,7 +1689,7 @@ const EnglishQuestions = [
             "C) To provide references",
             "D) To show work experience"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A cover letter introduces you and explains your interest in a position or opportunity."
     },
     {
@@ -1700,7 +1700,7 @@ const EnglishQuestions = [
             "C) House",
             "D) Table"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "\"Madam\" reads the same forwards and backwards, making it a palindrome."
     },
     {
@@ -1711,7 +1711,7 @@ const EnglishQuestions = [
             "C) Anger",
             "D) Question"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Ellipsis points indicate speech that trails off or is incomplete."
     },
     {
@@ -1722,7 +1722,7 @@ const EnglishQuestions = [
             "C) Adjective",
             "D) Conjunction"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "When \"under\" is used without an object following it, it functions as an adverb."
     },
     {
@@ -1733,7 +1733,7 @@ const EnglishQuestions = [
             "C) The girls' books",
             "D) The girl's books'"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "For plural nouns ending in s, the apostrophe goes after the s."
     },
     {
@@ -1744,7 +1744,7 @@ const EnglishQuestions = [
             "C) Process",
             "D) Argumentative"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "A process essay explains how to do something or how something works."
     },
     {
@@ -1755,7 +1755,7 @@ const EnglishQuestions = [
             "C) Doing other tasks while listening",
             "D) Looking away from the speaker"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Good listeners show they're engaged through nonverbal responses like nodding."
     },
     {
@@ -1766,7 +1766,7 @@ const EnglishQuestions = [
             "C) Skimming is more detailed",
             "D) They are the same thing"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Scanning searches for specific information, while skimming gets a general overview."
     },
     {
@@ -1777,7 +1777,7 @@ const EnglishQuestions = [
             "C) Onomatopoeia",
             "D) Personification"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "\"Buzz\" is onomatopoeia as it imitates the sound that bees make."
     },
     {
@@ -1788,7 +1788,7 @@ const EnglishQuestions = [
             "C) Reflexive pronoun",
             "D) Demonstrative pronoun"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "\"Themselves\" is a reflexive pronoun that refers back to the subject."
     },
     {
@@ -1799,7 +1799,7 @@ const EnglishQuestions = [
             "C) I was writing",
             "D) I have written"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "\"Have been writing\" shows an action that began in the past and continues to the present."
     },
     {
@@ -1810,7 +1810,7 @@ const EnglishQuestions = [
             "C) To list references",
             "D) To summarize chapters"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A preface introduces the book and explains its background or purpose."
     },
     {
@@ -1821,7 +1821,7 @@ const EnglishQuestions = [
             "C) Writing formally",
             "D) Using only slang"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Code-switching involves alternating between two or more languages in conversation."
     },
     {
@@ -1832,7 +1832,7 @@ const EnglishQuestions = [
             "C) Interrogative",
             "D) Imperative"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "\"If only\" introduces a conditional sentence expressing a wish or regret."
     },
     {
@@ -1843,7 +1843,7 @@ const EnglishQuestions = [
             "C) Bear/Bear",
             "D) Two/Too"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "\"Bear\" (animal) and \"bear\" (to carry) are spelled the same but have different meanings."
     },
     {
@@ -1854,7 +1854,7 @@ const EnglishQuestions = [
             "C) To skip words",
             "D) To read backwards"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Chunking helps comprehension by grouping words into meaningful phrases."
     },
     {
@@ -1865,7 +1865,7 @@ const EnglishQuestions = [
             "C) Technical terms",
             "D) Formal arguments"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Narrative writing involves plot development through beginning, middle, and end."
     },
     {
@@ -1876,7 +1876,7 @@ const EnglishQuestions = [
             "C) Modal verb",
             "D) Action verb"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Modal verbs (can, may, must) express ability, permission, or obligation."
     },
     {
@@ -1887,7 +1887,7 @@ const EnglishQuestions = [
             "C) Colon",
             "D) Dash"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Commas separate items in a list within a sentence."
     },
     {
@@ -1898,7 +1898,7 @@ const EnglishQuestions = [
             "C) To summarize content",
             "D) To introduce topics"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "An acknowledgment page thanks people who helped with the work."
     },
     {
@@ -1909,7 +1909,7 @@ const EnglishQuestions = [
             "C) The sun is bright",
             "D) Time flies quickly"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Antithesis contrasts opposing ideas in parallel structure."
     },
     {
@@ -1920,7 +1920,7 @@ const EnglishQuestions = [
             "C) Level of engagement",
             "D) Type of text"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Active reading involves engaging with and questioning the text, while passive reading is simply taking in information."
     },
     {
@@ -1931,7 +1931,7 @@ const EnglishQuestions = [
             "C) Statistical data",
             "D) Logical arguments"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Descriptive writing uses sensory details (sight, sound, smell, touch, taste) to create vivid images."
     },
     {
@@ -1942,7 +1942,7 @@ const EnglishQuestions = [
             "C) To list contents",
             "D) To provide references"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A preamble introduces and states the purpose or intent of a formal document."
     },
     {
@@ -1953,7 +1953,7 @@ const EnglishQuestions = [
             "C) I will never go there",
             "D) She always arrives late"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "The normal word order is inverted for emphasis by placing 'never' at the beginning."
     },
     {
@@ -1964,7 +1964,7 @@ const EnglishQuestions = [
             "C) Jargon",
             "D) Colloquialism"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "ASAP (As Soon As Possible) is an acronym formed from initial letters."
     },
     {
@@ -1975,7 +1975,7 @@ const EnglishQuestions = [
             "C) Subordinating conjunction",
             "D) Interjection"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Coordinating conjunctions (and, but, or) connect words, phrases, or clauses of equal rank."
     },
     {
@@ -1986,7 +1986,7 @@ const EnglishQuestions = [
             "C) To explain difficult words",
             "D) To give references"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A synopsis provides a brief summary of a longer work's content."
     },
     {
@@ -1997,7 +1997,7 @@ const EnglishQuestions = [
             "C) Personification",
             "D) Hyperbole"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Leaves are given the human ability to dance, making this personification."
     },
     {
@@ -2008,7 +2008,7 @@ const EnglishQuestions = [
             "C) Complex",
             "D) Compound-complex"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "This is a complex sentence with one dependent clause and one independent clause."
     },
     {
@@ -2019,7 +2019,7 @@ const EnglishQuestions = [
             "C) Call and response",
             "D) Technical terms"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Call and response is a common feature in oral traditions, especially in storytelling."
     },
     {
@@ -2030,7 +2030,7 @@ const EnglishQuestions = [
             "C) Demonstrative",
             "D) Relative"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'One' is an indefinite pronoun referring to people in general."
     },
     {
@@ -2041,7 +2041,7 @@ const EnglishQuestions = [
             "C) I demand that he came",
             "D) I demand that he coming"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "The subjunctive mood uses the base form of the verb after expressions of demand."
     },
     {
@@ -2052,7 +2052,7 @@ const EnglishQuestions = [
             "C) To address someone",
             "D) To sign off"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A postscript adds additional information after the main body of a letter."
     },
     {
@@ -2063,7 +2063,7 @@ const EnglishQuestions = [
             "C) Clipping",
             "D) Derivation"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "WiFi is an acronym formed from 'Wireless Fidelity.'"
     },
     {
@@ -2074,7 +2074,7 @@ const EnglishQuestions = [
             "C) Slang",
             "D) Technical terms"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Regionalisms are words or expressions specific to a particular geographical area."
     },
     {
@@ -2085,7 +2085,7 @@ const EnglishQuestions = [
             "C) He likes to run, swimming, and cycles",
             "D) He likes running, to swim, and cycles"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "All items in the list use the same grammatical form (gerunds)."
     },
     {
@@ -2096,7 +2096,7 @@ const EnglishQuestions = [
             "C) Empathetic listening",
             "D) Passive listening"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Empathetic listening focuses on understanding the speaker's feelings and emotions."
     },
     {
@@ -2107,7 +2107,7 @@ const EnglishQuestions = [
             "C) Breakfast",
             "D) Playground"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'Babysit' was formed from 'babysitter,' removing what was wrongly thought to be a suffix."
     },
     {
@@ -2118,7 +2118,7 @@ const EnglishQuestions = [
             "C) To summarize main points",
             "D) To define terms"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A rebuttal specifically addresses and counters arguments made by the opposing side."
     },
     {
@@ -2129,7 +2129,7 @@ const EnglishQuestions = [
             "C) He is extremely smart",
             "D) He is quite average"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Litotes uses a double negative to make an affirmative statement ('not unintelligent' means 'intelligent')."
     },
     {
@@ -2140,7 +2140,7 @@ const EnglishQuestions = [
             "C) To provide examples",
             "D) To list references"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A thesis statement presents the main argument or central point of an essay."
     },
     {
@@ -2151,7 +2151,7 @@ const EnglishQuestions = [
             "C) Technical terms only",
             "D) Supporting evidence"
         ],
-        "correct_answer": "D",
+        "correctAnswer": "D",
         "explanation": "Persuasive writing uses supporting evidence to strengthen arguments."
     },
     {
@@ -2162,7 +2162,7 @@ const EnglishQuestions = [
             "C) Interjection",
             "D) Adjective"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "'Wow' is an interjection expressing sudden feeling or emotion."
     },
     {
@@ -2173,7 +2173,7 @@ const EnglishQuestions = [
             "C) Changes to 'the next day'",
             "D) Stays the same"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "In reported speech, 'tomorrow' changes to 'the next day' to maintain the correct time reference."
     },
     {
@@ -2184,7 +2184,7 @@ const EnglishQuestions = [
             "C) The dog is loud",
             "D) The car is fast"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Synesthesia mixes different sensory experiences (hearing music and tasting sweetness)."
     },
     {
@@ -2195,7 +2195,7 @@ const EnglishQuestions = [
             "C) To outline chapters",
             "D) To provide definitions"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A bibliography lists all sources consulted or cited in writing a text."
     },
     {
@@ -2206,7 +2206,7 @@ const EnglishQuestions = [
             "C) To check spelling",
             "D) To list references"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A topic web helps organize and connect related ideas during the brainstorming process."
     },
     {
@@ -2217,7 +2217,7 @@ const EnglishQuestions = [
             "C) Overflow",
             "D) Undertake"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "\"Part-time\" combines two words to form an adjective that modifies a noun."
     },
     {
@@ -2228,7 +2228,7 @@ const EnglishQuestions = [
             "C) Argumentative",
             "D) Expository"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Argumentative essays require the writer to take a position and defend it with evidence."
     },
     {
@@ -2239,7 +2239,7 @@ const EnglishQuestions = [
             "C) The car is - blue",
             "D) He went to - school"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "The dash is correctly used to introduce a list in this sentence."
     },
     {
@@ -2250,7 +2250,7 @@ const EnglishQuestions = [
             "C) Adjective",
             "D) Noun"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "When used without an object following it, \"beneath\" functions as an adverb."
     },
     {
@@ -2261,7 +2261,7 @@ const EnglishQuestions = [
             "C) Metaphor",
             "D) Hyperbole"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "This directly compares laughter to music without using \"like\" or \"as,\" making it a metaphor."
     },
     {
@@ -2272,7 +2272,7 @@ const EnglishQuestions = [
             "C) To state the topic",
             "D) To give the date"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "The salutation greets the person to whom the letter is written."
     },
     {
@@ -2283,7 +2283,7 @@ const EnglishQuestions = [
             "C) Non-defining relative clause",
             "D) Defining relative clause"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Non-defining relative clauses add extra information that isn't essential to the meaning."
     },
     {
@@ -2294,7 +2294,7 @@ const EnglishQuestions = [
             "C) To summarize content",
             "D) To outline chapters"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A bibliography lists all sources used or referenced in writing."
     },
     {
@@ -2305,7 +2305,7 @@ const EnglishQuestions = [
             "C) I came but I saw and I conquered",
             "D) I came, then I saw, then I conquered"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "Asyndeton omits conjunctions between phrases for stylistic effect."
     },
     {
@@ -2316,7 +2316,7 @@ const EnglishQuestions = [
             "C) To give references",
             "D) To explain terms"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "An executive summary briefly presents the main points of a longer document."
     },
     {
@@ -2327,7 +2327,7 @@ const EnglishQuestions = [
             "C) The dog barked; because it was scared",
             "D) They went home; after the party started"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A semicolon correctly joins two related independent clauses."
     },
     {
@@ -2338,7 +2338,7 @@ const EnglishQuestions = [
             "C) Personal pronoun",
             "D) Possessive pronoun"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "\"Herself\" is used for emphasis here, making it an intensive pronoun."
     },
     {
@@ -2349,7 +2349,7 @@ const EnglishQuestions = [
             "C) Decoration",
             "D) Large size"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Good handwriting should be consistent in size, spacing, and style."
     },
     {
@@ -2360,7 +2360,7 @@ const EnglishQuestions = [
             "C) Reading quickly",
             "D) Reading aloud"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "\"Reading between the lines\" means understanding meanings that are not directly stated."
     },
     {
@@ -2371,7 +2371,7 @@ const EnglishQuestions = [
             "C) Walking",
             "D) Quickly"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "\"Brunch\" combines \"breakfast\" and \"lunch\" to form a new word."
     },
     {
@@ -2382,7 +2382,7 @@ const EnglishQuestions = [
             "C) Exclamatory",
             "D) Imperative"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "This sentence expresses strong feeling and ends with an exclamation mark."
     },
     {
@@ -2393,7 +2393,7 @@ const EnglishQuestions = [
             "C) Consonance",
             "D) Rhyme"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Consonance repeats consonant sounds within words, not just at the beginning."
     },
     {
@@ -2404,7 +2404,7 @@ const EnglishQuestions = [
             "C) To end the speech",
             "D) To change topic"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A dramatic pause creates emphasis and builds anticipation in speech."
     },
     {
@@ -2415,7 +2415,7 @@ const EnglishQuestions = [
             "C) Breakfast",
             "D) Rainbow"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "\"Phone\" is clipped from \"telephone,\" maintaining the same meaning."
     },
     {
@@ -2426,7 +2426,7 @@ const EnglishQuestions = [
             "C) To state the topic",
             "D) To list references"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "An introduction states the topic and purpose of the writing."
     },
     {
@@ -2437,7 +2437,7 @@ const EnglishQuestions = [
             "C) Non-literal meaning",
             "D) Foreign words"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Figurative language uses words in non-literal ways to create special effects."
     },
     {
@@ -2448,7 +2448,7 @@ const EnglishQuestions = [
             "C) Adjective",
             "D) Noun"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "When used without an object, \"near\" functions as an adverb."
     },
     {
@@ -2459,7 +2459,7 @@ const EnglishQuestions = [
             "C) The jury were divided",
             "D) The jury have divided"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "In standard usage, collective nouns like \"jury\" take singular verbs."
     },
     {
@@ -2470,7 +2470,7 @@ const EnglishQuestions = [
             "C) To list references",
             "D) To define terms"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A conclusion summarizes the main points and provides closure to the writing."
     },
     {
@@ -2481,7 +2481,7 @@ const EnglishQuestions = [
             "C) To conclude the essay",
             "D) To introduce the topic"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A counter-argument acknowledges and addresses views that oppose the writer's position."
     },
     {
@@ -2492,7 +2492,7 @@ const EnglishQuestions = [
             "C) He lost his way home",
             "D) He lost the race"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "Zeugma uses one word (lost) with two meanings - literal and figurative."
     },
     {
@@ -2503,7 +2503,7 @@ const EnglishQuestions = [
             "C) Auxiliary verb",
             "D) Linking verb"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'Might' is a modal verb expressing possibility or probability."
     },
     {
@@ -2514,7 +2514,7 @@ const EnglishQuestions = [
             "C) Colon",
             "D) Semicolon"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "A colon introduces an explanation, definition, or list."
     },
     {
@@ -2525,7 +2525,7 @@ const EnglishQuestions = [
             "C) To write a story",
             "D) To draw pictures"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Note-making helps record and organize key points from information."
     },
     {
@@ -2536,7 +2536,7 @@ const EnglishQuestions = [
             "C) Personification",
             "D) Hyperbole"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "This metaphor compares being overwhelmed with work to drowning."
     },
     {
@@ -2547,7 +2547,7 @@ const EnglishQuestions = [
             "C) Adverb",
             "D) Adjective"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "'However' functions as a conjunctive adverb, connecting two ideas."
     },
     {
@@ -2558,7 +2558,7 @@ const EnglishQuestions = [
             "C) Technical terms",
             "D) Formal pronouns"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Informal speech commonly uses contractions like 'don't' and 'can't'."
     },
     {
@@ -2569,7 +2569,7 @@ const EnglishQuestions = [
             "C) To list references",
             "D) To summarize content"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "An appendix provides additional supporting material that's too detailed for the main text."
     },
     {
@@ -2580,7 +2580,7 @@ const EnglishQuestions = [
             "C) I wish I am there",
             "D) I wish I will be there"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "The subjunctive mood uses 'were' after 'wish' regardless of the subject."
     },
     {
@@ -2591,7 +2591,7 @@ const EnglishQuestions = [
             "C) Portmanteau",
             "D) Blend"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'Crystal clear' is a collocation where these words naturally go together in English."
     },
     {
@@ -2602,7 +2602,7 @@ const EnglishQuestions = [
             "C) To list vocabulary",
             "D) To check spelling"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A topic map helps organize and connect ideas visually before writing."
     },
     {
@@ -2613,7 +2613,7 @@ const EnglishQuestions = [
             "C) He was killed yesterday",
             "D) He is dead"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'Passed away' is a euphemism - a gentler way to say 'died'."
     },
     {
@@ -2624,7 +2624,7 @@ const EnglishQuestions = [
             "C) Creative story",
             "D) Diary entry"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Research reports require objective, unbiased language."
     },
     {
@@ -2635,7 +2635,7 @@ const EnglishQuestions = [
             "C) Carefully to walk",
             "D) Walk to carefully"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "'To carefully walk' splits the infinitive by placing 'carefully' between 'to' and 'walk'."
     },
     {
@@ -2646,7 +2646,7 @@ const EnglishQuestions = [
             "C) To hide meaning",
             "D) To confuse listeners"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Body language enhances verbal communication by adding non-verbal meaning."
     },
     {
@@ -2657,7 +2657,7 @@ const EnglishQuestions = [
             "C) Lovely",
             "D) Happy"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'Splash' imitates the sound it describes, making it onomatopoeia."
     },
     {
@@ -2668,7 +2668,7 @@ const EnglishQuestions = [
             "C) Demonstrative",
             "D) Indefinite"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'Whose' is a relative pronoun connecting the clause to its antecedent 'boy'."
     },
     {
@@ -2679,7 +2679,7 @@ const EnglishQuestions = [
             "C) Either John or his friends comes coming",
             "D) Either John or his friends were coming"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "The verb agrees with the nearest subject after either/or (friends)."
     },
     {
@@ -2690,7 +2690,7 @@ const EnglishQuestions = [
             "C) To define terms",
             "D) To give examples"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A synthesis combines different ideas or information into a coherent whole."
     },
     {
@@ -2701,7 +2701,7 @@ const EnglishQuestions = [
             "C) Personification",
             "D) Hyperbole"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "The wind is given the human ability to whisper, making this personification."
     },
     {
@@ -2712,7 +2712,7 @@ const EnglishQuestions = [
             "C) Narrative",
             "D) Descriptive"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Technical writing uses precise, factual language to convey information clearly."
     },
     {
@@ -2723,7 +2723,7 @@ const EnglishQuestions = [
             "C) Walking",
             "D) Playground"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "'Burgle' was formed from 'burglar,' removing what was thought to be a suffix."
     },
     {
@@ -2734,7 +2734,7 @@ const EnglishQuestions = [
             "C) To give references",
             "D) To summarize content"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A glossary provides definitions of specialized terms used in the text."
     },
     {
@@ -2745,7 +2745,7 @@ const EnglishQuestions = [
             "C) Reading word for word",
             "D) Standing completely still"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Maintaining eye contact helps engage the audience during presentations."
     },
     {
@@ -2756,7 +2756,7 @@ const EnglishQuestions = [
             "C) Cohesion deals with meaning, coherence with connection",
             "D) Neither deals with connection"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Coherence ensures ideas make sense together, while cohesion deals with how sentences are connected."
     },
     {
@@ -2767,7 +2767,7 @@ const EnglishQuestions = [
             "C) His",
             "D) He"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "\"Himself\" is an intensive pronoun when used for emphasis (\"He himself did it\")."
     },
     {
@@ -2778,7 +2778,7 @@ const EnglishQuestions = [
             "C) Process",
             "D) Argumentative"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "A process essay explains steps in sequence to show how something is done."
     },
     {
@@ -2789,7 +2789,7 @@ const EnglishQuestions = [
             "C) The sun is bright",
             "D) She runs quickly"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "\"Dying of laughter\" is an exaggeration used for emphasis."
     },
     {
@@ -2800,7 +2800,7 @@ const EnglishQuestions = [
             "C) To make a final copy",
             "D) To check spelling"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A rough draft helps develop and organize ideas before the final version."
     },
     {
@@ -2811,7 +2811,7 @@ const EnglishQuestions = [
             "C) Prepositional phrase",
             "D) Infinitive phrase"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A participial phrase functions as an adjective, modifying a noun or pronoun."
     },
     {
@@ -2822,7 +2822,7 @@ const EnglishQuestions = [
             "C) To create emphasis",
             "D) To confuse readers"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Transitional words connect ideas and help writing flow smoothly."
     },
     {
@@ -2833,7 +2833,7 @@ const EnglishQuestions = [
             "C) re-",
             "D) dis-"
         ],
-        "correct_answer": "A",
+        "correctAnswer": "A",
         "explanation": "The prefix \"un-\" means \"not\" or \"opposite of,\" as in \"unhappy\" or \"unclear\"."
     },
     {
@@ -2844,7 +2844,7 @@ const EnglishQuestions = [
             "C) Essay",
             "D) Report"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Stage directions guide actors' movements and actions in dramatic writing."
     },
     {
@@ -2855,7 +2855,7 @@ const EnglishQuestions = [
             "C) The sun smiled",
             "D) Time flies"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "\"The Crown\" represents the monarchy, using a symbol to represent something related."
     },
     {
@@ -2866,7 +2866,7 @@ const EnglishQuestions = [
             "C) To start a discussion",
             "D) To give definitions"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A speech conclusion summarizes main points and provides closure."
     },
     {
@@ -2877,7 +2877,7 @@ const EnglishQuestions = [
             "C) Present tense",
             "D) Future tense"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Past participles show completed action, as in \"have written\" or \"had gone\"."
     },
     {
@@ -2888,7 +2888,7 @@ const EnglishQuestions = [
             "C) To join words only",
             "D) To join phrases only"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Subordinating conjunctions join dependent clauses to independent clauses."
     },
     {
@@ -2899,7 +2899,7 @@ const EnglishQuestions = [
             "C) Complex sentences",
             "D) Incomplete sentences"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "Formal writing often uses complex sentence structures and avoids casual language."
     },
     {
@@ -2910,7 +2910,7 @@ const EnglishQuestions = [
             "C) Complex",
             "D) Fragment"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A compound sentence contains two independent clauses (complete thoughts)."
     },
     {
@@ -2921,7 +2921,7 @@ const EnglishQuestions = [
             "C) Oxymoron",
             "D) Personification"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "An oxymoron combines contradictory terms (silence and deafening)."
     },
     {
@@ -2932,7 +2932,7 @@ const EnglishQuestions = [
             "C) To list chapters",
             "D) To give definitions"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A reference list provides information about sources cited in the work."
     },
     {
@@ -2943,7 +2943,7 @@ const EnglishQuestions = [
             "C) Teacher",
             "D) Quickly"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "\"Blackboard\" combines two complete words to form a new word."
     },
     {
@@ -2954,7 +2954,7 @@ const EnglishQuestions = [
             "C) Euphemism",
             "D) Dysphemism"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Pleonasm uses more words than necessary with similar meanings (\"free gift\")."
     },
     {
@@ -2965,7 +2965,7 @@ const EnglishQuestions = [
             "C) Microscope",
             "D) Something"
         ],
-        "correct_answer": "C",
+        "correctAnswer": "C",
         "explanation": "\"Microscope\" is specific and precise, unlike vague words like \"thing\" or \"stuff\"."
     },
     {
@@ -2976,7 +2976,7 @@ const EnglishQuestions = [
             "C) To count words",
             "D) To add length"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Revision aims to improve the content and organization of writing."
     },
     {
@@ -2987,7 +2987,7 @@ const EnglishQuestions = [
             "C) She likes to sing and danced",
             "D) She likes sing and dancing"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Both activities use the same grammatical form (gerund: singing, dancing)."
     },
     {
@@ -2998,7 +2998,7 @@ const EnglishQuestions = [
             "C) Creative story",
             "D) Diary entry"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Research papers require citations to acknowledge sources of information."
     },
     {
@@ -3009,7 +3009,7 @@ const EnglishQuestions = [
             "C) Doing other tasks",
             "D) Looking away"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "Making mental notes shows active engagement with the speaker's message."
     },
     {
@@ -3020,7 +3020,392 @@ const EnglishQuestions = [
             "C) To provide references",
             "D) To give page numbers"
         ],
-        "correct_answer": "B",
+        "correctAnswer": "B",
         "explanation": "A blurb provides a brief summary to attract readers' interest."
+    },
+    {
+        "question": "In how many ways can 12 different books be arranged on a shelf if 3 specific books must always be together?",
+        "options": [
+            "A) 86400",
+            "B) 72000",
+            "C) 90000",
+            "D) 79200"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Treat 3 books as 1 unit: 10! × 3! = 3628800 × 6 = 72000"
+    },
+    {
+        "question": "If x³ + y³ = 7 and x + y = 2, find the value of xy",
+        "options": [
+            "A) -1",
+            "B) 1",
+            "C) 0",
+            "D) 2"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Using x³ + y³ = (x + y)(x² - xy + y²) and (x + y)² = x² + 2xy + y²"
+    },
+    {
+        "question": "Find the volume of a regular tetrahedron inscribed in a sphere of radius 6cm",
+        "options": [
+            "A) 128 cm³",
+            "B) 144 cm³",
+            "C) 96 cm³",
+            "D) 112 cm³"
+        ],
+        "correctAnswer": "A",
+        "explanation": "V = (8r³)/(3√6) where r is radius of sphere"
+    },
+    {
+        "question": "Calculate the area bounded by the curves y = x² and y = 4 - x²",
+        "options": [
+            "A) 32/3 square units",
+            "B) 16/3 square units",
+            "C) 8 square units",
+            "D) 16/5 square units"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Integrate (4-x² - x²) from -2 to 2"
+    },
+    {
+        "question": "What is the angle between the hour and minute hands of a clock at 3:20?",
+        "options": [
+            "A) 50°",
+            "B) 45°",
+            "C) 55°",
+            "D) 40°"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Hour hand: 3 × 30° + 20 × 0.5°, Minute hand: 20 × 6°; Difference = 50°"
+    },
+    {
+        "question": "Find the value of sin 18° × sin 54° × sin 90°",
+        "options": [
+            "A) 1/4",
+            "B) 1/8",
+            "C) 1/6",
+            "D) 1/3"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Using product formulas and standard angles"
+    },
+    {
+        "question": "What is the probability that a randomly chosen positive factor of 360 is a perfect square?",
+        "options": [
+            "A) 5/24",
+            "B) 1/4",
+            "C) 7/24",
+            "D) 1/6"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Count perfect square factors of 360 (1,4,9,36,100) and total factors"
+    },
+    {
+        "question": "Find the sum of the series: 1 + 3 + 7 + 15 + ... + 255",
+        "options": [
+            "A) 511",
+            "B) 495",
+            "C) 527",
+            "D) 503"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Each term is 2ⁿ - 1, sum = 2⁹ - 1 = 511"
+    },
+    {
+        "question": "Calculate the area of the region enclosed by r = 2sin θ in polar coordinates",
+        "options": [
+            "A) 2π square units",
+            "B) π square units",
+            "C) 4π square units",
+            "D) 3π square units"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Area = ∫(r²/2)dθ from 0 to 2π = 2π"
+    },
+    {
+        "question": "If log₃(x+2) = 2log₃(x-1), find x",
+        "options": [
+            "A) 4",
+            "B) 3",
+            "C) 5",
+            "D) 6"
+        ],
+        "correctAnswer": "A",
+        "explanation": "x+2 = (x-1)², x+2 = x² - 2x + 1, x² - 3x - 1 = 0"
+    },
+    {
+        "question": "Find the radius of a sphere whose volume equals the total surface area",
+        "options": [
+            "A) 6 units",
+            "B) 3 units",
+            "C) 4 units",
+            "D) 5 units"
+        ],
+        "correctAnswer": "A",
+        "explanation": "4πr³/3 = 4πr², r = 6"
+    },
+    {
+        "question": "Calculate the sum of first 20 numbers in the sequence where nth term is n²+n",
+        "options": [
+            "A) 1750",
+            "B) 1650",
+            "C) 1850",
+            "D) 1550"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Sum = Σ(n² + n) = [n(n+1)(2n+1)]/6 + [n(n+1)]/2 for n=20"
+    },
+    {
+        "question": "What is the area of a regular heptagon with side 6cm? (Use 10.839 as multiplier)",
+        "options": [
+            "A) 390.204 cm²",
+            "B) 380.204 cm²",
+            "C) 400.204 cm²",
+            "D) 370.204 cm²"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Area = (10.839 × s²) where s is side length"
+    },
+    {
+        "question": "Find the sum of the series: cos x + cos 3x + cos 5x + ... + cos 19x",
+        "options": [
+            "A) sin(10x)sin(10x)/sin(x)",
+            "B) cos(10x)sin(10x)/sin(x)",
+            "C) sin(10x)cos(10x)/sin(x)",
+            "D) cos(10x)cos(10x)/sin(x)"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Using sum formula for cosine series"
+    },
+    {
+        "question": "If the numbers 1, 3, p, 9, 27 are in geometric progression, find the value of p",
+        "options": [
+            "A) 9",
+            "B) 6",
+            "C) 3",
+            "D) 12"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Common ratio r = 3, so third term must be 3²"
+    },
+    {
+        "question": "Calculate the surface area of a regular icosahedron with edge 4cm",
+        "options": [
+            "A) 80√3 cm²",
+            "B) 90√3 cm²",
+            "C) 70√3 cm²",
+            "D) 100√3 cm²"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Surface area = 5√3a² where a is edge length"
+    },
+    {
+        "question": "Find the value of cos⁻¹(-1/2) + sin⁻¹(1/2)",
+        "options": [
+            "A) π",
+            "B) π/2",
+            "C) 3π/4",
+            "D) 5π/4"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Using relationship between inverse trigonometric functions"
+    },
+    {
+        "question": "What is the probability of getting a sum of 8 when three dice are rolled?",
+        "options": [
+            "A) 5/72",
+            "B) 21/216",
+            "C) 25/216",
+            "D) 15/216"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Count favorable outcomes and divide by total outcomes (216)"
+    },
+    {
+        "question": "Find the area of the region bounded by y = |x - 1| + |x - 2| and y = 2",
+        "options": [
+            "A) 2 square units",
+            "B) 3 square units",
+            "C) 4 square units",
+            "D) 1 square unit"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Graph forms a triangle, calculate area"
+    },
+    {
+        "question": "Calculate the volume of revolution formed by rotating y = √(4-x²) about the x-axis from x = 0 to x = 2",
+        "options": [
+            "A) 8π/3 cubic units",
+            "B) 4π/3 cubic units",
+            "C) 16π/3 cubic units",
+            "D) 2π cubic units"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Using washer method with π∫(4-x²)dx from 0 to 2"
+    },
+    {
+        "question": "If a regular hexagon is inscribed in a circle of radius 4cm, find its perimeter",
+        "options": [
+            "A) 24 cm",
+            "B) 20 cm",
+            "C) 28 cm",
+            "D) 16 cm"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Side length = r√3 = 4√3, perimeter = 24"
+    },
+    {
+        "question": "Find the area of the region bounded by y = x³ and y = x⁴ from x = 0 to x = 1",
+        "options": [
+            "A) 1/12 square units",
+            "B) 1/6 square units",
+            "C) 1/24 square units",
+            "D) 1/8 square units"
+        ],
+        "correctAnswer": "A",
+        "explanation": "∫(x³ - x⁴)dx from 0 to 1 = 1/12"
+    },
+    {
+        "question": "Calculate the value of (sin 70° + cos 20°)²",
+        "options": [
+            "A) 2",
+            "B) 1",
+            "C) 3",
+            "D) 4"
+        ],
+        "correctAnswer": "A",
+        "explanation": "sin 70° = cos 20°, so result = (2cos 20°)² = 2"
+    },
+    {
+        "question": "Find the sum of the infinite series: 1/2 + 1/6 + 1/12 + 1/20 + ...",
+        "options": [
+            "A) 1",
+            "B) 2",
+            "C) 3/2",
+            "D) 4/3"
+        ],
+        "correctAnswer": "A",
+        "explanation": "nth term = 1/n(n+1), sum = 1"
+    },
+    {
+        "question": "What is the perimeter of the region enclosed by |x|/3 + |y|/2 ≤ 1?",
+        "options": [
+            "A) 10 units",
+            "B) 8 units",
+            "C) 12 units",
+            "D) 14 units"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Forms a rhombus with vertices at (±3,0) and (0,±2), perimeter = 10"
+    },
+    {
+        "question": "In how many ways can 20 identical balls be distributed into 4 distinct boxes?",
+        "options": {
+            "A": "1771",
+            "B": "1681",
+            "C": "1861",
+            "D": "1551"
+        },
+        "correct": "A",
+        "explanation": "Using stars and bars formula: ¹⁹C₃ = 1771"
+    },
+    {
+        "question": "Find the area of a triangle formed by the tangent at any point on the parabola y = x² and the coordinate axes",
+        "options": {
+            "A": "2 square units",
+            "B": "4 square units",
+            "C": "3 square units",
+            "D": "1 square unit"
+        },
+        "correct": "A",
+        "explanation": "Area is constant regardless of point chosen = 2"
+    },
+    {
+        "question": "If the sum of n terms of an A.P. is n² + 2n, find the common difference",
+        "options": {
+            "A": "2",
+            "B": "3",
+            "C": "4",
+            "D": "1"
+        },
+        "correct": "A",
+        "explanation": "Compare with standard form Sn = n/2[2a + (n-1)d]"
+    },
+    {
+        "question": "Calculate the volume of a torus with major radius 5cm and minor radius 2cm",
+        "options": {
+            "A": "157.08 π cm³",
+            "B": "167.08 π cm³",
+            "C": "147.08 π cm³",
+            "D": "177.08 π cm³"
+        },
+        "correct": "A",
+        "explanation": "V = 2π²R r² = 2π² × 5 × 4 = 157.08π"
+    },
+    {
+        "question": "What is the probability that a randomly selected divisor of 900 is odd?",
+        "options": {
+            "A": "1/4",
+            "B": "1/3",
+            "C": "1/2",
+            "D": "2/5"
+        },
+        "correct": "A",
+        "explanation": "Count odd divisors and total divisors of 900 = 900 = 2² × 3² × 5²"
+    },
+    {
+        "question": "Find the area between the curves y = sin x and y = cos x from x = 0 to x = π/4",
+        "options": {
+            "A": "0 square units",
+            "B": "1 square unit",
+            "C": "π/4 square units",
+            "D": "2 square units"
+        },
+        "correct": "A",
+        "explanation": "∫(sin x - cos x)dx from 0 to π/4 = 0"
+    },
+    {
+        "question": "What is the maximum value of |sin x + cos x|?",
+        "options": {
+            "A": "√2",
+            "B": "2",
+            "C": "1",
+            "D": "3/2"
+        },
+        "correct": "A",
+        "explanation": "Using calculus or r sin(x + π/4) where r = √2"
+    },
+    {
+        "question": "Find the sum of squares of first n natural numbers where n³ = 216",
+        "options": {
+            "A": "286",
+            "B": "276",
+            "C": "296",
+            "D": "266"
+        },
+        "correct": "A",
+        "explanation": "n = 6, sum = n(n+1)(2n+1)/6 = 91"
+    },
+    {
+        "question": "If the angle between two tangents drawn from a point to a circle is 60°, find the ratio of the distance of the point from the center to the radius",
+        "options": {
+            "A": "2:1",
+            "B": "3:2",
+            "C": "3:1",
+            "D": "√3:1"
+        },
+        "correct": "A",
+        "explanation": "If angle is θ, ratio = 1/sin(θ/2) = 2"
+    },
+    {
+        "question": "Calculate the sum of the series: 1 + 1/2! + 1/4! + 1/6! + ... to infinity",
+        "options": {
+            "A": "cosh(1)",
+            "B": "sinh(1)",
+            "C": "e",
+            "D": "π/2"
+        },
+        "correct": "A",
+        "explanation": "Sum of even-powered terms in Taylor series of e^x at x = 1"
     }
 ]

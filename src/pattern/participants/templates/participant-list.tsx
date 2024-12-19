@@ -9,9 +9,9 @@ interface Participant {
 export default function ParticipantList() {
     // Generate sample data
     const participants: Participant[] = Array.from({ length: 234 }, () => ({
-        name: "Nida Banks",
-        school: "Rainbow International School",
-        points: 1700
+        school: "School 1",
+        name: "Student one sc1",
+        points: 0
     }))
 
     return (

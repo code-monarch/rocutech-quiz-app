@@ -2,53 +2,53 @@ import React from 'react'
 
 const students = [
     {
-        name: "Hilda Banks",
-        school: "Rainbow International school",
-        points: 1700,
+        school: "School 1",
+        name: "Student one sc1",
+        points: 0,
     }, {
-        name: "Emily Johnson",
-        school: "Springfield High School",
-        points: 1600,
+        school: "School 1",
+        name: "Student two sc1",
+        points: 0,
     },
     {
-        name: "Michael Brown",
-        school: "Oakwood Academy",
-        points: 1500,
+        school: "School 1",
+        name: "Student three sc1",
+        points: 0,
     },
     {
-        name: "Sarah Lee",
-        school: "Maplewood Elementary",
-        points: 1400,
+        school: "School 1",
+        name: "Student four sc1",
+        points: 0,
     },
     {
-        name: "Kevin White",
-        school: "Riverview Middle School",
-        points: 1300,
+        school: "School 1",
+        name: "Student five sc1",
+        points: 0,
     },
     {
-        name: "Jessica Davis",
-        school: "Cedar Creek High School",
-        points: 1200,
+        school: "School 2",
+        name: "Student one sc2",
+        points: 0,
     },
     {
-        name: "Lisa Martin",
-        school: "Pineview Elementary",
-        points: 1100,
+        school: "School 2",
+        name: "Student two sc2",
+        points: 0,
     },
     {
-        name: "Brian Taylor",
-        school: "Willow Creek Middle School",
-        points: 1000,
+        school: "School 2",
+        name: "Student three sc2",
+        points: 0,
     },
     {
-        name: "Karen Thompson",
-        school: "Sunnydale High School",
-        points: 900,
+        school: "School 2",
+        name: "Student four sc2",
+        points: 0,
     },
     {
-        name: "Ryan Hall",
-        school: "Lakewood Elementary",
-        points: 800,
+        school: "School 2",
+        name: "Student five sc2",
+        points: 0,
     }
 ]
 

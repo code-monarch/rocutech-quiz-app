@@ -23,30 +23,58 @@ export const subjects = [
 
 export const schools = [
     {
-        name: "Rainbow International School",
-        points: "1700",
+        name: "School 1",
+        points: "0",
         students: [
-            "Hida Banks",
-            "Tacha Hills"
+            "Student one",
+            "Student two",
+            "Student three",
+            "Student four",
+            "Student five",
         ]
     },
     {
-        name: "Katmbura International Academy",
-        points: "1700",
+        name: "School 2",
+        points: "0",
         students: [
-            "Hida Banks",
-            "Tacha Hills"
+            "Student one",
+            "Student two",
+            "Student three",
+            "Student four",
+            "Student five"
         ]
     },
     {
-        name: "Klassic high school",
-        points: "1700",
+        name: "School 3",
+        points: "0",
         students: [
-            "Hida Banks",
-            "Tacha Hills",
-            "Dora Lucas",
-            "Kachi Doris",
-            "Joel Adie"
+            "Student one",
+            "Student two",
+            "Student three",
+            "Student four",
+            "Student five"
+        ]
+    },
+    {
+        name: "School 4",
+        points: "0",
+        students: [
+            "Student one",
+            "Student two",
+            "Student three",
+            "Student four",
+            "Student five"
+        ]
+    },
+    {
+        name: "School 5",
+        points: "0",
+        students: [
+            "Student one",
+            "Student two",
+            "Student three",
+            "Student four",
+            "Student five"
         ]
     }
-] as const
+]

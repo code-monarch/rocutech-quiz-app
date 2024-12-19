@@ -26,77 +26,45 @@ import {
 
 const data: School[] = [
     {
-        schoolName: "Rainbow International school",
-        mathematics: 620,
-        currentAffairs: 620,
-        physics: 620,
-        chemistry: 620,
-        ranking: 1700
+        schoolName: "School 1",
+        mathematics: 0,
+        currentAffairs: 0,
+        physics: 0,
+        chemistry: 0,
+        ranking: 0
     },
     {
-        schoolName: "British Oasis School",
-        mathematics: 620,
-        currentAffairs: 620,
-        physics: 620,
-        chemistry: 620,
-        ranking: 1700
+        schoolName: "School 2",
+        mathematics: 0,
+        currentAffairs: 0,
+        physics: 0,
+        chemistry: 0,
+        ranking: 0
     },
     {
-        schoolName: "Start Rite School",
-        mathematics: 620,
-        currentAffairs: 620,
-        physics: 620,
-        chemistry: 620,
-        ranking: 1700
+        schoolName: "School 3",
+        mathematics: 0,
+        currentAffairs: 0,
+        physics: 0,
+        chemistry: 0,
+        ranking: 0
     },
     {
-        schoolName: "British Spring Academy",
-        mathematics: 620,
-        currentAffairs: 620,
-        physics: 620,
-        chemistry: 620,
-        ranking: 1700
+        schoolName: "School 4",
+        mathematics: 0,
+        currentAffairs: 0,
+        physics: 0,
+        chemistry: 0,
+        ranking: 0
     },
     {
-        schoolName: "City of Knowledge",
-        mathematics: 620,
-        currentAffairs: 620,
-        physics: 620,
-        chemistry: 620,
-        ranking: 1700
-    },
-    {
-        schoolName: "Priemere High Academy",
-        mathematics: 620,
-        currentAffairs: 620,
-        physics: 620,
-        chemistry: 620,
-        ranking: 1700
-    },
-    {
-        schoolName: "Capital Science Academy",
-        mathematics: 620,
-        currentAffairs: 620,
-        physics: 620,
-        chemistry: 620,
-        ranking: 1700
-    },
-    {
-        schoolName: "Meadow Hall Academy",
-        mathematics: 620,
-        currentAffairs: 620,
-        physics: 620,
-        chemistry: 620,
-        ranking: 1700
-    },
-    {
-        schoolName: "Point Place High Academy",
-        mathematics: 620,
-        currentAffairs: 620,
-        physics: 620,
-        chemistry: 620,
-        ranking: 1700
-    },
+        schoolName: "School 5",
+        mathematics: 0,
+        currentAffairs: 0,
+        physics: 0,
+        chemistry: 0,
+        ranking: 0
+    }
 ]
 
 export type School = {

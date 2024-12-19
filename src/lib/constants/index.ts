@@ -5,3 +5,5 @@ export const ENGLISH = 'english'
 export const PHYSICS = 'physics'
 export const CHEMISTRY = 'chemistry'
 export const CURRENT_AFFAIRS = 'current-affairs'
+export const SELECTED_SUBJECT = "selectedSubject"
+export const SELECTED_STUDENT = "selectedStudents"

@@ -3,14 +3,17 @@
 import React, { FC, useState } from 'react'
 
 interface IProps {
-    handleClick: () => void
+    handleClick: (isChecked: any) => void
 }
 
 const SelectParticipantHeaderCheckbox: FC<IProps> = ({ handleClick }) => {
     const [isToggled, setIsToggled] = useState(false)
-
     return (
-        <div role="button" tabIndex={0} onClick={() => { setIsToggled(!isToggled); handleClick() }}>
+        <div role="button" tabIndex={0} onClick={() => { 
+            const newToggleState = !isToggled;
+            setIsToggled(newToggleState);
+            handleClick(newToggleState);
+        }}>
             {
                 isToggled ?
                     <span>

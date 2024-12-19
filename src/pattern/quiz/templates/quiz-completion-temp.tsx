@@ -12,10 +12,10 @@ const graphData = Array.from({ length: 20 }, (_, i) => ({
 }))
 
 const leaderboardData = Array.from({ length: 8 }, () => ({
-    name: "Nida Banks",
-    school: "Rainbow International School",
-    chemistry: 620,
-    points: 1700
+    school: "School 1",
+    name: "Student one sc1",
+    chemistry: 0,
+    points: 0
 }))
 
 export default function QuizCompletion() {

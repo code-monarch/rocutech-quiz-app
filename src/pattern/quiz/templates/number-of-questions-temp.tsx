@@ -44,8 +44,9 @@ const NumberOfQuestionsTemp = () => {
 
     console.log("ERRORS: ", errors)
 
-    const onSubmit = (data: z.infer<typeof FormSchema>) => {
-        // push(CREATE_QUIZ_ROUTES.addQuestions)
+    const onSubmit = ({ questions }: z.infer<typeof FormSchema>) => {
+        console.log("QUESTIONS: ", questions)
+        localStorage.setItem('numberOfQuestions', questions)
         push(CREATE_QUIZ_ROUTES.selectParticipants)
     }
     return (

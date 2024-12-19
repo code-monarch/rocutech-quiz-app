@@ -12,6 +12,7 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from 'next/navigation'
 import { CREATE_QUIZ_ROUTES } from '@/lib/routes'
+import { SELECTED_SUBJECT } from '@/lib/constants'
 
 
 const FormSchema = z.object({
@@ -36,7 +37,8 @@ const SelectSubjectsTemp = () => {
         formState: { errors, isDirty },
     } = form
 
-    const onSubmit = (data: z.infer<typeof FormSchema>) => {
+    const onSubmit = ({ subjects }: z.infer<typeof FormSchema>) => {
+        localStorage.setItem(SELECTED_SUBJECT, JSON.stringify(subjects))
         push(CREATE_QUIZ_ROUTES.addQuestions)
     }
     return (
