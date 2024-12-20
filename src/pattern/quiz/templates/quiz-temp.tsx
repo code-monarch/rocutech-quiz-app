@@ -85,43 +85,40 @@ export default function QuizTemp() {
 
         // Function to randomly fetch a subset of questions
         const fetchRandomQuestions = (questionsArray: IQuestion[], count: number): IQuestion[] => {
-            const totalQuestions = questionsArray.length;
-            if (totalQuestions === 0) return [];
-
-            const startIndex = Math.floor(Math.random() * totalQuestions);
-            const questionsSubset: IQuestion[] = [];
-
-            for (let i = 0; i < count; i++) {
-                questionsSubset.push(questionsArray[(startIndex + i) % totalQuestions]);
-            }
-
-            return questionsSubset;
+            const shuffledQuestions = [...questionsArray].sort(() => Math.random() - 0.5);
+            return shuffledQuestions.slice(0, count);
         };
 
-        subjects.forEach((subject) => {
-            switch (subject.toLowerCase()) {
-                case 'physics':
-                    fetchedQuestions.push(...fetchRandomQuestions(physics, totalQuestions));
-                    break;
-                case 'chemistry':
-                    fetchedQuestions.push(...fetchRandomQuestions(chemistry, totalQuestions));
-                    break;
-                case 'mathematics':
-                    fetchedQuestions.push(...fetchRandomQuestions(mathematics, totalQuestions));
-                    break;
-                case 'english':
-                    fetchedQuestions.push(...fetchRandomQuestions(english, totalQuestions));
-                    break;
-                case 'current-affairs':
-                    fetchedQuestions.push(...fetchRandomQuestions(currentAffairs, totalQuestions));
-                    break;
-                default:
-                    console.warn(`Unknown subject: ${subject}`);
-            }
-        });
+        if (subjects.length > 0) {
+            const questionsPerSubject = Math.ceil(totalQuestions / subjects.length);
 
-        // Limit the fetched questions to the desired total count
-        setCurrentQuestions(fetchedQuestions.slice(0, totalQuestions));
+            subjects.forEach((subject) => {
+                switch (subject.toLowerCase()) {
+                    case 'physics':
+                        fetchedQuestions.push(...fetchRandomQuestions(physics, questionsPerSubject));
+                        break;
+                    case 'chemistry':
+                        fetchedQuestions.push(...fetchRandomQuestions(chemistry, questionsPerSubject));
+                        break;
+                    case 'mathematics':
+                        fetchedQuestions.push(...fetchRandomQuestions(mathematics, questionsPerSubject));
+                        break;
+                    case 'english':
+                        fetchedQuestions.push(...fetchRandomQuestions(english, questionsPerSubject));
+                        break;
+                    case 'current-affairs':
+                        fetchedQuestions.push(...fetchRandomQuestions(currentAffairs, questionsPerSubject));
+                        break;
+                    default:
+                        console.warn(`Unknown subject: ${subject}`);
+                }
+            });
+
+            // Shuffle all questions and limit them to the desired total count
+            const shuffledQuestions = fetchedQuestions.sort(() => Math.random() - 0.5).slice(0, totalQuestions);
+
+            setCurrentQuestions(shuffledQuestions);
+        }
     }, []);
 
 
