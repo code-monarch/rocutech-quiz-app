@@ -11,7 +11,7 @@ import { chemistry } from '@/lib/questions/chemistry'
 import { mathematics } from '@/lib/questions/mathematics'
 import { english } from '@/lib/questions/english'
 import { currentAffairs } from '@/lib/questions/current-affairs'
-import { CREATE_QUIZ_ROUTES } from '@/lib/routes'
+import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
 
 interface School {
     name: string
@@ -44,14 +44,6 @@ export default function QuizTemp() {
     console.log("SELECTED OPTION: ", selectedOption)
     const [timeLeft, setTimeLeft] = useState(300); // 5:00 in seconds
     const [currentQuestions, setCurrentQuestions] = useState<IQuestion[]>([]);
-
-    const schools: School[] = [
-        { name: "Rainbow School (Nilda Banks)", points: 2000 },
-        { name: "British Oasis School (Tyler Nick)", points: 1855 },
-        { name: "Start Rite School (Dora Lucas)", points: 1530 },
-        { name: "British Spring Academy (Zack Stephan)", points: 1200 },
-        { name: "Preinoire Academy (Steven Mike)", points: 1040 }
-    ]
 
     // Timer
     useEffect(() => {
@@ -138,7 +130,8 @@ export default function QuizTemp() {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
         } else {
             console.log("Quiz completed!");
-            // navigate to a results page or show a summary.
+            // navigate to participants page
+            push(APP_ROUTES.participants)
         }
     };
 
@@ -219,7 +212,7 @@ export default function QuizTemp() {
                 </CardFooter>
             </Card>
 
-            <div className="mt-6 grid grid-cols-2 md:grid-cols-5 gap-4">
+            {/* <div className="mt-6 grid grid-cols-2 md:grid-cols-5 gap-4">
                 {schools.map((school, index) => (
                     <div key={index} className="text-center space-y-1">
                         <div className="text-xs text-muted-foreground whitespace-nowrap overflow-hidden text-ellipsis">
@@ -228,7 +221,7 @@ export default function QuizTemp() {
                         <div className="text-xs font-medium">{school.points} Points</div>
                     </div>
                 ))}
-            </div>
+            </div> */}
         </div>
     );
 }

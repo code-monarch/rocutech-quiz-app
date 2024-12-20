@@ -11,7 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from 'next/navigation'
-import { CREATE_QUIZ_ROUTES } from '@/lib/routes'
+import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
 import { SELECTED_SUBJECTS } from '@/lib/constants'
 
 
@@ -37,8 +37,11 @@ const SelectSubjectsTemp = () => {
         formState: { errors, isDirty },
     } = form
 
+    console.log("ERRORS: ", errors)
+
     const onSubmit = ({ subjects }: z.infer<typeof FormSchema>) => {
         localStorage.setItem(SELECTED_SUBJECTS, JSON.stringify(subjects))
+        push(CREATE_QUIZ_ROUTES.addQuestions)
     }
     return (
         <TemplatePanel className='pt-7 px-7'>

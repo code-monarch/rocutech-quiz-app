@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import TemplatePanel from "../atoms/template-panel"
 import TemplateHeader from "../atoms/template-header"
 import SelectParticipantsHeader from "../molecules/select-participants-header"
-import { schools } from "@/lib/data"
 import { useRouter } from "next/navigation"
 import { CREATE_QUIZ_ROUTES } from "@/lib/routes"
 import { useToast } from "@/hooks/use-toast"
@@ -19,11 +18,13 @@ export const studentSchema = z.string()
 export const schoolSchema = z.object({
     name: z.string(),
     points: z.string(),
-    students: z.array(studentSchema)
+    students: z.array(z.object({
+        name: z.string(),
+        points: z.string()
+    }))
 })
 
 export type School = z.infer<typeof schoolSchema>
-
 
 const formSchema = z.object({
     selectedStudents: z.array(z.string())
@@ -31,14 +32,13 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>
 
-
 export default function SelectParticipantsTemp() {
     const { push } = useRouter()
-
     const { toast } = useToast()
-    const [expandedSchools, setExpandedSchools] = React.useState<Set<string>>(new Set(['School 1']))
+
+    const [schools, setSchools] = React.useState<School[]>([])
+    const [expandedSchools, setExpandedSchools] = React.useState<Set<string>>(new Set())
     const [selectedStudentsSet, setSelectedStudentsSet] = React.useState<Set<string>>(() => {
-        // Initialize from localStorage if available
         if (typeof window !== 'undefined') {
             const saved = localStorage.getItem(SELECTED_STUDENTS)
             return saved ? new Set(JSON.parse(saved)) : new Set()
@@ -46,10 +46,18 @@ export default function SelectParticipantsTemp() {
         return new Set()
     })
 
-    // Log the selected students set whenever it changes
+    // Fetch participants from localStorage on mount
     React.useEffect(() => {
-        console.log('Selected Students Set:', Array.from(selectedStudentsSet))
-    }, [selectedStudentsSet])
+        const storedSchools = localStorage.getItem("participants")
+        if (storedSchools) {
+            try {
+                const parsedSchools: School[] = JSON.parse(storedSchools)
+                setSchools(parsedSchools)
+            } catch (error) {
+                console.error("Error parsing participants from localStorage:", error)
+            }
+        }
+    }, [])
 
     const toggleSchool = (schoolName: string) => {
         setExpandedSchools(prev => {
@@ -63,13 +71,13 @@ export default function SelectParticipantsTemp() {
         })
     }
 
-    const getStudentId = (schoolName: string, student: string) => {
-        return `${schoolName}-${student}`
+    const getStudentId = (schoolName: string, studentName: string) => {
+        return `${schoolName}-${studentName}`
     }
 
     const toggleAllStudentsInSchool = (school: School, checked: boolean) => {
         const schoolStudentIds = school.students.map(student =>
-            getStudentId(school.name, student)
+            getStudentId(school.name, student.name)
         )
 
         setSelectedStudentsSet(prev => {
@@ -83,8 +91,8 @@ export default function SelectParticipantsTemp() {
         })
     }
 
-    const toggleStudent = (schoolName: string, student: string, checked: boolean) => {
-        const studentId = getStudentId(schoolName, student)
+    const toggleStudent = (schoolName: string, studentName: string, checked: boolean) => {
+        const studentId = getStudentId(schoolName, studentName)
         setSelectedStudentsSet(prev => {
             const next = new Set(prev)
             if (checked) {
@@ -98,13 +106,13 @@ export default function SelectParticipantsTemp() {
 
     const isSchoolFullySelected = (school: School) => {
         return school.students.every(student =>
-            selectedStudentsSet.has(getStudentId(school.name, student))
+            selectedStudentsSet.has(getStudentId(school.name, student.name))
         )
     }
 
     const isSchoolPartiallySelected = (school: School) => {
         return school.students.some(student =>
-            selectedStudentsSet.has(getStudentId(school.name, student))
+            selectedStudentsSet.has(getStudentId(school.name, student.name))
         )
     }
 
@@ -181,16 +189,16 @@ export default function SelectParticipantsTemp() {
                                         <div className="pl-10 border-t transition-all duration-200 ease-in-out">
                                             {school.students.map((student) => (
                                                 <label
-                                                    key={getStudentId(school.name, student)}
+                                                    key={getStudentId(school.name, student.name)}
                                                     className="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors duration-200 ease-in-out"
                                                 >
                                                     <Checkbox
-                                                        checked={selectedStudentsSet.has(getStudentId(school.name, student))}
+                                                        checked={selectedStudentsSet.has(getStudentId(school.name, student.name))}
                                                         onCheckedChange={(checked) => {
-                                                            toggleStudent(school.name, student, checked as boolean)
+                                                            toggleStudent(school.name, student.name, checked as boolean)
                                                         }}
                                                     />
-                                                    <span className="text-sm">{student}</span>
+                                                    <span className="text-sm">{student.name}</span>
                                                 </label>
                                             ))}
                                         </div>
@@ -207,4 +215,3 @@ export default function SelectParticipantsTemp() {
         </TemplatePanel>
     )
 }
-
