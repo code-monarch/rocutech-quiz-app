@@ -19,66 +19,45 @@ import {
     TableRow,
 } from "@/components/ui/table"
 
-// Define the School and Participant types
-export type School = {
-    schoolName: string
-    ranking: number
-}
-
-type Participant = {
+// Define the Student type
+export type Student = {
     id: number
     studentName: string
     schoolName: string
     points: number
 }
 
-export const columns: ColumnDef<School>[] = [
+export const columns: ColumnDef<Student>[] = [
+    // Student Name
+    {
+        accessorKey: "studentName",
+        header: "Student Name",
+        cell: ({ row }) => <div className="capitalize">{row.getValue("studentName")}</div>,
+    },
+
     // School Name
     {
         accessorKey: "schoolName",
         header: "School Name",
-        cell: ({ row }) => (
-            <div className="capitalize">{row.getValue("schoolName")}</div>
-        ),
+        cell: ({ row }) => <div className="capitalize">{row.getValue("schoolName")}</div>,
     },
 
-    // Ranking
+    // Points
     {
-        accessorKey: "ranking",
-        header: () => <div>Ranking</div>,
-        cell: ({ row }) => <div className="lowercase font-semibold">{row.getValue("ranking")} Points</div>
+        accessorKey: "points",
+        header: "Points",
+        cell: ({ row }) => <div className="font-semibold">{row.getValue("points")} Points</div>,
     },
 ]
 
-export const SchoolsTable = () => {
+export const StudentsTable = () => {
     const [sorting, setSorting] = React.useState<SortingState>([])
 
     // Get participants from localStorage
-    const participants: Participant[] = JSON.parse(localStorage.getItem("participants") || "[]");
-
-    // Aggregate points by school
-    const schoolPoints: Record<string, School> = participants.reduce((acc, participant) => {
-        const { schoolName, points } = participant;
-
-        // If the school already exists in the accumulator, add the points to the appropriate field
-        if (!acc[schoolName]) {
-            acc[schoolName] = {
-                schoolName,
-                ranking: 0,
-            }
-        }
-
-        // Sum all points for each school
-        acc[schoolName].ranking += points;
-
-        return acc;
-    }, {} as Record<string, School>);
-
-    // Convert the aggregated school points to an array for the table
-    const data = Object.values(schoolPoints);
+    const participants: Student[] = JSON.parse(localStorage.getItem("participants") || "[]");
 
     const table = useReactTable({
-        data,
+        data: participants,
         columns,
         onSortingChange: setSorting,
         getCoreRowModel: getCoreRowModel(),
@@ -87,7 +66,7 @@ export const SchoolsTable = () => {
         state: {
             sorting,
         },
-    });
+    })
 
     return (
         <div className="w-full">
@@ -138,5 +117,5 @@ export const SchoolsTable = () => {
                 </TableBody>
             </Table>
         </div>
-    );
+    )
 }

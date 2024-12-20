@@ -15,7 +15,7 @@ const QuizSummaryTemp = () => {
     const [participantsSelected, setParticipantsSelected] = useState<string[]>([]);
 
     console.log("PARTICIPANTS: ", participantsSelected)
-    console.log("SUBJECTS: ", selectedSubjects)
+    console.log("SUBJECTS: ", typeof selectedSubjects)
     console.log("Type of subjects: ", typeof selectedSubjects)
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const QuizSummaryTemp = () => {
         const participants = localStorage.getItem(SELECTED_STUDENTS);
 
 
-        if (subjects) setSelectedSubjects(JSON.parse(subjects));
+        if (subjects) setSelectedSubjects(JSON.parse(subjects) as string[]);
         if (questions) setNumberOfQuestions(Number(questions));
         if (participants) setParticipantsSelected(JSON.parse(participants));
     }, []);
@@ -47,9 +47,10 @@ const QuizSummaryTemp = () => {
                 <div className='space-y-[16px]'>
                     <h5 className='text-[#434040] text-lg font-medium'>Subject(s) Selected</h5>
                     <p className='text-xl font-semibold flex items-center gap-2'>
-                        {selectedSubjects.map((subject, idx) => (
+                        {selectedSubjects?.map((subject, idx) => (
                             <span key={idx} className='inline-flex capitalize'>{subject}{selectedSubjects?.indexOf(subject) !== selectedSubjects.length - 1 ? "," : ""}</span>
-                        )) ?? 'No subject selected'}</p>
+                        )) ?? "No Subject Selected"}
+                    </p>
                 </div>
 
                 {/* Number of Questions */}

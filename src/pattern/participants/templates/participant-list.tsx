@@ -1,54 +1,197 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+'use client'
 
-interface Participant {
-    name: string
-    school: string
-    points: number
-}
+import * as React from "react"
+import {
+    useReactTable,
+    ColumnDef,
+    flexRender,
+    getCoreRowModel,
+    getPaginationRowModel,
+    getSortedRowModel,
+    SortingState
+} from "@tanstack/react-table"
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow
+} from "@/components/ui/table"
+import { z } from "zod"
+import { useToast } from "@/hooks/use-toast"
+import { EditParticipantDetailsDialog } from "../organisms/edit-participant-details-dialog"
+import { Button } from "@/components/ui/button"
+import { AddParticipantsModal } from "../organisms/add-participants-dialog"
+
+export const participantSchema = z.object({
+    id: z.number(),
+    studentName: z.string().min(1, "Student name is required"),
+    schoolName: z.string().min(1, "School name is required"),
+    points: z.string().min(0, "Points must be 0 or greater")
+})
+
+export type Participant = z.infer<typeof participantSchema>
 
 export default function ParticipantList() {
-    // Generate sample data
-    const participants: Participant[] = Array.from({ length: 234 }, () => ({
-        school: "School 1",
-        name: "Student one sc1",
-        points: 0
-    }))
+    const { toast } = useToast()
+    const [participants, setParticipants] = React.useState<Participant[]>([])
+
+    // Transform and set participants from localStorage
+    React.useEffect(() => {
+        const saved = localStorage.getItem("participants")
+        if (saved) {
+            const rawData = JSON.parse(saved)
+            const transformedData: Participant[] = rawData.flatMap((school: any, index: number) =>
+                school.students.map((student: any, studentIndex: number) => ({
+                    id: index * 100 + studentIndex + 1, // Generate unique IDs
+                    studentName: student.name,
+                    schoolName: school.name,
+                    points: student.points
+                }))
+            )
+            setParticipants(transformedData)
+        }
+    }, [])
+
+    const [selectedParticipant, setSelectedParticipant] = React.useState<Participant | null>(null)
+    const [dialogOpen, setDialogOpen] = React.useState(false)
+
+    // // Save to localStorage whenever participants change
+    // React.useEffect(() => {
+    //     const groupedData = participants.reduce((acc: any[], participant) => {
+    //         const school = acc.find((s) => s.name === participant.schoolName)
+    //         if (!school) {
+    //             acc.push({
+    //                 name: participant.schoolName,
+    //                 points: "0",
+    //                 students: [{ name: participant.studentName, points: participant.points.toString() }]
+    //             })
+    //         } else {
+    //             school.students.push({
+    //                 name: participant.studentName,
+    //                 points: participant.points.toString()
+    //             })
+    //         }
+    //         return acc
+    //     }, [])
+    //     localStorage.setItem("participants", JSON.stringify(groupedData))
+    // }, [participants])
+
+    const handleSave = (updatedParticipant: Participant) => {
+        setParticipants((prev) =>
+            prev.map((p) => (p.id === updatedParticipant.id ? updatedParticipant : p))
+        )
+        toast({
+            title: "Success",
+            description: "Participant information updated successfully."
+        })
+    }
+
+    // Define the columns for the react-table
+    const columns: ColumnDef<Participant>[] = React.useMemo(
+        () => [
+            {
+                accessorKey: "id",
+                header: "#"
+            },
+            {
+                accessorKey: "studentName",
+                header: "Student Name"
+            },
+            {
+                accessorKey: "schoolName",
+                header: "School Name"
+            },
+            {
+                accessorKey: "points",
+                header: "Points",
+                cell: ({ row }) => `${row.getValue("points")} Points`
+            },
+            {
+                id: "actions",
+                header: "Actions",
+                cell: ({ row }) => (
+                    <Button
+                        variant="link"
+                        onClick={(e) => {
+                            e.stopPropagation()
+                            setSelectedParticipant(row.original)
+                            setDialogOpen(true)
+                        }}
+                    >
+                        Edit
+                    </Button>
+                )
+            }
+        ],
+        []
+    )
+
+    const [sorting, setSorting] = React.useState<SortingState>([])
+
+    const table = useReactTable({
+        data: participants,
+        columns,
+        state: {
+            sorting
+        },
+        onSortingChange: setSorting,
+        getCoreRowModel: getCoreRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        getPaginationRowModel: getPaginationRowModel()
+    })
 
     return (
-        <div className="max-w-5xl mx-auto p-4">
-            <div className="flex items-center gap-2 mb-6">
-                <h1 className="text-xl font-semibold">Participant List</h1>
-                <span className="text-sm text-muted-foreground">({participants.length})</span>
+        <div className="container mx-auto pb-10 space-y-6">
+            <div className="w-full flex items-center justify-between">
+                <h4 className="text-2xl font-semibold">Participants</h4>
+                {participants.length === 0 ? <AddParticipantsModal /> : ""}
             </div>
-
-            <div className="border rounded-lg">
-                <Table>
+            <div>
+                <Table className="bg-white rounded-md border">
                     <TableHeader>
-                        <TableRow>
-                            <TableHead className="w-[200px]">Student Name</TableHead>
-                            <TableHead className="w-[300px]">School Name</TableHead>
-                            <TableHead className="text-right">Points Game</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {participants.map((participant, index) => (
-                            <TableRow key={index}>
-                                <TableCell>
-                                    <div className="flex items-center gap-2">
-                                        <span>{index + 1}.</span>
-                                        <span>{participant.name}</span>
-                                    </div>
-                                </TableCell>
-                                <TableCell>{participant.school}</TableCell>
-                                <TableCell className="text-right font-medium">
-                                    {participant.points} Points
-                                </TableCell>
+                        {table.getHeaderGroups().map((headerGroup) => (
+                            <TableRow key={headerGroup.id}>
+                                {headerGroup.headers.map((header) => (
+                                    <TableHead key={header.id}>
+                                        {header.isPlaceholder
+                                            ? null
+                                            : flexRender(header.column.columnDef.header, header.getContext())}
+                                    </TableHead>
+                                ))}
                             </TableRow>
                         ))}
+                    </TableHeader>
+                    <TableBody>
+                        {table.getRowModel().rows.length ? (
+                            table.getRowModel().rows.map((row) => (
+                                <TableRow key={row.id}>
+                                    {row.getVisibleCells().map((cell) => (
+                                        <TableCell key={cell.id}>
+                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                        </TableCell>
+                                    ))}
+                                </TableRow>
+                            ))
+                        ) : (
+                            <TableRow>
+                                <TableCell colSpan={columns.length} className="h-24 text-center">
+                                    No results.
+                                </TableCell>
+                            </TableRow>
+                        )}
                     </TableBody>
                 </Table>
             </div>
+
+            <EditParticipantDetailsDialog
+                participant={selectedParticipant}
+                open={dialogOpen}
+                onOpenChange={setDialogOpen}
+                onSave={handleSave}
+                schools={participants}
+            />
         </div>
     )
 }
-

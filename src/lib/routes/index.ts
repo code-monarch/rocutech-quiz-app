@@ -3,6 +3,7 @@ export const APP_ROUTES = {
     dashboard: "/dashboard",
     participants: "/participants",
     signIn: "/sign-in",
+    addParticipants: "/add-participants",
 };
 
 export const CREATE_QUIZ_ROUTES = {
@@ -19,9 +20,9 @@ export const CREATE_QUIZ_ROUTES = {
 };
 
 export const QUIZ_ROUTES = {
-    mathematics: "/create-quiz/select-subjects?subject=mathematics",
-    english: "/create-quiz/select-subjects?subject=english",
-    physics: "/create-quiz/select-subjects?subject=physics",
-    chemistry: "/create-quiz/select-subjects?subject=chemistry",
-    currentAffairs: "/create-quiz/select-subjects?subject=currentAffairs",
+    mathematics: "/create-quiz/add-questions?subject=mathematics",
+    english: "/create-quiz/add-questions?subject=english",
+    physics: "/create-quiz/add-questions?subject=physics",
+    chemistry: "/create-quiz/add-questions?subject=chemistry",
+    currentAffairs: "/create-quiz/add-questions?subject=currentAffairs",
 };

@@ -3,6 +3,7 @@
 import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { SchoolsTable } from '../organisms/schools-table'
+import { StudentsTable } from '../organisms/students-table'
 
 const ScoreBoard = () => {
     return (
@@ -16,7 +17,7 @@ const ScoreBoard = () => {
                     <SchoolsTable />
                 </TabsContent>
                 <TabsContent value="student">
-                    <SchoolsTable />
+                    <StudentsTable />
                 </TabsContent>
             </Tabs>
         </div>

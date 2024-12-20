@@ -9,7 +9,6 @@ import {
     SidebarContent,
     SidebarGroup,
     SidebarGroupContent,
-    SidebarGroupLabel,
     SidebarHeader,
     SidebarMenu,
     SidebarMenuButton,
@@ -33,11 +32,11 @@ const items = [
         url: CREATE_QUIZ_ROUTES.createQuiz,
         icon: <CreateQuizNavIcon />,
     },
-    // {
-    //     title: "Participants",
-    //     url: APP_ROUTES.participants,
-    //     icon: <ParticipantsNavIcon />,
-    // }
+    {
+        title: "Participants",
+        url: APP_ROUTES.participants,
+        icon: <ParticipantsNavIcon />,
+    }
 ]
 
 export function AppSidebar() {

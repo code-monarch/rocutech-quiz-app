@@ -36,7 +36,7 @@ const SignInTemp = () => {
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
     console.log("Passcode accepted:", data.passcode);
-    push(APP_ROUTES.dashboard)
+    push(APP_ROUTES.addParticipants)
   };
 
   return (

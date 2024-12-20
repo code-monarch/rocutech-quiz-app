@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { X, ChevronRight, Clock } from 'lucide-react'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { SELECTED_STUDENTS } from '@/lib/constants'
 import { IQuestion, physics } from '@/lib/questions/physics'
 import { chemistry } from '@/lib/questions/chemistry'
 import { mathematics } from '@/lib/questions/mathematics'
 import { english } from '@/lib/questions/english'
 import { currentAffairs } from '@/lib/questions/current-affairs'
+import { CREATE_QUIZ_ROUTES } from '@/lib/routes'
 
 interface School {
     name: string
@@ -24,6 +25,7 @@ interface IFetchedQuestions {
 }
 
 export default function QuizTemp() {
+    const { push } = useRouter()
 
     const searchParams = useSearchParams()
 
@@ -205,8 +207,12 @@ export default function QuizTemp() {
                         </div>
                     )}
                 </CardContent>
-                <CardFooter className="flex justify-end pt-6">
-                    <Button size="lg" onClick={handleNextQuestion}>
+                <CardFooter className="w-full flex justify-between pt-6">
+                    <Button size="lg" variant="outline" onClick={() => push(CREATE_QUIZ_ROUTES.createQuiz)}>
+                        Cancel quiz
+                    </Button>
+
+                    <Button size="lg" onClick={handleNextQuestion} disabled={selectedOption === null}>
                         Next Question
                         <ChevronRight className="h-4 w-4" />
                     </Button>

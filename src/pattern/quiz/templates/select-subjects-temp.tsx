@@ -39,7 +39,6 @@ const SelectSubjectsTemp = () => {
 
     const onSubmit = ({ subjects }: z.infer<typeof FormSchema>) => {
         localStorage.setItem(SELECTED_SUBJECTS, JSON.stringify(subjects))
-        push(CREATE_QUIZ_ROUTES.addQuestions)
     }
     return (
         <TemplatePanel className='pt-7 px-7'>
