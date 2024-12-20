@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { raleway } from "./fonts";
+import { rubik } from "./fonts";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${raleway.variable}, antialiased relative bg-background box-border min-h-screen h-full p-0 m-0`}
+        className={`${rubik.variable}, font-rubik antialiased relative bg-background box-border min-h-screen h-full p-0 m-0`}
       >
         <div className="w-full bg-background">
           {children}

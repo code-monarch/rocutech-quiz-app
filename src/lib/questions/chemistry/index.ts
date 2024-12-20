@@ -1,4 +1,6 @@
-const chemistryQuestion = [
+import { IQuestion } from "../physics";
+
+export const chemistry: IQuestion[] = [
     {
         "question": "Which subatomic particle has a negative charge?",
         "options": ["A) Proton", "B) Neutron", "C) Electron", "D) Nucleus"],

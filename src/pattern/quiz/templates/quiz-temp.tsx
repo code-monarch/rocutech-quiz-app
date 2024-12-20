@@ -4,15 +4,44 @@ import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { X, ChevronRight, Clock } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
+import { SELECTED_STUDENTS } from '@/lib/constants'
+import { IQuestion, physics } from '@/lib/questions/physics'
+import { chemistry } from '@/lib/questions/chemistry'
+import { mathematics } from '@/lib/questions/mathematics'
+import { english } from '@/lib/questions/english'
+import { currentAffairs } from '@/lib/questions/current-affairs'
 
 interface School {
     name: string
     points: number
 }
+interface IFetchedQuestions {
+    question: string;
+    options: string[];
+    correctAnswer: string;
+    explanation?: string
+}
 
 export default function QuizTemp() {
-    const [selectedOption, setSelectedOption] = useState<string | null>('C')
-    const [timeLeft, setTimeLeft] = useState(114) // 1:54 in seconds
+
+    const searchParams = useSearchParams()
+
+    // Participants
+    const participants = localStorage.getItem(SELECTED_STUDENTS) || '';
+
+    const subjectsParam = searchParams.get('subjects');
+
+    const subjects = subjectsParam ? subjectsParam.includes(',') ? subjectsParam.split(',').map(subject => subject.trim()) : [subjectsParam] : [];
+
+    const questionsParam = searchParams.get('questions');
+    const totalQuestions = questionsParam ? parseInt(questionsParam, 10) : 10;
+
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+    console.log("SELECTED OPTION: ", selectedOption)
+    const [timeLeft, setTimeLeft] = useState(300); // 5:00 in seconds
+    const [currentQuestions, setCurrentQuestions] = useState<IQuestion[]>([]);
 
     const schools: School[] = [
         { name: "Rainbow School (Nilda Banks)", points: 2000 },
@@ -22,72 +51,167 @@ export default function QuizTemp() {
         { name: "Preinoire Academy (Steven Mike)", points: 1040 }
     ]
 
+    // Timer
     useEffect(() => {
         const timer = setInterval(() => {
-            setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0))
-        }, 1000)
+            setTimeLeft((prev) => {
+                if (prev > 0) {
+                    return prev - 1;
+                } else {
+                    // Reveal the correct answer when timer reaches 0
+                    if (currentQuestions[currentQuestionIndex]) {
+                        setSelectedOption(currentQuestions[currentQuestionIndex].correctAnswer);
+                    }
+                    clearInterval(timer);
 
-        return () => clearInterval(timer)
-    }, [])
+                    // Automatically move to the next question after 10 seconds
+                    setTimeout(() => {
+                        handleNextQuestion();
+                    }, 10000);
+
+                    return 0;
+                }
+            });
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [currentQuestions, currentQuestionIndex]);
+
+
+
+    // Fetch questions based on subjects
+    useEffect(() => {
+        const fetchedQuestions: IQuestion[] = [];
+
+        // Function to randomly fetch a subset of questions
+        const fetchRandomQuestions = (questionsArray: IQuestion[], count: number): IQuestion[] => {
+            const totalQuestions = questionsArray.length;
+            if (totalQuestions === 0) return [];
+
+            const startIndex = Math.floor(Math.random() * totalQuestions);
+            const questionsSubset: IQuestion[] = [];
+
+            for (let i = 0; i < count; i++) {
+                questionsSubset.push(questionsArray[(startIndex + i) % totalQuestions]);
+            }
+
+            return questionsSubset;
+        };
+
+        subjects.forEach((subject) => {
+            switch (subject.toLowerCase()) {
+                case 'physics':
+                    fetchedQuestions.push(...fetchRandomQuestions(physics, totalQuestions));
+                    break;
+                case 'chemistry':
+                    fetchedQuestions.push(...fetchRandomQuestions(chemistry, totalQuestions));
+                    break;
+                case 'mathematics':
+                    fetchedQuestions.push(...fetchRandomQuestions(mathematics, totalQuestions));
+                    break;
+                case 'english':
+                    fetchedQuestions.push(...fetchRandomQuestions(english, totalQuestions));
+                    break;
+                case 'current-affairs':
+                    fetchedQuestions.push(...fetchRandomQuestions(currentAffairs, totalQuestions));
+                    break;
+                default:
+                    console.warn(`Unknown subject: ${subject}`);
+            }
+        });
+
+        // Limit the fetched questions to the desired total count
+        setCurrentQuestions(fetchedQuestions.slice(0, totalQuestions));
+    }, []);
+
 
     const formatTime = (seconds: number) => {
-        const minutes = Math.floor(seconds / 60)
-        const remainingSeconds = seconds % 60
-        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`
-    }
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+    };
+
+    // Handle moving to the next question
+    const handleNextQuestion = () => {
+        setSelectedOption(null); // Reset selected option
+        setTimeLeft(300); // Reset timer to 5:00
+        if (currentQuestionIndex < currentQuestions.length - 1) {
+            setCurrentQuestionIndex(currentQuestionIndex + 1);
+        } else {
+            console.log("Quiz completed!");
+            // navigate to a results page or show a summary.
+        }
+    };
 
     return (
         <div className="max-w-4xl mx-auto p-4">
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-7">
-                    <CardTitle className="text-xl font-bold">Current Affairs Quiz</CardTitle>
+                    <CardTitle className="text-xl font-bold capitalize">
+                        {subjects.join(', ')}
+                    </CardTitle>
                     <div className="flex items-center gap-6">
                         <div className="flex items-center gap-2">
                             <Clock className="h-4 w-4" />
                             <span className="text-sm font-medium">{formatTime(timeLeft)}</span>
                         </div>
+
+                        {/* Question */}
                         <div className="text-sm text-muted-foreground">
-                            Question <span className="font-medium">1</span> of <span className="font-medium">50</span>
+                            Question <span className="font-medium">{currentQuestionIndex + 1}</span> of <span className="font-medium">{currentQuestions.length}</span>
                         </div>
-                        <Button variant="ghost" size="icon">
+
+                        {/* <Button variant="ghost" size="icon">
                             <X className="h-4 w-4" />
-                        </Button>
+                        </Button> */}
                     </div>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-6 transition-all duration-300">
                     <div className="text-lg font-medium">
-                        Being Obliged to break confidentiality in a therapeutic relationship is always a direct results of the law
+                        {currentQuestions[currentQuestionIndex]?.question || "No questions available"}
                     </div>
 
                     <div className="space-y-3">
                         <p className="text-sm text-muted-foreground mb-4">Select one option</p>
-                        {['A', 'B', 'C', 'D'].map((option) => (
+                        {currentQuestions[currentQuestionIndex]?.options?.map?.((option) => (
                             <div
                                 key={option}
-                                className={`p-4 rounded-lg border transition-colors cursor-pointer
-                  ${selectedOption === option
-                                        ? 'border-green-500 bg-green-500 bg-opacity-10 text-green-600'
-                                        : 'hover:border-gray-400'}`}
+                                className={`p-4 rounded-lg border transition-colors duration-300 cursor-pointer
+                                ${selectedOption === option
+                                        ? (option[0] === currentQuestions[currentQuestionIndex]?.correctAnswer[0]
+                                            ? 'border-green-500 bg-green-500 bg-opacity-10 text-green-600'
+                                            : 'border-red-500 bg-red-500 bg-opacity-10 text-red-600')
+                                        : 'bg-white text-black hover:border-gray-400'}`}
                                 onClick={() => setSelectedOption(option)}
                             >
-                                Option {option}
+                                {option}
                             </div>
                         ))}
                     </div>
 
                     {selectedOption && (
-                        <div className="mt-6 space-y-3">
+                        <div className="mt-6 space-y-3 transition-all duration-300">
                             <div className="text-sm font-medium">Solution</div>
                             <div className="p-4 rounded-lg border border-green-500">
-                                <div className="text-green-500 font-medium">Correct Answer</div>
+                                <div className="text-green-500 font-medium">Correct Answer: {currentQuestions[currentQuestionIndex]?.correctAnswer}</div>
                             </div>
+
+                            {/* Explanation */}
+                            {
+                                currentQuestions[currentQuestionIndex]?.explanation ? (
+                                    <div className='flex items-start text-black transition-all duration-300'>
+                                        <span className='font-medium'>Explanation: </span>
+                                        <p className='ml-2'>{currentQuestions[currentQuestionIndex]?.explanation}</p>
+                                    </div>
+                                ) : ""
+                            }
                         </div>
                     )}
                 </CardContent>
                 <CardFooter className="flex justify-end pt-6">
-                    <Button className="bg-blue-500 hover:bg-blue-600">
+                    <Button size="lg" onClick={handleNextQuestion}>
                         Next Question
-                        <ChevronRight className="ml-2 h-4 w-4" />
+                        <ChevronRight className="h-4 w-4" />
                     </Button>
                 </CardFooter>
             </Card>
@@ -103,6 +227,5 @@ export default function QuizTemp() {
                 ))}
             </div>
         </div>
-    )
+    );
 }
-

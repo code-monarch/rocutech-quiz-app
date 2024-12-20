@@ -1,4 +1,11 @@
-const physicsQuizQuestions = [
+export interface IQuestion {
+    question: string;
+    options: string[];
+    correctAnswer: string;
+    explanation?: string;
+}
+
+export const physics: IQuestion[] = [
     {
         question: "Which of the following units is used to measure electrical resistance?",
         options: ["A) Ampere", "B) Volt", "C) Ohm", "D) Watt"],

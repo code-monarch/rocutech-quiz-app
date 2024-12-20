@@ -33,18 +33,18 @@ const items = [
         url: CREATE_QUIZ_ROUTES.createQuiz,
         icon: <CreateQuizNavIcon />,
     },
-    {
-        title: "Participants",
-        url: APP_ROUTES.participants,
-        icon: <ParticipantsNavIcon />,
-    }
+    // {
+    //     title: "Participants",
+    //     url: APP_ROUTES.participants,
+    //     icon: <ParticipantsNavIcon />,
+    // }
 ]
 
 export function AppSidebar() {
     const pathname = usePathname()
 
     return (
-        <Sidebar collapsible="none">
+        <Sidebar collapsible="none" className="font-rubik">
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>

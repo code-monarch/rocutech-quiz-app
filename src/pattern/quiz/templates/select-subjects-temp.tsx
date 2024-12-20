@@ -70,14 +70,14 @@ const SelectSubjectsTemp = () => {
                                                                 ? field.onChange([...field.value, value])
                                                                 : field.onChange(
                                                                     field.value?.filter(
-                                                                        (value) => value !== value
+                                                                        (v) => v !== value
                                                                     )
                                                                 )
                                                         }}
                                                     />
                                                 </FormControl>
 
-                                                <FormLabel className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer">
+                                                <FormLabel className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer">
                                                     {label}
                                                 </FormLabel>
                                             </FormItem>

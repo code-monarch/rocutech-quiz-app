@@ -1,4 +1,6 @@
-[
+import { IQuestion } from "../physics";
+
+export const currentAffairs: IQuestion[] = [
     {
         "question": "What does WAEC stand for?",
         "options": [

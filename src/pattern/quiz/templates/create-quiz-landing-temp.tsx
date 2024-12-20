@@ -15,10 +15,10 @@ const CreateQuizLandingTemp = () => {
             <>
                 <PageIllustration />
                 <div className='flex flex-col items-center gap-[9px]'>
-                    <h3 className='max-w-[297px] text-xl text-center font-bold'>Welcome to your Personalized Quiz</h3>
+                    <h3 className='max-w-[497px] text-2xl text-center font-bold'>Welcome to your Personalized Quiz</h3>
                     <p className='max-w-[410px] text-base text-center font-normal'>Are you ready to start exploring your knowledge in vast subject</p>
                 </div>
-                <Button onClick={() => push(CREATE_QUIZ_ROUTES.selectSubjects)}>Create a Quiz</Button>
+                <Button size="lg" onClick={() => push(CREATE_QUIZ_ROUTES.selectSubjects)}>Create a Quiz</Button>
             </>
         </TemplatePanel>
     )

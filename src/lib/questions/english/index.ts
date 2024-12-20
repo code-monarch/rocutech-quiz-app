@@ -1,4 +1,6 @@
-const EnglishQuestions = [
+import { IQuestion } from "../physics";
+
+export const english: IQuestion[] = [
     {
         "question": "What part of speech is the word 'under' in 'The cat is under the table'?",
         "options": [
@@ -3300,112 +3302,112 @@ const EnglishQuestions = [
     },
     {
         "question": "In how many ways can 20 identical balls be distributed into 4 distinct boxes?",
-        "options": {
-            "A": "1771",
-            "B": "1681",
-            "C": "1861",
-            "D": "1551"
-        },
-        "correct": "A",
+        "options": [
+            "A) 1771",
+            "B) 1681",
+            "C) 1861",
+            "D) 1551"
+        ],
+        "correctAnswer": "A",
         "explanation": "Using stars and bars formula: ¹⁹C₃ = 1771"
     },
     {
         "question": "Find the area of a triangle formed by the tangent at any point on the parabola y = x² and the coordinate axes",
-        "options": {
-            "A": "2 square units",
-            "B": "4 square units",
-            "C": "3 square units",
-            "D": "1 square unit"
-        },
-        "correct": "A",
+        "options": [
+            "A) 2 square units",
+            "B) 4 square units",
+            "C) 3 square units",
+            "D) 1 square unit"
+        ],
+        "correctAnswer": "A",
         "explanation": "Area is constant regardless of point chosen = 2"
     },
     {
         "question": "If the sum of n terms of an A.P. is n² + 2n, find the common difference",
-        "options": {
-            "A": "2",
-            "B": "3",
-            "C": "4",
-            "D": "1"
-        },
-        "correct": "A",
+        "options": [
+            "A) 2",
+            "B) 3",
+            "C) 4",
+            "D) 1"
+        ],
+        "correctAnswer": "A",
         "explanation": "Compare with standard form Sn = n/2[2a + (n-1)d]"
     },
     {
         "question": "Calculate the volume of a torus with major radius 5cm and minor radius 2cm",
-        "options": {
-            "A": "157.08 π cm³",
-            "B": "167.08 π cm³",
-            "C": "147.08 π cm³",
-            "D": "177.08 π cm³"
-        },
-        "correct": "A",
+        "options": [
+            "A) 157.08 π cm³",
+            "B) 167.08 π cm³",
+            "C) 147.08 π cm³",
+            "D) 177.08 π cm³"
+        ],
+        "correctAnswer": "A",
         "explanation": "V = 2π²R r² = 2π² × 5 × 4 = 157.08π"
     },
     {
         "question": "What is the probability that a randomly selected divisor of 900 is odd?",
-        "options": {
-            "A": "1/4",
-            "B": "1/3",
-            "C": "1/2",
-            "D": "2/5"
-        },
-        "correct": "A",
+        "options": [
+            "A) 1/4",
+            "B) 1/3",
+            "C) 1/2",
+            "D) 2/5"
+        ],
+        "correctAnswer": "A",
         "explanation": "Count odd divisors and total divisors of 900 = 900 = 2² × 3² × 5²"
     },
     {
         "question": "Find the area between the curves y = sin x and y = cos x from x = 0 to x = π/4",
-        "options": {
-            "A": "0 square units",
-            "B": "1 square unit",
-            "C": "π/4 square units",
-            "D": "2 square units"
-        },
-        "correct": "A",
+        "options": [
+            "A) 0 square units",
+            "B) 1 square unit",
+            "C) π/4 square units",
+            "D) 2 square units"
+        ],
+        "correctAnswer": "A",
         "explanation": "∫(sin x - cos x)dx from 0 to π/4 = 0"
     },
     {
         "question": "What is the maximum value of |sin x + cos x|?",
-        "options": {
-            "A": "√2",
-            "B": "2",
-            "C": "1",
-            "D": "3/2"
-        },
-        "correct": "A",
+        "options": [
+            "A) √2",
+            "B) 2",
+            "C) 1",
+            "D) 3/2"
+        ],
+        "correctAnswer": "A",
         "explanation": "Using calculus or r sin(x + π/4) where r = √2"
     },
     {
         "question": "Find the sum of squares of first n natural numbers where n³ = 216",
-        "options": {
-            "A": "286",
-            "B": "276",
-            "C": "296",
-            "D": "266"
-        },
-        "correct": "A",
+        "options": [
+            "A) 286",
+            "B) 276",
+            "C) 296",
+            "D) 266"
+        ],
+        "correctAnswer": "A",
         "explanation": "n = 6, sum = n(n+1)(2n+1)/6 = 91"
     },
     {
         "question": "If the angle between two tangents drawn from a point to a circle is 60°, find the ratio of the distance of the point from the center to the radius",
-        "options": {
-            "A": "2:1",
-            "B": "3:2",
-            "C": "3:1",
-            "D": "√3:1"
-        },
-        "correct": "A",
+        "options": [
+            "A) 2:1",
+            "B) 3:2",
+            "C) 3:1",
+            "D) √3:1"
+        ],
+        "correctAnswer": "A",
         "explanation": "If angle is θ, ratio = 1/sin(θ/2) = 2"
     },
     {
         "question": "Calculate the sum of the series: 1 + 1/2! + 1/4! + 1/6! + ... to infinity",
-        "options": {
-            "A": "cosh(1)",
-            "B": "sinh(1)",
-            "C": "e",
-            "D": "π/2"
-        },
-        "correct": "A",
+        "options": [
+            "A) cosh(1)",
+            "B) sinh(1)",
+            "C) e",
+            "D) π/2"
+        ],
+        "correctAnswer": "A",
         "explanation": "Sum of even-powered terms in Taylor series of e^x at x = 1"
     }
 ]

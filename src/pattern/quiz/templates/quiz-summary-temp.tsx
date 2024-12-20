@@ -47,8 +47,8 @@ const QuizSummaryTemp = () => {
                 <div className='space-y-[16px]'>
                     <h5 className='text-[#434040] text-lg font-medium'>Subject(s) Selected</h5>
                     <p className='text-xl font-semibold flex items-center gap-2'>
-                        {selectedSubjects.map((subject) => (
-                            <span className='inline-flex capitalize'>{subject}{selectedSubjects?.indexOf(subject) !== selectedSubjects.length - 1 ? "," : ""}</span>
+                        {selectedSubjects.map((subject, idx) => (
+                            <span key={idx} className='inline-flex capitalize'>{subject}{selectedSubjects?.indexOf(subject) !== selectedSubjects.length - 1 ? "," : ""}</span>
                         )) ?? 'No subject selected'}</p>
                 </div>
 
