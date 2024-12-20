@@ -1,12 +1,14 @@
 "use client";
 
-import React from 'react'
+import React, { Suspense } from 'react'
 import QuizTemp from '@/pattern/quiz/templates/quiz-temp'
 
 const QuizPage = () => {
   return (
     <>
-      <QuizTemp />
+      <Suspense fallback={<div>Loading...</div>}>
+        <QuizTemp />
+      </Suspense>
     </>
   )
 }

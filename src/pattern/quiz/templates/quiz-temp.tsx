@@ -13,17 +13,6 @@ import { english } from '@/lib/questions/english'
 import { currentAffairs } from '@/lib/questions/current-affairs'
 import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
 
-interface School {
-    name: string
-    points: number
-}
-interface IFetchedQuestions {
-    question: string;
-    options: string[];
-    correctAnswer: string;
-    explanation?: string
-}
-
 export default function QuizTemp() {
     const { push } = useRouter()
 

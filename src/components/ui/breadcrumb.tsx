@@ -43,12 +43,10 @@ export function BreadcrumbItem({
 
 export interface BreadcrumbLinkProps extends React.ComponentProps<"a"> {
     children: React.ReactNode
-    asChild?: boolean
 }
 
 export function BreadcrumbLink({
     children,
-    asChild,
     className,
     ...props
 }: BreadcrumbLinkProps) {

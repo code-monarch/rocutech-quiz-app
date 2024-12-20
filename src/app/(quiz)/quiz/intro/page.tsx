@@ -1,9 +1,9 @@
 "use client";
 
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import QuizIntroTemp from '@/pattern/quiz/templates/quiz-intro-temp';
-import { CHEMISTRY, CURRENT_AFFAIRS, ENGLISH, MATHEMATICS, PHYSICS } from '@/lib/constants';
+import { CURRENT_AFFAIRS } from '@/lib/constants';
 
 const QuizIntroPage = () => {
     const searchParams = useSearchParams()
@@ -12,9 +12,11 @@ const QuizIntroPage = () => {
     const questions = searchParams.get('questions')
 
     return (
-        <div className='w-full min-h-screen flex items-center justify-center'>
-            <QuizIntroTemp subjects={subjects ?? CURRENT_AFFAIRS} questions={questions as string ?? "100"} />
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+            <div className='w-full min-h-screen flex items-center justify-center'>
+                <QuizIntroTemp subjects={subjects ?? CURRENT_AFFAIRS} questions={questions as string ?? "100"} />
+            </div>
+        </Suspense>
     )
 }
 
