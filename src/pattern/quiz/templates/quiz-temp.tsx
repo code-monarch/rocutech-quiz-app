@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Clock } from 'lucide-react'
@@ -19,7 +19,7 @@ interface Participant {
     score: number
 }
 
-export default function QuizTemp() {
+const QuizTemp = React.memo(function QuizTemp() {
     const { push } = useRouter()
     const searchParams = useSearchParams()
 
@@ -37,7 +37,7 @@ export default function QuizTemp() {
     const [selectedOption, setSelectedOption] = useState<string | null>(null)
     const [timeLeft, setTimeLeft] = useState<number>(300) // 5:00 in seconds
     const [currentQuestions, setCurrentQuestions] = useState<IQuestion[]>([])
-    const [participants, setParticipants] = useState<Participant[]>([
+    const participantsRef = useRef<Participant[]>([
         { id: 1, name: 'Player 1', score: 0 },
         { id: 2, name: 'Player 2', score: 0 },
         { id: 3, name: 'Player 3', score: 0 },
@@ -48,6 +48,10 @@ export default function QuizTemp() {
     const [bonusQuestion, setBonusQuestion] = useState<IQuestion | null>(null)
     const [currentQuestionAnsweredCorrectly, setCurrentQuestionAnsweredCorrectly] = useState<boolean>(false)
     const [justAnsweredBonus, setJustAnsweredBonus] = useState<boolean>(false)
+    const [revealAnswer, setRevealAnswer] = useState<boolean>(false)
+    const [answerSubmitted, setAnswerSubmitted] = useState<boolean>(false)
+    const [buttonCooldown, setButtonCooldown] = useState<number>(0)
+    const [bonusAnswerRevealed, setBonusAnswerRevealed] = useState<boolean>(false)
 
     // Timer
     useEffect(() => {
@@ -112,6 +116,7 @@ export default function QuizTemp() {
     }
 
     const handleNextQuestion = (): void => {
+        setRevealAnswer(false)
         setSelectedOption(null)
         setTimeLeft(300)
         setFailedAttempts(0)
@@ -119,6 +124,9 @@ export default function QuizTemp() {
         setBonusQuestion(null)
         setCurrentQuestionAnsweredCorrectly(false)
         setJustAnsweredBonus(false)
+        setRevealAnswer(false)
+        setAnswerSubmitted(false)
+        setBonusAnswerRevealed(false)
 
         if (currentQuestionIndex < currentQuestions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1)
@@ -128,48 +136,40 @@ export default function QuizTemp() {
         }
 
         if (!justAnsweredBonus) {
-            setCurrentParticipantIndex((prevIndex) => (prevIndex + 1) % participants.length)
+            setCurrentParticipantIndex((prevIndex) => (prevIndex + 1) % participantsRef.current.length)
         }
     }
 
     const handleParticipantAnswer = (isCorrect: boolean): void => {
         setSelectedOption(currentQuestion?.correctAnswer || null)
+        setRevealAnswer(true)
 
-        setTimeout(() => {
-            if (isCorrect) {
-                setParticipants((prevParticipants) =>
-                    prevParticipants.map((participant, index) =>
-                        index === currentParticipantIndex
-                            ? { ...participant, score: participant.score + (isBonusQuestion ? 2 : 1) }
-                            : participant
-                    )
-                )
+        if (isCorrect) {
+            const updatedParticipants = participantsRef.current.map((participant, index) =>
+                index === currentParticipantIndex
+                    ? { ...participant, score: participant.score + (isBonusQuestion ? 2 : 1) }
+                    : participant
+            )
+            participantsRef.current = updatedParticipants
+        } else {
+            setFailedAttempts((prev) => prev + 1)
 
-                if (isBonusQuestion) {
-                    setIsBonusQuestion(false)
-                    setBonusQuestion(null)
-                    setJustAnsweredBonus(true)
-                    setTimeLeft(300)
-                } else {
-                    handleNextQuestion()
-                }
+            if (isBonusQuestion || failedAttempts + 1 >= participantsRef.current.length - 1) {
+                // Do nothing, wait for button click
             } else {
-                setFailedAttempts((prev) => prev + 1)
-
-                if (isBonusQuestion || failedAttempts + 1 >= participants.length - 1) {
-                    handleNextQuestion()
-                } else {
-                    setCurrentParticipantIndex((prevIndex) => (prevIndex + 1) % participants.length)
-                    setIsBonusQuestion(true)
-                    setBonusQuestion(currentQuestions[currentQuestionIndex])
-                    setTimeLeft(300)
-                    setJustAnsweredBonus(false)
-                }
+                setCurrentParticipantIndex((prevIndex) => (prevIndex + 1) % participantsRef.current.length)
+                setIsBonusQuestion(true)
+                setBonusQuestion(currentQuestions[currentQuestionIndex])
+                setTimeLeft(300)
+                setJustAnsweredBonus(false)
+                setRevealAnswer(false)
             }
-        }, 2000)
+        }
     }
 
-    const currentQuestion: IQuestion | null = isBonusQuestion ? bonusQuestion : currentQuestions[currentQuestionIndex] || null
+    const currentQuestion = useMemo(() =>
+        isBonusQuestion ? bonusQuestion : currentQuestions[currentQuestionIndex] || null
+        , [isBonusQuestion, bonusQuestion, currentQuestions, currentQuestionIndex])
 
     return (
         <div className="flex max-w-7xl mx-auto p-4">
@@ -217,7 +217,7 @@ export default function QuizTemp() {
                             ))}
                         </div>
 
-                        {selectedOption && (
+                        {selectedOption && revealAnswer && (
                             <div className="mt-6 space-y-3 transition-all duration-300">
                                 <div className="text-sm font-medium">Solution</div>
                                 <div className="p-4 rounded-lg border border-green-500">
@@ -240,24 +240,43 @@ export default function QuizTemp() {
 
                         <Button
                             size="lg"
-                            onClick={() => handleParticipantAnswer(selectedOption?.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0).toLowerCase())}
-                            disabled={selectedOption === null}
+                            onClick={() => {
+                                if (answerSubmitted) {
+                                    if (isBonusQuestion && !bonusAnswerRevealed) {
+                                        setRevealAnswer(true)
+                                        setBonusAnswerRevealed(true)
+                                    } else {
+                                        handleNextQuestion()
+                                    }
+                                } else {
+                                    handleParticipantAnswer(selectedOption?.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0).toLowerCase())
+                                    setAnswerSubmitted(true)
+                                }
+                            }}
+                            disabled={selectedOption === null || buttonCooldown > 0}
                         >
-                            Submit Answer
+                            {answerSubmitted
+                                ? isBonusQuestion && !bonusAnswerRevealed
+                                    ? "Reveal Answer"
+                                    : "Next Question"
+                                : (failedAttempts > 0 && !isBonusQuestion ? "Give bonus question" : "Submit Answer")}
                         </Button>
                     </CardFooter>
                 </Card>
             </div>
             <div className="w-48 space-y-4">
-                {participants.map((participant, index) => (
+                {participantsRef.current.map((participant, index) => (
                     <ParticipantCard
                         key={participant.id}
                         name={participant.name}
+                        score={participant.score} // Pass score here
                         isCurrent={index === currentParticipantIndex}
-                        isNext={index === (currentParticipantIndex + 1) % participants.length}
+                        isNext={index === (currentParticipantIndex + 1) % participantsRef.current.length}
                     />
                 ))}
             </div>
         </div>
     )
-}
+})
+
+export default QuizTemp
