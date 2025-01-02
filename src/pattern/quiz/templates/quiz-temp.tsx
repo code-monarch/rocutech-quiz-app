@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react'
+import React, { useState, useEffect, useMemo, useRef } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Clock } from 'lucide-react'
@@ -12,6 +12,8 @@ import { english } from '@/lib/questions/english'
 import { currentAffairs } from '@/lib/questions/current-affairs'
 import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
 import { ParticipantCard } from '../organisms/paricipant-card'
+
+const TIME = 10 // time in seconds
 
 interface Participant {
     id: number
@@ -35,7 +37,7 @@ const QuizTemp = React.memo(function QuizTemp() {
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0)
     const [selectedOption, setSelectedOption] = useState<string | null>(null)
-    const [timeLeft, setTimeLeft] = useState<number>(300) // 5:00 in seconds
+    const [timeLeft, setTimeLeft] = useState<number>(TIME) // 5:00 in seconds
     const [currentQuestions, setCurrentQuestions] = useState<IQuestion[]>([])
     const participantsRef = useRef<Participant[]>([
         { id: 1, name: 'Player 1', score: 0 },
@@ -55,19 +57,21 @@ const QuizTemp = React.memo(function QuizTemp() {
 
     // Timer
     useEffect(() => {
-        const timer = setInterval(() => {
-            setTimeLeft((prev) => {
-                if (prev > 0) {
-                    return prev - 1
-                } else {
-                    clearInterval(timer)
-                    handleParticipantAnswer(false)
-                    return 0
-                }
-            })
-        }, 1000)
+        if (!isBonusQuestion) {
+            const timer = setInterval(() => {
+                setTimeLeft((prev) => {
+                    if (prev > 0) {
+                        return prev - 1
+                    } else {
+                        clearInterval(timer)
+                        handleParticipantAnswer(false)
+                        return 0
+                    }
+                })
+            }, 1000)
 
-        return () => clearInterval(timer)
+            return () => clearInterval(timer)
+        }
     }, [currentQuestions, currentQuestionIndex, currentParticipantIndex, isBonusQuestion])
 
     // Fetch questions based on subjects
@@ -118,7 +122,7 @@ const QuizTemp = React.memo(function QuizTemp() {
     const handleNextQuestion = (): void => {
         setRevealAnswer(false)
         setSelectedOption(null)
-        setTimeLeft(300)
+        setTimeLeft(TIME)
         setFailedAttempts(0)
         setIsBonusQuestion(false)
         setBonusQuestion(null)
@@ -147,11 +151,13 @@ const QuizTemp = React.memo(function QuizTemp() {
         if (isCorrect) {
             const updatedParticipants = participantsRef.current.map((participant, index) =>
                 index === currentParticipantIndex
-                    ? { ...participant, score: participant.score + (isBonusQuestion ? 1 : 2) }
+                    ? { ...participant, score: participant.score + (failedAttempts > 0 ? 1 : 2) }
                     : participant
             )
             participantsRef.current = updatedParticipants
+
             if (isBonusQuestion) {
+                participantsRef.current[currentParticipantIndex].score += 1
                 setJustAnsweredBonus(true)
             }
         } else {
@@ -163,7 +169,6 @@ const QuizTemp = React.memo(function QuizTemp() {
                 setCurrentParticipantIndex((prevIndex) => (prevIndex + 1) % participantsRef.current.length)
                 setIsBonusQuestion(true)
                 setBonusQuestion(currentQuestions[currentQuestionIndex])
-                setTimeLeft(300)
                 setJustAnsweredBonus(false)
                 setRevealAnswer(false)
             }
@@ -260,7 +265,7 @@ const QuizTemp = React.memo(function QuizTemp() {
                             disabled={selectedOption === null || buttonCooldown > 0}
                         >
                             {answerSubmitted
-                                ? isBonusQuestion && !bonusAnswerRevealed
+                                ? isBonusQuestion && !revealAnswer
                                     ? "Reveal Answer"
                                     : "Next Question"
                                 : (failedAttempts > 0 && !isBonusQuestion ? "Give bonus question" : "Submit Answer")}
