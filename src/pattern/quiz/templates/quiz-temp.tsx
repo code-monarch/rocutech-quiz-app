@@ -135,7 +135,7 @@ const QuizTemp = React.memo(function QuizTemp() {
             push(APP_ROUTES.participants)
         }
 
-        if (!justAnsweredBonus) {
+        if (!justAnsweredBonus && !isBonusQuestion) {
             setCurrentParticipantIndex((prevIndex) => (prevIndex + 1) % participantsRef.current.length)
         }
     }
@@ -151,6 +151,9 @@ const QuizTemp = React.memo(function QuizTemp() {
                     : participant
             )
             participantsRef.current = updatedParticipants
+            if (isBonusQuestion) {
+                setJustAnsweredBonus(true)
+            }
         } else {
             setFailedAttempts((prev) => prev + 1)
 
