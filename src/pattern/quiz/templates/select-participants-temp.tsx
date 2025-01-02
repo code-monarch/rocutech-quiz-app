@@ -37,6 +37,7 @@ export default function SelectParticipantsTemp() {
     const { toast } = useToast()
 
     const [schools, setSchools] = React.useState<School[]>([])
+    console.log("ALL SCHOOLS: ", schools)
     const [expandedSchools, setExpandedSchools] = React.useState<Set<string>>(new Set())
     const [selectedStudentsSet, setSelectedStudentsSet] = React.useState<Set<string>>(() => {
         if (typeof window !== 'undefined') {

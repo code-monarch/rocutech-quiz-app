@@ -25,6 +25,7 @@ import { ParticipantFormData, participantFormSchema } from "@/pattern/types"
 import { useToast } from "@/hooks/use-toast"
 import { useRouter } from "next/navigation"
 import { APP_ROUTES } from "@/lib/routes"
+import { DialogDescription } from "@radix-ui/react-dialog"
 
 export function AddParticipantsPageModal() {
     const { push } = useRouter()
@@ -35,7 +36,7 @@ export function AddParticipantsPageModal() {
     const form = useForm<ParticipantFormData>({
         resolver: zodResolver(participantFormSchema),
         defaultValues: {
-            schools: Array(2).fill({
+            schools: Array(4).fill({
                 name: "",
                 points: "0",
                 students: [{ name: "", points: "0" }]
@@ -70,6 +71,7 @@ export function AddParticipantsPageModal() {
             <DialogContent className="sm:max-w-[600px] max-h-[80vh] overflow-y-auto">
                 <DialogHeader>
                     <DialogTitle>Add Schools and Students</DialogTitle>
+                    <DialogDescription className="text-sm">Add a minimum of 4 schools and 4 students each for every school</DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -120,7 +122,7 @@ export function AddParticipantsPageModal() {
                                             )}
                                         />
                                     ))}
-                                    {form.watch(`schools.${schoolIndex}.students`).length < 5 && (
+                                    {form.watch(`schools.${schoolIndex}.students`).length < 4 && (
                                         <Button
                                             type="button"
                                             variant="outline"

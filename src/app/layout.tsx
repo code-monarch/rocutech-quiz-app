@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { rubik } from "./fonts";
 import { Toaster } from "@/components/ui/toaster";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,10 +20,12 @@ export default function RootLayout({
         className={`${rubik.variable}, font-rubik antialiased relative bg-background box-border min-h-screen h-full p-0 m-0`}
       >
         <div className="w-full bg-background">
-          {children}
+          <Suspense fallback={<div>Loading...</div>}>
+            {children}
+          </Suspense>
         </div>
         <Toaster />
       </body>
-    </html>
+    </html >
   );
 }

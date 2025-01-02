@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import { useEffect, useState } from "react"
 import {
     ColumnDef,
     SortingState,
@@ -18,67 +18,42 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import { PARTICIPANTS } from "@/lib/constants"
+import { ParticipantFormData } from "@/pattern/types";
 
-// Define the School and Participant types
-export type School = {
-    schoolName: string
-    ranking: number
-}
-
-type Participant = {
-    id: number
-    studentName: string
-    schoolName: string
-    points: number
-}
-
-export const columns: ColumnDef<School>[] = [
+export const columns: ColumnDef<ParticipantFormData>[] = [
     // School Name
     {
-        accessorKey: "schoolName",
+        accessorKey: "name",
         header: "School Name",
         cell: ({ row }) => (
-            <div className="capitalize">{row.getValue("schoolName")}</div>
+            <div className="capitalize">{row.getValue("name") ?? "N/A"}</div>
         ),
     },
 
-    // Ranking
+    // Points
     {
-        accessorKey: "ranking",
-        header: () => <div>Ranking</div>,
-        cell: ({ row }) => <div className="lowercase font-semibold">{row.getValue("ranking")} Points</div>
+        accessorKey: "points",
+        header: () => <div>Points</div>,
+        cell: ({ row }) => <div className="lowercase font-semibold">{row.getValue("points") ?? 0} Points</div>
     },
 ]
 
 export const SchoolsTable = () => {
-    const [sorting, setSorting] = React.useState<SortingState>([])
+    const [sorting, setSorting] = useState<SortingState>([])
+    const [participants, setParticipants] = useState<ParticipantFormData[]>([])
+    console.log("ALL PARTICIPANTSDD: ", participants)
 
     // Get participants from localStorage
-    const participants: Participant[] = JSON.parse(localStorage.getItem("participants") || "[]");
-
-    // Aggregate points by school
-    const schoolPoints: Record<string, School> = participants.reduce((acc, participant) => {
-        const { schoolName, points } = participant;
-
-        // If the school already exists in the accumulator, add the points to the appropriate field
-        if (!acc[schoolName]) {
-            acc[schoolName] = {
-                schoolName,
-                ranking: 0,
-            }
+    useEffect(() => {
+        const stored = localStorage.getItem(PARTICIPANTS)
+        if (stored) {
+            setParticipants(JSON.parse(stored))
         }
-
-        // Sum all points for each school
-        acc[schoolName].ranking += points;
-
-        return acc;
-    }, {} as Record<string, School>);
-
-    // Convert the aggregated school points to an array for the table
-    const data = Object.values(schoolPoints);
+    }, [])
 
     const table = useReactTable({
-        data,
+        data: participants,
         columns,
         onSortingChange: setSorting,
         getCoreRowModel: getCoreRowModel(),
@@ -131,7 +106,7 @@ export const SchoolsTable = () => {
                                 colSpan={columns.length}
                                 className="h-24 text-center"
                             >
-                                No results.
+                                No records found.
                             </TableCell>
                         </TableRow>
                     )}

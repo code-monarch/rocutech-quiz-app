@@ -177,7 +177,7 @@ export default function ParticipantList() {
                         ) : (
                             <TableRow>
                                 <TableCell colSpan={columns.length} className="h-24 text-center">
-                                    No results.
+                                    No records found.
                                 </TableCell>
                             </TableRow>
                         )}

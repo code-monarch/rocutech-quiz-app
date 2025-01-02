@@ -53,13 +53,15 @@ export function EditParticipantDetailsDialog({ participant, open, onOpenChange, 
 
     const onSubmit = (data: Participant) => {
         // Update localStorage
-        const storedParticipants = localStorage.getItem("participants")
-        if (storedParticipants) {
-            const parsedParticipants: Participant[] = JSON.parse(storedParticipants)
-            const updatedParticipants = parsedParticipants.map(p =>
-                p.id === data.id ? { ...p, ...data } : p
-            )
-            localStorage.setItem("participants", JSON.stringify(updatedParticipants))
+        if (typeof window !== "undefined") {
+            const storedParticipants = localStorage.getItem("participants")
+            if (storedParticipants) {
+                const parsedParticipants: Participant[] = JSON.parse(storedParticipants)
+                const updatedParticipants = parsedParticipants.map(p =>
+                    p.id === data.id ? { ...p, ...data } : p
+                )
+                localStorage.setItem("participants", JSON.stringify(updatedParticipants))
+            }
         }
 
         // Call the onSave callback

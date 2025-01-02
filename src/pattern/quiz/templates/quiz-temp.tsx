@@ -1,11 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
-import { X, ChevronRight, Clock } from 'lucide-react'
+import { ChevronRight, Clock } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { SELECTED_STUDENTS } from '@/lib/constants'
 import { IQuestion, physics } from '@/lib/questions/physics'
 import { chemistry } from '@/lib/questions/chemistry'
 import { mathematics } from '@/lib/questions/mathematics'
@@ -17,9 +16,6 @@ export default function QuizTemp() {
     const { push } = useRouter()
 
     const searchParams = useSearchParams()
-
-    // Participants
-    const participants = localStorage.getItem(SELECTED_STUDENTS) || '';
 
     const subjectsParam = searchParams.get('subjects');
 
@@ -211,6 +207,5 @@ export default function QuizTemp() {
                     </div>
                 ))}
             </div> */}
-        </div>
-    );
+        </div>);
 }

@@ -11,7 +11,7 @@ const InstructionsPage = () => {
     const subjects = searchParams.get('subjects')
     const questions = searchParams.get('questions')
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div>Loading.....</div>}>
             <div className='w-full min-h-screen flex items-center justify-center'>
                 <QuizInstructionsTemp subjects={subjects ?? CURRENT_AFFAIRS} questions={questions as string ?? "100"} />
             </div>

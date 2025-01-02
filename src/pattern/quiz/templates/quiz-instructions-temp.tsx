@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from 'react'
 import QuizInstructionsHeaderWidget from '../molecules/quiz-instructions-header-widget'
 import { TestInstructions } from '../organisms/instructions'

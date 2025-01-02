@@ -1,6 +1,5 @@
-"use client"
-
-import * as React from "react"
+import { useEffect, useState } from "react";
+import { z } from "zod";
 import {
     ColumnDef,
     SortingState,
@@ -9,7 +8,7 @@ import {
     getPaginationRowModel,
     useReactTable,
     flexRender,
-} from "@tanstack/react-table"
+} from "@tanstack/react-table";
 import {
     Table,
     TableBody,
@@ -17,47 +16,70 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
+import { PARTICIPANTS } from "@/lib/constants";
+import { ParticipantFormData, participantFormSchema, studentSchema } from "@/pattern/types";
 
-// Define the Student type
-export type Student = {
-    id: number
-    studentName: string
-    schoolName: string
-    points: number
-}
-
-export const columns: ColumnDef<Student>[] = [
-    // Student Name
+// Table columns
+export const columns: ColumnDef<z.infer<typeof studentSchema>>[] = [
     {
-        accessorKey: "studentName",
+        accessorKey: "name",
         header: "Student Name",
-        cell: ({ row }) => <div className="capitalize">{row.getValue("studentName")}</div>,
+        cell: ({ row }) => (
+            <div className="capitalize">{row.getValue("name") ?? "N/A"}</div>
+        ),
     },
-
-    // School Name
-    {
-        accessorKey: "schoolName",
-        header: "School Name",
-        cell: ({ row }) => <div className="capitalize">{row.getValue("schoolName")}</div>,
-    },
-
-    // Points
     {
         accessorKey: "points",
-        header: "Points",
-        cell: ({ row }) => <div className="font-semibold">{row.getValue("points")} Points</div>,
+        header: () => <div>Points</div>,
+        cell: ({ row }) => (
+            <div className="lowercase font-semibold">
+                {row.getValue("points") ?? 0} Points
+            </div>
+        ),
     },
-]
+];
+
+// Extract students from valid data
+const extractStudents = (data: unknown): z.infer<typeof studentSchema>[] => {
+    try {
+        // Handle array directly
+        const parsedData = Array.isArray(data) ? data : [data];
+        const allStudents: z.infer<typeof studentSchema>[] = [];
+
+        parsedData.forEach(item => {
+            // Extract students from each item
+            item.students?.forEach((student: { name: any; points: any; }) => {
+                allStudents.push({
+                    name: student.name,
+                    points: student.points ?? "0"
+                });
+            });
+        });
+
+        return allStudents;
+
+    } catch (error) {
+        console.error("Invalid data structure:", error);
+        return [];
+    }
+};
 
 export const StudentsTable = () => {
-    const [sorting, setSorting] = React.useState<SortingState>([])
+    const [sorting, setSorting] = useState<SortingState>([]);
+    const [students, setStudents] = useState<z.infer<typeof studentSchema>[]>([]);
 
-    // Get participants from localStorage
-    const participants: Student[] = JSON.parse(localStorage.getItem("participants") || "[]");
+    // Fetch and process data
+    useEffect(() => {
+        const stored = localStorage.getItem(PARTICIPANTS);
+        if (stored) {
+            const parsedData: z.infer<typeof participantFormSchema> = JSON.parse(stored);
+            setStudents(extractStudents(parsedData));
+        }
+    }, []);
 
     const table = useReactTable({
-        data: participants,
+        data: students,
         columns,
         onSortingChange: setSorting,
         getCoreRowModel: getCoreRowModel(),
@@ -66,7 +88,7 @@ export const StudentsTable = () => {
         state: {
             sorting,
         },
-    })
+    });
 
     return (
         <div className="w-full">
@@ -110,12 +132,12 @@ export const StudentsTable = () => {
                                 colSpan={columns.length}
                                 className="h-24 text-center"
                             >
-                                No results.
+                                No records found.
                             </TableCell>
                         </TableRow>
                     )}
                 </TableBody>
             </Table>
         </div>
-    )
-}
+    );
+};
