@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { Button } from "@/components/ui/button"
@@ -147,7 +147,7 @@ const QuizTemp = React.memo(function QuizTemp() {
         if (isCorrect) {
             const updatedParticipants = participantsRef.current.map((participant, index) =>
                 index === currentParticipantIndex
-                    ? { ...participant, score: participant.score + (isBonusQuestion ? 2 : 1) }
+                    ? { ...participant, score: participant.score + (isBonusQuestion ? 1 : 2) }
                     : participant
             )
             participantsRef.current = updatedParticipants
@@ -206,9 +206,7 @@ const QuizTemp = React.memo(function QuizTemp() {
                                     key={option}
                                     className={`p-4 rounded-lg border transition-colors duration-300 cursor-pointer
                                     ${selectedOption === option
-                                            ? (option.charAt(0).toLowerCase() === currentQuestion.correctAnswer?.charAt(0)?.toLowerCase()
-                                                ? 'border-green-500 bg-green-500 bg-opacity-10 text-green-600'
-                                                : 'border-red-500 bg-red-500 bg-opacity-10 text-red-600')
+                                            ? 'border-blue-500 bg-blue-500 bg-opacity-10 text-blue-600'
                                             : 'bg-white text-black hover:border-gray-400'}`}
                                     onClick={() => setSelectedOption(option)}
                                 >
@@ -220,8 +218,11 @@ const QuizTemp = React.memo(function QuizTemp() {
                         {selectedOption && revealAnswer && (
                             <div className="mt-6 space-y-3 transition-all duration-300">
                                 <div className="text-sm font-medium">Solution</div>
-                                <div className="p-4 rounded-lg border border-green-500">
-                                    <div className="text-green-500 font-medium">Correct Answer: {currentQuestion?.correctAnswer}</div>
+                                <div className={`font-medium p-4 rounded-lg border  
+                                    ${selectedOption.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0)?.toLowerCase()
+                                        ? 'border-green-500 bg-green-500 bg-opacity-10 text-green-600'
+                                        : 'border-red-500 bg-red-500 bg-opacity-10 text-red-600'}`
+                                }>Correct Answer: {currentQuestion?.correctAnswer}
                                 </div>
 
                                 {currentQuestion?.explanation && (
@@ -275,7 +276,7 @@ const QuizTemp = React.memo(function QuizTemp() {
                     />
                 ))}
             </div>
-        </div>
+        </div >
     )
 })
 
