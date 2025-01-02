@@ -124,7 +124,15 @@ export default function SelectParticipantsTemp() {
             toast({
                 variant: "destructive",
                 title: "Error",
-                description: "Please select at least one student before submitting.",
+                description: "Please select at least 4 students before continuing.",
+            })
+            return
+        }
+        if (selectedStudentsSet.size > 4) {
+            toast({
+                variant: "destructive",
+                title: "Error",
+                description: "Only 4 students can take a quiz at a time.",
             })
             return
         }
