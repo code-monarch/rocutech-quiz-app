@@ -16,6 +16,7 @@ import { SELECTED_STUDENTS } from '@/lib/constants'
 import { formatTime } from '@/lib/utils'
 
 const TIME = 90 // time in seconds
+const REVEAL_TIME = 10; // reveal time in seconds
 
 interface Participant {
     name: string
@@ -44,10 +45,12 @@ const QuizTemp = React.memo(function QuizTemp() {
     const [currentParticipantIndex, setCurrentParticipantIndex] = useState<number>(0)
     const [failedAttempts, setFailedAttempts] = useState<number>(0)
     const [isBonusQuestion, setIsBonusQuestion] = useState<boolean>(false)
+    console.log("IS BONUS QUESTION: ", isBonusQuestion)
     const [bonusQuestion, setBonusQuestion] = useState<IQuestion | null>(null)
     console.log("BONUS QUESTION: ", bonusQuestion)
     const [justAnsweredBonus, setJustAnsweredBonus] = useState<boolean>(false)
     const [revealAnswer, setRevealAnswer] = useState<boolean>(false)
+    const [revealTimer, setRevealTimer] = useState<number | null>(null); // Timer for reveal period
     const [answerSubmitted, setAnswerSubmitted] = useState<boolean>(false)
 
     useEffect(() => {
@@ -71,7 +74,7 @@ const QuizTemp = React.memo(function QuizTemp() {
 
     // Timer
     useEffect(() => {
-        if (!isBonusQuestion) {
+        if (!isBonusQuestion && !revealAnswer) {
             const timer = setInterval(() => {
                 setTimeLeft((prev) => {
                     if (prev > 0) {
@@ -87,6 +90,22 @@ const QuizTemp = React.memo(function QuizTemp() {
             return () => clearInterval(timer)
         }
     }, [currentQuestions, currentQuestionIndex, currentParticipantIndex, isBonusQuestion])
+
+    // Reveal timer effect
+    useEffect(() => {
+        if (revealAnswer && revealTimer === null) {
+            const timer = setTimeout(() => {
+                setRevealTimer(null);
+                handleParticipantAnswer(
+                    selectedOption?.charAt(0).toLowerCase() ===
+                    currentQuestion?.correctAnswer?.charAt(0)?.toLowerCase()
+                );
+                setIsBonusQuestion(false)
+            }, REVEAL_TIME * 1000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [revealAnswer, revealTimer, selectedOption]);
 
     // Fetch questions based on subjects
     useEffect(() => {
@@ -161,8 +180,11 @@ const QuizTemp = React.memo(function QuizTemp() {
 
 
     const handleParticipantAnswer = (isCorrect: boolean): void => {
+        console.log("HANDLE ANSWEERRRR")
+        setRevealTimer(null); // Clear the reveal timer
+
         if (isCorrect && !isBonusQuestion) {
-            setRevealAnswer(true);
+            setRevealAnswer(false);
             const updatedParticipants = participantsRef?.current?.map((participant, index) =>
                 index === currentParticipantIndex
                     ? {
@@ -179,7 +201,7 @@ const QuizTemp = React.memo(function QuizTemp() {
         }
 
         if (isCorrect && isBonusQuestion) {
-            setRevealAnswer(true);
+            setRevealAnswer(false);
             const updatedParticipants = participantsRef?.current?.map((participant, index) =>
                 index === currentParticipantIndex
                     ? {
@@ -191,7 +213,8 @@ const QuizTemp = React.memo(function QuizTemp() {
             participantsRef.current = updatedParticipants;
             handleNextQuestion();
         } else if (!isCorrect && isBonusQuestion) {
-            setRevealAnswer(true);
+            setRevealAnswer(false);
+            handleNextQuestion();
         }
     };
 
@@ -270,8 +293,19 @@ const QuizTemp = React.memo(function QuizTemp() {
                         <Button
                             size="lg"
                             onClick={() => {
-                                setAnswerSubmitted(true)
-                                handleParticipantAnswer(selectedOption?.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0).toLowerCase() ? true : false)
+                                setAnswerSubmitted(true);
+                                if (!revealAnswer && (selectedOption?.charAt(0).toLowerCase() ===
+                                    currentQuestion?.correctAnswer?.charAt(0).toLowerCase() || isBonusQuestion)) {
+                                    // Reveal the answer first if not already revealed
+                                    setRevealAnswer(true);
+                                    setRevealTimer(REVEAL_TIME);
+                                } else {
+                                    // Process the answer after it has been revealed
+                                    handleParticipantAnswer(
+                                        selectedOption?.charAt(0).toLowerCase() ===
+                                        currentQuestion?.correctAnswer?.charAt(0).toLowerCase()
+                                    );
+                                }
                             }}
                             disabled={selectedOption === null}
                         >
@@ -281,6 +315,7 @@ const QuizTemp = React.memo(function QuizTemp() {
                                     : "Next Question"
                                 : "Submit Answer"}
                         </Button>
+
                     </CardFooter>
                 </Card>
             </div>
