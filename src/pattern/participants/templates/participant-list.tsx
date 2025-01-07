@@ -24,33 +24,24 @@ import { EditParticipantDetailsDialog } from "../organisms/edit-participant-deta
 import { Button } from "@/components/ui/button"
 import { AddParticipantsModal } from "../organisms/add-participants-dialog"
 
-export const participantSchema = z.object({
-    id: z.number(),
-    studentName: z.string().min(1, "Student name is required"),
-    schoolName: z.string().min(1, "School name is required"),
+export const quizParticipantSchema = z.object({
+    name: z.string().min(1, "Student name is required"),
     points: z.string().min(0, "Points must be 0 or greater")
 })
 
-export type Participant = z.infer<typeof participantSchema>
+export type Participant = z.infer<typeof quizParticipantSchema>
 
 export default function ParticipantList() {
     const { toast } = useToast()
     const [participants, setParticipants] = React.useState<Participant[]>([])
+    console.log('PARTICIPANTSSS: ', participants)
 
     // Transform and set participants from localStorage
     React.useEffect(() => {
-        const saved = localStorage.getItem("participants")
+        const saved = localStorage.getItem("quiz-participants")
         if (saved) {
             const rawData = JSON.parse(saved)
-            const transformedData: Participant[] = rawData.flatMap((school: any, index: number) =>
-                school.students.map((student: any, studentIndex: number) => ({
-                    id: index * 100 + studentIndex + 1, // Generate unique IDs
-                    studentName: student.name,
-                    schoolName: school.name,
-                    points: student.points
-                }))
-            )
-            setParticipants(transformedData)
+            setParticipants(rawData as Participant[])
         }
     }, [])
 
@@ -80,7 +71,7 @@ export default function ParticipantList() {
 
     const handleSave = (updatedParticipant: Participant) => {
         setParticipants((prev) =>
-            prev.map((p) => (p.id === updatedParticipant.id ? updatedParticipant : p))
+            prev.map((p) => (p.name === updatedParticipant.name ? updatedParticipant : p))
         )
         toast({
             title: "Success",
@@ -92,16 +83,8 @@ export default function ParticipantList() {
     const columns: ColumnDef<Participant>[] = React.useMemo(
         () => [
             {
-                accessorKey: "id",
-                header: "#"
-            },
-            {
-                accessorKey: "studentName",
+                accessorKey: "name",
                 header: "Student Name"
-            },
-            {
-                accessorKey: "schoolName",
-                header: "School Name"
             },
             {
                 accessorKey: "points",
@@ -145,7 +128,10 @@ export default function ParticipantList() {
     return (
         <div className="container mx-auto pb-10 space-y-6">
             <div className="w-full flex items-center justify-between">
-                <h4 className="text-2xl font-semibold">Participants</h4>
+                <div className="flex flex-col gap-2">
+                    <h4 className="text-2xl font-semibold">Scoreboard</h4>
+                    <p className="text-base font-normal text-accent-foreground">Result of latest quiz</p>
+                </div>
                 {participants.length === 0 ? <AddParticipantsModal /> : ""}
             </div>
             <div>

@@ -11,7 +11,7 @@ import SelectParticipantsHeader from "../molecules/select-participants-header"
 import { useRouter } from "next/navigation"
 import { CREATE_QUIZ_ROUTES } from "@/lib/routes"
 import { useToast } from "@/hooks/use-toast"
-import { SELECTED_STUDENTS } from "@/lib/constants"
+import { PARTICIPANTS, SELECTED_STUDENTS } from "@/lib/constants"
 
 export const studentSchema = z.string()
 
@@ -46,10 +46,11 @@ export default function SelectParticipantsTemp() {
         }
         return new Set()
     })
+    console.log("SELECTED STUDENTS: ", selectedStudentsSet)
 
     // Fetch participants from localStorage on mount
     React.useEffect(() => {
-        const storedSchools = localStorage.getItem("participants")
+        const storedSchools = localStorage.getItem(PARTICIPANTS)
         if (storedSchools) {
             try {
                 const parsedSchools: School[] = JSON.parse(storedSchools)

@@ -13,7 +13,7 @@ export function ParticipantCard({ name, score, isCurrent, isNext }: ParticipantC
             <CardContent className="p-3 flex items-center justify-between">
                 <div>
                     <p className="text-sm font-medium">{name}</p>
-                    <p className="text-sm font-medium">{score}</p>
+                    <p className="text-sm font-medium"><span className="text-accent-foreground">score:</span> {score}</p>
                 </div>
                 {isCurrent && (
                     <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />

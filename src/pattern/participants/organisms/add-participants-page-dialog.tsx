@@ -26,6 +26,7 @@ import { useToast } from "@/hooks/use-toast"
 import { useRouter } from "next/navigation"
 import { APP_ROUTES } from "@/lib/routes"
 import { DialogDescription } from "@radix-ui/react-dialog"
+import { PARTICIPANTS, SELECTED_STUDENTS } from "@/lib/constants"
 
 export function AddParticipantsPageModal() {
     const { push } = useRouter()
@@ -36,7 +37,7 @@ export function AddParticipantsPageModal() {
     const form = useForm<ParticipantFormData>({
         resolver: zodResolver(participantFormSchema),
         defaultValues: {
-            schools: Array(4).fill({
+            schools: Array(2).fill({
                 name: "",
                 points: "0",
                 students: [{ name: "", points: "0" }]
@@ -50,8 +51,9 @@ export function AddParticipantsPageModal() {
     })
 
     const onSubmit = (data: ParticipantFormData) => {
+        localStorage.removeItem(SELECTED_STUDENTS)
         // Save to localStorage and wait for it to be set before pushing to a new route
-        localStorage.setItem('participants', JSON?.stringify(data?.schools));
+        localStorage.setItem(PARTICIPANTS, JSON?.stringify(data?.schools));
         setTimeout(() => {
             setOpen(false)
             push(APP_ROUTES.dashboard);

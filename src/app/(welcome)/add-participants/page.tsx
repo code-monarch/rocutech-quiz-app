@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { APP_ROUTES } from "@/lib/routes";
+// import { Button } from "@/components/ui/button";
+// import { APP_ROUTES } from "@/lib/routes";
 import { AddParticipantsPageModal } from "@/pattern/participants/organisms/add-participants-page-dialog";
 import { useRouter } from "next/navigation";
 
@@ -18,7 +18,7 @@ export default function AddPArticipantsPage() {
                 </div>
                 <div className="flex flex-col justify-between items-center gap-5">
                     <AddParticipantsPageModal />
-                    <Button size="lg" variant="link" onClick={() => push(APP_ROUTES.dashboard)} className="tetx-lg" >Skip</Button>
+                    {/* <Button size="lg" variant="link" onClick={() => push(APP_ROUTES.dashboard)} className="tetx-lg" >Skip</Button> */}
                 </div>
             </div>
         </div>

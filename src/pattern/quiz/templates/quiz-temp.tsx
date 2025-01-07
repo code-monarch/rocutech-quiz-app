@@ -12,13 +12,14 @@ import { english } from '@/lib/questions/english'
 import { currentAffairs } from '@/lib/questions/current-affairs'
 import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
 import { ParticipantCard } from '../organisms/paricipant-card'
+import { SELECTED_STUDENTS } from '@/lib/constants'
+import { formatTime } from '@/lib/utils'
 
-const TIME = 10 // time in seconds
+const TIME = 90 // time in seconds
 
 interface Participant {
-    id: number
     name: string
-    score: number
+    points: number
 }
 
 const QuizTemp = React.memo(function QuizTemp() {
@@ -28,7 +29,7 @@ const QuizTemp = React.memo(function QuizTemp() {
     const subjectsParam = searchParams.get('subjects')
     const subjects: string[] = subjectsParam
         ? subjectsParam.includes(',')
-            ? subjectsParam.split(',').map(subject => subject.trim())
+            ? subjectsParam.split(',')?.map(subject => subject.trim())
             : [subjectsParam]
         : []
 
@@ -39,21 +40,35 @@ const QuizTemp = React.memo(function QuizTemp() {
     const [selectedOption, setSelectedOption] = useState<string | null>(null)
     const [timeLeft, setTimeLeft] = useState<number>(TIME) // 5:00 in seconds
     const [currentQuestions, setCurrentQuestions] = useState<IQuestion[]>([])
-    const participantsRef = useRef<Participant[]>([
-        { id: 1, name: 'Player 1', score: 0 },
-        { id: 2, name: 'Player 2', score: 0 },
-        { id: 3, name: 'Player 3', score: 0 },
-    ])
+    const participantsRef = useRef<Participant[]>([])
     const [currentParticipantIndex, setCurrentParticipantIndex] = useState<number>(0)
     const [failedAttempts, setFailedAttempts] = useState<number>(0)
     const [isBonusQuestion, setIsBonusQuestion] = useState<boolean>(false)
     const [bonusQuestion, setBonusQuestion] = useState<IQuestion | null>(null)
-    const [currentQuestionAnsweredCorrectly, setCurrentQuestionAnsweredCorrectly] = useState<boolean>(false)
     const [justAnsweredBonus, setJustAnsweredBonus] = useState<boolean>(false)
     const [revealAnswer, setRevealAnswer] = useState<boolean>(false)
     const [answerSubmitted, setAnswerSubmitted] = useState<boolean>(false)
     const [buttonCooldown, setButtonCooldown] = useState<number>(0)
     const [bonusAnswerRevealed, setBonusAnswerRevealed] = useState<boolean>(false)
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const storedParticipants = localStorage.getItem(SELECTED_STUDENTS);
+
+            try {
+                const parsedParticipants = storedParticipants
+                    ? JSON.parse(storedParticipants).map((participant: string) => ({
+                        name: participant || "Unknown",
+                        points: 0,
+                    }))
+                    : [];
+                participantsRef.current = parsedParticipants;
+            } catch (error) {
+                console.error("Error parsing participants from localStorage:", error);
+                participantsRef.current = [];
+            }
+        }
+    }, []);
 
     // Timer
     useEffect(() => {
@@ -113,12 +128,6 @@ const QuizTemp = React.memo(function QuizTemp() {
         }
     }, [])
 
-    const formatTime = (seconds: number): string => {
-        const minutes = Math.floor(seconds / 60)
-        const remainingSeconds = seconds % 60
-        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`
-    }
-
     const handleNextQuestion = (): void => {
         setRevealAnswer(false)
         setSelectedOption(null)
@@ -126,7 +135,6 @@ const QuizTemp = React.memo(function QuizTemp() {
         setFailedAttempts(0)
         setIsBonusQuestion(false)
         setBonusQuestion(null)
-        setCurrentQuestionAnsweredCorrectly(false)
         setJustAnsweredBonus(false)
         setRevealAnswer(false)
         setAnswerSubmitted(false)
@@ -136,6 +144,7 @@ const QuizTemp = React.memo(function QuizTemp() {
             setCurrentQuestionIndex(currentQuestionIndex + 1)
         } else {
             console.log("Quiz completed!")
+            localStorage.setItem("quiz-participants", JSON.stringify(participantsRef?.current))
             push(APP_ROUTES.participants)
         }
 
@@ -145,23 +154,25 @@ const QuizTemp = React.memo(function QuizTemp() {
     }
 
     const handleParticipantAnswer = (isCorrect: boolean): void => {
-        setSelectedOption(currentQuestion?.correctAnswer || null)
         setRevealAnswer(true)
 
         if (isCorrect) {
-            const updatedParticipants = participantsRef.current.map((participant, index) =>
+            const updatedParticipants = participantsRef?.current?.map((participant, index) =>
                 index === currentParticipantIndex
-                    ? { ...participant, score: participant.score + (failedAttempts > 0 ? 1 : 2) }
+                    ? { ...participant, points: participant.points + (isBonusQuestion ? 1 : 2) }
                     : participant
             )
             participantsRef.current = updatedParticipants
 
             if (isBonusQuestion) {
-                participantsRef.current[currentParticipantIndex].score += 1
+                participantsRef.current[currentParticipantIndex].points += 1
                 setJustAnsweredBonus(true)
             }
         } else {
             setFailedAttempts((prev) => prev + 1)
+            if (failedAttempts === 1) {
+                setIsBonusQuestion(true)
+            }
 
             if (isBonusQuestion || failedAttempts + 1 >= participantsRef.current.length - 1) {
                 // Do nothing, wait for button click
@@ -273,16 +284,20 @@ const QuizTemp = React.memo(function QuizTemp() {
                     </CardFooter>
                 </Card>
             </div>
-            <div className="w-48 space-y-4">
-                {participantsRef.current.map((participant, index) => (
-                    <ParticipantCard
-                        key={participant.id}
-                        name={participant.name}
-                        score={participant.score} // Pass score here
-                        isCurrent={index === currentParticipantIndex}
-                        isNext={index === (currentParticipantIndex + 1) % participantsRef.current.length}
-                    />
-                ))}
+            <div className="w-[240px] space-y-4">
+                {participantsRef.current.length > 0 ? (
+                    participantsRef.current?.map((participant, index) => (
+                        <ParticipantCard
+                            key={index}
+                            name={participant.name}
+                            score={participant.points}
+                            isCurrent={index === currentParticipantIndex}
+                            isNext={index === (currentParticipantIndex + 1) % participantsRef.current.length}
+                        />
+                    ))
+                ) : (
+                    <div>Loading participants...</div>
+                )}
             </div>
         </div >
     )

@@ -7,6 +7,7 @@ import Image from "next/image"
 import {
     Sidebar,
     SidebarContent,
+    SidebarFooter,
     SidebarGroup,
     SidebarGroupContent,
     SidebarHeader,
@@ -14,7 +15,8 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import brandLogo from "@/public/brand-logo.png"
+import BrandLogo from "@/public/brand-logo.png"
+import Emblem from "@/public/images/atuwatseiii-emblem.png"
 import { APP_ROUTES, CREATE_QUIZ_ROUTES } from "@/lib/routes"
 import DashboardNavIcon from "../atoms/icons/sidebar-nav/dashboard-nav-icon"
 import CreateQuizNavIcon from "../atoms/icons/sidebar-nav/create-quiz-nav-icon"
@@ -48,7 +50,7 @@ export function AppSidebar() {
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <a href="#">
-                            <Image src={brandLogo} alt="brand logo" width={97.78} height={86.19} />
+                            <Image src={Emblem} alt="King Emblem" width={97.78} height={86.19} />
                         </a>
                     </SidebarMenuItem>
                 </SidebarMenu>
@@ -73,6 +75,13 @@ export function AppSidebar() {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
+
+            <SidebarFooter className="w-full flex justify-center mb-6 pl-6">
+                <div className='flex items-center gap-2'>
+                    <p className='text-sm font-rubik'>Powered by:</p>
+                    <Image src={BrandLogo} alt="brand logo" width={50} height={50} />
+                </div>
+            </SidebarFooter>
         </Sidebar >
     )
 }

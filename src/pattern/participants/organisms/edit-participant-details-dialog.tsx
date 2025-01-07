@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from "react"
+import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@/components/ui/button"
@@ -14,9 +15,14 @@ import {
 } from "@/components/ui/form"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
-import { Participant, participantSchema } from "../templates/participant-list"
+import { Participant } from "../templates/participant-list"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { useRouter } from "next/navigation"
+
+export const participantSchema = z.object({
+    name: z.string().min(1, "Student name is required"),
+    points: z.string().min(0, "Points must be 0 or greater")
+})
 
 interface EditDialogProps {
     participant: Participant | null
@@ -32,9 +38,7 @@ export function EditParticipantDetailsDialog({ participant, open, onOpenChange, 
     const form = useForm<Participant>({
         resolver: zodResolver(participantSchema),
         defaultValues: {
-            id: 0,
-            studentName: "",
-            schoolName: "",
+            name: "",
             points: "0"
         }
     })
@@ -43,9 +47,7 @@ export function EditParticipantDetailsDialog({ participant, open, onOpenChange, 
     useEffect(() => {
         if (participant && open) {
             form.reset({
-                id: participant.id,
-                studentName: participant.studentName,
-                schoolName: participant.schoolName,
+                name: participant.name,
                 points: participant.points
             })
         }
@@ -58,7 +60,7 @@ export function EditParticipantDetailsDialog({ participant, open, onOpenChange, 
             if (storedParticipants) {
                 const parsedParticipants: Participant[] = JSON.parse(storedParticipants)
                 const updatedParticipants = parsedParticipants.map(p =>
-                    p.id === data.id ? { ...p, ...data } : p
+                    p.name === data.name ? { ...p, ...data } : p
                 )
                 localStorage.setItem("participants", JSON.stringify(updatedParticipants))
             }
@@ -80,42 +82,12 @@ export function EditParticipantDetailsDialog({ participant, open, onOpenChange, 
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                         <FormField
                             control={form.control}
-                            name="studentName"
+                            name="name"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Student Name</FormLabel>
                                     <FormControl>
                                         <Input {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="schoolName"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>School Name</FormLabel>
-                                    <FormControl>
-                                        <Select
-                                            value={field.value}
-                                            onValueChange={(value) => field.onChange(value)}
-                                        >
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Select a school" />
-                                            </SelectTrigger>
-                                            <SelectContent>
-                                                {Array.from(new Set(schools.map(school => school.schoolName))).map((schoolName, index) => {
-                                                    const school = schools.find(s => s.schoolName === schoolName);
-                                                    return (
-                                                        <SelectItem key={index + schoolName} value={schoolName}>
-                                                            {schoolName}
-                                                        </SelectItem>
-                                                    );
-                                                })}
-                                            </SelectContent>
-                                        </Select>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -137,7 +109,7 @@ export function EditParticipantDetailsDialog({ participant, open, onOpenChange, 
                                                     field.onChange(value);
                                                 }
                                             }}
-                                            // onChange={e => field.onChange(parseInt(e.target.value))}
+                                        // onChange={e => field.onChange(parseInt(e.target.value))}
                                         />
                                     </FormControl>
                                     <FormMessage />
