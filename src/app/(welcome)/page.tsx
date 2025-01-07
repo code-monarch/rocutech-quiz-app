@@ -17,7 +17,7 @@ const WelcomePage = () => {
             <div className='w-full h-full flex items-center justify-center'>
                 <div className='w-[624px] flex flex-col items-center gap-y-8'>
                     <Image src={Emblem} alt="King Emblem" width={150} height={100} />
-                    <h3 className='text-4xl text-center'>Welcome To <strong>Ogiame Atuwatse III </strong>offline CBT Quiz Platform</h3>
+                    <h3 className='text-4xl text-center'>Welcome To <strong>Ogiame Atuwatse III </strong>Inter-collegiate offline CBT Quiz Platform</h3>
                     <p className='text-center text-lg text-[#646A69]'>With an intuitive interface and a comprehensive suite of tools, the platform offers dynamic, interactive learning experiences tailored to meet diverse educational needs.</p>
                     <Button size="lg" onClick={() => push(APP_ROUTES.signIn)}>Get Started <span><ArrowRight /></span></Button>
                 </div>
