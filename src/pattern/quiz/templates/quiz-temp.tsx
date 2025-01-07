@@ -45,11 +45,10 @@ const QuizTemp = React.memo(function QuizTemp() {
     const [failedAttempts, setFailedAttempts] = useState<number>(0)
     const [isBonusQuestion, setIsBonusQuestion] = useState<boolean>(false)
     const [bonusQuestion, setBonusQuestion] = useState<IQuestion | null>(null)
+    console.log("BONUS QUESTION: ", bonusQuestion)
     const [justAnsweredBonus, setJustAnsweredBonus] = useState<boolean>(false)
     const [revealAnswer, setRevealAnswer] = useState<boolean>(false)
     const [answerSubmitted, setAnswerSubmitted] = useState<boolean>(false)
-    const [buttonCooldown, setButtonCooldown] = useState<number>(0)
-    const [bonusAnswerRevealed, setBonusAnswerRevealed] = useState<boolean>(false)
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -138,7 +137,6 @@ const QuizTemp = React.memo(function QuizTemp() {
         setJustAnsweredBonus(false)
         setRevealAnswer(false)
         setAnswerSubmitted(false)
-        setBonusAnswerRevealed(false)
 
         if (currentQuestionIndex < currentQuestions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1)
@@ -153,42 +151,53 @@ const QuizTemp = React.memo(function QuizTemp() {
         }
     }
 
-    const handleParticipantAnswer = (isCorrect: boolean): void => {
-        setRevealAnswer(true)
+    useEffect(() => {
+        if (failedAttempts === 1) {
+            setIsBonusQuestion(true)
+        } else {
+            setIsBonusQuestion(false)
+        }
+    }, [failedAttempts])
 
-        if (isCorrect) {
+
+    const handleParticipantAnswer = (isCorrect: boolean): void => {
+        if (isCorrect && !isBonusQuestion) {
+            setRevealAnswer(true);
             const updatedParticipants = participantsRef?.current?.map((participant, index) =>
                 index === currentParticipantIndex
-                    ? { ...participant, points: participant.points + (isBonusQuestion ? 1 : 2) }
+                    ? {
+                        ...participant,
+                        points: participant.points + (isBonusQuestion ? 1 : 2),
+                    }
                     : participant
-            )
-            participantsRef.current = updatedParticipants
-
-            if (isBonusQuestion) {
-                participantsRef.current[currentParticipantIndex].points += 1
-                setJustAnsweredBonus(true)
-            }
-        } else {
-            setFailedAttempts((prev) => prev + 1)
-            if (failedAttempts === 1) {
-                setIsBonusQuestion(true)
-            }
-
-            if (isBonusQuestion || failedAttempts + 1 >= participantsRef.current.length - 1) {
-                // Do nothing, wait for button click
-            } else {
-                setCurrentParticipantIndex((prevIndex) => (prevIndex + 1) % participantsRef.current.length)
-                setIsBonusQuestion(true)
-                setBonusQuestion(currentQuestions[currentQuestionIndex])
-                setJustAnsweredBonus(false)
-                setRevealAnswer(false)
-            }
+            );
+            participantsRef.current = updatedParticipants;
+            handleNextQuestion();
+        } else if (!isCorrect && !isBonusQuestion) {
+            setFailedAttempts((prev) => prev + 1);
+            setCurrentParticipantIndex((prevIndex) => (prevIndex + 1) % participantsRef.current.length);
         }
-    }
+
+        if (isCorrect && isBonusQuestion) {
+            setRevealAnswer(true);
+            const updatedParticipants = participantsRef?.current?.map((participant, index) =>
+                index === currentParticipantIndex
+                    ? {
+                        ...participant,
+                        points: participant.points + 1,
+                    }
+                    : participant
+            );
+            participantsRef.current = updatedParticipants;
+            handleNextQuestion();
+        } else if (!isCorrect && isBonusQuestion) {
+            setRevealAnswer(true);
+        }
+    };
 
     const currentQuestion = useMemo(() =>
-        isBonusQuestion ? bonusQuestion : currentQuestions[currentQuestionIndex] || null
-        , [isBonusQuestion, bonusQuestion, currentQuestions, currentQuestionIndex])
+        currentQuestions[currentQuestionIndex] || null
+        , [currentQuestions, currentQuestionIndex])
 
     return (
         <div className="flex max-w-7xl mx-auto p-4">
@@ -261,25 +270,16 @@ const QuizTemp = React.memo(function QuizTemp() {
                         <Button
                             size="lg"
                             onClick={() => {
-                                if (answerSubmitted) {
-                                    if (isBonusQuestion && !bonusAnswerRevealed) {
-                                        setRevealAnswer(true)
-                                        setBonusAnswerRevealed(true)
-                                    } else {
-                                        handleNextQuestion()
-                                    }
-                                } else {
-                                    handleParticipantAnswer(selectedOption?.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0).toLowerCase())
-                                    setAnswerSubmitted(true)
-                                }
+                                setAnswerSubmitted(true)
+                                handleParticipantAnswer(selectedOption?.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0).toLowerCase() ? true : false)
                             }}
-                            disabled={selectedOption === null || buttonCooldown > 0}
+                            disabled={selectedOption === null}
                         >
                             {answerSubmitted
                                 ? isBonusQuestion && !revealAnswer
                                     ? "Reveal Answer"
                                     : "Next Question"
-                                : (failedAttempts > 0 && !isBonusQuestion ? "Give bonus question" : "Submit Answer")}
+                                : "Submit Answer"}
                         </Button>
                     </CardFooter>
                 </Card>
