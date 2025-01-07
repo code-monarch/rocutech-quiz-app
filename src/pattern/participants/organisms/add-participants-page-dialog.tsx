@@ -124,7 +124,7 @@ export function AddParticipantsPageModal() {
                                             )}
                                         />
                                     ))}
-                                    {form.watch(`schools.${schoolIndex}.students`).length < 4 && (
+                                    {form.watch(`schools.${schoolIndex}.students`).length < 2 && (
                                         <Button
                                             type="button"
                                             variant="outline"
