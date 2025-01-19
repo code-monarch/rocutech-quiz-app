@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation"
 import { CREATE_QUIZ_ROUTES } from "@/lib/routes"
 import { useToast } from "@/hooks/use-toast"
 import { PARTICIPANTS, SELECTED_STUDENTS } from "@/lib/constants"
+import { AddParticipantsModal } from "@/pattern/participants/organisms/add-participants-dialog"
 
 export const studentSchema = z.string()
 
@@ -121,23 +122,24 @@ export default function SelectParticipantsTemp() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
 
-        if (selectedStudentsSet.size === 0) {
+        if (selectedStudentsSet.size < 2) {
             toast({
                 variant: "destructive",
                 title: "Error",
-                description: "Please select at least 4 students before continuing.",
+                description: "Please select at least 2 students.",
             })
             return
         }
-        if (selectedStudentsSet.size > 4) {
+        if (selectedStudentsSet.size > 2) {
             toast({
                 variant: "destructive",
                 title: "Error",
-                description: "Only 4 students can take a quiz at a time.",
+                description: "Only 2 students can take a quiz at a time.",
             })
             return
         }
 
+        localStorage.removeItem(SELECTED_STUDENTS)
         // Save to localStorage
         localStorage.setItem(SELECTED_STUDENTS, JSON.stringify(Array.from(selectedStudentsSet)))
 
@@ -149,7 +151,12 @@ export default function SelectParticipantsTemp() {
             <form onSubmit={handleSubmit} className="w-full space-y-4">
                 <div className="w-full space-y-1">
                     <div className='w-full h-full flex flex-col items-start'>
-                        <TemplateHeader className='border-b-0'>Select Participants</TemplateHeader>
+                        <div className="w-full flex items-center justify-between">
+                            <TemplateHeader className='border-b-0'>Select Participants</TemplateHeader>
+                            <div className="w-fit pb-5">
+                                <AddParticipantsModal />
+                            </div>
+                        </div>
                         <SelectParticipantsHeader />
                         <div className='w-full flex flex-col gap-y-2'>
                             {schools.map((school, index) => (
@@ -218,7 +225,7 @@ export default function SelectParticipantsTemp() {
                         </div>
                     </div>
                 </div>
-                <div className="w-full flex items-center justify-end">
+                <div className="w-full flex items-center justify-end gap-x-6">
                     <Button type="submit" size="lg">Continue</Button>
                 </div>
             </form>

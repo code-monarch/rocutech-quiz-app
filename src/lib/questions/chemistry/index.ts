@@ -1,4 +1,4 @@
-import { IQuestion } from "../physics";
+import { IQuestion } from "../types";
 
 export const chemistry: IQuestion[] = [
     {

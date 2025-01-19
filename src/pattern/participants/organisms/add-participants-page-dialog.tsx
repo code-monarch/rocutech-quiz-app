@@ -1,6 +1,6 @@
 'use client'
 
-import * as React from "react"
+import { useState, useEffect } from "react"
 import { useForm, useFieldArray } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Plus, Minus } from 'lucide-react'
@@ -21,18 +21,26 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { ParticipantFormData, participantFormSchema } from "@/pattern/types"
+import { ParticipantFormData, participantFormSchema, School } from "@/pattern/types"
 import { useToast } from "@/hooks/use-toast"
-import { useRouter } from "next/navigation"
-import { APP_ROUTES } from "@/lib/routes"
-import { DialogDescription } from "@radix-ui/react-dialog"
-import { PARTICIPANTS, SELECTED_STUDENTS } from "@/lib/constants"
+import { PARTICIPANTS } from "@/lib/constants"
 
 export function AddParticipantsPageModal() {
-    const { push } = useRouter()
-
     const { toast } = useToast()
-    const [open, setOpen] = React.useState(false)
+    const [open, setOpen] = useState(false)
+    const [participants, setParticipants] = useState<School[]>([])
+
+    useEffect(() => {
+        const storedSchools = localStorage.getItem(PARTICIPANTS)
+        if (storedSchools) {
+            try {
+                const parsedSchools: School[] = JSON.parse(storedSchools)
+                setParticipants(parsedSchools)
+            } catch (error) {
+                console.error("Error parsing participants from localStorage:", error)
+            }
+        }
+    }, [])
 
     const form = useForm<ParticipantFormData>({
         resolver: zodResolver(participantFormSchema),
@@ -45,40 +53,44 @@ export function AddParticipantsPageModal() {
         }
     })
 
-    const { fields: schoolFields } = useFieldArray({
+    const { fields: schoolFields, append: appendSchool } = useFieldArray({
         control: form.control,
         name: "schools"
     })
 
     const onSubmit = (data: ParticipantFormData) => {
-        localStorage.removeItem(SELECTED_STUDENTS)
-        // Save to localStorage and wait for it to be set before pushing to a new route
-        localStorage.setItem(PARTICIPANTS, JSON?.stringify(data?.schools));
-        setTimeout(() => {
-            setOpen(false)
-            push(APP_ROUTES.dashboard);
-        }, 0);
+        // Save to localStorage
+        localStorage.setItem('participants', JSON.stringify(data.schools))
 
         toast({
             title: "Success",
             description: "Schools and students added successfully.",
+        })
+
+        setOpen(false)
+    }
+
+    const addNewSchool = () => {
+        appendSchool({
+            name: "",
+            points: "0",
+            students: [{ name: "", points: "0" }]
         })
     }
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button size="lg">Add Schools and Students</Button>
+                <Button variant="default" size="lg">Add Participants</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[600px] max-h-[80vh] overflow-y-auto">
                 <DialogHeader>
-                    <DialogTitle>Add Schools and Students</DialogTitle>
-                    <DialogDescription className="text-sm">Add a minimum of 4 schools and 4 students each for every school</DialogDescription>
+                    <DialogTitle>Add Participants</DialogTitle>
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                         {schoolFields.map((schoolField, schoolIndex) => (
-                            <div key={schoolField.id} className="space-y-4 p-4 border rounded-md">
+                            <div key={schoolField.id} className="bg-white space-y-4 p-4 border rounded-md">
                                 <FormField
                                     control={form.control}
                                     name={`schools.${schoolIndex}.name`}
@@ -124,14 +136,14 @@ export function AddParticipantsPageModal() {
                                             )}
                                         />
                                     ))}
-                                    {form.watch(`schools.${schoolIndex}.students`).length < 2 && (
+                                    {form.watch(`schools.${schoolIndex}.students`).length < 4 && (
                                         <Button
                                             type="button"
                                             variant="outline"
                                             size="sm"
                                             onClick={() => {
                                                 const students = form.getValues(`schools.${schoolIndex}.students`)
-                                                form.setValue(`schools.${schoolIndex}.students`, [...students, { name: "" }])
+                                                form.setValue(`schools.${schoolIndex}.students`, [...students, { name: "", points: "0" }])
                                             }}
                                         >
                                             <Plus className="h-4 w-4 mr-2" />
@@ -141,6 +153,15 @@ export function AddParticipantsPageModal() {
                                 </div>
                             </div>
                         ))}
+                        <Button
+                            type="button"
+                            variant="outline"
+                            className="w-full"
+                            onClick={addNewSchool}
+                        >
+                            <Plus className="h-4 w-4 mr-2" />
+                            Add New School
+                        </Button>
                         <Button type="submit" className="w-full">
                             Save Schools and Students
                         </Button>

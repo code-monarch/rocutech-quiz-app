@@ -1,9 +1,4 @@
-export interface IQuestion {
-    question: string;
-    options: string[];
-    correctAnswer: string;
-    explanation?: string;
-}
+import { IQuestion } from "../types";
 
 export const physics: IQuestion[] = [
     {

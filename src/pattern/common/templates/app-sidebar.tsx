@@ -38,6 +38,11 @@ const items = [
         title: "Participants",
         url: APP_ROUTES.participants,
         icon: <ParticipantsNavIcon />,
+    },
+    {
+        title: "Score board",
+        url: APP_ROUTES.scoreboard,
+        icon: <DashboardNavIcon />,
     }
 ]
 

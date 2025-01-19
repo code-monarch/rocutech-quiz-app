@@ -162,7 +162,7 @@ const QuizTemp = React.memo(function QuizTemp() {
         } else {
             console.log("Quiz completed!")
             localStorage.setItem("quiz-participants", JSON.stringify(participantsRef?.current))
-            push(APP_ROUTES.participants)
+            push(APP_ROUTES.scoreboard)
         }
 
         if (!justAnsweredBonus && !isBonusQuestion) {

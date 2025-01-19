@@ -4,6 +4,7 @@ export const APP_ROUTES = {
     participants: "/participants",
     signIn: "/sign-in",
     addParticipants: "/add-participants",
+    scoreboard: "/scoreboard",
 };
 
 export const CREATE_QUIZ_ROUTES = {
