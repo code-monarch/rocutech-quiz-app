@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { ChevronRight, Clock, User } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { IQuestion, physics } from '@/lib/questions/physics'
+import { physics } from '@/lib/questions/physics'
 import { chemistry } from '@/lib/questions/chemistry'
 import { mathematics } from '@/lib/questions/mathematics'
 import { english } from '@/lib/questions/english'
 import { currentAffairs } from '@/lib/questions/current-affairs'
 import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
+import { IQuestion } from '@/lib/questions/types'
 
 interface PlayerCardProps {
     name: string;
