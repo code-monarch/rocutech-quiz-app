@@ -5,15 +5,16 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Clock } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { IQuestion, physics } from '@/lib/questions/physics'
+import { physics } from '@/lib/questions/physics'
 import { chemistry } from '@/lib/questions/chemistry'
 import { mathematics } from '@/lib/questions/mathematics'
 import { english } from '@/lib/questions/english'
 import { currentAffairs } from '@/lib/questions/current-affairs'
 import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
 import { ParticipantCard } from '../organisms/paricipant-card'
-import { SELECTED_STUDENTS } from '@/lib/constants'
+import { QUIZ_DIFFICULTY, SELECTED_STUDENTS } from '@/lib/constants'
 import { formatTime } from '@/lib/utils'
+import { IQuestion } from '@/lib/questions/types'
 
 const TIME = 90 // time in seconds
 const REVEAL_TIME = 10; // reveal time in seconds
@@ -110,6 +111,8 @@ const QuizTemp = React.memo(function QuizTemp() {
     // Fetch questions based on subjects
     useEffect(() => {
         const fetchedQuestions: IQuestion[] = []
+
+       const difficulty = localStorage.getItem(QUIZ_DIFFICULTY)lklkxlkwl
 
         const fetchRandomQuestions = (questionsArray: IQuestion[], count: number): IQuestion[] => {
             const shuffledQuestions = [...questionsArray].sort(() => Math.random() - 0.5)

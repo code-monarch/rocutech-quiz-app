@@ -83,7 +83,7 @@ export function AddParticipantsPageModal() {
             <DialogTrigger asChild>
                 <Button variant="default" size="lg">Add Participants</Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[600px] max-h-[80vh] overflow-y-auto">
+            <DialogContent className="sm:max-w-[600px]  md:max-w-[800px] max-h-[80vh] overflow-y-auto custom_scollbar">
                 <DialogHeader>
                     <DialogTitle>Add Participants</DialogTitle>
                 </DialogHeader>
@@ -153,18 +153,20 @@ export function AddParticipantsPageModal() {
                                 </div>
                             </div>
                         ))}
-                        <Button
-                            type="button"
-                            variant="outline"
-                            className="w-full"
-                            onClick={addNewSchool}
-                        >
-                            <Plus className="h-4 w-4 mr-2" />
-                            Add New School
-                        </Button>
-                        <Button type="submit" className="w-full">
-                            Save Schools and Students
-                        </Button>
+                        <div className="w-full flex items-center gap-4">
+                            <Button
+                                type="button"
+                                variant="outline"
+                                className="w-full h-[50px]"
+                                onClick={addNewSchool}
+                            >
+                                <Plus className="h-4 w-4 mr-2" />
+                                Add New School
+                            </Button>
+                            <Button type="submit" className="w-full h-[50px]">
+                                Save Schools and Students
+                            </Button>
+                        </div>
                     </form>
                 </Form>
             </DialogContent>

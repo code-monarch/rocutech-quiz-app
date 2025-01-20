@@ -826,4 +826,1434 @@ export const EasyChemistry: IQuestion[] = [
         "correctAnswer": "B",
         "explanation": "Natural enzymes cause milk proteins to coagulate into cheese."
     },
+    {
+        "question": "What is the process of separating palm oil from palm fruit called?",
+        "options": [
+            "A) Filtration",
+            "B) Crystallization",
+            "C) Expression",
+            "D) Sublimation"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Expression is the process of pressing oil from seeds or fruits."
+    },
+    {
+        "question": "Which vitamin is produced when sunlight hits our skin?",
+        "options": [
+            "A) Vitamin A",
+            "B) Vitamin C",
+            "C) Vitamin D",
+            "D) Vitamin E"
+        ],
+        "correctAnswer": "C",
+        "explanation": "UV rays from sunlight help our skin produce Vitamin D."
+    },
+    {
+        "question": "What is the chemical name for quick lime?",
+        "options": [
+            "A) Calcium oxide",
+            "B) Calcium hydroxide",
+            "C) Calcium carbonate",
+            "D) Calcium chloride"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Quick lime is calcium oxide (CaO)."
+    },
+    {
+        "question": "Which of these causes temporary hardness in water?",
+        "options": [
+            "A) Calcium sulfate",
+            "B) Calcium bicarbonate",
+            "C) Magnesium sulfate",
+            "D) Sodium chloride"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Calcium bicarbonate causes temporary hardness which can be removed by boiling."
+    },
+    {
+        "question": "What is the chemical formula for sulphuric acid?",
+        "options": [
+            "A) HCl",
+            "B) HNO3",
+            "C) H2SO4",
+            "D) CH3COOH"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Sulphuric acid's chemical formula is H2SO4."
+    },
+    {
+        "question": "Which gas is used in weather balloons?",
+        "options": [
+            "A) Oxygen",
+            "B) Nitrogen",
+            "C) Helium",
+            "D) Carbon dioxide"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Helium is used because it's lighter than air and non-flammable."
+    },
+    {
+        "question": "What causes the sharp smell when it rains?",
+        "options": [
+            "A) Ozone",
+            "B) Nitrogen",
+            "C) Carbon dioxide",
+            "D) Oxygen"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The fresh, sharp smell during rain is partly due to ozone formation."
+    },
+    {
+        "question": "Which process turns cassava into garri?",
+        "options": [
+            "A) Distillation",
+            "B) Fermentation",
+            "C) Sublimation",
+            "D) Crystallization"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Garri is produced through fermentation and processing of cassava."
+    },
+    {
+        "question": "What type of reaction occurs in a glowstick?",
+        "options": [
+            "A) Decomposition",
+            "B) Chemiluminescence",
+            "C) Combustion",
+            "D) Neutralization"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Glowsticks produce light through a chemical reaction called chemiluminescence."
+    },
+    {
+        "question": "Which metal is used in thermometers?",
+        "options": [
+            "A) Lead",
+            "B) Mercury",
+            "C) Silver",
+            "D) Copper"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Mercury is used in some thermometers due to its consistent thermal expansion."
+    },
+    {
+        "question": "What is the main component of natural rubber?",
+        "options": [
+            "A) Cellulose",
+            "B) Protein",
+            "C) Latex",
+            "D) Starch"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Natural rubber is made from latex collected from rubber trees."
+    },
+    {
+        "question": "Which of these is an allotrope of carbon?",
+        "options": [
+            "A) Chalk",
+            "B) Charcoal",
+            "C) Coal",
+            "D) Graphene"
+        ],
+        "correctAnswer": "D",
+        "explanation": "Graphene is a single-layer allotrope of carbon."
+    },
+    {
+        "question": "What is responsible for the green color in leaves?",
+        "options": [
+            "A) Chlorophyll",
+            "B) Hemoglobin",
+            "C) Melanin",
+            "D) Carotene"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Chlorophyll gives leaves their green color and is essential for photosynthesis."
+    },
+    {
+        "question": "Which of these is not a petrochemical product?",
+        "options": [
+            "A) Plastic",
+            "B) Honey",
+            "C) Synthetic rubber",
+            "D) Detergent"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Honey is a natural product made by bees, not derived from petroleum."
+    },
+    {
+        "question": "What happens to pressure as depth increases in a liquid?",
+        "options": [
+            "A) Decreases",
+            "B) Increases",
+            "C) Stays the same",
+            "D) Fluctuates"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Pressure increases with depth due to the weight of liquid above."
+    },
+    {
+        "question": "Which solution is used to test for proteins?",
+        "options": [
+            "A) Benedict's solution",
+            "B) Biuret solution",
+            "C) Iodine solution",
+            "D) Lime water"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Biuret solution turns violet in the presence of proteins."
+    },
+    {
+        "question": "What is the common name for sodium hydroxide?",
+        "options": [
+            "A) Baking soda",
+            "B) Caustic soda",
+            "C) Washing soda",
+            "D) Table salt"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Sodium hydroxide is commonly known as caustic soda."
+    },
+    {
+        "question": "Which of these is a catalyst in vehicle engines?",
+        "options": [
+            "A) Gold",
+            "B) Silver",
+            "C) Platinum",
+            "D) Copper"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Platinum is used as a catalyst in vehicle catalytic converters."
+    },
+    {
+        "question": "What is the process of milk turning sour?",
+        "options": [
+            "A) Oxidation",
+            "B) Reduction",
+            "C) Fermentation",
+            "D) Crystallization"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Bacteria ferment milk sugar (lactose) into lactic acid, making milk sour."
+    },
+    {
+        "question": "Which gas is used in refrigerators?",
+        "options": [
+            "A) Oxygen",
+            "B) Nitrogen",
+            "C) Freon",
+            "D) Helium"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Freon and similar refrigerants are used in refrigeration systems."
+    },
+    {
+        "question": "What is the chemical name for lime water?",
+        "options": [
+            "A) Calcium oxide",
+            "B) Calcium hydroxide",
+            "C) Calcium carbonate",
+            "D) Calcium chloride"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Lime water is a solution of calcium hydroxide [Ca(OH)2]."
+    },
+    {
+        "question": "Which of these plastics is commonly recycled?",
+        "options": [
+            "A) Bakelite",
+            "B) PET",
+            "C) Melamine",
+            "D) Formica"
+        ],
+        "correctAnswer": "B",
+        "explanation": "PET (polyethylene terephthalate) is commonly used in bottles and is widely recycled."
+    },
+    {
+        "question": "What gives spices their hot taste?",
+        "options": [
+            "A) Proteins",
+            "B) Capsaicin",
+            "C) Vitamins",
+            "D) Minerals"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Capsaicin is the chemical compound responsible for the spicy sensation."
+    },
+    {
+        "question": "Which gas is used in fizzy drinks?",
+        "options": [
+            "A) Nitrogen",
+            "B) Oxygen",
+            "C) Carbon dioxide",
+            "D) Helium"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Carbon dioxide under pressure gives carbonated drinks their fizz."
+    },
+    {
+        "question": "What is the most abundant metal in Earth's crust?",
+        "options": [
+            "A) Iron",
+            "B) Aluminum",
+            "C) Copper",
+            "D) Zinc"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Aluminum is the most abundant metal in Earth's crust, though mostly found in compounds."
+    },
+    {
+        "question": "What is the name of the process by which plants make their food?",
+        "options": [
+            "A) Respiration",
+            "B) Photosynthesis",
+            "C) Transpiration",
+            "D) Fermentation"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Photosynthesis is the process where plants use sunlight to convert CO2 and water into glucose."
+    },
+    {
+        "question": "Which traditional Nigerian material is used as a natural indicator?",
+        "options": [
+            "A) Pawpaw leaves",
+            "B) Hibiscus flower",
+            "C) Banana peel",
+            "D) Mango bark"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Hibiscus flowers change color in acidic and basic solutions, making them natural indicators."
+    },
+    {
+        "question": "What is the main preservative in dried fish?",
+        "options": [
+            "A) Sugar",
+            "B) Salt",
+            "C) Vinegar",
+            "D) Honey"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Salt acts as a preservative by removing moisture and preventing bacterial growth."
+    },
+    {
+        "question": "Which process is used to preserve meat by smoking?",
+        "options": [
+            "A) Oxidation",
+            "B) Dehydration",
+            "C) Hydrolysis",
+            "D) Reduction"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Smoking preserves meat primarily through dehydration and chemical compounds from smoke."
+    },
+    {
+        "question": "What is the chemical name for slaked lime?",
+        "options": [
+            "A) Calcium oxide",
+            "B) Calcium hydroxide",
+            "C) Calcium carbonate",
+            "D) Calcium chloride"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Slaked lime is calcium hydroxide [Ca(OH)2]."
+    },
+    {
+        "question": "Which property allows insects to walk on water?",
+        "options": [
+            "A) Density",
+            "B) Surface tension",
+            "C) Viscosity",
+            "D) Pressure"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Surface tension creates a film-like surface on water that can support light insects."
+    },
+    {
+        "question": "What is the chemical formula for bleaching powder?",
+        "options": [
+            "A) NaClO",
+            "B) CaOCl2",
+            "C) KClO",
+            "D) MgCl2"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Bleaching powder has the chemical formula CaOCl2."
+    },
+    {
+        "question": "Which vitamin is abundant in citrus fruits?",
+        "options": [
+            "A) Vitamin A",
+            "B) Vitamin B",
+            "C) Vitamin C",
+            "D) Vitamin D"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Citrus fruits are rich in Vitamin C (ascorbic acid)."
+    },
+    {
+        "question": "What causes the blue-black color in iodine test?",
+        "options": [
+            "A) Protein reaction",
+            "B) Sugar reaction",
+            "C) Starch reaction",
+            "D) Fat reaction"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Iodine forms a blue-black complex with starch molecules."
+    },
+    {
+        "question": "Which of these is used in making local antiseptic soap?",
+        "options": [
+            "A) Palm kernel oil",
+            "B) Neem leaves",
+            "C) Shea butter",
+            "D) Coconut oil"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Neem leaves have natural antiseptic properties used in traditional soap making."
+    },
+    {
+        "question": "What is the chemical name for laughing gas?",
+        "options": [
+            "A) Nitrous oxide",
+            "B) Nitrogen dioxide",
+            "C) Nitric oxide",
+            "D) Nitrogen trioxide"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Nitrous oxide (N2O) is commonly known as laughing gas."
+    },
+    {
+        "question": "Which process hardens palm oil at room temperature?",
+        "options": [
+            "A) Hydrogenation",
+            "B) Oxidation",
+            "C) Reduction",
+            "D) Decomposition"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Hydrogenation adds hydrogen to unsaturated fats, making them solid at room temperature."
+    },
+    {
+        "question": "What is the main component of wood?",
+        "options": [
+            "A) Protein",
+            "B) Cellulose",
+            "C) Starch",
+            "D) Fat"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Cellulose is the main structural component of wood."
+    },
+    {
+        "question": "Which gas is responsible for the greenhouse effect?",
+        "options": [
+            "A) Oxygen",
+            "B) Nitrogen",
+            "C) Carbon monoxide",
+            "D) Carbon dioxide"
+        ],
+        "correctAnswer": "D",
+        "explanation": "CO2 is a major greenhouse gas that traps heat in Earth's atmosphere."
+    },
+    {
+        "question": "What type of solution is formed when sugar dissolves in water?",
+        "options": [
+            "A) Saturated",
+            "B) Supersaturated",
+            "C) Unsaturated",
+            "D) Concentrated"
+        ],
+        "correctAnswer": "C",
+        "explanation": "When sugar first dissolves in water, it forms an unsaturated solution until saturation point."
+    },
+    {
+        "question": "Which process is used to extract aluminum from its ore?",
+        "options": [
+            "A) Filtration",
+            "B) Electrolysis",
+            "C) Crystallization",
+            "D) Distillation"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Aluminum is extracted from alumina through electrolysis."
+    },
+    {
+        "question": "What type of bond is present in water molecules?",
+        "options": [
+            "A) Ionic bond",
+            "B) Covalent bond",
+            "C) Metallic bond",
+            "D) Hydrogen bond"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Water molecules have covalent bonds between hydrogen and oxygen atoms."
+    },
+    {
+        "question": "Which substance is a natural polymer?",
+        "options": [
+            "A) Cotton",
+            "B) Nylon",
+            "C) Polyester",
+            "D) Acrylic"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Cotton is a natural polymer made of cellulose."
+    },
+    {
+        "question": "What causes the browning of cut apples?",
+        "options": [
+            "A) Hydration",
+            "B) Oxidation",
+            "C) Reduction",
+            "D) Sublimation"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Cut apples turn brown due to oxidation when exposed to air."
+    },
+    {
+        "question": "Which element is essential for bone formation?",
+        "options": [
+            "A) Sodium",
+            "B) Potassium",
+            "C) Calcium",
+            "D) Magnesium"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Calcium is crucial for building and maintaining strong bones."
+    },
+    {
+        "question": "What is the process of extracting juice from sugarcane?",
+        "options": [
+            "A) Filtration",
+            "B) Expression",
+            "C) Distillation",
+            "D) Crystallization"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Juice is extracted from sugarcane through expression (crushing and pressing)."
+    },
+    {
+        "question": "Which substance is found in the shells of sea animals?",
+        "options": [
+            "A) Calcium sulfate",
+            "B) Calcium carbonate",
+            "C) Calcium oxide",
+            "D) Calcium hydroxide"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Sea shells are primarily made of calcium carbonate."
+    },
+    {
+        "question": "What causes the color change in ripening fruits?",
+        "options": [
+            "A) Chlorophyll breakdown",
+            "B) Water loss",
+            "C) Temperature change",
+            "D) Light exposure"
+        ],
+        "correctAnswer": "A",
+        "explanation": "As fruits ripen, chlorophyll breaks down revealing other pigments."
+    },
+    {
+        "question": "Which of these is an inert gas?",
+        "options": [
+            "A) Hydrogen",
+            "B) Nitrogen",
+            "C) Argon",
+            "D) Oxygen"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Argon is an inert noble gas that doesn't readily react with other elements."
+    },
+    {
+        "question": "What type of change is involved in dissolving sugar in tea?",
+        "options": [
+            "A) Chemical change",
+            "B) Physical change",
+            "C) Nuclear change",
+            "D) No change"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Dissolving sugar is a physical change as no new substance is formed."
+    },
+    {
+        "question": "What is the most abundant gas in Earth's atmosphere?",
+        "options": [
+            "A) Oxygen",
+            "B) Carbon dioxide",
+            "C) Nitrogen",
+            "D) Hydrogen"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Nitrogen makes up approximately 78% of Earth's atmosphere."
+    },
+    {
+        "question": "What is the chemical formula for water?",
+        "options": [
+            "A) H2O",
+            "B) CO2",
+            "C) NaCl",
+            "D) O2"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Water consists of two hydrogen atoms and one oxygen atom."
+    },
+    {
+        "question": "Which of these is a noble gas?",
+        "options": [
+            "A) Chlorine",
+            "B) Helium",
+            "C) Nitrogen",
+            "D) Oxygen"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Helium is a noble gas, characterized by its stability and lack of reactivity."
+    },
+    {
+        "question": "What is the chemical symbol for Gold?",
+        "options": [
+            "A) Ag",
+            "B) Fe",
+            "C) Au",
+            "D) Cu"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Au comes from the Latin word 'Aurum' meaning gold."
+    },
+    {
+        "question": "What is the pH of pure water?",
+        "options": [
+            "A) 0",
+            "B) 7",
+            "C) 14",
+            "D) 5"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Pure water is neutral with a pH of 7."
+    },
+    {
+        "question": "Which of these is a physical change?",
+        "options": [
+            "A) Rusting of iron",
+            "B) Burning of paper",
+            "C) Freezing of water",
+            "D) Cooking of food"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Freezing is a physical change as it only changes the state of matter, not the substance itself."
+    },
+    {
+        "question": "What is the first element on the periodic table?",
+        "options": [
+            "A) Helium",
+            "B) Oxygen",
+            "C) Carbon",
+            "D) Hydrogen"
+        ],
+        "correctAnswer": "D",
+        "explanation": "Hydrogen is the lightest element and appears first on the periodic table."
+    },
+    {
+        "question": "Which gas do plants absorb during photosynthesis?",
+        "options": [
+            "A) Oxygen",
+            "B) Nitrogen",
+            "C) Carbon dioxide",
+            "D) Hydrogen"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Plants use carbon dioxide along with water and sunlight to produce glucose and oxygen."
+    },
+    {
+        "question": "What type of mixture is palm wine?",
+        "options": [
+            "A) Suspension",
+            "B) Solution",
+            "C) Colloid",
+            "D) Element"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Palm wine is a solution where various compounds are dissolved in water."
+    },
+    {
+        "question": "Which of these is not a state of matter?",
+        "options": [
+            "A) Solid",
+            "B) Liquid",
+            "C) Rock",
+            "D) Gas"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Rock is not a state of matter; it is a solid. The main states of matter are solid, liquid, and gas."
+    },
+    {
+        "question": "What is the chemical name for table salt?",
+        "options": [
+            "A) Sodium chloride",
+            "B) Calcium carbonate",
+            "C) Sodium bicarbonate",
+            "D) Potassium chloride"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Table salt's chemical formula is NaCl (sodium chloride)."
+    },
+    {
+        "question": "Which of these is a common acid found in oranges?",
+        "options": [
+            "A) Hydrochloric acid",
+            "B) Citric acid",
+            "C) Sulfuric acid",
+            "D) Acetic acid"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Citric acid gives oranges and other citrus fruits their sour taste."
+    },
+    {
+        "question": "What happens when you mix oil and water?",
+        "options": [
+            "A) They form a solution",
+            "B) They form separate layers",
+            "C) They form a new compound",
+            "D) They evaporate"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Oil and water don't mix because oil is non-polar while water is polar."
+    },
+    {
+        "question": "Which gas is needed for burning to occur?",
+        "options": [
+            "A) Nitrogen",
+            "B) Carbon dioxide",
+            "C) Oxygen",
+            "D) Hydrogen"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Oxygen is necessary for combustion (burning) to take place."
+    },
+    {
+        "question": "What is the chemical symbol for Iron?",
+        "options": [
+            "A) Ir",
+            "B) Fe",
+            "C) In",
+            "D) I"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Fe comes from the Latin word 'Ferrum' meaning iron."
+    },
+    {
+        "question": "Which of these is a base?",
+        "options": [
+            "A) Lemon juice",
+            "B) Vinegar",
+            "C) Soap",
+            "D) Orange juice"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Soap is basic (alkaline) which helps it clean grease and dirt."
+    },
+    {
+        "question": "What color is pure sulfur?",
+        "options": [
+            "A) Red",
+            "B) Blue",
+            "C) Yellow",
+            "D) Green"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Pure sulfur is bright yellow in color."
+    },
+    {
+        "question": "Which gas makes soft drinks fizzy?",
+        "options": [
+            "A) Oxygen",
+            "B) Nitrogen",
+            "C) Carbon dioxide",
+            "D) Hydrogen"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Carbon dioxide dissolved in water creates the bubbles in soft drinks."
+    },
+    {
+        "question": "What is the process of changing from solid to gas called?",
+        "options": [
+            "A) Melting",
+            "B) Sublimation",
+            "C) Evaporation",
+            "D) Condensation"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Sublimation is when a solid changes directly into a gas without becoming a liquid."
+    },
+    {
+        "question": "Which metal is liquid at room temperature?",
+        "options": [
+            "A) Lead",
+            "B) Iron",
+            "C) Mercury",
+            "D) Copper"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Mercury is the only metal that is liquid at room temperature."
+    },
+    {
+        "question": "What is the main component of natural gas?",
+        "options": [
+            "A) Methane",
+            "B) Ethane",
+            "C) Propane",
+            "D) Butane"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Natural gas is primarily composed of methane (CH4)."
+    },
+    {
+        "question": "What color does litmus paper turn in acid?",
+        "options": [
+            "A) Blue",
+            "B) Green",
+            "C) Red",
+            "D) Purple"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Litmus paper turns red in acidic solutions."
+    },
+    {
+        "question": "Which of these is used to test for starch?",
+        "options": [
+            "A) Benedict's solution",
+            "B) Iodine solution",
+            "C) Lime water",
+            "D) Fehling's solution"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Iodine solution turns blue-black in the presence of starch."
+    },
+    {
+        "question": "What is the chemical formula for glucose?",
+        "options": [
+            "A) C6H12O6",
+            "B) C12H22O11",
+            "C) CH4",
+            "D) C2H5OH"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Glucose is a simple sugar with the formula C6H12O6."
+    },
+    {
+        "question": "Which of these metals does not rust?",
+        "options": [
+            "A) Iron",
+            "B) Steel",
+            "C) Gold",
+            "D) Copper"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Gold is a noble metal and does not rust or corrode."
+    },
+    {
+        "question": "What gas do plants release during photosynthesis?",
+        "options": [
+            "A) Carbon dioxide",
+            "B) Nitrogen",
+            "C) Oxygen",
+            "D) Hydrogen"
+        ],
+        "correctAnswer": "C",
+        "explanation": "During photosynthesis, plants convert CO2 and water into glucose and release oxygen as a byproduct."
+    },
+    {
+        "question": "Which of these is a mixture?",
+        "options": [
+            "A) Pure water",
+            "B) Garri",
+            "C) Diamond",
+            "D) Gold"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Garri is a mixture of processed cassava particles."
+    },
+    {
+        "question": "What is the process of liquid changing to gas called?",
+        "options": [
+            "A) Condensation",
+            "B) Evaporation",
+            "C) Freezing",
+            "D) Melting"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Evaporation is the process where liquid changes into gas at any temperature."
+    },
+    {
+        "question": "Which element is essential for all organic compounds?",
+        "options": [
+            "A) Nitrogen",
+            "B) Oxygen",
+            "C) Carbon",
+            "D) Hydrogen"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Carbon is the basis for all organic compounds due to its ability to form multiple bonds."
+    },
+    {
+        "question": "What is the chemical symbol for Silver?",
+        "options": [
+            "A) Si",
+            "B) Ag",
+            "C) Au",
+            "D) Sr"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Ag comes from the Latin word 'Argentum' meaning silver."
+    },
+    {
+        "question": "Which of these is a common acid found in car batteries?",
+        "options": [
+            "A) Nitric acid",
+            "B) Citric acid",
+            "C) Sulfuric acid",
+            "D) Acetic acid"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Car batteries contain sulfuric acid as the electrolyte."
+    },
+    {
+        "question": "What color is chlorine gas?",
+        "options": [
+            "A) Colorless",
+            "B) Yellow-green",
+            "C) Purple",
+            "D) Blue"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Chlorine gas has a distinctive yellow-green color."
+    },
+    {
+        "question": "Which element is used in pencil lead?",
+        "options": [
+            "A) Lead",
+            "B) Carbon",
+            "C) Iron",
+            "D) Aluminum"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Pencil 'lead' is actually graphite, a form of carbon."
+    },
+    {
+        "question": "What is the chemical formula for palm oil?",
+        "options": [
+            "A) NaCl",
+            "B) C3H8",
+            "C) Mixture of triglycerides",
+            "D) H2O"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Palm oil consists of various fatty acid triglycerides."
+    },
+    {
+        "question": "Which of these is not a metal?",
+        "options": [
+            "A) Sulfur",
+            "B) Copper",
+            "C) Zinc",
+            "D) Aluminum"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Sulfur is a non-metal element."
+    },
+    {
+        "question": "What happens when sugar is heated strongly?",
+        "options": [
+            "A) Melts only",
+            "B) Evaporates only",
+            "C) Caramelizes then chars",
+            "D) Nothing happens"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Sugar first caramelizes (turns brown) then chars (turns black) when heated strongly."
+    },
+    {
+        "question": "Which gas is needed for rusting to occur?",
+        "options": [
+            "A) Hydrogen",
+            "B) Nitrogen",
+            "C) Oxygen",
+            "D) Carbon dioxide"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Rusting requires both oxygen and water to occur."
+    },
+    {
+        "question": "What is the main component of kerosene?",
+        "options": [
+            "A) Methane",
+            "B) Ethane",
+            "C) Hydrocarbons (C10-C16)",
+            "D) Propane"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Kerosene consists mainly of hydrocarbon chains with 10-16 carbon atoms."
+    },
+    {
+        "question": "Which of these is insoluble in water?",
+        "options": [
+            "A) Sugar",
+            "B) Salt",
+            "C) Sand",
+            "D) Sodium bicarbonate"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Sand (silicon dioxide) is insoluble in water."
+    },
+    {
+        "question": "What type of change occurs when an egg is fried?",
+        "options": [
+            "A) Physical change",
+            "B) Chemical change",
+            "C) Nuclear change",
+            "D) No change"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Frying an egg changes its protein structure permanently, making it a chemical change."
+    },
+    {
+        "question": "Which gas makes up most of natural palm wine?",
+        "options": [
+            "A) Oxygen",
+            "B) Carbon dioxide",
+            "C) Nitrogen",
+            "D) Hydrogen"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Fermentation in palm wine produces carbon dioxide as a byproduct."
+    },
+    {
+        "question": "What is used to test for carbon dioxide?",
+        "options": [
+            "A) Iodine solution",
+            "B) Lime water",
+            "C) Benedict's solution",
+            "D) Litmus paper"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Lime water turns milky in the presence of carbon dioxide."
+    },
+    {
+        "question": "Which metal is best for electrical wiring?",
+        "options": [
+            "A) Iron",
+            "B) Lead",
+            "C) Copper",
+            "D) Aluminum"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Copper has excellent electrical conductivity and is widely used in electrical wiring."
+    },
+    {
+        "question": "What is the chemical name for baking soda?",
+        "options": [
+            "A) Sodium chloride",
+            "B) Sodium bicarbonate",
+            "C) Calcium carbonate",
+            "D) Potassium chloride"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Baking soda's chemical formula is NaHCO3 (sodium bicarbonate)."
+    },
+    {
+        "question": "Which of these is an example of an element?",
+        "options": [
+            "A) Water",
+            "B) Salt",
+            "C) Diamond",
+            "D) Bronze"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Diamond is made purely of carbon atoms, making it an element."
+    },
+    {
+        "question": "What happens when acid reacts with base?",
+        "options": [
+            "A) Forms salt and water",
+            "B) Forms only water",
+            "C) Forms only gas",
+            "D) Nothing happens"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Neutralization reaction between acid and base produces salt and water."
+    },
+    {
+        "question": "Which of these is a greenhouse gas?",
+        "options": [
+            "A) Oxygen",
+            "B) Nitrogen",
+            "C) Methane",
+            "D) Hydrogen"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Methane is a potent greenhouse gas that contributes to global warming."
+    },
+    {
+        "question": "What is the chemical symbol for Potassium?",
+        "options": [
+            "A) P",
+            "B) Pt",
+            "C) K",
+            "D) Po"
+        ],
+        "correctAnswer": "C",
+        "explanation": "K comes from the Latin word 'Kalium' meaning potash."
+    },
+    {
+        "question": "Which of these is not a chemical reaction?",
+        "options": [
+            "A) Rusting of iron",
+            "B) Crushing of can",
+            "C) Burning of wood",
+            "D) Souring of milk"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Crushing a can is a physical change as no new substance is formed."
+    },
+    {
+        "question": "What color does a copper sulfate solution turn when water of crystallization is removed?",
+        "options": [
+            "A) Green",
+            "B) Blue",
+            "C) White",
+            "D) Red"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Anhydrous copper sulfate is white; it only appears blue when hydrated."
+    },
+    {
+        "question": "What is the chemical process that causes metal cooking pots to develop black bottoms?",
+        "options": [
+            "A) Oxidation",
+            "B) Carbonization",
+            "C) Reduction",
+            "D) Sublimation"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Heat causes carbon deposits to form on pot bottoms through carbonization."
+    },
+    {
+        "question": "Which compound gives onions their characteristic smell when cut?",
+        "options": [
+            "A) Sulfur compounds",
+            "B) Nitrogen compounds",
+            "C) Carbon compounds",
+            "D) Phosphorus compounds"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Cutting onions releases sulfur-containing compounds that cause tears and smell."
+    },
+    {
+        "question": "What type of energy change occurs in cold packs?",
+        "options": [
+            "A) Exothermic",
+            "B) Endothermic",
+            "C) Nuclear",
+            "D) Electrical"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Cold packs absorb heat energy through an endothermic reaction."
+    },
+    {
+        "question": "Which traditional cleaning agent is made from wood ash?",
+        "options": [
+            "A) Lye",
+            "B) Vinegar",
+            "C) Citric acid",
+            "D) Borax"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Lye (potassium hydroxide) can be extracted from wood ash."
+    },
+    {
+        "question": "What causes the cracking of palm kernel shells?",
+        "options": [
+            "A) Thermal expansion",
+            "B) Chemical decomposition",
+            "C) Physical pressure",
+            "D) Bacterial action"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Different rates of thermal expansion cause shells to crack when heated."
+    },
+    {
+        "question": "Which natural indicator is found in zobo drink?",
+        "options": [
+            "A) Anthocyanins",
+            "B) Chlorophyll",
+            "C) Carotene",
+            "D) Xanthophyll"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Anthocyanins give zobo its red color and act as pH indicators."
+    },
+    {
+        "question": "What process causes local butter to become solid?",
+        "options": [
+            "A) Crystallization",
+            "B) Precipitation",
+            "C) Condensation",
+            "D) Coagulation"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Fats crystallize at lower temperatures, making butter solid."
+    },
+    {
+        "question": "Which compound is responsible for the pungent smell of stockfish?",
+        "options": [
+            "A) Trimethylamine",
+            "B) Ammonia",
+            "C) Methane",
+            "D) Hydrogen sulfide"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Trimethylamine gives dried fish its characteristic smell."
+    },
+    {
+        "question": "What causes the browning of cocoa beans during fermentation?",
+        "options": [
+            "A) Oxidation enzymes",
+            "B) Bacterial action",
+            "C) Heat",
+            "D) Light"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Enzymes cause oxidation reactions that brown cocoa beans."
+    },
+    {
+        "question": "Which process purifies water in traditional clay pots?",
+        "options": [
+            "A) Filtration",
+            "B) Evaporation",
+            "C) Sedimentation",
+            "D) Distillation"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Clay pots allow impurities to settle through natural sedimentation."
+    },
+    {
+        "question": "What causes mango latex to stain clothes?",
+        "options": [
+            "A) Proteins",
+            "B) Tannins",
+            "C) Urushiol",
+            "D) Resins"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Urushiol compounds in mango latex cause permanent stains."
+    },
+    {
+        "question": "Which traditional substance is used as a water softener?",
+        "options": [
+            "A) Wood ash",
+            "B) Sand",
+            "C) Charcoal",
+            "D) Clay"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Wood ash contains compounds that can soften hard water."
+    },
+    {
+        "question": "What process occurs when locust beans ferment?",
+        "options": [
+            "A) Protein breakdown",
+            "B) Starch conversion",
+            "C) Fat hydrolysis",
+            "D) Sugar formation"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Fermentation breaks down proteins into more flavorful compounds."
+    },
+    {
+        "question": "Which compound makes raw cassava toxic?",
+        "options": [
+            "A) Solanine",
+            "B) Cyanogenic glycosides",
+            "C) Tannins",
+            "D) Alkaloids"
+        ],
+        "correctAnswer": "B",
+        "explanation": "These compounds release cyanide when raw cassava is processed."
+    },
+    {
+        "question": "What causes local soap to form scum in hard water?",
+        "options": [
+            "A) Calcium reaction",
+            "B) Magnesium reaction",
+            "C) Sodium reaction",
+            "D) Potassium reaction"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Calcium ions in hard water react with soap to form insoluble scum."
+    },
+    {
+        "question": "What is the chemical process that causes metal cooking pots to develop black bottoms?",
+        "options": [
+            "A) Oxidation",
+            "B) Carbonization",
+            "C) Reduction",
+            "D) Sublimation"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Heat causes carbon deposits to form on pot bottoms through carbonization."
+    },
+    {
+        "question": "Which compound gives onions their characteristic smell when cut?",
+        "options": [
+            "A) Sulfur compounds",
+            "B) Nitrogen compounds",
+            "C) Carbon compounds",
+            "D) Phosphorus compounds"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Cutting onions releases sulfur-containing compounds that cause tears and smell."
+    },
+    {
+        "question": "What type of energy change occurs in cold packs?",
+        "options": [
+            "A) Exothermic",
+            "B) Endothermic",
+            "C) Nuclear",
+            "D) Electrical"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Cold packs absorb heat energy through an endothermic reaction."
+    },
+    {
+        "question": "Which traditional cleaning agent is made from wood ash?",
+        "options": [
+            "A) Lye",
+            "B) Vinegar",
+            "C) Citric acid",
+            "D) Borax"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Lye (potassium hydroxide) can be extracted from wood ash."
+    },
+    {
+        "question": "What causes the cracking of palm kernel shells?",
+        "options": [
+            "A) Thermal expansion",
+            "B) Chemical decomposition",
+            "C) Physical pressure",
+            "D) Bacterial action"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Different rates of thermal expansion cause shells to crack when heated."
+    },
+    {
+        "question": "Which natural indicator is found in zobo drink?",
+        "options": [
+            "A) Anthocyanins",
+            "B) Chlorophyll",
+            "C) Carotene",
+            "D) Xanthophyll"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Anthocyanins give zobo its red color and act as pH indicators."
+    },
+    {
+        "question": "What process causes local butter to become solid?",
+        "options": [
+            "A) Crystallization",
+            "B) Precipitation",
+            "C) Condensation",
+            "D) Coagulation"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Fats crystallize at lower temperatures, making butter solid."
+    },
+    {
+        "question": "Which compound is responsible for the pungent smell of stockfish?",
+        "options": [
+            "A) Trimethylamine",
+            "B) Ammonia",
+            "C) Methane",
+            "D) Hydrogen sulfide"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Trimethylamine gives dried fish its characteristic smell."
+    },
+    {
+        "question": "What causes the browning of cocoa beans during fermentation?",
+        "options": [
+            "A) Oxidation enzymes",
+            "B) Bacterial action",
+            "C) Heat",
+            "D) Light"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Enzymes cause oxidation reactions that brown cocoa beans."
+    },
+    {
+        "question": "Which process purifies water in traditional clay pots?",
+        "options": [
+            "A) Filtration",
+            "B) Evaporation",
+            "C) Sedimentation",
+            "D) Distillation"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Clay pots allow impurities to settle through natural sedimentation."
+    },
+    {
+        "question": "What causes mango latex to stain clothes?",
+        "options": [
+            "A) Proteins",
+            "B) Tannins",
+            "C) Urushiol",
+            "D) Resins"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Urushiol compounds in mango latex cause permanent stains."
+    },
+    {
+        "question": "Which traditional substance is used as a water softener?",
+        "options": [
+            "A) Wood ash",
+            "B) Sand",
+            "C) Charcoal",
+            "D) Clay"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Wood ash contains compounds that can soften hard water."
+    },
+    {
+        "question": "What process occurs when locust beans ferment?",
+        "options": [
+            "A) Protein breakdown",
+            "B) Starch conversion",
+            "C) Fat hydrolysis",
+            "D) Sugar formation"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Fermentation breaks down proteins into more flavorful compounds."
+    },
+    {
+        "question": "Which compound makes raw cassava toxic?",
+        "options": [
+            "A) Solanine",
+            "B) Cyanogenic glycosides",
+            "C) Tannins",
+            "D) Alkaloids"
+        ],
+        "correctAnswer": "B",
+        "explanation": "These compounds release cyanide when raw cassava is processed."
+    },
+    {
+        "question": "What causes local soap to form scum in hard water?",
+        "options": [
+            "A) Calcium reaction",
+            "B) Magnesium reaction",
+            "C) Sodium reaction",
+            "D) Potassium reaction"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Calcium ions in hard water react with soap to form insoluble scum."
+    },
 ]

@@ -11,7 +11,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from 'next/navigation'
 import { CREATE_QUIZ_ROUTES } from '@/lib/routes'
 import { Input } from '@/components/ui/input'
-import { NUMBER_OF_QUESTIONS } from '@/lib/constants'
+import { NUMBER_OF_QUESTIONS, QUIZ_DIFFICULTY } from '@/lib/constants'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 
 const FormSchema = z.object({
@@ -23,6 +24,9 @@ const FormSchema = z.object({
         }, {
             message: "Please enter a valid number between 10 and 100"
         }),
+    difficulty: z.enum(["easy", "regular"], {
+        required_error: "Please select a difficulty level",
+    }),
 });
 
 const NumberOfQuestionsTemp = () => {
@@ -34,6 +38,7 @@ const NumberOfQuestionsTemp = () => {
         reValidateMode: 'onChange',
         defaultValues: {
             questions: "100",
+            difficulty: "easy",
         },
     })
 
@@ -45,9 +50,10 @@ const NumberOfQuestionsTemp = () => {
 
     console.log("ERRORS: ", errors)
 
-    const onSubmit = ({ questions }: z.infer<typeof FormSchema>) => {
+    const onSubmit = ({ questions, difficulty }: z.infer<typeof FormSchema>) => {
         console.log("QUESTIONS: ", questions)
         localStorage.setItem(NUMBER_OF_QUESTIONS, questions)
+        localStorage.setItem(QUIZ_DIFFICULTY, difficulty)
         push(CREATE_QUIZ_ROUTES.selectParticipants)
     }
     return (
@@ -69,7 +75,34 @@ const NumberOfQuestionsTemp = () => {
                                         >
                                             <FormLabel htmlFor={name} className='w-full text-center text-[23px] font-semibold' >Enter Number of Questions</FormLabel>
                                             <FormControl>
-                                                <Input type="number" name={name} onChange={onChange} value={value} onBlur={onBlur} disabled={disabled} placeholder="1-100" autoFocus className='no-increment bg-[rgba(204,204,204,0.32)] w-full h-[114px] flex items-center justify-center text-center text-6xl md:text-6xl placeholder:text-6xl font-semibold rounded-[20px]' />
+                                                <Input type="number" name={name} onChange={onChange} value={value} onBlur={onBlur} disabled={disabled} placeholder="1-100" autoFocus className='no-increment w-full h-[114px] flex items-center justify-center text-center text-6xl md:text-6xl placeholder:text-6xl font-semibold border-black rounded-[8px]' />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )
+                                }}
+                            />
+
+                            {/* Question Difficulty */}
+                            <FormField
+                                control={control}
+                                name="difficulty"
+                                render={({ field: { name, onBlur, onChange, value, disabled } }) => {
+                                    return (
+                                        <FormItem
+                                            className="w-full mt-[50px]"
+                                        >
+                                            <FormLabel htmlFor={name} className='w-full text-center text-lg font-semibold'>Select Difficulty</FormLabel>
+                                            <FormControl>
+                                                <Select value={value} onValueChange={onChange} disabled={disabled} >
+                                                    <SelectTrigger className="h-12 text-base">
+                                                        <SelectValue placeholder="Select difficulty" />
+                                                    </SelectTrigger>
+                                                    <SelectContent>
+                                                        <SelectItem value="easy">Easy</SelectItem>
+                                                        <SelectItem value="regular">Regular</SelectItem>
+                                                    </SelectContent>
+                                                </Select>
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
