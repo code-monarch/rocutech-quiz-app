@@ -1,6 +1,6 @@
 import { IQuestion } from "../types";
 
-export const easyMathematics: IQuestion[] = [
+export const EasyMathematics: IQuestion[] = [
     {
         question: "What is the greatest common factor of 18 and 24?",
         options: [

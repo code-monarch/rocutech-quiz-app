@@ -5,14 +5,14 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Clock } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { physics } from '@/lib/questions/physics'
-import { chemistry } from '@/lib/questions/chemistry'
-import { mathematics } from '@/lib/questions/mathematics'
-import { english } from '@/lib/questions/english'
-import { currentAffairs } from '@/lib/questions/current-affairs'
+import { physics, Easyphysics } from '@/lib/questions/physics'
+import { chemistry, EasyChemistry } from '@/lib/questions/chemistry'
+import { mathematics, EasyMathematics } from '@/lib/questions/mathematics'
+import { english, EasyEnglish } from '@/lib/questions/english'
+import { currentAffairs, EasyCurrentAffairs } from '@/lib/questions/current-affairs'
 import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
 import { ParticipantCard } from '../organisms/paricipant-card'
-import { QUIZ_DIFFICULTY, SELECTED_STUDENTS } from '@/lib/constants'
+import { QUIZ_DIFFICULTY, QUIZ_PARTICIPANTS, SELECTED_STUDENTS } from '@/lib/constants'
 import { formatTime } from '@/lib/utils'
 import { IQuestion } from '@/lib/questions/types'
 
@@ -112,7 +112,7 @@ const QuizTemp = React.memo(function QuizTemp() {
     useEffect(() => {
         const fetchedQuestions: IQuestion[] = []
 
-       const difficulty = localStorage.getItem(QUIZ_DIFFICULTY)lklkxlkwl
+        const difficulty = localStorage.getItem(QUIZ_DIFFICULTY) as "easy" | "regular"
 
         const fetchRandomQuestions = (questionsArray: IQuestion[], count: number): IQuestion[] => {
             const shuffledQuestions = [...questionsArray].sort(() => Math.random() - 0.5)
@@ -125,19 +125,39 @@ const QuizTemp = React.memo(function QuizTemp() {
             subjects.forEach((subject) => {
                 switch (subject.toLowerCase()) {
                     case 'physics':
-                        fetchedQuestions.push(...fetchRandomQuestions(physics, questionsPerSubject))
+                        if (difficulty === "easy") {
+                            fetchedQuestions.push(...fetchRandomQuestions(Easyphysics, questionsPerSubject))
+                        } else {
+                            fetchedQuestions.push(...fetchRandomQuestions(physics, questionsPerSubject))
+                        }
                         break
                     case 'chemistry':
-                        fetchedQuestions.push(...fetchRandomQuestions(chemistry, questionsPerSubject))
+                        if (difficulty === "easy") {
+                            fetchedQuestions.push(...fetchRandomQuestions(EasyChemistry, questionsPerSubject))
+                        } else {
+                            fetchedQuestions.push(...fetchRandomQuestions(chemistry, questionsPerSubject))
+                        }
                         break
                     case 'mathematics':
-                        fetchedQuestions.push(...fetchRandomQuestions(mathematics, questionsPerSubject))
+                        if (difficulty === "easy") {
+                            fetchedQuestions.push(...fetchRandomQuestions(EasyMathematics, questionsPerSubject))
+                        } else {
+                            fetchedQuestions.push(...fetchRandomQuestions(mathematics, questionsPerSubject))
+                        }
                         break
                     case 'english':
-                        fetchedQuestions.push(...fetchRandomQuestions(english, questionsPerSubject))
+                        if (difficulty === "easy") {
+                            fetchedQuestions.push(...fetchRandomQuestions(EasyEnglish, questionsPerSubject))
+                        } else {
+                            fetchedQuestions.push(...fetchRandomQuestions(english, questionsPerSubject))
+                        }
                         break
                     case 'current-affairs':
-                        fetchedQuestions.push(...fetchRandomQuestions(currentAffairs, questionsPerSubject))
+                        if (difficulty === "easy") {
+                            fetchedQuestions.push(...fetchRandomQuestions(EasyCurrentAffairs, questionsPerSubject))
+                        } else {
+                            fetchedQuestions.push(...fetchRandomQuestions(currentAffairs, questionsPerSubject))
+                        }
                         break
                     default:
                         console.warn(`Unknown subject: ${subject}`)
@@ -164,7 +184,7 @@ const QuizTemp = React.memo(function QuizTemp() {
             setCurrentQuestionIndex(currentQuestionIndex + 1)
         } else {
             console.log("Quiz completed!")
-            localStorage.setItem("quiz-participants", JSON.stringify(participantsRef?.current))
+            localStorage.setItem(QUIZ_PARTICIPANTS, JSON.stringify(participantsRef?.current))
             push(APP_ROUTES.scoreboard)
         }
 

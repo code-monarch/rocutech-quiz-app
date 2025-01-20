@@ -23,6 +23,7 @@ import { useToast } from "@/hooks/use-toast"
 import { EditParticipantDetailsDialog } from "../organisms/edit-participant-details-dialog"
 import { Button } from "@/components/ui/button"
 import { AddParticipantsModal } from "../organisms/add-participants-dialog"
+import { QUIZ_PARTICIPANTS } from "@/lib/constants"
 
 export const quizParticipantSchema = z.object({
     name: z.string().min(1, "Student name is required"),
@@ -38,7 +39,7 @@ export default function ScoreboardTemp() {
 
     // Transform and set participants from localStorage
     React.useEffect(() => {
-        const saved = localStorage.getItem("quiz-participants")
+        const saved = localStorage.getItem(QUIZ_PARTICIPANTS)
         if (saved) {
             const rawData = JSON.parse(saved)
             setParticipants(rawData as Participant[])
@@ -133,7 +134,7 @@ export default function ScoreboardTemp() {
                     <h4 className="text-2xl font-semibold" > Scoreboard </h4>
                     < p className="text-base font-normal text-accent-foreground" > Result of latest quiz </p>
                 </div>
-                {participants.length === 0 ? <AddParticipantsModal /> : ""}
+                {/* {participants.length === 0 ? <AddParticipantsModal /> : ""} */}
             </div>
             < div >
                 <Table className="bg-white rounded-md border" >
@@ -180,13 +181,13 @@ export default function ScoreboardTemp() {
                 </Table>
             </div>
 
-            < EditParticipantDetailsDialog
+            {/* < EditParticipantDetailsDialog
                 participant={selectedParticipant}
                 open={dialogOpen}
                 onOpenChange={setDialogOpen}
                 onSave={handleSave}
                 schools={participants}
-            />
+            /> */}
         </div>
     )
 }

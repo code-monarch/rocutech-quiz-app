@@ -18,10 +18,11 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { PARTICIPANTS } from "@/lib/constants"
-import { ParticipantFormData } from "@/pattern/types";
+import { PARTICIPANTS, QUIZ_PARTICIPANTS } from "@/lib/constants"
+import { School } from "@/pattern/types";
+import { QuizParticipant, updatePoints } from "@/lib/utils";
 
-export const columns: ColumnDef<ParticipantFormData>[] = [
+export const columns: ColumnDef<School>[] = [
     // School Name
     {
         accessorKey: "name",
@@ -41,14 +42,16 @@ export const columns: ColumnDef<ParticipantFormData>[] = [
 
 export const SchoolsTable = () => {
     const [sorting, setSorting] = useState<SortingState>([])
-    const [participants, setParticipants] = useState<ParticipantFormData[]>([])
+    const [participants, setParticipants] = useState<School[]>([])
     console.log("ALL PARTICIPANTSDD: ", participants)
 
     // Get participants from localStorage
     useEffect(() => {
-        const stored = localStorage.getItem(PARTICIPANTS)
-        if (stored) {
-            setParticipants(JSON.parse(stored))
+        const allParticipants = JSON.parse(localStorage.getItem(PARTICIPANTS)!) as School[]
+        const quizParticipants = JSON.parse(localStorage.getItem(QUIZ_PARTICIPANTS)!) as QuizParticipant[]
+        const updatedParticipants = updatePoints(allParticipants, quizParticipants);
+        if (updatedParticipants) {
+            setParticipants(updatedParticipants)
         }
     }, [])
 

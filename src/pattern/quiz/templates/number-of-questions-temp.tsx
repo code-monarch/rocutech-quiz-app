@@ -75,7 +75,7 @@ const NumberOfQuestionsTemp = () => {
                                         >
                                             <FormLabel htmlFor={name} className='w-full text-center text-[23px] font-semibold' >Enter Number of Questions</FormLabel>
                                             <FormControl>
-                                                <Input type="number" name={name} onChange={onChange} value={value} onBlur={onBlur} disabled={disabled} placeholder="1-100" autoFocus className='no-increment w-full h-[114px] flex items-center justify-center text-center text-6xl md:text-6xl placeholder:text-6xl font-semibold border-black rounded-[8px]' />
+                                                <Input type="number" name={name} onChange={onChange} value={value} onBlur={onBlur} disabled={disabled} placeholder="1-100" autoFocus className='no-increment bg-accent w-full h-[114px] flex items-center justify-center text-center text-6xl md:text-6xl placeholder:text-6xl font-semibold border rounded-[8px]' />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>

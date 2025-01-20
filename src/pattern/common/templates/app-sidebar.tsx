@@ -21,6 +21,8 @@ import { APP_ROUTES, CREATE_QUIZ_ROUTES } from "@/lib/routes"
 import DashboardNavIcon from "../atoms/icons/sidebar-nav/dashboard-nav-icon"
 import CreateQuizNavIcon from "../atoms/icons/sidebar-nav/create-quiz-nav-icon"
 import ParticipantsNavIcon from "../atoms/icons/sidebar-nav/participants-nav-icon"
+import { BookMarked } from "lucide-react"
+import ScoreBoardNavIcon from "../atoms/icons/sidebar-nav/score-board-icon"
 
 // Menu items.
 const items = [
@@ -42,7 +44,7 @@ const items = [
     {
         title: "Score board",
         url: APP_ROUTES.scoreboard,
-        icon: <DashboardNavIcon />,
+        icon: <ScoreBoardNavIcon />,
     }
 ]
 
