@@ -20,9 +20,9 @@ const FormSchema = z.object({
         .string()
         .refine((val) => {
             const num = Number(val);
-            return !isNaN(num) && num > 9 && num <= 100 && Number.isInteger(num);
+            return !isNaN(num) && num > 1 && num <= 1000 && Number.isInteger(num);
         }, {
-            message: "Please enter a valid number between 10 and 100"
+            message: "Please enter a valid number between 2 and 1000"
         }),
     difficulty: z.enum(["easy", "regular"], {
         required_error: "Please select a difficulty level",

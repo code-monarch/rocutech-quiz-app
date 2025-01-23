@@ -20,9 +20,7 @@ import {
 } from "@/components/ui/table"
 import { z } from "zod"
 import { useToast } from "@/hooks/use-toast"
-import { EditParticipantDetailsDialog } from "../organisms/edit-participant-details-dialog"
 import { Button } from "@/components/ui/button"
-import { AddParticipantsModal } from "../organisms/add-participants-dialog"
 import { QUIZ_PARTICIPANTS } from "@/lib/constants"
 
 export const quizParticipantSchema = z.object({
@@ -49,27 +47,6 @@ export default function ScoreboardTemp() {
     const [selectedParticipant, setSelectedParticipant] = React.useState<Participant | null>(null)
     const [dialogOpen, setDialogOpen] = React.useState(false)
 
-    // // Save to localStorage whenever participants change
-    // React.useEffect(() => {
-    //     const groupedData = participants.reduce((acc: any[], participant) => {
-    //         const school = acc.find((s) => s.name === participant.schoolName)
-    //         if (!school) {
-    //             acc.push({
-    //                 name: participant.schoolName,
-    //                 points: "0",
-    //                 students: [{ name: participant.studentName, points: participant.points.toString() }]
-    //             })
-    //         } else {
-    //             school.students.push({
-    //                 name: participant.studentName,
-    //                 points: participant.points.toString()
-    //             })
-    //         }
-    //         return acc
-    //     }, [])
-    //     localStorage.setItem("participants", JSON.stringify(groupedData))
-    // }, [participants])
-
     const handleSave = (updatedParticipant: Participant) => {
         setParticipants((prev) =>
             prev.map((p) => (p.name === updatedParticipant.name ? updatedParticipant : p))
@@ -91,24 +68,7 @@ export default function ScoreboardTemp() {
                 accessorKey: "points",
                 header: "Points",
                 cell: ({ row }) => `${row.getValue("points")} Points`
-            },
-            // {
-            //     id: "actions",
-            //     header: "Actions",
-            //     cell: ({ row }) => (
-            //         <Button
-            //             variant="link"
-            //             onClick={(e) => {
-            //                 e.stopPropagation()
-            //                 setSelectedParticipant(row.original)
-            //                 setDialogOpen(true)
-            //             }
-            //             }
-            //         >
-            //             Edit
-            //         </Button>
-            //     )
-            // }
+            }
         ],
         []
     )
@@ -127,6 +87,12 @@ export default function ScoreboardTemp() {
         getPaginationRowModel: getPaginationRowModel()
     })
 
+    const clearLocalStorage = () => {
+        if (typeof window !== 'undefined') {
+            localStorage.clear();
+        }
+    }
+
     return (
         <div className="container mx-auto pb-10 space-y-6" >
             <div className="w-full flex items-center justify-between" >
@@ -134,7 +100,8 @@ export default function ScoreboardTemp() {
                     <h4 className="text-2xl font-semibold" > Scoreboard </h4>
                     < p className="text-base font-normal text-accent-foreground" > Result of latest quiz </p>
                 </div>
-                {/* {participants.length === 0 ? <AddParticipantsModal /> : ""} */}
+
+                <Button variant="destructive" size="lg" onClick={() => clearLocalStorage()}>Clear all data</Button>
             </div>
             < div >
                 <Table className="bg-white rounded-md border" >
@@ -180,14 +147,6 @@ export default function ScoreboardTemp() {
                     </TableBody>
                 </Table>
             </div>
-
-            {/* < EditParticipantDetailsDialog
-                participant={selectedParticipant}
-                open={dialogOpen}
-                onOpenChange={setDialogOpen}
-                onSave={handleSave}
-                schools={participants}
-            /> */}
         </div>
     )
 }
