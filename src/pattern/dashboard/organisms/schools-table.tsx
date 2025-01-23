@@ -47,8 +47,8 @@ export const SchoolsTable = () => {
 
     // Get participants from localStorage
     useEffect(() => {
-        const allParticipants = JSON.parse(localStorage.getItem(PARTICIPANTS)!) as School[]
-        const quizParticipants = JSON.parse(localStorage.getItem(QUIZ_PARTICIPANTS)!) as QuizParticipant[]
+        const allParticipants = JSON?.parse(localStorage.getItem(PARTICIPANTS)!) as School[]
+        const quizParticipants = JSON?.parse(localStorage.getItem(QUIZ_PARTICIPANTS)!) as QuizParticipant[]
         const updatedParticipants = updatePoints(allParticipants, quizParticipants);
         if (updatedParticipants) {
             setParticipants(updatedParticipants)
@@ -71,7 +71,7 @@ export const SchoolsTable = () => {
         <div className="w-full">
             <Table>
                 <TableHeader>
-                    {table.getHeaderGroups().map((headerGroup) => (
+                    {table?.getHeaderGroups().map((headerGroup) => (
                         <TableRow key={headerGroup.id}>
                             {headerGroup.headers.map((header) => (
                                 <TableHead key={header.id}>

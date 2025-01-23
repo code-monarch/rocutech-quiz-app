@@ -37,9 +37,9 @@ export default function ScoreboardTemp() {
 
     // Transform and set participants from localStorage
     React.useEffect(() => {
-        const saved = localStorage.getItem(QUIZ_PARTICIPANTS)
+        const saved = localStorage?.getItem(QUIZ_PARTICIPANTS)
         if (saved) {
-            const rawData = JSON.parse(saved)
+            const rawData = JSON?.parse(saved)
             setParticipants(rawData as Participant[])
         }
     }, [])
@@ -90,6 +90,7 @@ export default function ScoreboardTemp() {
     const clearLocalStorage = () => {
         if (typeof window !== 'undefined') {
             localStorage.clear();
+            window.location.reload();
         }
     }
 

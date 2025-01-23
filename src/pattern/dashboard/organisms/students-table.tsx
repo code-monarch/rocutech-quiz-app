@@ -45,9 +45,9 @@ export const columns: ColumnDef<z.infer<typeof studentSchema>>[] = [
 const extractStudents = (data: School[]): z.infer<typeof studentSchema>[] => {
     const allStudents: z.infer<typeof studentSchema>[] = [];
 
-    data.forEach((school) => {
-        school.students?.forEach((student) => {
-            allStudents.push({
+    data?.forEach((school) => {
+        school?.students?.forEach((student) => {
+            allStudents?.push({
                 name: student.name,
                 points: student.points ?? "0",
             });

@@ -84,7 +84,7 @@ export default function QuizTemp() {
             const fetchedQuestions: IQuestion[] = [];
             const questionsPerSubject = Math.ceil(totalQuestions / subjects.length);
 
-            subjects.forEach((subject) => {
+            subjects?.forEach((subject) => {
                 switch (subject.toLowerCase()) {
                     case 'physics':
                         fetchedQuestions.push(...fetchRandomQuestions(physics, questionsPerSubject));

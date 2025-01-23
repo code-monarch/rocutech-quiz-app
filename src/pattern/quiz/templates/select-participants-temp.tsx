@@ -13,6 +13,7 @@ import { CREATE_QUIZ_ROUTES } from "@/lib/routes"
 import { useToast } from "@/hooks/use-toast"
 import { PARTICIPANTS, SELECTED_STUDENTS } from "@/lib/constants"
 import { AddParticipantsModal } from "@/pattern/participants/organisms/add-participants-dialog"
+import { Hidden } from "@/pattern/common/atoms/hidden"
 
 export const studentSchema = z.string()
 
@@ -86,9 +87,9 @@ export default function SelectParticipantsTemp() {
         setSelectedStudentsSet(prev => {
             const next = new Set(prev)
             if (checked) {
-                schoolStudentIds.forEach(id => next.add(id))
+                schoolStudentIds?.forEach(id => next.add(id))
             } else {
-                schoolStudentIds.forEach(id => next.delete(id))
+                schoolStudentIds?.forEach(id => next.delete(id))
             }
             return next
         })
@@ -159,7 +160,7 @@ export default function SelectParticipantsTemp() {
                         </div>
                         <SelectParticipantsHeader />
                         <div className='w-full flex flex-col gap-y-2'>
-                            {schools.map((school, index) => (
+                            {schools.length > 0 ? schools.map((school, index) => (
                                 <div key={school.name} className="border bg-white overflow-hidden transition-all duration-200 ease-in-out">
                                     <div className="flex items-center justify-between p-4 hover:bg-gray-50 cursor-pointer transition-colors duration-200 ease-in-out" onClick={() => toggleSchool(school.name)}>
                                         <div className="flex items-center gap-4">
@@ -221,12 +222,16 @@ export default function SelectParticipantsTemp() {
                                         </div>
                                     )}
                                 </div>
-                            ))}
+                            )) :
+                                <div className="w-full flex items-center justify-center text-foreground text-lg font-medium py-7">No Records Found.</div>
+                            }
                         </div>
                     </div>
                 </div>
                 <div className="w-full flex items-center justify-end gap-x-6">
-                    <Button type="submit" size="lg">Continue</Button>
+                    <Hidden isVisible={schools.length > 0 ? true : false} >
+                        <Button type="submit" size="lg">Continue</Button>
+                    </Hidden>
                 </div>
             </form>
         </TemplatePanel>

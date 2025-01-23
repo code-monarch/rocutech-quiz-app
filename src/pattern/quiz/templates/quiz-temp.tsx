@@ -122,41 +122,41 @@ const QuizTemp = React.memo(function QuizTemp() {
         if (subjects.length > 0) {
             const questionsPerSubject = Math.ceil(totalQuestions / subjects.length)
 
-            subjects.forEach((subject) => {
+            subjects?.forEach((subject) => {
                 switch (subject.toLowerCase()) {
                     case 'physics':
                         if (difficulty === "easy") {
-                            fetchedQuestions.push(...fetchRandomQuestions(Easyphysics, questionsPerSubject))
+                            fetchedQuestions?.push(...fetchRandomQuestions(Easyphysics, questionsPerSubject))
                         } else {
-                            fetchedQuestions.push(...fetchRandomQuestions(physics, questionsPerSubject))
+                            fetchedQuestions?.push(...fetchRandomQuestions(physics, questionsPerSubject))
                         }
                         break
                     case 'chemistry':
                         if (difficulty === "easy") {
-                            fetchedQuestions.push(...fetchRandomQuestions(EasyChemistry, questionsPerSubject))
+                            fetchedQuestions?.push(...fetchRandomQuestions(EasyChemistry, questionsPerSubject))
                         } else {
-                            fetchedQuestions.push(...fetchRandomQuestions(chemistry, questionsPerSubject))
+                            fetchedQuestions?.push(...fetchRandomQuestions(chemistry, questionsPerSubject))
                         }
                         break
                     case 'mathematics':
                         if (difficulty === "easy") {
-                            fetchedQuestions.push(...fetchRandomQuestions(EasyMathematics, questionsPerSubject))
+                            fetchedQuestions?.push(...fetchRandomQuestions(EasyMathematics, questionsPerSubject))
                         } else {
-                            fetchedQuestions.push(...fetchRandomQuestions(mathematics, questionsPerSubject))
+                            fetchedQuestions?.push(...fetchRandomQuestions(mathematics, questionsPerSubject))
                         }
                         break
                     case 'english':
                         if (difficulty === "easy") {
-                            fetchedQuestions.push(...fetchRandomQuestions(EasyEnglish, questionsPerSubject))
+                            fetchedQuestions?.push(...fetchRandomQuestions(EasyEnglish, questionsPerSubject))
                         } else {
-                            fetchedQuestions.push(...fetchRandomQuestions(english, questionsPerSubject))
+                            fetchedQuestions?.push(...fetchRandomQuestions(english, questionsPerSubject))
                         }
                         break
                     case 'current-affairs':
                         if (difficulty === "easy") {
-                            fetchedQuestions.push(...fetchRandomQuestions(EasyCurrentAffairs, questionsPerSubject))
+                            fetchedQuestions?.push(...fetchRandomQuestions(EasyCurrentAffairs, questionsPerSubject))
                         } else {
-                            fetchedQuestions.push(...fetchRandomQuestions(currentAffairs, questionsPerSubject))
+                            fetchedQuestions?.push(...fetchRandomQuestions(currentAffairs, questionsPerSubject))
                         }
                         break
                     default:
@@ -164,7 +164,7 @@ const QuizTemp = React.memo(function QuizTemp() {
                 }
             })
 
-            const shuffledQuestions = fetchedQuestions.sort(() => Math.random() - 0.5).slice(0, totalQuestions)
+            const shuffledQuestions = fetchedQuestions?.sort(() => Math.random() - 0.5).slice(0, totalQuestions)
             setCurrentQuestions(shuffledQuestions)
         }
     }, [])

@@ -11,6 +11,7 @@ export default function ParticipantList() {
     const clearLocalStorage = () => {
         if (typeof window !== 'undefined') {
             localStorage.clear();
+            window.location.reload();
         }
     }
     return (

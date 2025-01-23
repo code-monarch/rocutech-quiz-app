@@ -45,7 +45,7 @@ export function AddParticipantsModal() {
     const form = useForm<ParticipantFormData>({
         resolver: zodResolver(participantFormSchema),
         defaultValues: {
-            schools: Array(2).fill({
+            schools: Array(1).fill({
                 name: "",
                 points: "0",
                 students: [{ name: "", points: "0" }]
