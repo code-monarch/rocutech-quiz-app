@@ -12,8 +12,8 @@ const QuizDetailsHeader: FC<IProps> = ({ subjects, questions }) => {
         <div className='min-w-[306px] h-fit flex flex-col items-center gap-y-[10px] p-[10px] border-b-2 border-primary'>
             <h4 className='text-foreground text-2xl font-semibold uppercase'>{subjects.split(',').map(subject => subject.trim()).join(', ')} Quiz</h4>
             <div className='flex items-center gap-6'>
-                <p className='text-foreground text-sm font-medium'>{questions} Questions</p>
-                <p className='text-foreground text-sm font-normal'>
+                <p className='text-foreground text-base font-medium'>{questions} Questions</p>
+                <p className='text-foreground text-base font-normal'>
                     Difficulty:
                     <span className='font-bold capitalize ml-1'>{difficulty}</span>
                 </p>

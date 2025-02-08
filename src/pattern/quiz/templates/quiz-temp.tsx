@@ -251,26 +251,29 @@ const QuizTemp = React.memo(function QuizTemp() {
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-7">
                         <CardTitle className="text-xl font-bold capitalize">
-                            {subjects.join(', ')}
-                            {isBonusQuestion && <span className="ml-2 text-sm font-normal text-green-600">(Bonus Question)</span>}
-                            {justAnsweredBonus && <span className="ml-2 text-sm font-normal text-blue-600">(Regular Question after Bonus)</span>}
+                            {/* {subjects.join(', ')} */}
+                            <span className='text-base font-medium'>
+                                Quiz Questions for Ogiame Atuwatse III Inter-Collegiate Competition
+                            </span>
                         </CardTitle>
                         <div className="flex items-center gap-6">
                             <div className="flex items-center gap-2">
                                 <Clock className="h-4 w-4" />
-                                <span className="text-sm font-medium">{formatTime(timeLeft)}</span>
+                                <span className="text-base font-medium">{formatTime(timeLeft)}</span>
                             </div>
-                            <div className="text-sm text-muted-foreground">
+                            <div className="text-base text-muted-foreground">
                                 Question <span className="font-medium">{currentQuestionIndex + 1}</span> of <span className="font-medium">{currentQuestions.length}</span>
                             </div>
-                            <div className="text-sm text-muted-foreground">
+                            <div className="text-base text-muted-foreground">
                                 Failed Attempts: <span className="font-medium">{failedAttempts}</span>
                             </div>
                         </div>
                     </CardHeader>
                     <CardContent className="space-y-6 transition-all duration-300">
-                        <div className="text-lg font-medium">
+                        <div className="flex items-center gap-1 text-xl font-medium">
                             {currentQuestion?.question || "No questions available"}
+                            {isBonusQuestion && <span className="ml-2 text-base font-normal text-green-600">(Bonus Question)</span>}
+                            {justAnsweredBonus && <span className="ml-2 text-base font-normal text-blue-600">(Regular Question after Bonus)</span>}
                         </div>
 
                         <div className="space-y-3">
@@ -278,7 +281,7 @@ const QuizTemp = React.memo(function QuizTemp() {
                             {currentQuestion?.options?.map?.((option) => (
                                 <div
                                     key={option}
-                                    className={`p-4 rounded-lg border transition-colors duration-300 cursor-pointer
+                                    className={`text-xl p-4 rounded-lg border transition-colors duration-300 cursor-pointer
                                     ${selectedOption === option
                                             ? 'border-blue-500 bg-blue-500 bg-opacity-10 text-blue-600'
                                             : 'bg-white text-black hover:border-gray-400'}`}

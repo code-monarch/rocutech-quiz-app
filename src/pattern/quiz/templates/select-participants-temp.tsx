@@ -164,7 +164,7 @@ export default function SelectParticipantsTemp() {
                                 <div key={school.name} className="border bg-white overflow-hidden transition-all duration-200 ease-in-out">
                                     <div className="flex items-center justify-between p-4 hover:bg-gray-50 cursor-pointer transition-colors duration-200 ease-in-out" onClick={() => toggleSchool(school.name)}>
                                         <div className="flex items-center gap-4">
-                                            <span className="text-sm font-medium w-6">{index + 1}</span>
+                                            <span className="text-base font-medium w-6">{index + 1}</span>
                                             <Checkbox
                                                 checked={isSchoolFullySelected(school)}
                                                 onCheckedChange={(checked) => {
@@ -179,14 +179,14 @@ export default function SelectParticipantsTemp() {
                                                 }
                                             />
                                             <div>
-                                                <h3 className="text-sm font-medium">{school.name}</h3>
-                                                <p className="text-sm text-muted-foreground">
+                                                <h3 className="text-base font-medium">{school.name}</h3>
+                                                <p className="text-base text-muted-foreground">
                                                     ({school.students.length} students)
                                                 </p>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-4">
-                                            <span className="text-sm font-medium">{school.points} Points</span>
+                                            <span className="text-base font-medium">{school.points} Points</span>
                                             <Button
                                                 type="button"
                                                 variant="ghost"
@@ -216,7 +216,7 @@ export default function SelectParticipantsTemp() {
                                                             toggleStudent(school.name, student.name, checked as boolean)
                                                         }}
                                                     />
-                                                    <span className="text-sm">{student.name}</span>
+                                                    <span className="text-base">{student.name}</span>
                                                 </label>
                                             ))}
                                         </div>

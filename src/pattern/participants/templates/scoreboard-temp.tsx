@@ -22,6 +22,7 @@ import { z } from "zod"
 import { useToast } from "@/hooks/use-toast"
 import { Button } from "@/components/ui/button"
 import { QUIZ_PARTICIPANTS } from "@/lib/constants"
+import { Hidden } from "@/pattern/common/atoms/hidden"
 
 export const quizParticipantSchema = z.object({
     name: z.string().min(1, "Student name is required"),
@@ -101,8 +102,9 @@ export default function ScoreboardTemp() {
                     <h4 className="text-2xl font-semibold" > Scoreboard </h4>
                     < p className="text-base font-normal text-accent-foreground" > Result of latest quiz </p>
                 </div>
-
-                <Button variant="destructive" size="lg" onClick={() => clearLocalStorage()}>Clear all data</Button>
+                <Hidden isVisible={table.getRowModel().rows.length > 0 ? true : false}>
+                    <Button variant="destructive" size="lg" onClick={() => clearLocalStorage()}>Clear all data</Button>
+                </Hidden>
             </div>
             < div >
                 <Table className="bg-white rounded-md border" >

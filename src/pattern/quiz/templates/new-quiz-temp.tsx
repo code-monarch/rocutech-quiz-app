@@ -218,8 +218,8 @@ export default function QuizTemp() {
 
                                 {currentQuestions[currentQuestionIndex]?.explanation && (
                                     <div className='flex items-start text-black transition-all duration-300'>
-                                        <span className='font-medium'>Explanation: </span>
-                                        <p className='ml-2'>{currentQuestions[currentQuestionIndex]?.explanation}</p>
+                                        <span className='font-medium text-lg'>Explanation: </span>
+                                        <p className='text-lg ml-2'>{currentQuestions[currentQuestionIndex]?.explanation}</p>
                                     </div>
                                 )}
                             </div>
