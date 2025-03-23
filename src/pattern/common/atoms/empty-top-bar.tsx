@@ -7,8 +7,8 @@ const EmptyTopbar = () => {
   const { back } = useRouter();
 
   return (
-    <div className='bg-primary w-full h-[100px] flex items-center justify-start px-9'>
-      <Button variant="secondary" onClick={() => back()} className='font-medium text-lg'>
+    <div className='bg-background w-full h-[100px] flex items-center justify-start px-9'>
+      <Button variant="default" onClick={() => back()} className='font-medium text-lg'>
         <span><ChevronLeft /></span>  Back
       </Button>
     </div>

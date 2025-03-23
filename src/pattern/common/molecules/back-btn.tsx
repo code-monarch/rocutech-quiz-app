@@ -10,7 +10,7 @@ const BackBtn = () => {
 
     return (
         <>
-            <Button variant="ghost" onClick={() => back()} className='font-medium text-lg'> <span><ChevronLeft /></span>  Back</Button>
+            <Button variant="default" onClick={() => back()} className='font-medium text-lg'> <span><ChevronLeft /></span>  Back</Button>
         </>
     )
 }

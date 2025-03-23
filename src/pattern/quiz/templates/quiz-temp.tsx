@@ -13,11 +13,13 @@ import { currentAffairs, EasyCurrentAffairs } from '@/lib/questions/current-affa
 import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
 import { ParticipantCard } from '../organisms/paricipant-card'
 import { QUIZ_DIFFICULTY, QUIZ_PARTICIPANTS, SELECTED_STUDENTS } from '@/lib/constants'
-import { formatTime } from '@/lib/utils'
+import { cn, formatTime } from '@/lib/utils'
 import { IQuestion } from '@/lib/questions/types'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 
-const TIME = 90 // time in seconds
-const REVEAL_TIME = 10; // reveal time in seconds
+const TIME = 75 // Regular question time
+const BONUS_TIME = 30 // Bonus question time
+const REVEAL_TIME = 10 // Reveal time in seconds
 
 interface Participant {
     name: string
@@ -40,7 +42,7 @@ const QuizTemp = React.memo(function QuizTemp() {
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0)
     const [selectedOption, setSelectedOption] = useState<string | null>(null)
-    const [timeLeft, setTimeLeft] = useState<number>(TIME) // 5:00 in seconds
+    const [timeLeft, setTimeLeft] = useState<number>(TIME)
     const [currentQuestions, setCurrentQuestions] = useState<IQuestion[]>([])
     const participantsRef = useRef<Participant[]>([])
     const [currentParticipantIndex, setCurrentParticipantIndex] = useState<number>(0)
@@ -48,34 +50,40 @@ const QuizTemp = React.memo(function QuizTemp() {
     const [isBonusQuestion, setIsBonusQuestion] = useState<boolean>(false)
     console.log("IS BONUS QUESTION: ", isBonusQuestion)
     const [bonusQuestion, setBonusQuestion] = useState<IQuestion | null>(null)
-    console.log("BONUS QUESTION: ", bonusQuestion)
     const [justAnsweredBonus, setJustAnsweredBonus] = useState<boolean>(false)
     const [revealAnswer, setRevealAnswer] = useState<boolean>(false)
-    const [revealTimer, setRevealTimer] = useState<number | null>(null); // Timer for reveal period
+    const [revealTimer, setRevealTimer] = useState<number | null>(null)
     const [answerSubmitted, setAnswerSubmitted] = useState<boolean>(false)
+    const [isTimerRunning, setIsTimerRunning] = useState<boolean>(false)
+    const [isQuizFinished, setIsQuizFinished] = useState<boolean>(false)
+    const [showScores, setShowScores] = useState<boolean>(false)
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            const storedParticipants = localStorage.getItem(SELECTED_STUDENTS);
-
+            const storedParticipants = localStorage.getItem(SELECTED_STUDENTS)
             try {
                 const parsedParticipants = storedParticipants
                     ? JSON.parse(storedParticipants).map((participant: string) => ({
                         name: participant || "Unknown",
                         points: 0,
                     }))
-                    : [];
-                participantsRef.current = parsedParticipants;
+                    : []
+                participantsRef.current = parsedParticipants
             } catch (error) {
-                console.error("Error parsing participants from localStorage:", error);
-                participantsRef.current = [];
+                console.error("Error parsing participants from localStorage:", error)
+                participantsRef.current = []
             }
         }
-    }, []);
+    }, [])
 
-    // Timer
+    // Set initial time based on question type
     useEffect(() => {
-        if (!isBonusQuestion && !revealAnswer) {
+        setTimeLeft(isBonusQuestion ? BONUS_TIME : TIME)
+    }, [isBonusQuestion])
+
+    // Timer effect
+    useEffect(() => {
+        if (isTimerRunning && !revealAnswer) {
             const timer = setInterval(() => {
                 setTimeLeft((prev) => {
                     if (prev > 0) {
@@ -90,28 +98,27 @@ const QuizTemp = React.memo(function QuizTemp() {
 
             return () => clearInterval(timer)
         }
-    }, [currentQuestions, currentQuestionIndex, currentParticipantIndex, isBonusQuestion])
+    }, [isTimerRunning, currentQuestions, currentQuestionIndex, currentParticipantIndex, isBonusQuestion, revealAnswer])
 
     // Reveal timer effect
     useEffect(() => {
         if (revealAnswer && revealTimer === null) {
             const timer = setTimeout(() => {
-                setRevealTimer(null);
+                setRevealTimer(null)
                 handleParticipantAnswer(
                     selectedOption?.charAt(0).toLowerCase() ===
                     currentQuestion?.correctAnswer?.charAt(0)?.toLowerCase()
-                );
+                )
                 setIsBonusQuestion(false)
-            }, REVEAL_TIME * 1000);
+            }, REVEAL_TIME * 1000)
 
-            return () => clearTimeout(timer);
+            return () => clearTimeout(timer)
         }
-    }, [revealAnswer, revealTimer, selectedOption]);
+    }, [revealAnswer, revealTimer, selectedOption])
 
-    // Fetch questions based on subjects
+    // Questions setup
     useEffect(() => {
         const fetchedQuestions: IQuestion[] = []
-
         const difficulty = localStorage.getItem(QUIZ_DIFFICULTY) as "easy" | "regular"
 
         const fetchRandomQuestions = (questionsArray: IQuestion[], count: number): IQuestion[] => {
@@ -170,9 +177,10 @@ const QuizTemp = React.memo(function QuizTemp() {
     }, [])
 
     const handleNextQuestion = (): void => {
+        console.log("NEXT QUESTION CLICKED")
         setRevealAnswer(false)
         setSelectedOption(null)
-        setTimeLeft(TIME)
+        setIsTimerRunning(false)
         setFailedAttempts(0)
         setIsBonusQuestion(false)
         setBonusQuestion(null)
@@ -183,9 +191,7 @@ const QuizTemp = React.memo(function QuizTemp() {
         if (currentQuestionIndex < currentQuestions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1)
         } else {
-            console.log("Quiz completed!")
-            localStorage.setItem(QUIZ_PARTICIPANTS, JSON.stringify(participantsRef?.current))
-            push(APP_ROUTES.scoreboard)
+            setIsQuizFinished(true) // Changed from direct push to scoreboard
         }
 
         if (!justAnsweredBonus && !isBonusQuestion) {
@@ -201,13 +207,11 @@ const QuizTemp = React.memo(function QuizTemp() {
         }
     }, [failedAttempts])
 
-
     const handleParticipantAnswer = (isCorrect: boolean): void => {
-        console.log("HANDLE ANSWEERRRR")
-        setRevealTimer(null); // Clear the reveal timer
+        setRevealTimer(null)
 
         if (isCorrect && !isBonusQuestion) {
-            setRevealAnswer(false);
+            setRevealAnswer(false)
             const updatedParticipants = participantsRef?.current?.map((participant, index) =>
                 index === currentParticipantIndex
                     ? {
@@ -215,16 +219,16 @@ const QuizTemp = React.memo(function QuizTemp() {
                         points: participant.points + (isBonusQuestion ? 1 : 2),
                     }
                     : participant
-            );
-            participantsRef.current = updatedParticipants;
-            handleNextQuestion();
+            )
+            participantsRef.current = updatedParticipants
+            handleNextQuestion()
         } else if (!isCorrect && !isBonusQuestion) {
-            setFailedAttempts((prev) => prev + 1);
-            setCurrentParticipantIndex((prevIndex) => (prevIndex + 1) % participantsRef.current.length);
+            setFailedAttempts((prev) => prev + 1)
+            setCurrentParticipantIndex((prevIndex) => (prevIndex + 1) % participantsRef.current.length)
         }
 
         if (isCorrect && isBonusQuestion) {
-            setRevealAnswer(false);
+            setRevealAnswer(false)
             const updatedParticipants = participantsRef?.current?.map((participant, index) =>
                 index === currentParticipantIndex
                     ? {
@@ -232,14 +236,27 @@ const QuizTemp = React.memo(function QuizTemp() {
                         points: participant.points + 1,
                     }
                     : participant
-            );
-            participantsRef.current = updatedParticipants;
-            handleNextQuestion();
+            )
+            participantsRef.current = updatedParticipants
+            handleNextQuestion()
         } else if (!isCorrect && isBonusQuestion) {
-            setRevealAnswer(false);
-            handleNextQuestion();
+            setRevealAnswer(false)
+            handleNextQuestion()
         }
-    };
+    }
+    // Add this function to calculate winner
+    const calculateWinner = (): Participant[] => {
+        if (!participantsRef.current.length) return []
+        const maxScore = Math.max(...participantsRef.current.map(p => p.points))
+        return participantsRef.current.filter(p => p.points === maxScore)
+    }
+
+    // Add this effect to handle quiz finish
+    useEffect(() => {
+        if (isQuizFinished) {
+            localStorage.setItem(QUIZ_PARTICIPANTS, JSON.stringify(participantsRef.current))
+        }
+    }, [isQuizFinished])
 
     const currentQuestion = useMemo(() =>
         currentQuestions[currentQuestionIndex] || null
@@ -251,40 +268,42 @@ const QuizTemp = React.memo(function QuizTemp() {
                 <Card>
                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-7">
                         <CardTitle className="text-xl font-bold capitalize">
-                            {/* {subjects.join(', ')} */}
-                            <span className='text-base font-medium'>
-                                Quiz Questions for Ogiame Atuwatse III Inter-Collegiate Competition
-                            </span>
+                            {/* Quiz title */}
                         </CardTitle>
                         <div className="flex items-center gap-6">
-                            <div className="flex items-center gap-2">
+                            <Button
+                                variant="ghost"
+                                onClick={() => setIsTimerRunning(!isTimerRunning)}
+                                className="flex items-center gap-2"
+                            >
                                 <Clock className="h-4 w-4" />
-                                <span className="text-base font-medium">{formatTime(timeLeft)}</span>
-                            </div>
-                            <div className="text-base text-muted-foreground">
+                                <span className="text-3xl font-medium">
+                                    {formatTime(timeLeft)}
+                                </span>
+                                <span className="text-base ml-2">
+                                    {isTimerRunning ? '(Pause)' : '(Start)'}
+                                </span>
+                            </Button>
+                            <div className="text-lg text-muted-foreground">
                                 Question <span className="font-medium">{currentQuestionIndex + 1}</span> of <span className="font-medium">{currentQuestions.length}</span>
-                            </div>
-                            <div className="text-base text-muted-foreground">
-                                Failed Attempts: <span className="font-medium">{failedAttempts}</span>
                             </div>
                         </div>
                     </CardHeader>
                     <CardContent className="space-y-6 transition-all duration-300">
-                        <div className="flex items-center gap-1 text-xl font-medium">
+                        <div className="flex items-start gap-1 text-2xl font-medium">
                             {currentQuestion?.question || "No questions available"}
-                            {isBonusQuestion && <span className="ml-2 text-base font-normal text-green-600">(Bonus Question)</span>}
-                            {justAnsweredBonus && <span className="ml-2 text-base font-normal text-blue-600">(Regular Question after Bonus)</span>}
+                            {isBonusQuestion && <span className="ml-2 text-lg font-normal text-green-600 whitespace-nowrap">(Bonus Question)</span>}
                         </div>
 
                         <div className="space-y-3">
-                            <p className="text-sm text-muted-foreground mb-4">Select one option</p>
+                            <p className="text-base text-muted-foreground mb-4">Select one option</p>
                             {currentQuestion?.options?.map?.((option) => (
                                 <div
                                     key={option}
-                                    className={`text-xl p-4 rounded-lg border transition-colors duration-300 cursor-pointer
-                                    ${selectedOption === option
+                                    className={cn("text-2xl p-4 rounded-lg border transition-colors duration-300 cursor-pointer",
+                                        selectedOption === option
                                             ? 'border-blue-500 bg-blue-500 bg-opacity-10 text-blue-600'
-                                            : 'bg-white text-black hover:border-gray-400'}`}
+                                            : 'bg-white text-black hover:border-gray-400')}
                                     onClick={() => setSelectedOption(option)}
                                 >
                                     {option}
@@ -294,16 +313,16 @@ const QuizTemp = React.memo(function QuizTemp() {
 
                         {selectedOption && revealAnswer && (
                             <div className="mt-6 space-y-3 transition-all duration-300">
-                                <div className="text-sm font-medium">Solution</div>
-                                <div className={`font-medium p-4 rounded-lg border  
+                                <div className="text-lg font-medium">Solution</div>
+                                <p className={`font-medium text-lg p-4 rounded-lg border  
                                     ${selectedOption.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0)?.toLowerCase()
                                         ? 'border-green-500 bg-green-500 bg-opacity-10 text-green-600'
                                         : 'border-red-500 bg-red-500 bg-opacity-10 text-red-600'}`
-                                }>Correct Answer: {currentQuestion?.correctAnswer}
-                                </div>
+                                }>Correct Answer: <span className="text-lg">{currentQuestion?.correctAnswer}</span>
+                                </p>
 
                                 {currentQuestion?.explanation && (
-                                    <div className='flex items-start text-black transition-all duration-300'>
+                                    <div className='flex items-start text-black text-xl transition-all duration-300'>
                                         <span className='font-medium'>Explanation: </span>
                                         <p className='ml-2'>{currentQuestion.explanation}</p>
                                     </div>
@@ -312,25 +331,23 @@ const QuizTemp = React.memo(function QuizTemp() {
                         )}
                     </CardContent>
                     <CardFooter className="w-full flex justify-between pt-6">
-                        <Button size="lg" variant="outline" onClick={() => push(CREATE_QUIZ_ROUTES.createQuiz)}>
+                        <Button size="lg" variant="outline" className='text-lg' onClick={() => push(CREATE_QUIZ_ROUTES.createQuiz)}>
                             Cancel quiz
                         </Button>
 
                         <Button
                             size="lg"
+                            className='text-xl'
                             onClick={() => {
-                                setAnswerSubmitted(true);
-                                if (!revealAnswer && (selectedOption?.charAt(0).toLowerCase() ===
-                                    currentQuestion?.correctAnswer?.charAt(0).toLowerCase() || isBonusQuestion)) {
-                                    // Reveal the answer first if not already revealed
-                                    setRevealAnswer(true);
-                                    setRevealTimer(REVEAL_TIME);
+                                setAnswerSubmitted(true)
+                                if (!revealAnswer && (selectedOption?.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0).toLowerCase() || isBonusQuestion)) {
+                                    setRevealAnswer(true)
+                                    setRevealTimer(REVEAL_TIME)
                                 } else {
-                                    // Process the answer after it has been revealed
                                     handleParticipantAnswer(
                                         selectedOption?.charAt(0).toLowerCase() ===
                                         currentQuestion?.correctAnswer?.charAt(0).toLowerCase()
-                                    );
+                                    )
                                 }
                             }}
                             disabled={selectedOption === null}
@@ -341,26 +358,74 @@ const QuizTemp = React.memo(function QuizTemp() {
                                     : "Next Question"
                                 : "Submit Answer"}
                         </Button>
-
                     </CardFooter>
                 </Card>
             </div>
-            <div className="w-[240px] space-y-4">
-                {participantsRef.current.length > 0 ? (
-                    participantsRef.current?.map((participant, index) => (
-                        <ParticipantCard
-                            key={index}
-                            name={participant.name}
-                            score={participant.points}
-                            isCurrent={index === currentParticipantIndex}
-                            isNext={index === (currentParticipantIndex + 1) % participantsRef.current.length}
-                        />
-                    ))
-                ) : (
-                    <div>Loading participants...</div>
-                )}
-            </div>
-        </div >
+            {isQuizFinished && (
+                <Dialog open={isQuizFinished} onOpenChange={setIsQuizFinished}>
+                    <DialogContent className="bg-white sm:max-w-[425px]">
+                        <DialogHeader>
+                            <DialogTitle className="text-2xl">
+                                {showScores ? "Quiz Results" : "Quiz Complete!"}
+                            </DialogTitle>
+                        </DialogHeader>
+
+                        {!showScores ? (
+                            <div className="space-y-4">
+                                <DialogDescription className="text-lg">
+                                    All questions have been answered!
+                                </DialogDescription>
+                                <Button
+                                    className="w-full text-lg"
+                                    onClick={() => setShowScores(true)}
+                                >
+                                    Reveal Scores
+                                </Button>
+                            </div>
+                        ) : (
+                            <div className="space-y-4">
+                                <div className="space-y-2">
+                                    {participantsRef.current
+                                        .sort((a, b) => b.points - a.points)
+                                        .map((participant, index) => (
+                                            <div
+                                                key={index}
+                                                className="flex justify-between items-center p-2 rounded-lg bg-gray-100"
+                                            >
+                                                <span className="font-medium">
+                                                    {participant.name}
+                                                </span>
+                                                <span className="font-semibold">
+                                                    {participant.points} points
+                                                </span>
+                                            </div>
+                                        ))}
+                                </div>
+
+                                <div className="mt-4 text-center">
+                                    <h3 className="text-xl font-bold mb-2">Winner(s):</h3>
+                                    {calculateWinner().map((winner, index) => (
+                                        <div
+                                            key={index}
+                                            className="text-green-600 font-bold text-lg"
+                                        >
+                                            🏆 {winner.name} 🏆
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <Button
+                                    className="w-full mt-4 text-lg"
+                                    onClick={() => push(APP_ROUTES.scoreboard)}
+                                >
+                                    View Detailed Scoreboard
+                                </Button>
+                            </div>
+                        )}
+                    </DialogContent>
+                </Dialog>
+            )}
+        </div>
     )
 })
 

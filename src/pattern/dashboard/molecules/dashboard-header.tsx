@@ -35,8 +35,8 @@ const DashboardHeader = () => {
     return (
         <div className='flex flex-col gap-6'>
             <div className='w-full flex items-center justify-between'>
-                <h2 className='text-foreground text-2xl font-bold'>Dashboard</h2>
-                <Button size="lg" onClick={() => push(CREATE_QUIZ_ROUTES.createQuiz)} >Create a Quiz</Button>
+                <h2 className='text-white text-2xl font-bold'>Dashboard</h2>
+                <Button size="lg" className='text-lg' onClick={() => push(CREATE_QUIZ_ROUTES.createQuiz)} >Create a Quiz</Button>
             </div>
 
             {/* Subject Cards */}

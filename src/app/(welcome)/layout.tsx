@@ -8,7 +8,7 @@ const WelcomeLayout = ({
     children: React.ReactNode;
 }>) => {
     return (
-        <div className="min-h-screen h-full w-full space-y-[60px]">
+        <div className="bg-background min-h-screen h-full w-full space-y-[60px]">
             {children}
         </div>
     )

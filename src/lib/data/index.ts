@@ -14,11 +14,11 @@ export const subjects = [
     {
         label: "Chemistry",
         value: "chemistry"
-    },
-    {
-        label: "Current Affairs",
-        value: "current-affairs"
-    },
+    }
+    // {
+    //     label: "Current Affairs",
+    //     value: "current-affairs"
+    // },
 ] as const
 
 export const schools = [

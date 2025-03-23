@@ -69,8 +69,8 @@ const QuizSummaryTemp = () => {
 
                 {/* Control */}
                 <div className='w-full flex justify-center gap-6'>
-                    <Button variant="outline" size="lg" onClick={() => push(CREATE_QUIZ_ROUTES.selectSubjects)}>Edit Quiz</Button>
-                    <Button size="lg" onClick={handleCreateQuiz}>Create Quiz</Button>
+                    <Button variant="outline" size="lg" className='text-lg' onClick={() => push(CREATE_QUIZ_ROUTES.selectSubjects)}>Edit Quiz</Button>
+                    <Button size="lg" className='text-lg' onClick={handleCreateQuiz}>Create Quiz</Button>
                 </div>
             </div>
         </TemplatePanel >

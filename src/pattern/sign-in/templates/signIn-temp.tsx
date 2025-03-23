@@ -44,8 +44,8 @@ const SignInTemp = () => {
       <div className='w-[640px] h-fit flex flex-col items-center gap-y-5'>
         <Image src={brandLogo} alt="brand logo" />
 
-        <div className='bg-white w-full h-[357px] p-14 border rounded-3xl'>
-          <h3 className='w-full flex items-center justify-center text-3xl font-medium mb-10'>Sign In</h3>
+        <div className='bg-card w-full h-[357px] p-14 border rounded-3xl'>
+          <h3 className='w-full flex items-center justify-center text-card-foreground text-3xl font-medium mb-10'>Sign In</h3>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="w-full grid items-center gap-2 mb-6">
               <Label htmlFor="passcode" className='text-[#666666]'>Passcode</Label>

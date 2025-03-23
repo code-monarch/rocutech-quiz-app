@@ -20,8 +20,8 @@ import { cn } from "@/lib/utils"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const items = Array.from({ length: 64 }, (_, i) => ({
-    label: `Batch ${i}`,
-    value: i === 1 ? 1 : i * 20 + 1,
+    label: `Batch ${i + 1}`,
+    value: i + 1 === 1 ? 1 : i * 20 + 1,
 }))
 
 const FormSchema = z.object({
@@ -79,7 +79,7 @@ const NumberOfQuestionsTemp = () => {
             localStorage.setItem(QUIZ_DIFFICULTY, difficulty);
         } else {
             console.log("QUESTION BATCH: ", batch)
-            localStorage.setItem(QUESTION_BATCH, batch!?.toString())
+            localStorage.setItem(QUESTION_BATCH, batch!.toString())
             localStorage.setItem(NUMBER_OF_QUESTIONS, "20")
             localStorage.setItem(QUIZ_DIFFICULTY, difficulty);
         }

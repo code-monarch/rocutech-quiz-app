@@ -83,7 +83,7 @@ export function AddParticipantsPageModal() {
             <DialogTrigger asChild>
                 <Button variant="default" size="lg">Add Participants</Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[600px]  md:max-w-[800px] max-h-[80vh] overflow-y-auto custom_scollbar">
+            <DialogContent className="!bg-white sm:max-w-[600px]  md:max-w-[800px] max-h-[80vh] overflow-y-auto custom_scollbar">
                 <DialogHeader>
                     <DialogTitle>Add Participants</DialogTitle>
                 </DialogHeader>
@@ -96,16 +96,16 @@ export function AddParticipantsPageModal() {
                                     name={`schools.${schoolIndex}.name`}
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>School Name {schoolIndex + 1}</FormLabel>
+                                            <FormLabel className="text-base">School Name {schoolIndex + 1}</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="Enter school name" {...field} />
+                                                <Input className="h-[50px]" placeholder="Enter school name" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
                                     )}
                                 />
                                 <div className="space-y-2">
-                                    <FormLabel>Students</FormLabel>
+                                    <FormLabel className="text-base">Students</FormLabel>
                                     {form.watch(`schools.${schoolIndex}.students`).map((_, studentIndex) => (
                                         <FormField
                                             key={studentIndex}
@@ -115,7 +115,7 @@ export function AddParticipantsPageModal() {
                                                 <FormItem>
                                                     <FormControl>
                                                         <div className="flex items-center space-x-2">
-                                                            <Input placeholder={`Student ${studentIndex + 1}`} {...field} />
+                                                            <Input className="h-[50px]" placeholder={`Student ${studentIndex + 1}`} {...field} />
                                                             {studentIndex > 0 && (
                                                                 <Button
                                                                     type="button"

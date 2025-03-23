@@ -42,3 +42,5 @@ next-env.d.ts
 
 # tauri target
 /src-tauri/target
+# Turborepo
+.turbo

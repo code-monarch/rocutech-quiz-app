@@ -99,8 +99,8 @@ export default function ScoreboardTemp() {
         <div className="container mx-auto pb-10 space-y-6" >
             <div className="w-full flex items-center justify-between" >
                 <div className="flex flex-col gap-2" >
-                    <h4 className="text-2xl font-semibold" > Scoreboard </h4>
-                    < p className="text-base font-normal text-accent-foreground" > Result of latest quiz </p>
+                    <h4 className="text-2xl text-white font-semibold" > Scoreboard </h4>
+                    < p className="text-base font-normal text-white" > Result of latest quiz </p>
                 </div>
                 <Hidden isVisible={table.getRowModel().rows.length > 0 ? true : false}>
                     <Button variant="destructive" size="lg" onClick={() => clearLocalStorage()}>Clear all data</Button>
@@ -108,7 +108,7 @@ export default function ScoreboardTemp() {
             </div>
             < div >
                 <Table className="bg-white rounded-md border" >
-                    <TableHeader>
+                    <TableHeader className="bg-slate-400 text-background">
                         {
                             table.getHeaderGroups().map((headerGroup) => (
                                 <TableRow key={headerGroup.id} >
