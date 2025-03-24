@@ -5,17 +5,28 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Clock } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { physics, Easyphysics } from '@/lib/questions/physics'
-import { chemistry, EasyChemistry } from '@/lib/questions/chemistry'
-import { mathematics, EasyMathematics } from '@/lib/questions/mathematics'
-import { english, EasyEnglish } from '@/lib/questions/english'
-import { currentAffairs, EasyCurrentAffairs } from '@/lib/questions/current-affairs'
 import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
-import { ParticipantCard } from '../organisms/paricipant-card'
-import { QUIZ_DIFFICULTY, QUIZ_PARTICIPANTS, SELECTED_STUDENTS } from '@/lib/constants'
-import { cn, formatTime } from '@/lib/utils'
+import { QUESTION_BATCH, QUIZ_PARTICIPANTS, SELECTED_STUDENTS } from '@/lib/constants'
+import { cn, formatTextWithBreakMarkers, formatTime } from '@/lib/utils'
 import { IQuestion } from '@/lib/questions/types'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { useToast } from '@/hooks/use-toast'
+import { BATCH_ONE_QUESTIONS } from '@/lib/questions/batch-1'
+import { BATCH_TWO_QUESTIOINS } from '@/lib/questions/batch-2'
+import { BATCH_THREE_QUESTIONS } from '@/lib/questions/batch-3'
+import { BATCH_FOUR_QUESTIONS } from '@/lib/questions/batch-4'
+import { BATCH_FIVE_QUESTIONS } from '@/lib/questions/batch-5'
+import { BATCH_SIX_QUESTIONS } from '@/lib/questions/batch-6'
+import { BATCH_SEVEN_QUESTIONS } from '@/lib/questions/batch-7'
+import { BATCH_EIGHT_QUESTIONS } from '@/lib/questions/batch-8'
+import { BATCH_NINE_QUESTIONS } from '@/lib/questions/batch-9'
+import { BATCH_TEN_QUESTIONS } from '@/lib/questions/batch-10'
+import { BATCH_ELEVEN_QUESTIONS } from '@/lib/questions/batch-11'
+import { BATCH_TWELVE_QUESTIONS } from '@/lib/questions/batch-12'
+import { BATCH_THIRTEEN_QUESTIONS } from '@/lib/questions/batch-13'
+import { BATCH_FOURTEEN_QUESTIONS } from '@/lib/questions/batch-14'
+import { BATCH_FIFHTEEN_QUESTIONS } from '@/lib/questions/batch-15'
+import { BATCH_SIXTEEN_QUESTIONS } from '@/lib/questions/batch-16'
 
 const TIME = 75 // Regular question time
 const BONUS_TIME = 30 // Bonus question time
@@ -29,6 +40,7 @@ interface Participant {
 const QuizTemp = React.memo(function QuizTemp() {
     const { push } = useRouter()
     const searchParams = useSearchParams()
+    const { toast } = useToast()
 
     const subjectsParam = searchParams.get('subjects')
     const subjects: string[] = subjectsParam
@@ -57,6 +69,83 @@ const QuizTemp = React.memo(function QuizTemp() {
     const [isTimerRunning, setIsTimerRunning] = useState<boolean>(false)
     const [isQuizFinished, setIsQuizFinished] = useState<boolean>(false)
     const [showScores, setShowScores] = useState<boolean>(false)
+    const [questions, setQuestions] = useState<IQuestion[]>([])
+    console.log("QUESTIONS: ", questions)
+
+    const questionBatch = localStorage.getItem(QUESTION_BATCH)
+    console.log("QUESTION BATCH: ", questionBatch)
+
+    // Get Questions
+    useEffect(() => {
+        if (questionBatch) {
+            switch (questionBatch) {
+                case "1":
+                    setQuestions(BATCH_ONE_QUESTIONS)
+                    break;
+                case "2":
+                    setQuestions(BATCH_TWO_QUESTIOINS)
+                    break;
+                case "3":
+                    setQuestions(BATCH_THREE_QUESTIONS)
+                    break;
+                case "4":
+                    setQuestions(BATCH_FOUR_QUESTIONS)
+                    break;
+                case "5":
+                    setQuestions(BATCH_FIVE_QUESTIONS)
+                    break;
+                case "6":
+                    setQuestions(BATCH_SIX_QUESTIONS)
+                    break;
+                case "7":
+                    setQuestions(BATCH_SEVEN_QUESTIONS)
+                    break;
+                case "8":
+                    setQuestions(BATCH_EIGHT_QUESTIONS)
+                    break;
+                case "9":
+                    setQuestions(BATCH_NINE_QUESTIONS)
+                    break;
+                case "10":
+                    setQuestions(BATCH_TEN_QUESTIONS)
+                    break;
+                case "11":
+                    setQuestions(BATCH_ELEVEN_QUESTIONS)
+                    break;
+                case "12":
+                    setQuestions(BATCH_TWELVE_QUESTIONS)
+                    break;
+                case "13":
+                    setQuestions(BATCH_THIRTEEN_QUESTIONS)
+                    break;
+                case "14":
+                    setQuestions(BATCH_FOURTEEN_QUESTIONS)
+                    break;
+                case "15":
+                    setQuestions(BATCH_FIFHTEEN_QUESTIONS)
+                    break;
+                case "16":
+                    setQuestions(BATCH_SIXTEEN_QUESTIONS)
+                    break;
+
+                default:
+                    setQuestions(BATCH_ONE_QUESTIONS)
+                    break;
+            }
+        }
+    }, [])
+
+    // Add toast effect for bonus questions
+    useEffect(() => {
+        if (isBonusQuestion) {
+            toast({
+                title: "🎉 Bonus Question!",
+                description: "This question is worth 1 point!",
+                duration: 3000,
+                className: "bg-white text-lg"
+            })
+        }
+    }, [isBonusQuestion, toast])
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -76,10 +165,12 @@ const QuizTemp = React.memo(function QuizTemp() {
         }
     }, [])
 
-    // Set initial time based on question type
     useEffect(() => {
+        // Reset timer and start when question or bonus status changes
         setTimeLeft(isBonusQuestion ? BONUS_TIME : TIME)
-    }, [isBonusQuestion])
+        setIsTimerRunning(false)
+    }, [currentQuestionIndex, isBonusQuestion])
+
 
     // Timer effect
     useEffect(() => {
@@ -118,71 +209,17 @@ const QuizTemp = React.memo(function QuizTemp() {
 
     // Questions setup
     useEffect(() => {
-        const fetchedQuestions: IQuestion[] = []
-        const difficulty = localStorage.getItem(QUIZ_DIFFICULTY) as "easy" | "regular"
-
-        const fetchRandomQuestions = (questionsArray: IQuestion[], count: number): IQuestion[] => {
-            const shuffledQuestions = [...questionsArray].sort(() => Math.random() - 0.5)
-            return shuffledQuestions.slice(0, count)
-        }
-
-        if (subjects.length > 0) {
-            const questionsPerSubject = Math.ceil(totalQuestions / subjects.length)
-
-            subjects?.forEach((subject) => {
-                switch (subject.toLowerCase()) {
-                    case 'physics':
-                        if (difficulty === "easy") {
-                            fetchedQuestions?.push(...fetchRandomQuestions(Easyphysics, questionsPerSubject))
-                        } else {
-                            fetchedQuestions?.push(...fetchRandomQuestions(physics, questionsPerSubject))
-                        }
-                        break
-                    case 'chemistry':
-                        if (difficulty === "easy") {
-                            fetchedQuestions?.push(...fetchRandomQuestions(EasyChemistry, questionsPerSubject))
-                        } else {
-                            fetchedQuestions?.push(...fetchRandomQuestions(chemistry, questionsPerSubject))
-                        }
-                        break
-                    case 'mathematics':
-                        if (difficulty === "easy") {
-                            fetchedQuestions?.push(...fetchRandomQuestions(EasyMathematics, questionsPerSubject))
-                        } else {
-                            fetchedQuestions?.push(...fetchRandomQuestions(mathematics, questionsPerSubject))
-                        }
-                        break
-                    case 'english':
-                        if (difficulty === "easy") {
-                            fetchedQuestions?.push(...fetchRandomQuestions(EasyEnglish, questionsPerSubject))
-                        } else {
-                            fetchedQuestions?.push(...fetchRandomQuestions(english, questionsPerSubject))
-                        }
-                        break
-                    case 'current-affairs':
-                        if (difficulty === "easy") {
-                            fetchedQuestions?.push(...fetchRandomQuestions(EasyCurrentAffairs, questionsPerSubject))
-                        } else {
-                            fetchedQuestions?.push(...fetchRandomQuestions(currentAffairs, questionsPerSubject))
-                        }
-                        break
-                    default:
-                        console.warn(`Unknown subject: ${subject}`)
-                }
-            })
-
-            const shuffledQuestions = fetchedQuestions?.sort(() => Math.random() - 0.5).slice(0, totalQuestions)
+        if (questions) {
+            const shuffledQuestions = questions?.sort(() => Math.random() - 0.5).slice(0, totalQuestions)
             setCurrentQuestions(shuffledQuestions)
         }
-    }, [])
+    }, [questions])
 
     const handleNextQuestion = (): void => {
         console.log("NEXT QUESTION CLICKED")
         setRevealAnswer(false)
         setSelectedOption(null)
-        setIsTimerRunning(false)
         setFailedAttempts(0)
-        setIsBonusQuestion(false)
         setBonusQuestion(null)
         setJustAnsweredBonus(false)
         setRevealAnswer(false)
@@ -191,7 +228,7 @@ const QuizTemp = React.memo(function QuizTemp() {
         if (currentQuestionIndex < currentQuestions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1)
         } else {
-            setIsQuizFinished(true) // Changed from direct push to scoreboard
+            setIsQuizFinished(true)
         }
 
         if (!justAnsweredBonus && !isBonusQuestion) {
@@ -290,8 +327,10 @@ const QuizTemp = React.memo(function QuizTemp() {
                         </div>
                     </CardHeader>
                     <CardContent className="space-y-6 transition-all duration-300">
-                        <div className="flex items-start gap-1 text-2xl font-medium">
-                            {currentQuestion?.question || "No questions available"}
+                        <div className="w-fit flex items-start gap-1 text-2xl font-medium">
+                            <div className='w-full flex flex-col text-2xl font-medium'>
+                                {formatTextWithBreakMarkers(currentQuestion?.question) || "No questions available"}
+                            </div>
                             {isBonusQuestion && <span className="ml-2 text-lg font-normal text-green-600 whitespace-nowrap">(Bonus Question)</span>}
                         </div>
 
@@ -301,9 +340,12 @@ const QuizTemp = React.memo(function QuizTemp() {
                                 <div
                                     key={option}
                                     className={cn("text-2xl p-4 rounded-lg border transition-colors duration-300 cursor-pointer",
-                                        selectedOption === option
+                                        selectedOption === option && !revealAnswer
                                             ? 'border-blue-500 bg-blue-500 bg-opacity-10 text-blue-600'
-                                            : 'bg-white text-black hover:border-gray-400')}
+                                            : 'bg-white text-black hover:border-gray-400',
+                                        selectedOption === option && revealAnswer && selectedOption.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0)?.toLowerCase() && 'border-green-500 bg-green-500 bg-opacity-10 text-green-600',
+                                        selectedOption === option && revealAnswer && selectedOption.charAt(0).toLowerCase() !== currentQuestion?.correctAnswer?.charAt(0)?.toLowerCase() && 'border-red-500 bg-red-500 bg-opacity-10 text-red-600',
+                                    )}
                                     onClick={() => setSelectedOption(option)}
                                 >
                                     {option}
@@ -313,14 +355,11 @@ const QuizTemp = React.memo(function QuizTemp() {
 
                         {selectedOption && revealAnswer && (
                             <div className="mt-6 space-y-3 transition-all duration-300">
-                                <div className="text-lg font-medium">Solution</div>
-                                <p className={`font-medium text-lg p-4 rounded-lg border  
-                                    ${selectedOption.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0)?.toLowerCase()
-                                        ? 'border-green-500 bg-green-500 bg-opacity-10 text-green-600'
-                                        : 'border-red-500 bg-red-500 bg-opacity-10 text-red-600'}`
-                                }>Correct Answer: <span className="text-lg">{currentQuestion?.correctAnswer}</span>
-                                </p>
-
+                                {isBonusQuestion ?
+                                    <p className='text-xl text-green-600 font-medium transition-all duration-300'>Correct Answer: <span className="text-lg font-bold">{currentQuestion?.correctAnswer}</span>
+                                    </p>
+                                    : null
+                                }
                                 {currentQuestion?.explanation && (
                                     <div className='flex items-start text-black text-xl transition-all duration-300'>
                                         <span className='font-medium'>Explanation: </span>
@@ -363,7 +402,7 @@ const QuizTemp = React.memo(function QuizTemp() {
             </div>
             {isQuizFinished && (
                 <Dialog open={isQuizFinished} onOpenChange={setIsQuizFinished}>
-                    <DialogContent className="bg-white sm:max-w-[425px]">
+                    <DialogContent className="bg-white sm:max-w-[525px]">
                         <DialogHeader>
                             <DialogTitle className="text-2xl">
                                 {showScores ? "Quiz Results" : "Quiz Complete!"}
@@ -383,7 +422,7 @@ const QuizTemp = React.memo(function QuizTemp() {
                                 </Button>
                             </div>
                         ) : (
-                            <div className="space-y-4">
+                            <div className="space-y-6">
                                 <div className="space-y-2">
                                     {participantsRef.current
                                         .sort((a, b) => b.points - a.points)
@@ -392,10 +431,10 @@ const QuizTemp = React.memo(function QuizTemp() {
                                                 key={index}
                                                 className="flex justify-between items-center p-2 rounded-lg bg-gray-100"
                                             >
-                                                <span className="font-medium">
+                                                <span className="text-lg font-medium">
                                                     {participant.name}
                                                 </span>
-                                                <span className="font-semibold">
+                                                <span className="text-lg font-semibold">
                                                     {participant.points} points
                                                 </span>
                                             </div>
@@ -407,7 +446,7 @@ const QuizTemp = React.memo(function QuizTemp() {
                                     {calculateWinner().map((winner, index) => (
                                         <div
                                             key={index}
-                                            className="text-green-600 font-bold text-lg"
+                                            className="text-green-600 font-bold text-xl"
                                         >
                                             🏆 {winner.name} 🏆
                                         </div>
@@ -415,8 +454,8 @@ const QuizTemp = React.memo(function QuizTemp() {
                                 </div>
 
                                 <Button
-                                    className="w-full mt-4 text-lg"
-                                    onClick={() => push(APP_ROUTES.scoreboard)}
+                                    className="w-full h-[50px] mt-4 text-lg"
+                                    onClick={() => { localStorage.removeItem(SELECTED_STUDENTS); push(APP_ROUTES.scoreboard) }}
                                 >
                                     View Detailed Scoreboard
                                 </Button>

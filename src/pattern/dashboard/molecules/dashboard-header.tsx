@@ -40,11 +40,11 @@ const DashboardHeader = () => {
             </div>
 
             {/* Subject Cards */}
-            <div className='w-full flex flex-wrap items-center gap-x-4 gap-y-6'>
+            {/* <div className='w-full flex flex-wrap items-center gap-x-4 gap-y-6'>
                 {subjects?.map(({ subject, url }, idx) => (
                     <QuizSubjectCard key={idx} subject={subject} url={url} />
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import { IQuestion } from "./types";
 
-export const Questions: IQuestion[] = [
+export const BATCH_ELEVEN_QUESTIONS: IQuestion[] = [
     {
-        "question": "The profit from her fish business made Mrs Uba stop complaining about her husband’s ____ salary.",
+        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. Choose the word that is most nearly opposite in meaning to the words in brackets and will correctly fill the gap: **The [handsome] profit from her fish business made Mrs Uba stop complaining about her husband's ____ salary.**",
         "options": [
             "A) Ugly",
             "B) Meagre",
@@ -10,109 +10,10 @@ export const Questions: IQuestion[] = [
             "D) Lowly"
         ],
         "correctAnswer": "B",
-        "explanation": "'Meagre' means small, contrasting with her 'handsome profit.'"
+        "explanation": "The opposite of 'handsome' in the context of profit/salary is 'meagre', meaning inadequate or insufficient."
     },
     {
-        "question": "Chief Osa prefers fame in the village to ______ in the city.",
-        "options": [
-            "A) Neglect",
-            "B) Ignorance",
-            "C) Poverty",
-            "D) Obscurity"
-        ],
-        "correctAnswer": "D",
-        "explanation": "'Obscurity' (being unknown) contrasts with fame."
-    },
-    {
-        "question": "Media houses should employ both novices and ____ journalists.",
-        "options": [
-            "A) Apprentice",
-            "B) Probationer",
-            "C) Newcomer",
-            "D) Veteran"
-        ],
-        "correctAnswer": "D",
-        "explanation": "'Veteran' contrasts with 'novice,' balancing experience."
-    },
-    {
-        "question": "The Registrar considers the matter insignificant; his deputy sees it as ______.",
-        "options": [
-            "A) Minute",
-            "B) Crucial",
-            "C) Compulsory",
-            "D) Marvellous"
-        ],
-        "correctAnswer": "B",
-        "explanation": "'Crucial' (extremely important) opposes 'insignificant.'"
-    },
-    {
-        "question": "It pays to be firm rather than _____ in this case.",
-        "options": [
-            "A) Flexible",
-            "B) Frank",
-            "C) Irresponsible",
-            "D) Careless"
-        ],
-        "correctAnswer": "A",
-        "explanation": "Context implies 'flexible' as the opposite of firm (though debatable)."
-    },
-    {
-        "question": "Two sets are disjoint if:",
-        "options": [
-            "A) Both empty",
-            "B) Union is empty",
-            "C) Intersection is empty",
-            "D) One is a subset"
-        ],
-        "correctAnswer": "C",
-        "explanation": "Disjoint sets share no elements (empty intersection)."
-    },
-    {
-        "question": "Solve: 2x + 3y = 7 and x + 5y = 0.",
-        "options": [
-            "A) x=5, y=-1",
-            "B) x=1/5, y=-1",
-            "C) x=-1/5, y=1",
-            "D) x=-5, y=1"
-        ],
-        "correctAnswer": "A",
-        "explanation": "Substitution confirms x=5, y=-1 satisfies both equations."
-    },
-    {
-        "question": "Solve: 32x - 23x = 4. Find x.",
-        "options": [
-            "A) 45",
-            "B) 413",
-            "C) 524",
-            "D) 1324"
-        ],
-        "correctAnswer": "**Error**",
-        "explanation": "Flawed question. Correct answer: 9x=4 → x=4/9 (not listed)."
-    },
-    {
-        "question": "Simplify 0.000215 × 0.000028 (standard form).",
-        "options": [
-            "A) 6.03×10⁷",
-            "B) 6.02×10⁸",
-            "C) 6.03×10⁻⁷",
-            "D) 6.02×10⁻⁸"
-        ],
-        "correctAnswer": "**Error**",
-        "explanation": "Correct answer: 6.02×10⁻⁹ (not listed). Closest typo: D (6.02×10⁻⁸)."
-    },
-    {
-        "question": "How far can a car go with N900 petrol (N63/liter, 14km/liter)?",
-        "options": [
-            "A) 420km",
-            "B) 405km",
-            "C) 210km",
-            "D) 200km"
-        ],
-        "correctAnswer": "D",
-        "explanation": "900/63 ≈14.28 liters ×14km ≈200km."
-    },
-    {
-        "question": "Green cloth in red light appears:",
+        "question": "A piece of cloth appears green in sunlight. When held in red light, it will appear:",
         "options": [
             "A) Green",
             "B) Blue",
@@ -120,65 +21,32 @@ export const Questions: IQuestion[] = [
             "D) Black"
         ],
         "correctAnswer": "D",
-        "explanation": "Red light lacks green wavelengths; no reflection → black."
+        "explanation": "A green object reflects green light and absorbs other colors. Under red light, it would absorb all the red light and reflect nothing, appearing black."
     },
     {
-        "question": "Light dispersion in a prism occurs because:",
+        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. Choose the word that is most nearly opposite in meaning to the word in brackets and will correctly fill the gap: **Chief Osa prefers [fame] in the village to _____ in the city.**",
         "options": [
-            "A) White light has 7 colors",
-            "B) Refractive index varies per color",
-            "C) Speed proportional to refractive index",
-            "D) Refraction angle proportional to incidence"
-        ],
-        "correctAnswer": "B",
-        "explanation": "Different wavelengths bend at different angles (dispersion)."
-    },
-    {
-        "question": "Correct sound statement:",
-        "options": [
-            "A) Refracts away in denser medium",
-            "B) Faster in solids",
-            "C) Same wavelength in water",
-            "D) Frequency increases in water"
-        ],
-        "correctAnswer": "B",
-        "explanation": "Sound travels fastest in solids due to particle proximity."
-    },
-    {
-        "question": "Centripetal force formula:",
-        "options": [
-            "A) mv/r",
-            "B) mv²/r",
-            "C) mr²/v",
-            "D) mv²"
-        ],
-        "correctAnswer": "B",
-        "explanation": "Centripetal force = mass × velocity² / radius."
-    },
-    {
-        "question": "Common trait of solids, liquids, gases:",
-        "options": [
-            "A) Fixed volume",
-            "B) No definite molecular size",
-            "C) Molecules in motion",
-            "D) Same intermolecular forces"
-        ],
-        "correctAnswer": "C",
-        "explanation": "All states have molecular motion (varies by state)."
-    },
-    {
-        "question": "Molar mass of gas X (9.60g ≡ 0.30g H₂).",
-        "options": [
-            "A) 8 g/mol",
-            "B) 16 g/mol",
-            "C) 32 g/mol",
-            "D) 64 g/mol"
+            "A) Neglect",
+            "B) Ignorance",
+            "C) Poverty",
+            "D) Obscurity"
         ],
         "correctAnswer": "D",
-        "explanation": "0.30g H₂ = 0.15 mol. M = 9.60g /0.15 =64 g/mol."
+        "explanation": "The opposite of 'fame' is 'obscurity', which means the state of being unknown or unimportant."
     },
     {
-        "question": "Colorless, odorless, soluble in KOH:",
+        "question": "If $\\frac{3}{2x} - \\frac{2}{3x}$ = 4, solve for x.",
+        "options": [
+            "A) $\\frac{4}{5}$",
+            "B) $\\frac{4}{13}$",
+            "C) $\\frac{5}{24}$",
+            "D) $\\frac{13}{24}$"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Solving the equation by finding the common denominator and isolating x gives x = 5/24."
+    },
+    {
+        "question": "Which of the following gases is colorless, odorless, and soluble in potassium hydroxide solution?",
         "options": [
             "A) SO₂",
             "B) SO₃",
@@ -186,39 +54,171 @@ export const Questions: IQuestion[] = [
             "D) CO₂"
         ],
         "correctAnswer": "D",
-        "explanation": "CO₂ reacts with KOH: CO₂ + 2KOH → K₂CO₃ + H₂O."
+        "explanation": "Carbon dioxide (CO₂) is colorless, odorless, and dissolves in potassium hydroxide solution to form potassium carbonate."
     },
     {
-        "question": "Gas from H₂SO₄ + NaHCO₃:",
+        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. Choose the word that is most nearly opposite in meaning to the word in brackets and will correctly fill the gap: The media houses should employ both the novice and the ____ journalists.",
         "options": [
-            "A) H₂",
-            "B) O₂",
-            "C) CO₂",
-            "D) SO₂"
+            "A) Apprentice",
+            "B) Probationer",
+            "C) Newcomer",
+            "D) Veteran"
+        ],
+        "correctAnswer": "D",
+        "explanation": "The opposite of 'novice' (a beginner) is 'veteran', which refers to someone with long experience."
+    },
+    {
+        "question": "Two sets are disjoint if",
+        "options": [
+            "A) They are both empty",
+            "B) Their union is an empty set",
+            "C) Their intersection is an empty set",
+            "D) One of them is a subset of the other"
         ],
         "correctAnswer": "C",
-        "explanation": "Acid + carbonate → CO₂ gas."
+        "explanation": "Two sets are disjoint if they have no elements in common, meaning their intersection is an empty set."
     },
     {
-        "question": "Acid salt:",
+        "question": "The gas evolved when dilute tetraoxosulphate(VI) acid reacts with sodium hydrogen trioxocarbonate(IV) is:",
+        "options": [
+            "A) Hydrogen",
+            "B) Oxygen",
+            "C) Carbon (IV) oxide",
+            "D) Sulphur (IV) oxide"
+        ],
+        "correctAnswer": "C",
+        "explanation": "When dilute sulfuric acid (tetraoxosulphate(VI) acid) reacts with sodium bicarbonate (sodium hydrogen trioxocarbonate(IV)), carbon dioxide is produced."
+    },
+    {
+        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. Choose the word that is most nearly opposite in meaning to the word in brackets and will correctly fill the gap: **While the Registrar considers the matter [insignificant], his deputy sees it as _____.**",
+        "options": [
+            "A) Minute",
+            "B) Crucial",
+            "C) Compulsory",
+            "D) Marvellous"
+        ],
+        "correctAnswer": "B",
+        "explanation": "The opposite of 'insignificant' is 'crucial', meaning extremely important or decisive."
+    },
+    {
+        "question": "What happens when light passes through a glass prism?",
+        "options": [
+            "A) White light consists of a mixture of seven different colours",
+            "B) The refractive index of glass is different for each constituent colour of light",
+            "C) The speed of each colour of light in the glass is proportional to the refractive index of glass for each colour",
+            "D) The angle of refraction of each colour of light is proportional to the angle of incidence in the prism"
+        ],
+        "correctAnswer": "B",
+        "explanation": "When light passes through a glass prism, dispersion occurs because the refractive index of glass is different for each color of light."
+    },
+    {
+        "question": "Solve the following simultaneous equations: 2x+3y=7, x+5y=0",
+        "options": [
+            "A) x=5, y=-1",
+            "B) x=1/5, y=-1",
+            "C) x=-1/5, y=1",
+            "D) x=-5, y=1"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Solving these equations by substitution or elimination yields x=5 and y=-1."
+    },
+    {
+        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. Choose the word that is most nearly opposite in meaning to the word in brackets and will correctly fill the gap: **It pays to be [firm] rather than _____ in a case like this.**",
+        "options": [
+            "A) Flexible",
+            "B) Frank",
+            "C) Irresponsible",
+            "D) Careless"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The opposite of 'firm' (rigid, unyielding) is 'flexible', meaning adaptable or willing to change."
+    },
+    {
+        "question": "Which of the following is an acid salt?",
         "options": [
             "A) (NH₄)₂CO₃",
             "B) CH₃COONa",
             "C) KHSO₄",
-            "D) MgSO₄·7H₂O"
+            "D) MgSO₄.7H₂O"
         ],
         "correctAnswer": "C",
-        "explanation": "KHSO₄ has replaceable H⁺ ions (acidic)."
+        "explanation": "KHSO₄ is an acid salt because it contains a replaceable hydrogen atom and is formed by partial neutralization of sulfuric acid."
     },
     {
-        "question": "pH 2 solution:",
+        "question": "Simplify 0.000215 x 0.000028 and express your answer in standard form.",
         "options": [
-            "A) Weak electrolyte",
-            "B) [H⁺]=0.2M",
-            "C) Twice as acidic as pH 1",
-            "D) Reacts with magnesium"
+            "A) 6.03 x 10^7",
+            "B) 6.02 x 10^8",
+            "C) 6.03 x 10^-7",
+            "D) 6.02 x 10^-8"
         ],
         "correctAnswer": "D",
-        "explanation": "Strong acid (pH 2) reacts with Mg to produce H₂ gas."
+        "explanation": "Multiplying 0.000215 by 0.000028 gives 0.00000000602, which in standard form is 6.02 x 10^-8."
+    },
+    {
+        "question": "Which of the following statements about sound is correct?",
+        "options": [
+            "A) When sound travels from air to a denser medium, it is refracted away from the normal at the point of incidence",
+            "B) Sound travels faster in solids than in gases",
+            "C) The wavelength of sound remains the same when it travels from air to water",
+            "D) The frequency of sound increases when it travels from air to water"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Sound travels faster in solids than in gases because solids have particles that are closer together, allowing vibrations to be transmitted more quickly."
+    },
+    {
+        "question": "9.60g of gas X occupies the same volume as 0.30g of hydrogen under the same conditions. Calculate the molar mass of X [H=1]",
+        "options": [
+            "A) 8 gmol⁻¹",
+            "B) 16 gmol⁻¹",
+            "C) 32 gmol⁻¹",
+            "D) 64 gmol⁻¹"
+        ],
+        "correctAnswer": "D",
+        "explanation": "Using Avogadro's law and the ratio of masses, we can determine that the molar mass of gas X is 64 g/mol."
+    },
+    {
+        "question": "A car uses one litre of petrol for every 14km. If one litre of petrol costs N63.00, how far can the car go with N900.00 worth of petrol?",
+        "options": [
+            "A) 420km",
+            "B) 405km",
+            "C) 210km",
+            "D) 200km"
+        ],
+        "correctAnswer": "D",
+        "explanation": "N900.00 buys 900/63 = 14.29 litres of petrol. The car can travel 14.29 × 14 = 200.06 km, which is approximately 200 km."
+    },
+    {
+        "question": "If a solution has a pH of 2, it can be concluded that it:",
+        "options": [
+            "A) Is a weak electrolyte",
+            "B) Has hydrogen ion concentration of 0.2 mol dm⁻³",
+            "C) Is twice as acidic as a solution of pH 1",
+            "D) Will produce effervescence with magnesium ribbon"
+        ],
+        "correctAnswer": "D",
+        "explanation": "A solution with pH 2 is acidic and will react with magnesium ribbon to produce hydrogen gas, causing effervescence."
+    },
+    {
+        "question": "The magnitude of the force required to make an object of mass, m, move with speed, v, in a circular path of radius, r, is given by the expression:",
+        "options": [
+            "A) mv/r",
+            "B) mv²/r",
+            "C) mr²/v",
+            "D) mv²"
+        ],
+        "correctAnswer": "B",
+        "explanation": "The centripetal force required for circular motion is given by F = mv²/r, where m is mass, v is velocity, and r is radius."
+    },
+    {
+        "question": "One common characteristic of solids, liquids, and gases is that:",
+        "options": [
+            "A) All three have fixed volume",
+            "B) Their molecules have no definite size",
+            "C) Their molecules are always in motion",
+            "D) All three have the same intermolecular forces"
+        ],
+        "correctAnswer": "C",
+        "explanation": "In all three states of matter (solids, liquids, and gases), the molecules are always in motion, though the degree of motion varies."
     }
 ];

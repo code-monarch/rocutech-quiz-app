@@ -1,129 +1,224 @@
 import { IQuestion } from "./types";
 
-export const Questions: IQuestion[] = [
+export const BATCH_FOURTEEN_QUESTIONS: IQuestion[] = [
     {
-        "question": "While Rashida’s business is flourishing, Ida’s is _____.",
-        "options": ["A) Stagnant", "B) Crumbling", "C) Collapsing", "D) Declining"],
-        "correctAnswer": "A",
-        "explanation": "'Stagnant' means not growing, contrasting with 'flourishing.'"
-    },
-    {
-        "question": "Clara admires Lena but treats me with ______.",
-        "options": ["A) Despair", "B) Callousness", "C) Carelessness", "D) Disdain"],
-        "correctAnswer": "D",
-        "explanation": "'Disdain' (lack of respect) contrasts with admiration."
-    },
-    {
-        "question": "Contributions should be __________, not compulsory.",
-        "options": ["A) Wilful", "B) Voluntary", "C) Deliberate", "D) Outright"],
-        "correctAnswer": "B",
-        "explanation": "'Voluntary' means optional, opposing 'compulsory.'"
-    },
-    {
-        "question": "In some societies, the ______ and the cultured coexisted.",
-        "options": ["A) Ignorant", "B) Rich", "C) Uncultured", "D) Arrogant"],
-        "correctAnswer": "C",
-        "explanation": "'Uncultured' contrasts with 'cultured.' Adjusted for sensitivity."
-    },
-    {
-        "question": "Some live in poverty; others live in ______.",
-        "options": ["A) Affluence", "B) Greatness", "C) Fame", "D) Peace"],
-        "correctAnswer": "A",
-        "explanation": "'Affluence' (wealth) contrasts with poverty."
-    },
-    {
-        "question": "Cylinder height = radius. Volume = 0.216π m³. Find radius.",
-        "options": ["A) 0.46m", "B) 0.60m", "C) 0.87m", "D) 1.80m"],
-        "correctAnswer": "B",
-        "explanation": "Volume = πr³ → r³ = 0.216 → r = 0.6m."
-    },
-    {
-        "question": "Circle (radius 7cm) divided 3:7. Minor arc length?",
-        "options": ["A) 18.85cm", "B) 13.20cm", "C) 12.30cm", "D) 11.30cm"],
-        "correctAnswer": "B",
-        "explanation": "Minor arc = 3/10 × circumference ≈13.20cm."
-    },
-    {
-        "question": "302.10495 to 5 significant figures.",
-        "options": ["A) 302.10", "B) 302.11", "C) 302.105", "D) 302.1049"],
-        "correctAnswer": "A",
-        "explanation": "Fifth digit is 0; next digit (4) rounds down."
-    },
-    {
-        "question": "Enrolment ratio: School X (1,050) to Y (1,190).",
-        "options": ["A) 50:11", "B) 15:17", "C) 13:55", "D) 105:119"],
-        "correctAnswer": "D",
-        "explanation": "Simplified ratio: 1050:1190 = 105:119."
-    },
-    {
-        "question": "Convert 35₁₀ to base 2.",
-        "options": ["A) 1011", "B) 10011", "C) 100011", "D) 1100"],
-        "correctAnswer": "C",
-        "explanation": "35 = 32 + 2 + 1 → 100011₂."
-    },
-    {
-        "question": "Refractive index = 1.8. Critical angle?",
-        "options": ["A) 65°", "B) 56°", "C) 34°", "D) 15°"],
-        "correctAnswer": "C",
-        "explanation": "sin⁻¹(1/1.8) ≈34°."
-    },
-    {
-        "question": "Converging lens (f=15cm) forms virtual image at 10cm. Object distance?",
-        "options": ["A) 10.00cm", "B) 6.00cm", "C) 5.00cm", "D) 15.0cm"],
-        "correctAnswer": "B",
-        "explanation": "Using lens formula: 1/f = 1/v + 1/u → u = 6cm."
-    },
-    {
-        "question": "Sound reflects after 0.2s (speed=1560m/s). Sea depth?",
-        "options": ["A) 312.0m", "B) 156.0m", "C) 78.0m", "D) 31.2m"],
-        "correctAnswer": "B",
-        "explanation": "Depth = (1560 × 0.2)/2 = 156m."
-    },
-    {
-        "question": "Periodic rise/fall in sound intensity is called:",
-        "options": ["A) Beats", "B) Diffraction", "C) Overtones", "D) Resonance"],
-        "correctAnswer": "A",
-        "explanation": "Beats occur due to slightly different frequencies."
-    },
-    {
-        "question": "Which is NOT a wind instrument?",
-        "options": ["A) Clarinet", "B) Saxophone", "C) Trumpet", "D) Xylophone"],
-        "correctAnswer": "D",
-        "explanation": "Xylophone is a percussion instrument."
-    },
-    {
-        "question": "Carbon-dating determines:",
-        "options": ["A) Height", "B) Mass", "C) Age", "D) Race"],
-        "correctAnswer": "C",
-        "explanation": "Carbon-dating estimates the age of organic materials."
-    },
-    {
-        "question": "Correct statements about ideal gases:",
-        "options": ["I only", "I and II", "I, II, III", "I, II, III, IV"],
-        "correctAnswer": "B",
-        "explanation": "I (negligible forces) and II (no fixed volume) are correct."
-    },
-    {
-        "question": "P_total = P₁ + P₂ + ... is:",
-        "options": ["Graham’s law", "Gay-Lussac’s", "Boyle’s", "Dalton’s"],
-        "correctAnswer": "D",
-        "explanation": "Dalton’s law states total pressure = sum of partial pressures."
-    },
-    {
-        "question": "Gas X diffuses in 60s; H₂ in 15s. Molar mass of X?",
-        "options": ["A) 4.0", "B) 8.0", "C) 16", "D) 32"],
-        "correctAnswer": "D",
-        "explanation": "Using Graham’s law: M_X = 32. **Corrected from original answer.**"
-    },
-    {
-        "question": "Which pair produces hydrogen?",
+        "question": "The height of a cylinder is equal to its radius. If the volume is 0.216πm³, calculate the radius?",
         "options": [
-            "A) Zn + conc. HNO₃",
-            "B) H₂O + CaC₂",
-            "C) Cu + dilute HCl",
-            "D) Mg + dilute H₂SO₄"
+            "A) 0.46m",
+            "B) 0.60m",
+            "C) 0.87m",
+            "D) 1.80m"
+        ],
+        "correctAnswer": "B",
+        "explanation": "For a cylinder where height equals radius, the volume formula is V = πr²h = πr³. So 0.216π = πr³, which gives r³ = 0.216, and r = 0.6m."
+    },
+    {
+        "question": "When two notes of nearly equal frequencies are sounded together, a periodic rise and fall in sound intensity can be heard. This phenomenon is called:",
+        "options": [
+            "A) Beats",
+            "B) Diffraction",
+            "C) Overtones",
+            "D) Resonance"
+        ],
+        "correctAnswer": "A",
+        "explanation": "This phenomenon is called beats, which occurs when two sound waves of slightly different frequencies interfere with each other."
+    },
+    {
+        "question": "In the following sentence, choose the word that is most nearly opposite in meaning to 'flourishing' that will correctly fill the gap: While Rashida's business is flourishing, Ida's is _____",
+        "options": [
+            "A) stagnant",
+            "B) crumbling",
+            "C) collapsing",
+            "D) declining"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The opposite of 'flourishing' (thriving, growing) is 'stagnant' (not growing, not developing)."
+    },
+    {
+        "question": "Convert 35₁₀ to a number in base 2.",
+        "options": [
+            "A) 1011",
+            "B) 10011",
+            "C) 100011",
+            "D) 1100"
+        ],
+        "correctAnswer": "C",
+        "explanation": "To convert 35 in base 10 to binary: 35 ÷ 2 = 17 remainder 1, 17 ÷ 2 = 8 remainder 1, 8 ÷ 2 = 4 remainder 0, 4 ÷ 2 = 2 remainder 0, 2 ÷ 2 = 1 remainder 0, 1 ÷ 2 = 0 remainder 1. Reading the remainders from bottom to top gives 100011."
+    },
+    {
+        "question": "Which of the following instruments is not a wind instrument?",
+        "options": [
+            "A) Clarinet",
+            "B) Saxophone",
+            "C) Trumpet",
+            "D) Xylophone"
         ],
         "correctAnswer": "D",
-        "explanation": "Magnesium reacts with dilute acids to release H₂."
+        "explanation": "A xylophone is a percussion instrument, not a wind instrument. Clarinets, saxophones, and trumpets are all wind instruments."
+    },
+    {
+        "question": "In the following sentence, choose the word that is most nearly opposite in meaning to 'admiration' that will correctly fill the gap: Clara is full of admiration for Lena but she treats me with _____",
+        "options": [
+            "A) despair",
+            "B) callousness",
+            "C) carelessness",
+            "D) disdain"
+        ],
+        "correctAnswer": "D",
+        "explanation": "The opposite of 'admiration' (respect, high regard) is 'disdain' (contempt, lack of respect)."
+    },
+    {
+        "question": "P_total = P₁ + P₂ + P₃ + ....... P_n, where P_total is the pressure of a mixture of gases. The equation above is an expression of",
+        "options": [
+            "A) Graham's law",
+            "B) Gay-Lussac's law",
+            "C) Boyle's law",
+            "D) Dalton's law"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This equation represents Dalton's law of partial pressures, which states that the total pressure of a mixture of gases equals the sum of the partial pressures of the individual gases."
+    },
+    {
+        "question": "A circle is divided into two sectors in the ratio 3:7. If the radius of the circle is 7cm, Calculate the length of the minor arc of the circle.",
+        "options": [
+            "A) 18.85cm",
+            "B) 13.20cm",
+            "C) 12.30cm",
+            "D) 11.30cm"
+        ],
+        "correctAnswer": "B",
+        "explanation": "For a circle divided in ratio 3:7, the minor arc corresponds to 3/(3+7) = 3/10 of the circumference. Circumference = 2πr = 2π×7 = 14π cm. The minor arc length = (3/10) × 14π = 4.2π = 13.20 cm."
+    },
+    {
+        "question": "In the following sentence, choose the word that correctly fills the gap: The contributions should be _______ not compulsory.",
+        "options": [
+            "A) Wilful",
+            "B) Voluntary",
+            "C) Deliberate",
+            "D) outright"
+        ],
+        "correctAnswer": "B",
+        "explanation": "The opposite of 'compulsory' (required, mandatory) is 'voluntary' (done by choice, not required)."
+    },
+    {
+        "question": "Which of the following features of a human skeleton can be determined by carbon-dating?",
+        "options": [
+            "A) Height",
+            "B) Mass",
+            "C) Age",
+            "D) Race"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Carbon dating can be used to determine the age of organic materials, including human skeletal remains."
+    },
+    {
+        "question": "Express 302.10495 correct to five significant figures.",
+        "options": [
+            "A) 302.10",
+            "B) 302.11",
+            "C) 302.105",
+            "D) 302.1049"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Five significant figures of 302.10495 would be 302.10, as we round the fifth digit (4) down since the next digit (9) is not 5 or greater."
+    },
+    {
+        "question": "In the following sentence, choose the word that is most nearly opposite in meaning to 'cultured' that will correctly fill the gap: In those societies, the _______ and the cultured lived together.",
+        "options": [
+            "A) Ignorant",
+            "B) Rich",
+            "C) Barbaric",
+            "D) Arrogant"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The opposite of 'cultured' (refined, civilized) is 'barbaric' (uncivilized, primitive)."
+    },
+    {
+        "question": "The refractive index of a medium relative to air is 1.8. Calculate, to the nearest degree, the critical angle for the medium.",
+        "options": [
+            "A) 65°",
+            "B) 56°",
+            "C) 34°",
+            "D) 15°"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The critical angle is given by sin⁻¹(1/n), where n is the refractive index. For n = 1.8, the critical angle = sin⁻¹(1/1.8) = sin⁻¹(0.556) ≈ 34°."
+    },
+    {
+        "question": "If 1.0 dm³ of gas X diffuses through a porous plug in 60 seconds while the same volume of hydrogen diffuses in 15 seconds under the same condition, calculate the relative molecular mass of X. (H = 1.0)",
+        "options": [
+            "A) 4.0",
+            "B) 8.0",
+            "C) 16",
+            "D) 32"
+        ],
+        "correctAnswer": "C",
+        "explanation": "According to Graham's law of diffusion, rate₁/rate₂ = √(M₂/M₁). Given rate₂/rate₁ = 60/15 = 4 and M₂ = 1, we get 4 = √(M₁/1), so M₁ = 16."
+    },
+    {
+        "question": "In the following sentence, choose the word that is most nearly opposite in meaning to 'poverty' that will correctly fill the gap: Some people live in abject poverty while others live in _____",
+        "options": [
+            "A) Affluence",
+            "B) Greatness",
+            "C) Fame",
+            "D) Peace"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The opposite of 'poverty' (lack of wealth) is 'affluence' (abundance of wealth)."
+    },
+    {
+        "question": "A converging lens of focal length 15 cm forms a virtual image at a point 10 cm from the lens. Calculate the distance of the object from the lens.",
+        "options": [
+            "A) 10.00 cm",
+            "B) 6.00 cm",
+            "C) 5.00 cm",
+            "D) 15.0 cm"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Using the lens formula 1/f = 1/v + 1/u, where f = 15 cm and v = -10 cm (negative since the image is virtual), we get 1/15 = 1/(-10) + 1/u, solving for u gives u = 6 cm."
+    },
+    {
+        "question": "In 1995, the enrolments of two schools: X and Y were 1,050 and 1,190 respectively. Find the ratio of the enrolments of X to Y",
+        "options": [
+            "A) 50:11",
+            "B) 15:17",
+            "C) 13:55",
+            "D) 105:119"
+        ],
+        "correctAnswer": "D",
+        "explanation": "The ratio of X to Y is 1,050:1,190, which simplifies to 105:119."
+    },
+    {
+        "question": "Which of the following statements about ideal gases is/are correct? I. The cohesive forces between their particles are negligible II. They have no definite volume but occupy the volume of their containers III. They are not compressible IV. Their particles collide with loss of energy",
+        "options": [
+            "A) I only",
+            "B) I and II only",
+            "C) I, II, and III only",
+            "D) I, II, III, and IV"
+        ],
+        "correctAnswer": "B",
+        "explanation": "For ideal gases, statements I and II are correct. Statement III is false (ideal gases are compressible), and statement IV is false (collisions are elastic with no loss of energy)."
+    },
+    {
+        "question": "A pulse of sound is transmitted from a ship, and the reflection from the sea bed is recorded after 0.2 s. Calculate the depth of the sea bed. (Take the speed of sound in sea water = 1560 m/s)",
+        "options": [
+            "A) 312.0 m",
+            "B) 156.0 m",
+            "C) 78.0 m",
+            "D) 31.2 m"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The sound wave travels to the seabed and back, so total distance = 2 × depth. Distance = speed × time = 1560 m/s × 0.2 s = 312 m. So the depth is 312/2 = 156 m."
+    },
+    {
+        "question": "Which of the following pairs of reagents react to produce hydrogen?",
+        "options": [
+            "A) Zinc and concentrated trioxonitrate(V) acid",
+            "B) Water and calcium carbide",
+            "C) Copper and dilute hydrochloric acid",
+            "D) Magnesium and dilute tetraoxosulphate(VI) acid"
+        ],
+        "correctAnswer": "D",
+        "explanation": "Magnesium reacts with dilute tetraoxosulphate(VI) acid (sulfuric acid) to produce hydrogen gas: Mg + H₂SO₄ → MgSO₄ + H₂."
     }
 ];

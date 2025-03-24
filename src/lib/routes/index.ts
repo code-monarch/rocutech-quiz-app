@@ -9,9 +9,9 @@ export const APP_ROUTES = {
 
 export const CREATE_QUIZ_ROUTES = {
     quiz: "/quiz",
-    intro: "/quiz/intro",
-    instructions: "/quiz/instructions",
-    completion: "/quiz/completion",
+    intro: "/setup-quiz/intro",
+    instructions: "/setup-quiz/instructions",
+    completion: "/setup-quiz/completion",
     createQuiz: "/create-quiz",
     selectSubjects: "/create-quiz/select-subjects",
     addQuestions: "/create-quiz/add-questions",

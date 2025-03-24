@@ -18,7 +18,7 @@ const CreateQuizLandingTemp = () => {
                     <h3 className='max-w-[497px] text-2xl text-center font-bold'>Welcome to your Personalized Quiz</h3>
                     <p className='max-w-[410px] text-base text-center font-normal'>Are you ready to start exploring your knowledge in vast subject</p>
                 </div>
-                <Button size="lg" className='text-lg' onClick={() => push(CREATE_QUIZ_ROUTES.selectSubjects)}>Create a Quiz</Button>
+                <Button size="lg" className='text-lg' onClick={() => push(CREATE_QUIZ_ROUTES.addQuestions)}>Create a Quiz</Button>
             </>
         </TemplatePanel>
     )

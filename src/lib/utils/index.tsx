@@ -45,3 +45,15 @@ export const updatePoints = (participants: School[], quizParticipants: QuizParti
   return participants;
 }
 
+export const formatTextWithBreakMarkers = (text: string) => {
+  // Split the text by ** markers
+  const parts = text?.split('**')
+
+  return parts?.map((part, index) => {
+    // Even indices are regular text, odd indices should be bold
+    if (index % 2 === 1) {
+      return <span key={index} ><br /> {part} </span>
+    }
+    return part
+  })
+}

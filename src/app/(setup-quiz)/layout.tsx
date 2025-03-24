@@ -9,8 +9,9 @@ const QuizLayout = ({
     children: React.ReactNode;
 }>) => {
     return (
-        <div className="h-full w-full space-y-[60px]">
-            <div className='w-full pt-[30px]'>
+        <div className="h-full w-full space-y-[60px]" >
+            <div className='w-full space-y-[32px]' >
+                <EmptyTopbar />
                 {children}
             </div>
         </div>
