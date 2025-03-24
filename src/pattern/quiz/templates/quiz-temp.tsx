@@ -9,7 +9,7 @@ import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
 import { QUESTION_BATCH, QUIZ_PARTICIPANTS, SELECTED_STUDENTS } from '@/lib/constants'
 import { cn, formatTextWithBreakMarkers, formatTime } from '@/lib/utils'
 import { IQuestion } from '@/lib/questions/types'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogAction } from '@/components/ui/alert-dialog'
 import { useToast } from '@/hooks/use-toast'
 import { BATCH_ONE_QUESTIONS } from '@/lib/questions/batch-1'
 import { BATCH_TWO_QUESTIOINS } from '@/lib/questions/batch-2'
@@ -28,9 +28,9 @@ import { BATCH_FOURTEEN_QUESTIONS } from '@/lib/questions/batch-14'
 import { BATCH_FIFHTEEN_QUESTIONS } from '@/lib/questions/batch-15'
 import { BATCH_SIXTEEN_QUESTIONS } from '@/lib/questions/batch-16'
 
-const TIME = 75 // Regular question time
-const BONUS_TIME = 30 // Bonus question time
-const REVEAL_TIME = 10 // Reveal time in seconds
+const TIME = 75
+const BONUS_TIME = 30
+const REVEAL_TIME = 10
 
 interface Participant {
     name: string
@@ -41,13 +41,6 @@ const QuizTemp = React.memo(function QuizTemp() {
     const { push } = useRouter()
     const searchParams = useSearchParams()
     const { toast } = useToast()
-
-    const subjectsParam = searchParams.get('subjects')
-    const subjects: string[] = subjectsParam
-        ? subjectsParam.includes(',')
-            ? subjectsParam.split(',')?.map(subject => subject.trim())
-            : [subjectsParam]
-        : []
 
     const questionsParam = searchParams.get('questions')
     const totalQuestions: number = questionsParam ? parseInt(questionsParam, 10) : 10
@@ -60,7 +53,6 @@ const QuizTemp = React.memo(function QuizTemp() {
     const [currentParticipantIndex, setCurrentParticipantIndex] = useState<number>(0)
     const [failedAttempts, setFailedAttempts] = useState<number>(0)
     const [isBonusQuestion, setIsBonusQuestion] = useState<boolean>(false)
-    console.log("IS BONUS QUESTION: ", isBonusQuestion)
     const [bonusQuestion, setBonusQuestion] = useState<IQuestion | null>(null)
     const [justAnsweredBonus, setJustAnsweredBonus] = useState<boolean>(false)
     const [revealAnswer, setRevealAnswer] = useState<boolean>(false)
@@ -70,72 +62,42 @@ const QuizTemp = React.memo(function QuizTemp() {
     const [isQuizFinished, setIsQuizFinished] = useState<boolean>(false)
     const [showScores, setShowScores] = useState<boolean>(false)
     const [questions, setQuestions] = useState<IQuestion[]>([])
-    console.log("QUESTIONS: ", questions)
+    const [lastFailedOption, setLastFailedOption] = useState<string | null>(null)
 
-    const questionBatch = localStorage.getItem(QUESTION_BATCH)
-    console.log("QUESTION BATCH: ", questionBatch)
+    useEffect(() => {
+        const savedQuizFinished = localStorage.getItem('quizFinished')
+        if (savedQuizFinished === 'true') {
+            setIsQuizFinished(true)
+            setShowScores(true)
+        }
+    }, [])
 
-    // Get Questions
+    const questionBatch = typeof window !== "undefined" ? localStorage.getItem(QUESTION_BATCH) : null
+
     useEffect(() => {
         if (questionBatch) {
             switch (questionBatch) {
-                case "1":
-                    setQuestions(BATCH_ONE_QUESTIONS)
-                    break;
-                case "2":
-                    setQuestions(BATCH_TWO_QUESTIOINS)
-                    break;
-                case "3":
-                    setQuestions(BATCH_THREE_QUESTIONS)
-                    break;
-                case "4":
-                    setQuestions(BATCH_FOUR_QUESTIONS)
-                    break;
-                case "5":
-                    setQuestions(BATCH_FIVE_QUESTIONS)
-                    break;
-                case "6":
-                    setQuestions(BATCH_SIX_QUESTIONS)
-                    break;
-                case "7":
-                    setQuestions(BATCH_SEVEN_QUESTIONS)
-                    break;
-                case "8":
-                    setQuestions(BATCH_EIGHT_QUESTIONS)
-                    break;
-                case "9":
-                    setQuestions(BATCH_NINE_QUESTIONS)
-                    break;
-                case "10":
-                    setQuestions(BATCH_TEN_QUESTIONS)
-                    break;
-                case "11":
-                    setQuestions(BATCH_ELEVEN_QUESTIONS)
-                    break;
-                case "12":
-                    setQuestions(BATCH_TWELVE_QUESTIONS)
-                    break;
-                case "13":
-                    setQuestions(BATCH_THIRTEEN_QUESTIONS)
-                    break;
-                case "14":
-                    setQuestions(BATCH_FOURTEEN_QUESTIONS)
-                    break;
-                case "15":
-                    setQuestions(BATCH_FIFHTEEN_QUESTIONS)
-                    break;
-                case "16":
-                    setQuestions(BATCH_SIXTEEN_QUESTIONS)
-                    break;
-
-                default:
-                    setQuestions(BATCH_ONE_QUESTIONS)
-                    break;
+                case "1": setQuestions(BATCH_ONE_QUESTIONS); break;
+                case "2": setQuestions(BATCH_TWO_QUESTIOINS); break;
+                case "3": setQuestions(BATCH_THREE_QUESTIONS); break;
+                case "4": setQuestions(BATCH_FOUR_QUESTIONS); break;
+                case "5": setQuestions(BATCH_FIVE_QUESTIONS); break;
+                case "6": setQuestions(BATCH_SIX_QUESTIONS); break;
+                case "7": setQuestions(BATCH_SEVEN_QUESTIONS); break;
+                case "8": setQuestions(BATCH_EIGHT_QUESTIONS); break;
+                case "9": setQuestions(BATCH_NINE_QUESTIONS); break;
+                case "10": setQuestions(BATCH_TEN_QUESTIONS); break;
+                case "11": setQuestions(BATCH_ELEVEN_QUESTIONS); break;
+                case "12": setQuestions(BATCH_TWELVE_QUESTIONS); break;
+                case "13": setQuestions(BATCH_THIRTEEN_QUESTIONS); break;
+                case "14": setQuestions(BATCH_FOURTEEN_QUESTIONS); break;
+                case "15": setQuestions(BATCH_FIFHTEEN_QUESTIONS); break;
+                case "16": setQuestions(BATCH_SIXTEEN_QUESTIONS); break;
+                default: setQuestions(BATCH_ONE_QUESTIONS)
             }
         }
     }, [])
 
-    // Add toast effect for bonus questions
     useEffect(() => {
         if (isBonusQuestion) {
             toast({
@@ -166,32 +128,24 @@ const QuizTemp = React.memo(function QuizTemp() {
     }, [])
 
     useEffect(() => {
-        // Reset timer and start when question or bonus status changes
         setTimeLeft(isBonusQuestion ? BONUS_TIME : TIME)
         setIsTimerRunning(false)
     }, [currentQuestionIndex, isBonusQuestion])
 
-
-    // Timer effect
     useEffect(() => {
         if (isTimerRunning && !revealAnswer) {
             const timer = setInterval(() => {
                 setTimeLeft((prev) => {
-                    if (prev > 0) {
-                        return prev - 1
-                    } else {
-                        clearInterval(timer)
-                        handleParticipantAnswer(false)
-                        return 0
-                    }
+                    if (prev > 0) return prev - 1
+                    clearInterval(timer)
+                    handleParticipantAnswer(false)
+                    return 0
                 })
             }, 1000)
-
             return () => clearInterval(timer)
         }
-    }, [isTimerRunning, currentQuestions, currentQuestionIndex, currentParticipantIndex, isBonusQuestion, revealAnswer])
+    }, [isTimerRunning, revealAnswer])
 
-    // Reveal timer effect
     useEffect(() => {
         if (revealAnswer && revealTimer === null) {
             const timer = setTimeout(() => {
@@ -202,12 +156,10 @@ const QuizTemp = React.memo(function QuizTemp() {
                 )
                 setIsBonusQuestion(false)
             }, REVEAL_TIME * 1000)
-
             return () => clearTimeout(timer)
         }
     }, [revealAnswer, revealTimer, selectedOption])
 
-    // Questions setup
     useEffect(() => {
         if (questions) {
             const shuffledQuestions = questions?.sort(() => Math.random() - 0.5).slice(0, totalQuestions)
@@ -215,8 +167,13 @@ const QuizTemp = React.memo(function QuizTemp() {
         }
     }, [questions])
 
+    const handleQuizFinish = () => {
+        setIsQuizFinished(true)
+        localStorage.setItem('quizFinished', 'true')
+        localStorage.setItem(QUIZ_PARTICIPANTS, JSON.stringify(participantsRef.current))
+    }
+
     const handleNextQuestion = (): void => {
-        console.log("NEXT QUESTION CLICKED")
         setRevealAnswer(false)
         setSelectedOption(null)
         setFailedAttempts(0)
@@ -224,11 +181,12 @@ const QuizTemp = React.memo(function QuizTemp() {
         setJustAnsweredBonus(false)
         setRevealAnswer(false)
         setAnswerSubmitted(false)
+        setLastFailedOption(null)
 
         if (currentQuestionIndex < currentQuestions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1)
         } else {
-            setIsQuizFinished(true)
+            handleQuizFinish()
         }
 
         if (!justAnsweredBonus && !isBonusQuestion) {
@@ -237,67 +195,66 @@ const QuizTemp = React.memo(function QuizTemp() {
     }
 
     useEffect(() => {
-        if (failedAttempts === 1) {
-            setIsBonusQuestion(true)
-        } else {
-            setIsBonusQuestion(false)
-        }
+        if (failedAttempts === 1) setIsBonusQuestion(true)
+        else setIsBonusQuestion(false)
     }, [failedAttempts])
 
     const handleParticipantAnswer = (isCorrect: boolean): void => {
         setRevealTimer(null)
 
-        if (isCorrect && !isBonusQuestion) {
-            setRevealAnswer(false)
-            const updatedParticipants = participantsRef?.current?.map((participant, index) =>
+        if (isCorrect) {
+            const points = isBonusQuestion ? 1 : 2
+            const updatedParticipants = participantsRef.current.map((participant, index) =>
                 index === currentParticipantIndex
-                    ? {
-                        ...participant,
-                        points: participant.points + (isBonusQuestion ? 1 : 2),
-                    }
+                    ? { ...participant, points: participant.points + points }
                     : participant
             )
             participantsRef.current = updatedParticipants
+        }
+
+        if ((isCorrect && !isBonusQuestion) || (isCorrect && isBonusQuestion)) {
             handleNextQuestion()
         } else if (!isCorrect && !isBonusQuestion) {
             setFailedAttempts((prev) => prev + 1)
             setCurrentParticipantIndex((prevIndex) => (prevIndex + 1) % participantsRef.current.length)
-        }
-
-        if (isCorrect && isBonusQuestion) {
-            setRevealAnswer(false)
-            const updatedParticipants = participantsRef?.current?.map((participant, index) =>
-                index === currentParticipantIndex
-                    ? {
-                        ...participant,
-                        points: participant.points + 1,
-                    }
-                    : participant
-            )
-            participantsRef.current = updatedParticipants
-            handleNextQuestion()
-        } else if (!isCorrect && isBonusQuestion) {
-            setRevealAnswer(false)
+            setLastFailedOption(selectedOption)
+        } else {
             handleNextQuestion()
         }
     }
-    // Add this function to calculate winner
+
     const calculateWinner = (): Participant[] => {
         if (!participantsRef.current.length) return []
         const maxScore = Math.max(...participantsRef.current.map(p => p.points))
         return participantsRef.current.filter(p => p.points === maxScore)
     }
 
-    // Add this effect to handle quiz finish
-    useEffect(() => {
-        if (isQuizFinished) {
-            localStorage.setItem(QUIZ_PARTICIPANTS, JSON.stringify(participantsRef.current))
-        }
-    }, [isQuizFinished])
-
     const currentQuestion = useMemo(() =>
         currentQuestions[currentQuestionIndex] || null
         , [currentQuestions, currentQuestionIndex])
+
+    const getSubmitButtonText = () => {
+        if (answerSubmitted) {
+            if (currentQuestionIndex === currentQuestions.length - 1) return "End Quiz"
+            return isBonusQuestion && !revealAnswer ? "Reveal Answer" : "Next Question"
+        }
+        return "Submit Answer"
+    }
+
+    const getOptionClasses = (option: string) => cn(
+        "text-2xl p-4 rounded-lg border transition-colors duration-300 cursor-pointer",
+        selectedOption === option && !revealAnswer
+            ? 'border-blue-500 bg-blue-500 bg-opacity-10 text-blue-600'
+            : 'bg-white text-black hover:border-gray-400',
+        selectedOption === option && revealAnswer &&
+        selectedOption.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0)?.toLowerCase() &&
+        'border-green-500 bg-green-500 bg-opacity-10 text-green-600',
+        (
+            (selectedOption === option && revealAnswer &&
+                selectedOption.charAt(0).toLowerCase() !== currentQuestion?.correctAnswer?.charAt(0)?.toLowerCase()) ||
+            option === lastFailedOption
+        ) && 'border-red-500 bg-red-500 bg-opacity-10 text-red-600',
+    )
 
     return (
         <div className="flex max-w-7xl mx-auto p-4">
@@ -339,13 +296,7 @@ const QuizTemp = React.memo(function QuizTemp() {
                             {currentQuestion?.options?.map?.((option) => (
                                 <div
                                     key={option}
-                                    className={cn("text-2xl p-4 rounded-lg border transition-colors duration-300 cursor-pointer",
-                                        selectedOption === option && !revealAnswer
-                                            ? 'border-blue-500 bg-blue-500 bg-opacity-10 text-blue-600'
-                                            : 'bg-white text-black hover:border-gray-400',
-                                        selectedOption === option && revealAnswer && selectedOption.charAt(0).toLowerCase() === currentQuestion?.correctAnswer?.charAt(0)?.toLowerCase() && 'border-green-500 bg-green-500 bg-opacity-10 text-green-600',
-                                        selectedOption === option && revealAnswer && selectedOption.charAt(0).toLowerCase() !== currentQuestion?.correctAnswer?.charAt(0)?.toLowerCase() && 'border-red-500 bg-red-500 bg-opacity-10 text-red-600',
-                                    )}
+                                    className={getOptionClasses(option)}
                                     onClick={() => setSelectedOption(option)}
                                 >
                                     {option}
@@ -355,10 +306,10 @@ const QuizTemp = React.memo(function QuizTemp() {
 
                         {selectedOption && revealAnswer && (
                             <div className="mt-6 space-y-3 transition-all duration-300">
-                                {isBonusQuestion ?
-                                    <p className='text-xl text-green-600 font-medium transition-all duration-300'>Correct Answer: <span className="text-lg font-bold">{currentQuestion?.correctAnswer}</span>
+                                {isBonusQuestion &&
+                                    <p className='text-xl text-green-600 font-medium transition-all duration-300'>
+                                        Correct Answer: <span className="text-lg font-bold">{currentQuestion?.correctAnswer}</span>
                                     </p>
-                                    : null
                                 }
                                 {currentQuestion?.explanation && (
                                     <div className='flex items-start text-black text-xl transition-all duration-300'>
@@ -391,29 +342,26 @@ const QuizTemp = React.memo(function QuizTemp() {
                             }}
                             disabled={selectedOption === null}
                         >
-                            {answerSubmitted
-                                ? isBonusQuestion && !revealAnswer
-                                    ? "Reveal Answer"
-                                    : "Next Question"
-                                : "Submit Answer"}
+                            {getSubmitButtonText()}
                         </Button>
                     </CardFooter>
                 </Card>
             </div>
+
             {isQuizFinished && (
-                <Dialog open={isQuizFinished} onOpenChange={setIsQuizFinished}>
-                    <DialogContent className="bg-white sm:max-w-[525px]">
-                        <DialogHeader>
-                            <DialogTitle className="text-2xl">
+                <AlertDialog open={isQuizFinished}>
+                    <AlertDialogContent className="bg-white sm:max-w-[525px]">
+                        <AlertDialogHeader>
+                            <AlertDialogTitle className="text-2xl">
                                 {showScores ? "Quiz Results" : "Quiz Complete!"}
-                            </DialogTitle>
-                        </DialogHeader>
+                            </AlertDialogTitle>
+                        </AlertDialogHeader>
 
                         {!showScores ? (
                             <div className="space-y-4">
-                                <DialogDescription className="text-lg">
+                                <AlertDialogDescription className="text-lg">
                                     All questions have been answered!
-                                </DialogDescription>
+                                </AlertDialogDescription>
                                 <Button
                                     className="w-full text-lg"
                                     onClick={() => setShowScores(true)}
@@ -452,17 +400,19 @@ const QuizTemp = React.memo(function QuizTemp() {
                                         </div>
                                     ))}
                                 </div>
-
-                                <Button
-                                    className="w-full h-[50px] mt-4 text-lg"
-                                    onClick={() => { localStorage.removeItem(SELECTED_STUDENTS); push(APP_ROUTES.scoreboard) }}
+                                <AlertDialogAction
+                                    onClick={() => {
+                                        localStorage.removeItem('quizFinished')
+                                        push(APP_ROUTES.scoreboard)
+                                    }}
+                                    className='w-full'
                                 >
-                                    View Detailed Scoreboard
-                                </Button>
+                                    View Scoreboard
+                                </AlertDialogAction>
                             </div>
                         )}
-                    </DialogContent>
-                </Dialog>
+                    </AlertDialogContent>
+                </AlertDialog>
             )}
         </div>
     )

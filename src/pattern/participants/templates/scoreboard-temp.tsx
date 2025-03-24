@@ -108,7 +108,7 @@ export default function ScoreboardTemp() {
             </div>
             < div >
                 <Table className="bg-white rounded-md border" >
-                    <TableHeader className="bg-slate-400 text-background">
+                    <TableHeader className="!bg-white !text-black">
                         {
                             table.getHeaderGroups().map((headerGroup) => (
                                 <TableRow key={headerGroup.id} >

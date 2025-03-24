@@ -94,7 +94,7 @@ export const StudentsTable = () => {
                     {table.getHeaderGroups().map((headerGroup) => (
                         <TableRow key={headerGroup.id}>
                             {headerGroup.headers.map((header) => (
-                                <TableHead key={header.id} className="!text-black">
+                                <TableHead key={header.id} className="!bg-white !text-black">
                                     {header.isPlaceholder
                                         ? null
                                         : flexRender(

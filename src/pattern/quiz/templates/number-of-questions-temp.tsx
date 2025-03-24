@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils"
 
 const items = Array.from({ length: 16 }, (_, i) => ({
     label: `Batch ${i + 1}`,
-    value: i + 1 === 1 ? 1 : i * 20 + 1,
+    value: i + 1 === 1 ? 1 : i + 1,
 }))
 
 const FormSchema = z.object({

@@ -2,7 +2,7 @@ import { IQuestion } from "./types";
 
 export const BATCH_FIFHTEEN_QUESTIONS: IQuestion[] = [
     {
-    "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. Choose the word that is most nearly opposite in meaning to the word in brackets and correctly fills the gap: Tom is refined but his brother is rather _______",
+    "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. Choose the word that is most nearly opposite in meaning to the word in brackets and correctly fills the gap: **Tom is [refined] but his brother is rather _______**",
     "options": [
         "A) Arrogant",
         "B) Crude",
@@ -35,7 +35,7 @@ export const BATCH_FIFHTEEN_QUESTIONS: IQuestion[] = [
                 "explanation": "Increasing cross-sectional area increases mass per unit length, which decreases frequency. The other options all increase frequency."
 },
 {
-    "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. Choose the word that is most nearly opposite in meaning to the word in brackets and correctly fills the gap: **Lions are in extinction in the Gambia but monkeys are still in ______**",
+    "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. Choose the word that is most nearly opposite in meaning to the word in brackets and correctly fills the gap: **Lions are in [extinction] in the Gambia but monkeys are still in ______**",
         "options": [
             "A) Action",
             "B) Existence",
@@ -112,7 +112,7 @@ export const BATCH_FIFHTEEN_QUESTIONS: IQuestion[] = [
                 "explanation": "Copper (II) oxide reacts with sulfuric acid to form copper sulfate (blue solution) without producing gas: CuO + H₂SO₄ → CuSO₄ + H₂O"
 },
 {
-    "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. Choose the word that is most nearly opposite in meaning to the word in brackets and correctly fills the gap: The major demanded an unalloyed and not a _________ loyalty from his soldier",
+    "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. Choose the word that is most nearly opposite in meaning to the word in brackets and correctly fills the gap: **The major demanded an [unalloyed] and not a _________ loyalty from his soldier**",
         "options": [
             "A) Strict",
             "B) Wavering",
