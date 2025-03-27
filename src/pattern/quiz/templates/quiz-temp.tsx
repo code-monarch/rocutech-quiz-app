@@ -27,6 +27,10 @@ import { BATCH_THIRTEEN_QUESTIONS } from '@/lib/questions/batch-13'
 import { BATCH_FOURTEEN_QUESTIONS } from '@/lib/questions/batch-14'
 import { BATCH_FIFHTEEN_QUESTIONS } from '@/lib/questions/batch-15'
 import { BATCH_SIXTEEN_QUESTIONS } from '@/lib/questions/batch-16'
+import { BATCH_SEVENTEEN_QUESTIONS } from '@/lib/questions/batch-17'
+import { BATCH_EIGHTEEN_QUESTIONS } from '@/lib/questions/batch-18'
+import { BATCH_NINETEEN_QUESTIONS } from '@/lib/questions/batch-19'
+import { BATCH_TWENTY_QUESTIONS } from '@/lib/questions/batch-20'
 
 const TIME = 75
 const BONUS_TIME = 30
@@ -93,6 +97,10 @@ const QuizTemp = React.memo(function QuizTemp() {
                 case "14": setQuestions(BATCH_FOURTEEN_QUESTIONS); break;
                 case "15": setQuestions(BATCH_FIFHTEEN_QUESTIONS); break;
                 case "16": setQuestions(BATCH_SIXTEEN_QUESTIONS); break;
+                case "17": setQuestions(BATCH_SEVENTEEN_QUESTIONS); break;
+                case "18": setQuestions(BATCH_EIGHTEEN_QUESTIONS); break;
+                case "19": setQuestions(BATCH_NINETEEN_QUESTIONS); break;
+                case "20": setQuestions(BATCH_TWENTY_QUESTIONS); break;
                 default: setQuestions(BATCH_ONE_QUESTIONS)
             }
         }

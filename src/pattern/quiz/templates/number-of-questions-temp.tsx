@@ -16,7 +16,7 @@ import { Check, ChevronsUpDown } from "lucide-react"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command"
 import { cn } from "@/lib/utils"
 
-const items = Array.from({ length: 16 }, (_, i) => ({
+const items = Array.from({ length: 20 }, (_, i) => ({
     label: `Batch ${i + 1}`,
     value: i + 1 === 1 ? 1 : i + 1,
 }))

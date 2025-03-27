@@ -2,55 +2,30 @@ import { IQuestion } from "./types"
 
 export const BATCH_TWO_QUESTIOINS: IQuestion[] = [
     {
-        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in brackets or group of words that will, at the same time correctly fill the gap in the sentence. **He was promoted for his [efficiency], while his colleague was demoted for ___.**",
+        "question": "In each of the following sentences, there is one word or group of words in bracket. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in bracket that will, at the same time correctly fill the gap in the sentence. **He was promoted for his [efficiency], while his colleague was demoted for __.**",
         "options": [
             "A) sluggishness",
             "B) disobedience",
             "C) incompetence",
             "D) capability"
         ],
-
         "correctAnswer": "C",
-        "explanation": "\"Efficiency\" means working in a well-organized manner with minimal wasted effort. Its opposite is \"incompetence,\" which refers to the inability to do something successfully or efficiently."
+        "explanation": "Efficiency means working in a well-organized and competent way. Its opposite would be \"incompetence,\" which means lacking ability or skill to do a job properly."
     },
     {
-        "question": "Express 0.0462 in standard form.",
+        "question": "What volume of oxygen at s.t.p. would react with carbon to form 40g of CO₂ according to the equation C(s) + O₂(g) → CO₂(g)?",
         "options": [
-            "A) 0.462 × 10¹",
-            "B) 0.462 × 10²",
-            "C) 4.62 × 10⁻¹",
-            "D) 4.62 × 10⁻²"
+            "A) 0.224 dm³",
+            "B) 2.24 dm³",
+            "C) 4.0 dm³",
+            "D) 4.48 dm³",
+            "E) 22.4 dm³"
         ],
-
         "correctAnswer": "D",
-        "explanation": "Standard form is written as a × 10ⁿ where 1 ≤ a < 10. For 0.0462, we move the decimal point right to get 4.62, which requires multiplying by 10⁻², giving 4.62 × 10⁻²."
+        "explanation": "Using molar mass calculations and stoichiometry: CO₂ molar mass is 44 g/mol. 40g / 44g/mol = 0.91 mol of CO₂. Using the balanced equation and the ideal gas law, this requires 4.48 dm³ of O₂ at s.t.p."
     },
     {
-        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. From the list of words or group of words lettered A to D, choose the one words that will, at the same time correctly fill the gap in the sentence. **Okon's business is [flourishing] while his father's is ___.**",
-        "options": [
-            "A) declining",
-            "B) progressing",
-            "C) withering",
-            "D) vanishing"
-        ],
-
-        "correctAnswer": "A",
-        "explanation": "\"Flourishing\" means growing or developing successfully. Its opposite is \"declining,\" which means gradually becoming worse or less successful."
-    },
-    {
-        "question": "A waterfall is 126.0m high. Calculate the change in temperature of a quantity of water that falls from the top to the bottom of the waterfall. (Neglect heat losses to the surroundings, take g = 10m/s² and specific heat capacity of water as 4200Jkg⁻¹K⁻¹.)",
-        "options": [
-            "A) 0.3°C",
-            "B) 0.30°C",
-            "C) 33.3°C",
-            "D) 4.20°C"
-        ],
-
-        "correctAnswer": "B",
-        "explanation": "The gravitational potential energy is converted to thermal energy. Using mgh = mc∆T, where h = 126.0m, g = 10m/s², c = 4200Jkg⁻¹K⁻¹. Rearranging, ∆T = gh/c = 10 × 126.0/4200 = 0.30°C."
-    },
-    {
-        "question": "A bag of oranges, the ratio of the good oranges to the bad ones is 5:4. If the number of bad oranges in the bag is 36, how many oranges are there altogether?",
+        "question": "A bag of oranges, the ratio of good oranges to bad ones is 5:4. If the number of bad oranges is 36, how many oranges are there altogether?",
         "options": [
             "A) 81",
             "B) 72",
@@ -58,10 +33,44 @@ export const BATCH_TWO_QUESTIOINS: IQuestion[] = [
             "D) 40"
         ],
         "correctAnswer": "A",
-        "explanation": "If the ratio of good to bad oranges is 5:4, and there are 36 bad oranges, then the number of good oranges is (5/4) × 36 = 45. The total number of oranges is 45 + 36 = 81."
+        "explanation": "Let x be the number of bad oranges. If bad oranges are 4 parts and good oranges are 5 parts, and bad oranges are 36, then: 4x = 36, x = 9. Good oranges are 5 parts: 5 × 9 = 45. Total oranges: 45 + 36 = 81."
     },
     {
-        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in brackets or group of words that will, at the same time correctly fill the gap in the sentence. **You should be ___ so as not to be caught unawares.**",
+        "question": "In each of the following sentences, there is one word or group of words in bracket. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in bracket that will, at the same time correctly fill the gap in the sentence. **Okon's business is [flourishing], while his father's is __.**",
+        "options": [
+            "A) declining",
+            "B) progressing",
+            "C) withering",
+            "D) vanishing"
+        ],
+        "correctAnswer": "A",
+        "explanation": "Flourishing means thriving or doing very well. Its opposite would be \"declining,\" which means becoming less successful or prosperous."
+    },
+    {
+        "question": "A waterfall is 126.0m high. Calculate the change in temperature of a quantity of water that falls from the top to the bottom of the waterfall. (Neglect heat losses to the surroundings, take g as 10m/s² and specific heat capacity of water as 4200Jkg⁻¹K⁻¹.)",
+        "options": [
+            "A) 0.3°C",
+            "B) 0.30°C",
+            "C) 33.3°C",
+            "D) 4.20°C"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Using the principle of conservation of energy and gravitational potential energy converting to heat: ΔT = gh / (c) = (10 × 126.0) / (4200) = 0.30°C"
+    },
+    {
+        "question": "What is the basicity of the acid in the reaction Na₂CO₃ + 2HCl → 2NaCl + CO₂ + H₂O?",
+        "options": [
+            "A) 1",
+            "B) 2",
+            "C) 3",
+            "D) 4",
+            "E) 8"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Basicity refers to the number of hydrogen ions (H⁺) that can be replaced by a base. In this reaction, two hydrogen ions from HCl are replaced, indicating a basicity of 2."
+    },
+    {
+        "question": "In each of the following sentences, there is one word or group of words in bracket. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in bracket that will, at the same time correctly fill the gap in the sentence. **You should be __ so as not to be caught [unawares].**",
         "options": [
             "A) serious",
             "B) sober",
@@ -69,63 +78,18 @@ export const BATCH_TWO_QUESTIOINS: IQuestion[] = [
             "D) alert"
         ],
         "correctAnswer": "D",
-        "explanation": "\"Unawares\" means without being prepared or anticipating something. Its opposite is \"alert,\" which means being fully attentive and ready to respond to a situation."
+        "explanation": "Unawares means without being prepared or aware. Its opposite would be \"alert,\" which means being fully aware and prepared for potential situations."
     },
     {
-        "question": "If an ebonite rod is rubbed with fur:",
+        "question": "Simplify 5 ¼ ÷ (1⅔ - ½)",
         "options": [
-            "A) Both the ebonite rod and fur will be negatively charged",
-            "B) The ebonite rod will be positively charged while the fur will have no charge",
-            "C) There will be no electron transfer only if the ebonite rod is earthed",
-            "D) The ebonite rod will be negatively charged while the fur will be positively charged"
+            "A) 1¾",
+            "B) 3½",
+            "C) 4½",
+            "D) 8½"
         ],
-        "correctAnswer": "D",
-        "explanation": "When an ebonite rod is rubbed with fur, electrons transfer from the fur to the ebonite rod. This makes the ebonite rod negatively charged and the fur positively charged due to the loss of electrons."
-    },
-    {
-        "question": "The Variance of a given distribution is 25. What is the standard deviation?",
-        "options": [
-            "A) 125",
-            "B) 75",
-            "C) 25",
-            "D) 5"
-        ],
-        "correctAnswer": "D",
-        "explanation": "The standard deviation is the square root of the variance. Since the variance is 25, the standard deviation is √25 = 5."
-    },
-    {
-        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in brackets or group of words that will, at the same time correctly fill the gap in the sentence. **The manager who was sacked last month has been ___.**",
-        "options": [
-            "A) retired",
-            "B) suspended",
-            "C) reinstated",
-            "D) promoted"
-        ],
-        "correctAnswer": "C",
-        "explanation": "\"Sacked\" means dismissed from employment. Its opposite is \"reinstated,\" which means to restore someone to their former position or state."
-    },
-    {
-        "question": "What volume of oxygen at s.t.p. would react with carbon to form 40g of CO₂ according to the following equation? C(s) + O₂(g) → CO₂(g) (C = 12; O = 16; 1 mole of gas occupies 22.4dm³ at s.t.p.)",
-        "options": [
-            "A) 0.224dm³",
-            "B) 2.24dm³",
-            "C) 4.0dm³",
-            "D) 20.36dm³",
-            "E) 22.4dm³"
-        ],
-        "correctAnswer": "D",
-        "explanation": "40g of CO₂ is 40/44 = 0.909 moles (CO₂ molar mass = 44g/mol). From the equation, 1 mole of O₂ produces 1 mole of CO₂, so 0.909 moles of O₂ are needed. At s.t.p., 0.909 moles of O₂ occupies 0.909 × 22.4 = 20.36 dm³."
-    },
-    {
-        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in brackets or group of words that will, at the same time correctly fill the gap in the sentence. **Tunde seldom asks questions in the class and was ___ very careful when he did.**",
-        "options": [
-            "A) hardly",
-            "B) sometimes",
-            "C) often",
-            "D) never"
-        ],
-        "correctAnswer": "C",
-        "explanation": "\"Seldom\" means rarely or not often. Its opposite is \"often,\" which means frequently or many times."
+        "correctAnswer": "B",
+        "explanation": "First, simplify inside the parentheses: 1⅔ - ½ = 5/3 - 1/2 = 10/6 - 3/6 = 7/6. Then divide 5¼ by 7/6: 5¼ × 6/7 = 31½ ÷ 7 = 3½"
     },
     {
         "question": "A piece of metal is heated until it becomes red-hot. It is then quickly transferred into a beaker containing boiling water. What effect would this have on the boiling water?",
@@ -136,7 +100,63 @@ export const BATCH_TWO_QUESTIOINS: IQuestion[] = [
             "D) The boiling point first rises and then falls"
         ],
         "correctAnswer": "C",
-        "explanation": "When a red-hot metal is placed in boiling water, it transfers heat energy to the water, increasing the kinetic energy of water molecules. This does not change the boiling point but increases the rate at which water molecules escape as vapor."
+        "explanation": "The hot metal will transfer heat to the boiling water, increasing the rate of vaporization by providing additional thermal energy."
+    },
+    {
+        "question": "Express 0.0462 in standard form.",
+        "options": [
+            "A) 0.462 × 10¹",
+            "B) 0.462 × 10²",
+            "C) 4.62 × 10⁻¹",
+            "D) 4.62 × 10⁻²"
+        ],
+        "correctAnswer": "D",
+        "explanation": "To convert 0.0462 to standard form, we move the decimal point to create a number between 1 and 10, which results in 4.62 × 10⁻². The exponent is negative because the original number is less than 1."
+    },
+    {
+        "question": "A mixture of NaCl(s) and CaCO₃(s) is best separated by:",
+        "options": [
+            "A) Dissolution followed by filtration",
+            "B) Sublimation followed by crystallization",
+            "C) Dissolution followed by evaporation",
+            "D) Dissolution followed by crystallization",
+            "E) Sublimation followed by dissolution"
+        ],
+        "correctAnswer": "A",
+        "explanation": "NaCl is soluble in water, while CaCO₃ is insoluble. Dissolving the mixture and then filtering will separate the two substances."
+    },
+    {
+        "question": "An eclipse of the sun or the moon occurs when:",
+        "options": [
+            "A) The sun, the moon, and the earth are all in a straight line and the earth casts a shadow on the moon",
+            "B) The moon casts a shadow on the sun",
+            "C) The moon is between the sun and the earth",
+            "D) The sun lies between the moon and the earth"
+        ],
+        "correctAnswer": "A",
+        "explanation": "A solar or lunar eclipse occurs when the sun, moon, and earth are aligned in a straight line, with one celestial body casting a shadow on another."
+    },
+    {
+        "question": "In each of the following sentences, there is one word or group of words in bracket. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in bracket that will, at the same time correctly fill the gap in the sentence. **The manager who was [sacked] last month has been __.**",
+        "options": [
+            "A) retired",
+            "B) suspended",
+            "C) reinstated",
+            "D) promoted"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Sacked means being dismissed from a job. Its opposite would be \"reinstated,\" which means being restored to a previous position."
+    },
+    {
+        "question": "The Variance of a given distribution is 25. What is the standard deviation?",
+        "options": [
+            "A) 125",
+            "B) 75",
+            "C) 25",
+            "D) 5"
+        ],
+        "correctAnswer": "D",
+        "explanation": "Standard deviation is the square root of variance. √25 = 5"
     },
     {
         "question": "A city estimated its transport fare for a journey as ₦190 instead of ₦200. Find the percentage error in this estimate.",
@@ -147,29 +167,7 @@ export const BATCH_TWO_QUESTIOINS: IQuestion[] = [
             "D) 5%"
         ],
         "correctAnswer": "D",
-        "explanation": "Percentage error = |Estimated value - Actual value|/Actual value × 100% = |190 - 200|/200 × 100% = 10/200 × 100% = 5%."
-    },
-    {
-        "question": "An aqueous solution is acidic if:",
-        "options": [
-            "A) It has a pH value of < 7",
-            "B) It is corrosive",
-            "C) It changes the color of litmus to blue",
-            "D) It has a bitter taste"
-        ],
-        "correctAnswer": "A",
-        "explanation": "By definition, an acidic solution has a pH value less than 7, which corresponds to a higher concentration of hydrogen ions (H⁺) than hydroxide ions (OH⁻)."
-    },
-    {
-        "question": "Simplify 5¼ ÷ (1⅔ - ½)",
-        "options": [
-            "A) 1¾",
-            "B) 3½",
-            "C) 4½",
-            "D) 8½"
-        ],
-        "correctAnswer": "C",
-        "explanation": "First compute the parenthesis: 1⅔ - ½ = 5/3 - 1/2 = 10/6 - 3/6 = 7/6. Then divide: 5¼ ÷ 7/6 = 21/4 × 6/7 = 126/28 = 9/2 = 4½."
+        "explanation": "Percentage error = |Estimated - Actual| / Actual × 100% = |190 - 200| / 200 × 100% = 10/200 × 100% = 5%"
     },
     {
         "question": "Boyle's law can be expressed mathematically as:",
@@ -177,20 +175,55 @@ export const BATCH_TWO_QUESTIOINS: IQuestion[] = [
             "A) V α 1/P (T constant)",
             "B) V α T/P",
             "C) V α T (P constant)",
-            "D) P α V/T (constant)"
+            "D) P α V/T (constant)",
+            "E) P T"
         ],
         "correctAnswer": "A",
-        "explanation": "Boyle's law states that at constant temperature, the volume of a given mass of gas is inversely proportional to its pressure. Mathematically, this is expressed as V α 1/P when temperature (T) is constant."
+        "explanation": "Boyle's law states that at constant temperature, the volume of a gas is inversely proportional to its pressure, which can be expressed mathematically as V α 1/P."
+    },
+    {
+        "question": "An aqueous solution is acidic if:",
+        "options": [
+            "A) It has a pH value of < 7",
+            "B) It is corrosive",
+            "C) It changes the color of litmus to blue",
+            "D) It has a bitter taste",
+            "E) It contains more H₃O⁺ than OH⁻"
+        ],
+        "correctAnswer": "A",
+        "explanation": "By definition, an acidic solution has a pH value less than 7, indicating a higher concentration of hydrogen ions (H₃O⁺) than hydroxide ions (OH⁻)."
+    },
+    {
+        "question": "If an ebonite rod is rubbed with fur:",
+        "options": [
+            "A) Both the ebonite rod and fur will be negatively charged",
+            "B) The ebonite rod will be positively charged while the fur will have no charge",
+            "C) There will be no electron transfer only if the ebonite rod is earthen",
+            "D) The ebonite rod will be negatively charged while the fur will be positively charged"
+        ],
+        "correctAnswer": "D",
+        "explanation": "When ebonite is rubbed with fur, electrons are transferred from the fur to the ebonite rod. This leaves the ebonite rod negatively charged and the fur positively charged."
+    },
+    {
+        "question": "In each of the following sentences, there is one word or group of words in bracket. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in bracket that will, at the same time correctly fill the gap in the sentence. **Tunde [seldom] ask questions in the class and was __ very careful when he did.**",
+        "options": [
+            "A) hardly",
+            "B) sometimes",
+            "C) often",
+            "D) never"
+        ],
+        "correctAnswer": "C",
+        "explanation": "Seldom means rarely or infrequently. Its opposite would be \"often,\" which means frequently or many times."
     },
     {
         "question": "A 500 W immersion heater supplies energy for five minutes. The energy supplied is used to completely melt 180g of a solid at its melting point. Neglecting energy losses to the surroundings, calculate the solid's specific latent heat of fusion.",
         "options": [
             "A) 0.5 Jg⁻¹",
-            "B) 833.33 Jg⁻¹.",
+            "B) 2.5 Jg⁻¹",
             "C) 15 Jg⁻¹",
             "D) 450.0 Jg⁻¹"
         ],
-        "correctAnswer": "B",
-        "explanation": "Energy supplied = Power × time = 500 W × 5 × 60 s = 150,000 J. Specific latent heat = Energy/mass = 150,000 J/180 g = 833.33 Jg⁻¹."
+        "correctAnswer": "D",
+        "explanation": "Energy = Power × Time = 500 W × 300 s = 150,000 J. Specific latent heat = Total energy / Mass = 150,000 J / 180 g = 450.0 Jg⁻¹"
     }
 ]

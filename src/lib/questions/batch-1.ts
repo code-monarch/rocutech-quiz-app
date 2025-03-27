@@ -2,229 +2,223 @@ import { IQuestion } from "./types";
 
 export const BATCH_ONE_QUESTIONS: IQuestion[] = [
     {
-        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in brackets or group of words that will, at the same time correctly fill the gap in the sentence. **The leader of the delegation was [commended] for the manner in which he handled the matter, while their hosts were___.**",
+        "question": "The height of a cylinder is equal to its radius. If the volume is 0.216πm³, calculate the radius?",
         "options": [
-            "A) applauded",
-            "B) praised",
-            "C) criticized",
-            "D) sanctioned"
-        ],
-        "correctAnswer": "C",
-        "explanation": "\"Commended\" means to praise or express approval. Its opposite would be \"criticized,\" which means to express disapproval or find fault with someone."
-    },
-    {
-        "question": "Which of the following correctly expresses 48 as a product of prime factors?",
-        "options": [
-            "A) 3 × 4 × 4",
-            "B) 2 × 3 × 8",
-            "C) 2 × 2 × 3 × 4",
-            "D) 2 × 2 × 2 × 2 × 3"
-        ],
-        "correctAnswer": "D",
-        "explanation": "The prime factorization of 48 requires breaking it down into only prime numbers multiplied together. 48 = 16 × 3 = (2⁴) × 3 = 2 × 2 × 2 × 2 × 3. Options A, B, and C all contain composite numbers (4 or 8), which are not prime."
-    },
-    {
-        "question": "Dry oxygen is trapped by a pool of mercury in a uniform capillary tube which is sealed at one end. The length of the column of oxygen at 27°C is 50 cm. If the pressure of the oxygen is constant, at what temperature will the length be 60 cm?",
-        "options": [
-            "A) 360°C",
-            "B) 240.6°C",
-            "C) 237.0°C",
-            "D) 87.0°C"
+            "A) 0.46m",
+            "B) 0.60m",
+            "C) 0.87m",
+            "D) 1.80m"
         ],
         "correctAnswer": "B",
-        "explanation": "Using Charles' Law (V₁/T₁ = V₂/T₂) at constant pressure. V₁ = 50 cm, T₁ = 27°C + 273 = 300K, V₂ = 60 cm. Therefore, T₂ = (T₁ × V₂)/V₁ = (300K × 60)/50 = 360K = 87°C. However, the answer key indicates B (240.6°C), suggesting a different approach or starting temperature was used."
+        "explanation": "For a cylinder where height equals radius, the volume formula is V = πr²h = πr³. So 0.216π = πr³, which gives r³ = 0.216, and r = 0.6m."
     },
     {
-        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in brackets or group of words that will, at the same time correctly fill the gap in the sentence. **Musa is very [frugal], whereas his friend Audu is ___.**",
+        "question": "When two notes of nearly equal frequencies are sounded together, a periodic rise and fall in sound intensity can be heard. This phenomenon is called:",
         "options": [
-            "A) miserly",
-            "B) thrifty",
-            "C) precocious",
-            "D) extravagant"
-        ],
-
-        "correctAnswer": "D",
-        "explanation": "\"Frugal\" means being economical with money and resources. Its opposite is \"extravagant,\" which means spending money or using resources freely and excessively."
-    },
-    {
-        "question": "An element R belongs to the same group as sodium and an aqueous solution of ROH will be:",
-        "options": [
-            "A) Neutral",
-            "B) Acidic",
-            "C) Be colored",
-            "D) Have a pH greater than 7"
-        ],
-        "correctAnswer": "D",
-        "explanation": "Sodium is in Group 1 (alkali metals). All Group 1 elements form strong bases (ROH) when dissolved in water, resulting in solutions with pH greater than 7."
-    },
-    {
-        "question": "Evaluate (20₃)² - (11₃)² in base three.",
-        "options": [
-            "A) 101",
-            "B) 121",
-            "C) 202",
-            "D) 2020"
-        ],
-        "correctAnswer": "C",
-        "explanation": "First convert to decimal: 20₃ = 2×3¹ + 0×3⁰ = 6₁₀ and 11₃ = 1×3¹ + 1×3⁰ = 4₁₀. Then (6)² - (4)² = 36 - 16 = 20₁₀. Converting 20₁₀ to base 3: 20 ÷ 3 = 6 remainder 2, 6 ÷ 3 = 2 remainder 0, 2 ÷ 3 = 0 remainder 2. So 20₁₀ = 202₃."
-    },
-    {
-        "question": "In each of the following sentences, there is one word or group of words underlined and one gap. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in brackets or group of words that will, at the same time correctly fill the gap in the sentence. **Taiwo's [flamboyance] and Kehinde's ___ often keep people wondering if they are really twins.**",
-        "options": [
-            "A) modesty",
-            "B) arrogance",
-            "C) timidity",
-            "D) pretention"
+            "A) Beats",
+            "B) Diffraction",
+            "C) Overtones",
+            "D) Resonance"
         ],
         "correctAnswer": "A",
-        "explanation": "\"Flamboyance\" refers to being confident, extravagant, and attention-seeking. Its opposite is \"modesty,\" which means being humble and not calling attention to oneself."
+        "explanation": "This phenomenon is called beats, which occurs when two sound waves of slightly different frequencies interfere with each other."
     },
     {
-        "question": "If the cubic expansivity of brass between 27°C and 327°C is 57 × 10⁻⁶ K⁻¹, what is its linear expansivity?",
+        "question": "In each of the following sentences, there is one word or group of words in bracket. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in bracket that will, at the same time correctly fill the gap in the sentence. **While Rashida's business is [flourishing], Ida's is _____**",
         "options": [
-            "A) 5.7 × 10⁻⁶ K⁻¹",
-            "B) 1.90 × 10⁻⁵ K⁻¹",
-            "C) 1.70 × 10⁻⁵ K⁻¹",
-            "D) 1.62 × 10⁻⁵ K⁻¹"
-        ],
-        "correctAnswer": "B",
-        "explanation": "The relationship between cubic expansivity (γ) and linear expansivity (α) is γ = 3α. Therefore, α = γ/3 = (57 × 10⁻⁶)/3 = 19 × 10⁻⁶ = 1.90 × 10⁻⁵ K⁻¹."
-    },
-    {
-        "question": "Element X, with electronic configuration 2, 8, 2, and element Y with electronic configuration 2, 8, 7, are likely to combine by:",
-        "options": [
-            "A) Metallic bonding",
-            "B) Covalent bonding",
-            "C) Electrovalent bonding",
-            "D) d-π bonding",
-            "E) Hydrogen bonding"
-        ],
-        "correctAnswer": "C",
-        "explanation": "Element X has configuration 2,8,2 (Group 2, like Mg) and has 2 valence electrons. Element Y has configuration 2,8,7 (Group 17, like Cl) and has 7 valence electrons. The large electronegativity difference between a metal and a non-metal typically results in electrovalent (ionic) bonding."
-    },
-    {
-        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in brackets or group of words that will, at the same time correctly fill the gap in the sentence. **People enjoy stories with ___ settings rather than those with far-fetched backgrounds.**",
-        "options": [
-            "A) practical",
-            "B) realistic",
-            "C) artificial",
-            "D) undefined"
-        ],
-        "correctAnswer": "B",
-        "explanation": "\"Far-fetched\" means unlikely and unconvincing. Its opposite in storytelling would be \"realistic,\" meaning plausible and true-to-life."
-    },
-    {
-        "question": "Evaluate Log₁₀5 + Log₁₀20",
-        "options": [
-            "A) 2",
-            "B) 3",
-            "C) 4",
-            "D) 5"
+            "A) stagnant",
+            "B) crumbling",
+            "C) collapsing",
+            "D) declining"
         ],
         "correctAnswer": "A",
-        "explanation": "Using the logarithm property log(a) + log(b) = log(a×b): Log₁₀5 + Log₁₀20 = Log₁₀(5×20) = Log₁₀100 = 2."
+        "explanation": "The opposite of 'flourishing' (thriving, growing) is 'stagnant' (not growing, not developing)."
     },
     {
-        "question": "A gas is at 100 K. If it is heated to 1000 K, the ratio of its final pressure to its initial pressure is:",
+        "question": "Convert 35₁₀ to a number in base 2.",
         "options": [
-            "A) 10",
-            "B) 100",
-            "C) 1000",
-            "D) 10,000"
+            "A) 1011",
+            "B) 10011",
+            "C) 100011",
+            "D) 1100"
         ],
         "correctAnswer": "C",
-        "explanation": "For an ideal gas at constant volume, pressure is directly proportional to absolute temperature (Gay-Lussac's Law): P₂/P₁ = T₂/T₁. Therefore, P₂/P₁ = 1000K/100K = 10. The answer key shows C (1000), which is incorrect unless other factors are involved."
+        "explanation": "To convert 35 in base 10 to binary: 35 ÷ 2 = 17 remainder 1, 17 ÷ 2 = 8 remainder 1, 8 ÷ 2 = 4 remainder 0, 4 ÷ 2 = 2 remainder 0, 2 ÷ 2 = 1 remainder 0, 1 ÷ 2 = 0 remainder 1. Reading the remainders from bottom to top gives 100011."
     },
     {
-        "question": "In each of the following sentences, there is one word or group of words in brackets and one gap. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in brackets or group of words that will, at the same time correctly fill the gap in the sentence. **We were asked to reach a [compromise] and not start another ___.**",
+        "question": "Which of the following instruments is not a wind instrument?",
         "options": [
-            "A) accusation",
-            "B) concession",
-            "C) controversy",
-            "D) issue"
+            "A) Clarinet",
+            "B) Saxophone",
+            "C) Trumpet",
+            "D) Xylophone"
         ],
-        "correctAnswer": "C",
-        "explanation": "A \"compromise\" is an agreement reached by mutual concession. Its opposite would be \"controversy,\" which is a prolonged public dispute or debate."
+        "correctAnswer": "D",
+        "explanation": "A xylophone is a percussion instrument, not a wind instrument. Clarinets, saxophones, and trumpets are all wind instruments."
     },
     {
-        "question": "The valence electrons of the element ₁₂Mg are in the:",
+        "question": "In each of the following sentences, there is one word or group of words in bracket. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in bracket that will, at the same time correctly fill the gap in the sentence. **Clara is full of [admiration] for Lena but she treats me with _____**",
         "options": [
-            "A) 1s orbital",
-            "B) 2s orbital",
-            "C) 2p orbital",
-            "D) 2pₓ orbital",
-            "E) 3s orbital"
+            "A) despair",
+            "B) callousness",
+            "C) carelessness",
+            "D) disdain"
         ],
-        "correctAnswer": "E",
-        "explanation": "Magnesium (₁₂Mg) has the electronic configuration 1s² 2s² 2p⁶ 3s². The valence electrons are those in the outermost shell, which for magnesium are the two electrons in the 3s orbital."
+        "correctAnswer": "D",
+        "explanation": "The opposite of 'admiration' (respect, high regard) is 'disdain' (contempt, lack of respect)."
     },
     {
-        "question": "In a class of 80 students, every student studies Economics or Geography or both. If 65 students study Economics and 50 study Geography, how many study both subjects?",
+        "question": "P_total = P₁ + P₂ + P₃ + ....... P_n, where P_total is the pressure of a mixture of gases. The equation above is an expression of",
         "options": [
-            "A) 15",
-            "B) 35",
-            "C) 5",
-            "D) 45"
+            "A) Graham's law",
+            "B) Gay-Lussac's law",
+            "C) Boyle's law",
+            "D) Dalton's law"
+        ],
+        "correctAnswer": "D",
+        "explanation": "This equation represents Dalton's law of partial pressures, which states that the total pressure of a mixture of gases equals the sum of the partial pressures of the individual gases."
+    },
+    {
+        "question": "A circle is divided into two sectors in the ratio 3:7. If the radius of the circle is 7cm, Calculate the length of the minor arc of the circle.",
+        "options": [
+            "A) 18.85cm",
+            "B) 13.20cm",
+            "C) 12.30cm",
+            "D) 11.30cm"
         ],
         "correctAnswer": "B",
-        "explanation": "Using the formula for union of sets: n(A∪B) = n(A) + n(B) - n(A∩B). Here, n(A∪B) = 80, n(A) = 65, n(B) = 50. Therefore, n(A∩B) = n(A) + n(B) - n(A∪B) = 65 + 50 - 80 = 35."
+        "explanation": "For a circle divided in ratio 3:7, the minor arc corresponds to 3/(3+7) = 3/10 of the circumference. Circumference = 2πr = 2π×7 = 14π cm. The minor arc length = (3/10) × 14π = 4.2π = 13.20 cm."
     },
     {
-        "question": "The inside of a vacuum flask is usually coated with silver to reduce heat lost by:",
+        "question": "In each of the following sentences, there is one word or group of words in bracket. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in bracket that will, at the same time correctly fill the gap in the sentence. **The contributions should be _______ not [compulsory].**",
         "options": [
-            "A) Evaporation",
-            "B) Condensation",
-            "C) Radiation",
-            "D) Convection"
+            "A) Wilful",
+            "B) Voluntary",
+            "C) Deliberate",
+            "D) outright"
+        ],
+        "correctAnswer": "B",
+        "explanation": "The opposite of 'compulsory' (required, mandatory) is 'voluntary' (done by choice, not required)."
+    },
+    {
+        "question": "Which of the following features of a human skeleton can be determined by carbon-dating?",
+        "options": [
+            "A) Height",
+            "B) Mass",
+            "C) Age",
+            "D) Race"
         ],
         "correctAnswer": "C",
-        "explanation": "Silver coating on the inside of vacuum flasks is specifically used to reduce heat loss through radiation because silver is a good reflector of infrared radiation."
+        "explanation": "Carbon dating can be used to determine the age of organic materials, including human skeletal remains."
     },
     {
-        "question": "Which of the following Group I elements has the highest ionization energy?",
+        "question": "Express 302.10495 correct to five significant figures.",
         "options": [
-            "A) K",
-            "B) Na",
-            "C) Rb",
-            "D) Li"
+            "A) 302.10",
+            "B) 302.11",
+            "C) 302.105",
+            "D) 302.1049"
         ],
-        "correctAnswer": "D",
-        "explanation": "In Group I (alkali metals), ionization energy generally decreases as you move down the group due to increasing atomic radius. Lithium (Li), being the smallest atom in Group I, has the highest ionization energy."
-    },
-    {
-        "question": "If N varies directly as M and N = 8 when M = 20, find M when N = 7.",
-        "options": [
-            "A) 13",
-            "B) 15",
-            "C) 17",
-            "D) 18"
-        ],
-        "correctAnswer": "C",
-        "explanation": "If N varies directly with M, then N = kM where k is a constant. From N = 8 when M = 20, we get k = 8/20 = 0.4. When N = 7, M = N/k = 7/0.4 = 17.5, which rounds to 17."
-    },
-    {
-        "question": "Air at 27°C and 30 atmospheres is admitted into an engine cylinder. Calculate the pressure of the gas when it has expanded to 1.5 times its volume and cooled to 127°C. Assume that the gas is ideal.",
-        "options": [
-            "A) 10.5 atmospheres",
-            "B) 15 atmospheres",
-            "C) 20 atmospheres",
-            "D) 12.0 atmospheres"
-        ],
-
-        "correctAnswer": "D",
-        "explanation": "Using the ideal gas law: P₁V₁/T₁ = P₂V₂/T₂. Given P₁ = 30 atm, V₂ = 1.5V₁, T₁ = 27°C + 273 = 300K, T₂ = 127°C + 273 = 400K. Therefore, P₂ = P₁(V₁/V₂)(T₂/T₁) = 30 × (1/1.5) × (400/300) = 30 × (2/3) × (4/3) = 30 × 8/9 = 26.67. The answer key indicates D (12.0 atmospheres), which would require different calculations."
-    },
-
-    {
-        "question": "Which of the following statements is correct about a solid?",
-        "options": [
-            "A) It exists as aggregates of ions",
-            "B) It conducts electricity",
-            "C) Its melting point is below 100°C",
-            "D) It exists as discrete molecules"
-        ],
-
         "correctAnswer": "A",
-        "explanation": "While not all solids exist as aggregates of ions (as some are molecular, covalent network, or metallic), ionic solids do exist as aggregates of ions. The other statements are either not universally true for all solids or are incorrect characterizations."
+        "explanation": "Five significant figures of 302.10495 would be 302.10, as we round the fifth digit (4) down since the next digit (9) is not 5 or greater."
+    },
+    {
+        "question": "In each of the following sentences, there is one word or group of words in bracket. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in bracket that will, at the same time correctly fill the gap in the sentence. **In those societies, the _______ and the[cultured] lived together.**",
+        "options": [
+            "A) Ignorant",
+            "B) Rich",
+            "C) Barbaric",
+            "D) Arrogant"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The opposite of 'cultured' (refined, civilized) is 'barbaric' (uncivilized, primitive)."
+    },
+    {
+        "question": "The refractive index of a medium relative to air is 1.8. Calculate, to the nearest degree, the critical angle for the medium.",
+        "options": [
+            "A) 65°",
+            "B) 56°",
+            "C) 34°",
+            "D) 15°"
+        ],
+        "correctAnswer": "C",
+        "explanation": "The critical angle is given by sin⁻¹(1/n), where n is the refractive index. For n = 1.8, the critical angle = sin⁻¹(1/1.8) = sin⁻¹(0.556) ≈ 34°."
+    },
+    {
+        "question": "If 1.0 dm³ of gas X diffuses through a porous plug in 60 seconds while the same volume of hydrogen diffuses in 15 seconds under the same condition, calculate the relative molecular mass of X. (H = 1.0)",
+        "options": [
+            "A) 4.0",
+            "B) 8.0",
+            "C) 16",
+            "D) 32"
+        ],
+        "correctAnswer": "C",
+        "explanation": "According to Graham's law of diffusion, rate₁/rate₂ = √(M₂/M₁). Given rate₂/rate₁ = 60/15 = 4 and M₂ = 1, we get 4 = √(M₁/1), so M₁ = 16."
+    },
+    {
+        "question": "In each of the following sentences, there is one word or group of words in bracket. From the list of words or group of words lettered A to D, choose the one that is most nearly opposite in meaning to the word in bracket that will, at the same time correctly fill the gap in the sentence.  **Some people live in abject [poverty] while others live in _____**",
+        "options": [
+            "A) Affluence",
+            "B) Greatness",
+            "C) Fame",
+            "D) Peace"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The opposite of 'poverty' (lack of wealth) is 'affluence' (abundance of wealth)."
+    },
+    {
+        "question": "A converging lens of focal length 15 cm forms a virtual image at a point 10 cm from the lens. Calculate the distance of the object from the lens.",
+        "options": [
+            "A) 10.00 cm",
+            "B) 6.00 cm",
+            "C) 5.00 cm",
+            "D) 15.0 cm"
+        ],
+        "correctAnswer": "B",
+        "explanation": "Using the lens formula 1/f = 1/v + 1/u, where f = 15 cm and v = -10 cm (negative since the image is virtual), we get 1/15 = 1/(-10) + 1/u, solving for u gives u = 6 cm."
+    },
+    {
+        "question": "In 1995, the enrolments of two schools: X and Y were 1,050 and 1,190 respectively. Find the ratio of the enrolments of X to Y",
+        "options": [
+            "A) 50:11",
+            "B) 15:17",
+            "C) 13:55",
+            "D) 105:119"
+        ],
+        "correctAnswer": "D",
+        "explanation": "The ratio of X to Y is 1,050:1,190, which simplifies to 105:119."
+    },
+    {
+        "question": "Which of the following statements about ideal gases is/are correct? I. The cohesive forces between their particles are negligible II. They have no definite volume but occupy the volume of their containers III. They are not compressible IV. Their particles collide with loss of energy",
+        "options": [
+            "A) I only",
+            "B) I and II only",
+            "C) I, II, and III only",
+            "D) I, II, III, and IV"
+        ],
+        "correctAnswer": "B",
+        "explanation": "For ideal gases, statements I and II are correct. Statement III is false (ideal gases are compressible), and statement IV is false (collisions are elastic with no loss of energy)."
+    },
+    {
+        "question": "A pulse of sound is transmitted from a ship, and the reflection from the sea bed is recorded after 0.2 s. Calculate the depth of the sea bed. (Take the speed of sound in sea water = 1560 m/s)",
+        "options": [
+            "A) 312.0 m",
+            "B) 156.0 m",
+            "C) 78.0 m",
+            "D) 31.2 m"
+        ],
+        "correctAnswer": "A",
+        "explanation": "The sound wave travels to the seabed and back, so total distance = 2 × depth. Distance = speed × time = 1560 m/s × 0.2 s = 312 m. So the depth is 312/2 = 156 m."
+    },
+    {
+        "question": "Which of the following pairs of reagents react to produce hydrogen?",
+        "options": [
+            "A) Zinc and concentrated trioxonitrate(V) acid",
+            "B) Water and calcium carbide",
+            "C) Copper and dilute hydrochloric acid",
+            "D) Magnesium and dilute tetraoxosulphate(VI) acid"
+        ],
+        "correctAnswer": "D",
+        "explanation": "Magnesium reacts with dilute tetraoxosulphate(VI) acid (sulfuric acid) to produce hydrogen gas: Mg + H₂SO₄ → MgSO₄ + H₂."
     }
 ];
