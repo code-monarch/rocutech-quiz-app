@@ -16,14 +16,32 @@ import { Check, ChevronsUpDown } from "lucide-react"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command"
 import { cn } from "@/lib/utils"
 
-const items = Array.from({ length: 20 }, (_, i) => ({
-    label: `Batch ${i + 1}`,
-    value: i + 1 === 1 ? 1 : i + 1,
-}))
+const items = [
+    // Original batches (1-20)
+    ...Array.from({ length: 20 }, (_, i) => ({
+        label: `Batch ${i + 1}`,
+        value: (i + 1).toString(),
+    })),
+    // B series batches
+    { label: "Batch B1", value: "B1" },
+    { label: "Batch B2", value: "B2" },
+    { label: "Batch B3", value: "B3" },
+    { label: "Batch B4", value: "B4" },
+    // C series batches
+    { label: "Batch C1", value: "C1" },
+    { label: "Batch C2", value: "C2" },
+    { label: "Batch C3", value: "C3" },
+    { label: "Batch C4", value: "C4" },
+    // D series batches
+    { label: "Batch D1", value: "D1" },
+    { label: "Batch D2", value: "D2" },
+    // E series batch
+    { label: "Batch E1", value: "E1" }
+]
 
 const FormSchema = z.object({
     questionBatch: z
-        .number()
+        .string()
         .refine((val) => items.some((item) => item.value === val), {
             message: "Please select a valid question batch",
         })
@@ -47,7 +65,7 @@ const NumberOfQuestionsTemp = () => {
         formState: { errors },
     } = form
 
-   const questionBatchWatch = form.watch("questionBatch")
+    const questionBatchWatch = form.watch("questionBatch")
 
     const onSubmit = ({ questionBatch }: z.infer<typeof FormSchema>) => {
         localStorage.setItem(QUESTION_BATCH, questionBatch!.toString())
@@ -71,7 +89,7 @@ const NumberOfQuestionsTemp = () => {
                                         <FormLabel className="w-full text-center text-xl font-semibold">
                                             Select Question Batch
                                         </FormLabel>
-                                        <FormDescription className="text-lg">A question batch contains 20 questions</FormDescription>
+                                        {/* <FormDescription className="text-lg">A question batch contains 20 questions</FormDescription> */}
                                         <FormControl className="w-full">
                                             <Popover open={open} onOpenChange={setOpen}>
                                                 <PopoverTrigger asChild>
@@ -86,7 +104,7 @@ const NumberOfQuestionsTemp = () => {
                                                         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                                     </Button>
                                                 </PopoverTrigger>
-                                                <PopoverContent  align="start" className="!min-w-[400px] !w-full !max-w-[500px] h-fit !max-h-[300px] p-0">
+                                                <PopoverContent align="start" className="!min-w-[400px] !w-full !max-w-[500px] h-fit !max-h-[300px] p-0">
                                                     <Command className="w-full">
                                                         <CommandInput placeholder="Search question batch..." />
                                                         <CommandList>

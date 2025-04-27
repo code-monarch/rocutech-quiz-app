@@ -31,6 +31,17 @@ import { BATCH_SEVENTEEN_QUESTIONS } from '@/lib/questions/batch-17'
 import { BATCH_EIGHTEEN_QUESTIONS } from '@/lib/questions/batch-18'
 import { BATCH_NINETEEN_QUESTIONS } from '@/lib/questions/batch-19'
 import { BATCH_TWENTY_QUESTIONS } from '@/lib/questions/batch-20'
+import { BATCH_B1_QUESTIONS } from '@/lib/questions/batch-B1'
+import { BATCH_B2_QUESTIONS } from '@/lib/questions/batch-B2'
+import { BATCH_B3_QUESTIONS } from '@/lib/questions/batch-B3'
+import { BATCH_B4_QUESTIONS } from '@/lib/questions/batch-B4'
+import { BATCH_C1_QUESTIONS } from '@/lib/questions/batch-C1'
+import { BATCH_C2_QUESTIONS } from '@/lib/questions/batch-C2'
+import { BATCH_C3_QUESTIONS } from '@/lib/questions/batch-C3'
+import { BATCH_C4_QUESTIONS } from '@/lib/questions/batch-C4'
+import { BATCH_D1_QUESTIONS } from '@/lib/questions/batch-D1'
+import { BATCH_D2_QUESTIONS } from '@/lib/questions/batch-D2'
+import { BATCH_E1_QUESTIONS } from '@/lib/questions/batch-E1'
 
 const TIME = 75
 const BONUS_TIME = 30
@@ -101,6 +112,17 @@ const QuizTemp = React.memo(function QuizTemp() {
                 case "18": setQuestions(BATCH_EIGHTEEN_QUESTIONS); break;
                 case "19": setQuestions(BATCH_NINETEEN_QUESTIONS); break;
                 case "20": setQuestions(BATCH_TWENTY_QUESTIONS); break;
+                case "B1": setQuestions(BATCH_B1_QUESTIONS); break;
+                case "B2": setQuestions(BATCH_B2_QUESTIONS); break;
+                case "B3": setQuestions(BATCH_B3_QUESTIONS); break;
+                case "B4": setQuestions(BATCH_B4_QUESTIONS); break;
+                case "C1": setQuestions(BATCH_C1_QUESTIONS); break;
+                case "C2": setQuestions(BATCH_C2_QUESTIONS); break;
+                case "C3": setQuestions(BATCH_C3_QUESTIONS); break;
+                case "C4": setQuestions(BATCH_C4_QUESTIONS); break;
+                case "D1": setQuestions(BATCH_D1_QUESTIONS); break;
+                case "D2": setQuestions(BATCH_D2_QUESTIONS); break;
+                case "E1": setQuestions(BATCH_E1_QUESTIONS); break;
                 default: setQuestions(BATCH_ONE_QUESTIONS)
             }
         }

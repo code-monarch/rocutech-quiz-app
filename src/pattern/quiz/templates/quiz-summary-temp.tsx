@@ -54,10 +54,10 @@ const QuizSummaryTemp = () => {
                 </div> */}
 
                 {/* Number of Questions */}
-                <div className='space-y-[16px]'>
+                {/* <div className='space-y-[16px]'>
                     <h5 className='text-[#434040] text-lg font-medium'>Number of Questions</h5>
                     <p className='text-xl font-semibold'>{numberOfQuestions} Questions</p>
-                </div>
+                </div> */}
 
                 {/* Participants Selected */}
                 <div className='w-full space-y-[16px]'>
