@@ -5,7 +5,7 @@ import TemplatePanel from "../atoms/template-panel"
 import TemplateHeader from "../atoms/template-header"
 import { Button } from "@/components/ui/button"
 import { useForm } from "react-hook-form"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next/navigation"
@@ -27,6 +27,10 @@ const items = [
     { label: "Batch B2", value: "B2" },
     { label: "Batch B3", value: "B3" },
     { label: "Batch B4", value: "B4" },
+    { label: "Batch B5", value: "B5" },
+    { label: "Batch B6", value: "B6" },
+    { label: "Batch B7", value: "B7" },
+    { label: "Batch B8", value: "B8" },
     // C series batches
     { label: "Batch C1", value: "C1" },
     { label: "Batch C2", value: "C2" },

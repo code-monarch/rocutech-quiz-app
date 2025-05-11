@@ -27,14 +27,14 @@ import { BATCH_THIRTEEN_QUESTIONS } from '@/lib/questions/batch-13'
 import { BATCH_FOURTEEN_QUESTIONS } from '@/lib/questions/batch-14'
 import { BATCH_FIFHTEEN_QUESTIONS } from '@/lib/questions/batch-15'
 import { BATCH_SIXTEEN_QUESTIONS } from '@/lib/questions/batch-16'
-import { BATCH_SEVENTEEN_QUESTIONS } from '@/lib/questions/batch-17'
-import { BATCH_EIGHTEEN_QUESTIONS } from '@/lib/questions/batch-18'
-import { BATCH_NINETEEN_QUESTIONS } from '@/lib/questions/batch-19'
-import { BATCH_TWENTY_QUESTIONS } from '@/lib/questions/batch-20'
 import { BATCH_B1_QUESTIONS } from '@/lib/questions/batch-B1'
 import { BATCH_B2_QUESTIONS } from '@/lib/questions/batch-B2'
 import { BATCH_B3_QUESTIONS } from '@/lib/questions/batch-B3'
 import { BATCH_B4_QUESTIONS } from '@/lib/questions/batch-B4'
+import { BATCH_B5_QUESTIONS } from '@/lib/questions/batch-B5'
+import { BATCH_B6_QUESTIONS } from '@/lib/questions/batch-B6'
+import { BATCH_B7_QUESTIONS } from '@/lib/questions/batch-B7'
+import { BATCH_B8_QUESTIONS } from '@/lib/questions/batch-B8'
 import { BATCH_C1_QUESTIONS } from '@/lib/questions/batch-C1'
 import { BATCH_C2_QUESTIONS } from '@/lib/questions/batch-C2'
 import { BATCH_C3_QUESTIONS } from '@/lib/questions/batch-C3'
@@ -43,8 +43,6 @@ import { BATCH_D1_QUESTIONS } from '@/lib/questions/batch-D1'
 import { BATCH_D2_QUESTIONS } from '@/lib/questions/batch-D2'
 import { BATCH_E1_QUESTIONS } from '@/lib/questions/batch-E1'
 
-const TIME = 75
-const BONUS_TIME = 30
 const REVEAL_TIME = 10
 
 interface Participant {
@@ -60,9 +58,12 @@ const QuizTemp = React.memo(function QuizTemp() {
     const questionsParam = searchParams.get('questions')
     const totalQuestions: number = questionsParam ? parseInt(questionsParam, 10) : 10
 
+    const [time, setTime] = useState<number>(75)
+    const [bonusTime, setBonusTime] = useState<number>(30)
+
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0)
     const [selectedOption, setSelectedOption] = useState<string | null>(null)
-    const [timeLeft, setTimeLeft] = useState<number>(TIME)
+    const [timeLeft, setTimeLeft] = useState<number>(time)
     const [currentQuestions, setCurrentQuestions] = useState<IQuestion[]>([])
     const participantsRef = useRef<Participant[]>([])
     const [currentParticipantIndex, setCurrentParticipantIndex] = useState<number>(0)
@@ -104,29 +105,48 @@ const QuizTemp = React.memo(function QuizTemp() {
                 case "10": setQuestions(BATCH_TEN_QUESTIONS); break;
                 case "11": setQuestions(BATCH_ELEVEN_QUESTIONS); break;
                 case "12": setQuestions(BATCH_TWELVE_QUESTIONS); break;
-                case "13": setQuestions(BATCH_THIRTEEN_QUESTIONS); break;
-                case "14": setQuestions(BATCH_FOURTEEN_QUESTIONS); break;
-                case "15": setQuestions(BATCH_FIFHTEEN_QUESTIONS); break;
-                case "16": setQuestions(BATCH_SIXTEEN_QUESTIONS); break;
-                case "17": setQuestions(BATCH_SEVENTEEN_QUESTIONS); break;
-                case "18": setQuestions(BATCH_EIGHTEEN_QUESTIONS); break;
-                case "19": setQuestions(BATCH_NINETEEN_QUESTIONS); break;
-                case "20": setQuestions(BATCH_TWENTY_QUESTIONS); break;
-                case "B1": setQuestions(BATCH_B1_QUESTIONS); break;
-                case "B2": setQuestions(BATCH_B2_QUESTIONS); break;
-                case "B3": setQuestions(BATCH_B3_QUESTIONS); break;
-                case "B4": setQuestions(BATCH_B4_QUESTIONS); break;
-                case "C1": setQuestions(BATCH_C1_QUESTIONS); break;
-                case "C2": setQuestions(BATCH_C2_QUESTIONS); break;
-                case "C3": setQuestions(BATCH_C3_QUESTIONS); break;
-                case "C4": setQuestions(BATCH_C4_QUESTIONS); break;
-                case "D1": setQuestions(BATCH_D1_QUESTIONS); break;
-                case "D2": setQuestions(BATCH_D2_QUESTIONS); break;
-                case "E1": setQuestions(BATCH_E1_QUESTIONS); break;
-                default: setQuestions(BATCH_ONE_QUESTIONS)
+                case "13": setQuestions(BATCH_THIRTEEN_QUESTIONS);
+                    break;
+                case "14": setQuestions(BATCH_FOURTEEN_QUESTIONS);
+                    break;
+                case "15": setQuestions(BATCH_FIFHTEEN_QUESTIONS);
+                    break;
+                case "16": setQuestions(BATCH_SIXTEEN_QUESTIONS);
+                    break;
+                case "B1": setQuestions(BATCH_B1_QUESTIONS); setTime(60); setBonusTime(25);
+                    break;
+                case "B2": setQuestions(BATCH_B2_QUESTIONS); setTime(60); setBonusTime(25);
+                    break;
+                case "B3": setQuestions(BATCH_B3_QUESTIONS); setTime(60); setBonusTime(25);
+                    break;
+                case "B4": setQuestions(BATCH_B4_QUESTIONS); setTime(60); setBonusTime(25);
+                    break;
+                case "B5": setQuestions(BATCH_B5_QUESTIONS); setTime(60); setBonusTime(25);
+                    break;
+                case "B6": setQuestions(BATCH_B6_QUESTIONS); setTime(60); setBonusTime(25);
+                    break;
+                case "B7": setQuestions(BATCH_B7_QUESTIONS); setTime(60); setBonusTime(25);
+                    break;
+                case "B8": setQuestions(BATCH_B8_QUESTIONS); setTime(60); setBonusTime(25);
+                    break;
+                case "C1": setQuestions(BATCH_C1_QUESTIONS); setTime(45); setBonusTime(20);
+                    break;
+                case "C2": setQuestions(BATCH_C2_QUESTIONS); setTime(45); setBonusTime(20);
+                    break;
+                case "C3": setQuestions(BATCH_C3_QUESTIONS); setTime(45); setBonusTime(20);
+                    break;
+                case "C4": setQuestions(BATCH_C4_QUESTIONS); setTime(45); setBonusTime(20);
+                    break;
+                case "D1": setQuestions(BATCH_D1_QUESTIONS); setTime(30); setBonusTime(15);
+                    break;
+                case "D2": setQuestions(BATCH_D2_QUESTIONS); setTime(30); setBonusTime(15);
+                    break;
+                case "E1": setQuestions(BATCH_E1_QUESTIONS); setTime(30); setBonusTime(15);
+                    break;
+                default: setQuestions(BATCH_ONE_QUESTIONS); setTime(75); setBonusTime(30);
             }
         }
-    }, [])
+    }, [questionBatch])
 
     useEffect(() => {
         if (isBonusQuestion) {
@@ -158,9 +178,9 @@ const QuizTemp = React.memo(function QuizTemp() {
     }, [])
 
     useEffect(() => {
-        setTimeLeft(isBonusQuestion ? BONUS_TIME : TIME)
+        setTimeLeft(isBonusQuestion ? bonusTime : time)
         setIsTimerRunning(false)
-    }, [currentQuestionIndex, isBonusQuestion])
+    }, [currentQuestionIndex, isBonusQuestion, time, bonusTime])
 
     useEffect(() => {
         if (isTimerRunning && !revealAnswer) {
