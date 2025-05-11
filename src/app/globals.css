@@ -8,12 +8,12 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 97.65%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 210 10% 15%;
+    --foreground: 210 10% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 10% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 10% 15%;
     --primary: 199.59, 75.69%, 50%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
@@ -26,7 +26,7 @@ body {
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 210 10% 15%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -43,7 +43,7 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 210 10% 15%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -101,12 +101,45 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #fff !important;
-    color: #000 !important;
-  }
+  /* body {
+    background-color: #3b3b3b !important;
+    color: #fff !important;
+  } */
   .next-error-h1 {
-    color: #000 !important;
-    border-right: 1px solid #000 !important;
+    color: #fff !important;
+    border-right: 1px solid #fff !important;
   }
 }
+/* Custom Scrollbar style */
+.custom_scollbar::-webkit-scrollbar {
+  width: 8px !important;
+  height: 6px;
+  padding-top: 10px;
+}
+
+.custom_scollbar::-webkit-scrollbar-track {
+  border-radius: 4px !important;
+  background-color: transparent;
+}
+
+.custom_scollbar::-webkit-scrollbar-thumb {
+  background-color: hsla(213, 27%, 84%, 1);
+  border-radius: 4px !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 6px;
+  padding-top: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 4px !important;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsla(210, 40%, 96%, 1);
+  border-radius: 4px !important;
+}
+

@@ -10,8 +10,7 @@ const QuizLayout = ({
 }>) => {
     return (
         <div className="h-full w-full space-y-[60px]">
-            <div className='w-full space-y-[32px]'>
-                <EmptyTopbar />
+            <div className='w-full pt-[30px]'>
                 {children}
             </div>
         </div>

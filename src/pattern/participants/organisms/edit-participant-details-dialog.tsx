@@ -13,11 +13,10 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
-import { Participant } from "../templates/participant-list"
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { useRouter } from "next/navigation"
+import { Participant } from "../templates/scoreboard-temp"
 
 export const participantSchema = z.object({
     name: z.string().min(1, "Student name is required"),

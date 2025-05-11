@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { ChevronRight, Clock, User } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { IQuestion, physics } from '@/lib/questions/physics'
+import { physics } from '@/lib/questions/physics'
 import { chemistry } from '@/lib/questions/chemistry'
 import { mathematics } from '@/lib/questions/mathematics'
 import { english } from '@/lib/questions/english'
 import { currentAffairs } from '@/lib/questions/current-affairs'
 import { APP_ROUTES, CREATE_QUIZ_ROUTES } from '@/lib/routes'
+import { IQuestion } from '@/lib/questions/types'
 
 interface PlayerCardProps {
     name: string;
@@ -83,7 +84,7 @@ export default function QuizTemp() {
             const fetchedQuestions: IQuestion[] = [];
             const questionsPerSubject = Math.ceil(totalQuestions / subjects.length);
 
-            subjects.forEach((subject) => {
+            subjects?.forEach((subject) => {
                 switch (subject.toLowerCase()) {
                     case 'physics':
                         fetchedQuestions.push(...fetchRandomQuestions(physics, questionsPerSubject));
@@ -217,8 +218,8 @@ export default function QuizTemp() {
 
                                 {currentQuestions[currentQuestionIndex]?.explanation && (
                                     <div className='flex items-start text-black transition-all duration-300'>
-                                        <span className='font-medium'>Explanation: </span>
-                                        <p className='ml-2'>{currentQuestions[currentQuestionIndex]?.explanation}</p>
+                                        <span className='font-medium text-lg'>Explanation: </span>
+                                        <p className='text-lg ml-2'>{currentQuestions[currentQuestionIndex]?.explanation}</p>
                                     </div>
                                 )}
                             </div>

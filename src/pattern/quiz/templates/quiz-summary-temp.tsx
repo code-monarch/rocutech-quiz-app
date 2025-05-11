@@ -44,20 +44,20 @@ const QuizSummaryTemp = () => {
 
             <div className='w-full flex flex-col items-start gap-y-[44px]'>
                 {/* Subject Selected */}
-                <div className='space-y-[16px]'>
+                {/* <div className='space-y-[16px]'>
                     <h5 className='text-[#434040] text-lg font-medium'>Subject(s) Selected</h5>
                     <p className='text-xl font-semibold flex items-center gap-2'>
                         {selectedSubjects?.map((subject, idx) => (
                             <span key={idx} className='inline-flex capitalize'>{subject}{selectedSubjects?.indexOf(subject) !== selectedSubjects.length - 1 ? "," : ""}</span>
                         )) ?? "No Subject Selected"}
                     </p>
-                </div>
+                </div> */}
 
                 {/* Number of Questions */}
-                <div className='space-y-[16px]'>
+                {/* <div className='space-y-[16px]'>
                     <h5 className='text-[#434040] text-lg font-medium'>Number of Questions</h5>
                     <p className='text-xl font-semibold'>{numberOfQuestions} Questions</p>
-                </div>
+                </div> */}
 
                 {/* Participants Selected */}
                 <div className='w-full space-y-[16px]'>
@@ -69,8 +69,8 @@ const QuizSummaryTemp = () => {
 
                 {/* Control */}
                 <div className='w-full flex justify-center gap-6'>
-                    <Button variant="outline" size="lg" onClick={() => push(CREATE_QUIZ_ROUTES.selectSubjects)}>Edit Quiz</Button>
-                    <Button size="lg" onClick={handleCreateQuiz}>Create Quiz</Button>
+                    <Button variant="outline" size="lg" className='text-lg' onClick={() => push(CREATE_QUIZ_ROUTES.selectSubjects)}>Edit Quiz</Button>
+                    <Button size="lg" className='text-lg' onClick={handleCreateQuiz}>Create Quiz</Button>
                 </div>
             </div>
         </TemplatePanel >

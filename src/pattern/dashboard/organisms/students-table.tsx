@@ -17,8 +17,9 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { PARTICIPANTS } from "@/lib/constants";
-import { ParticipantFormData, participantFormSchema, studentSchema } from "@/pattern/types";
+import { PARTICIPANTS, QUIZ_PARTICIPANTS } from "@/lib/constants";
+import { School, studentSchema } from "@/pattern/types";
+import { QuizParticipant, updatePoints } from "@/lib/utils";
 
 // Table columns
 export const columns: ColumnDef<z.infer<typeof studentSchema>>[] = [
@@ -40,29 +41,20 @@ export const columns: ColumnDef<z.infer<typeof studentSchema>>[] = [
     },
 ];
 
-// Extract students from valid data
-const extractStudents = (data: unknown): z.infer<typeof studentSchema>[] => {
-    try {
-        // Handle array directly
-        const parsedData = Array.isArray(data) ? data : [data];
-        const allStudents: z.infer<typeof studentSchema>[] = [];
+// Extract and flatten students from the given school data
+const extractStudents = (data: School[]): z.infer<typeof studentSchema>[] => {
+    const allStudents: z.infer<typeof studentSchema>[] = [];
 
-        parsedData.forEach(item => {
-            // Extract students from each item
-            item.students?.forEach((student: { name: any; points: any; }) => {
-                allStudents.push({
-                    name: student.name,
-                    points: student.points ?? "0"
-                });
+    data?.forEach((school) => {
+        school?.students?.forEach((student) => {
+            allStudents?.push({
+                name: student.name,
+                points: student.points ?? "0",
             });
         });
+    });
 
-        return allStudents;
-
-    } catch (error) {
-        console.error("Invalid data structure:", error);
-        return [];
-    }
+    return allStudents;
 };
 
 export const StudentsTable = () => {
@@ -71,10 +63,15 @@ export const StudentsTable = () => {
 
     // Fetch and process data
     useEffect(() => {
-        const stored = localStorage.getItem(PARTICIPANTS);
-        if (stored) {
-            const parsedData: z.infer<typeof participantFormSchema> = JSON.parse(stored);
-            setStudents(extractStudents(parsedData));
+        const allParticipants = JSON.parse(localStorage.getItem(PARTICIPANTS)!) as School[];
+        const quizParticipants = JSON.parse(localStorage.getItem(QUIZ_PARTICIPANTS)!) as QuizParticipant[];
+
+        // Update points based on quiz participants
+        const updatedParticipants = updatePoints(allParticipants, quizParticipants);
+
+        if (updatedParticipants) {
+            const studentsData = extractStudents(updatedParticipants);
+            setStudents(studentsData);  // Flattened students list
         }
     }, []);
 
@@ -97,7 +94,7 @@ export const StudentsTable = () => {
                     {table.getHeaderGroups().map((headerGroup) => (
                         <TableRow key={headerGroup.id}>
                             {headerGroup.headers.map((header) => (
-                                <TableHead key={header.id}>
+                                <TableHead key={header.id} className="!bg-white !text-black">
                                     {header.isPlaceholder
                                         ? null
                                         : flexRender(

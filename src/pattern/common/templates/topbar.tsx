@@ -19,7 +19,7 @@ const Topbar = () => {
                                 <h5 className='text-sm text-black font-semibold'>Quiz Administrator</h5>
                                 <p className='text-xs text-muted-foreground'>Admin</p>
                             </div>
-                            <DropdownIcon />
+                            {/* <DropdownIcon /> */}
                         </button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56">

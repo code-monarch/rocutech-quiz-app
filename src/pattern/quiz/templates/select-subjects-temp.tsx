@@ -51,7 +51,7 @@ const SelectSubjectsTemp = () => {
                 {/* Subjects */}
                 <Form {...form}>
                     <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-8">
-                        <div className='space-y-[16px]'>
+                        <div className='space-y-[20px]'>
                             {subjects.map(({ label, value }, idx) => (
                                 <FormField
                                     key={value}
@@ -79,7 +79,7 @@ const SelectSubjectsTemp = () => {
                                                     />
                                                 </FormControl>
 
-                                                <FormLabel className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer">
+                                                <FormLabel className="text-lg font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer">
                                                     {label}
                                                 </FormLabel>
                                             </FormItem>
@@ -92,7 +92,7 @@ const SelectSubjectsTemp = () => {
 
                         {/* Footer */}
                         <div className='w-full flex justify-end'>
-                            <Button size="lg" type="submit" >Next</Button>
+                            <Button size="lg" type="submit" className='text-lg h-[40px]' >Next</Button>
                         </div>
                     </form>
                 </Form>
