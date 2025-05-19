@@ -35,7 +35,7 @@ export const BATCH_C3_QUESTIONS: IQuestion[] = [
     "explanation": "Electrical energy is measured in kilowatt-hour (kWh), which is a unit of energy. Ampere measures current, coulomb measures charge, and kilowatt measures power."
   },
   {
-    "question": "About tin plating, which statements are correct?",
+    "question": "About tin plating, which statements are correct? **I) The electrolytes must be in a soluble tin salt** **II) The object to be plated is the cathode** **III) The anode is made of tin** **IV) The tin ions are deposited at the anode during the plating process**",
     "options": [
       "A) I only",
       "B) I and II only",

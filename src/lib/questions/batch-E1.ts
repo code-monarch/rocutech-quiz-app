@@ -7,7 +7,7 @@ export const BATCH_E1_QUESTIONS: IQuestion[] = [
       "A) Ours",
       "B) Our's",
       "C) Our",
-      "D) Ours"
+      "D) Ours'"
     ],
     "correctAnswer": "A",
     "explanation": "The correct possessive pronoun form to indicate ownership or responsibility in this context is Ours. Our's and Ours' are incorrect because possessive pronouns(like ours, yours, theirs) do not take an apostrophe"

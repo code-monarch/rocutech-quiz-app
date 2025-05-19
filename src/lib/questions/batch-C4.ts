@@ -160,7 +160,7 @@ export const BATCH_C4_QUESTIONS: IQuestion[] = [
     "options": [
       "A) I and II only",
       "B) II, III, and IV only",
-      "C) II, III, and IV only",
+      "C) III and IV only",
       "D) I, II, and IV only"
     ],
     "correctAnswer": "D",

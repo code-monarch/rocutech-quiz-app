@@ -168,8 +168,9 @@ export const BATCH_C1_QUESTIONS: IQuestion[] = [
     "explanation": "1 + 2log₁₀3 = log₁₀10 + 2log₁₀3 = log₁₀10 + log₁₀3² = log₁₀(10 × 3²) = log₁₀(10 × 9) = log₁₀90"
   },
 
+
   {
-    "question": "A body moving in a circle at constant speed has a velocity tangential to the circle a constant kinetic energy, An acceleration directed toward the circumference of the circle\nWhich of the statements above is correct? ",
+    "question": "A body moving in a circle at constant speed has **I. a velocity tangential to the circle** **II. a constant kinetic energy** **III. An acceleration directed toward the circumference of the circle** **Which of the statements above is correct?**",
     "options": [
       "A) I and II only",
       "B) II and III only",
